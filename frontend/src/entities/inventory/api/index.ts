@@ -1,18 +1,24 @@
-import { supabase } from "@/shared/api";
+import { rpc } from "@/shared/api";
 import type { InventoryType, InventoryResponse, InventorySlotItem } from "../types";
 
 // ============ 인벤토리 조회 ============
 
 export async function fetchInventory(
-  userId: string,
+  _userId: string,
   inventoryType: InventoryType = "personal"
 ): Promise<InventoryResponse> {
-  const { data, error } = await supabase.rpc("inventory_get", {
-    p_user_id: userId,
+  const data = await rpc<{
+    error?: string;
+    id: string;
+    inventoryType: InventoryType;
+    maxSlots: number;
+    items: (InventorySlotItem | null)[] | null;
+    createdAt: string;
+    updatedAt: string;
+  }>("inventory_get", {
     p_inventory_type: inventoryType,
   });
 
-  if (error) throw error;
   if (data?.error) throw new Error(data.error);
 
   return {
@@ -56,22 +62,17 @@ interface AddItemResult {
 }
 
 export async function addItemToInventory({
-  userId,
   inventoryType = "personal",
   itemId,
   itemType,
   quantity = 1,
 }: AddItemParams): Promise<AddItemResult> {
-  const { data, error } = await supabase.rpc("inventory_add_item", {
-    p_user_id: userId,
+  return rpc<AddItemResult>("inventory_add_item", {
     p_inventory_type: inventoryType,
     p_item_id: itemId,
     p_item_type: itemType,
     p_quantity: quantity,
   });
-
-  if (error) throw error;
-  return data as AddItemResult;
 }
 
 // ============ 아이템 제거 ============
@@ -91,20 +92,15 @@ interface RemoveItemResult {
 }
 
 export async function removeItemFromInventory({
-  userId,
   inventoryType = "personal",
   slot,
   quantity = 1,
 }: RemoveItemParams): Promise<RemoveItemResult> {
-  const { data, error } = await supabase.rpc("inventory_remove_item", {
-    p_user_id: userId,
+  return rpc<RemoveItemResult>("inventory_remove_item", {
     p_inventory_type: inventoryType,
     p_slot: slot,
     p_quantity: quantity,
   });
-
-  if (error) throw error;
-  return data as RemoveItemResult;
 }
 
 // ============ 아이템 이동 ============
@@ -123,22 +119,17 @@ interface MoveItemResult {
 }
 
 export async function moveItemInInventory({
-  userId,
   fromType,
   fromSlot,
   toType,
   toSlot,
 }: MoveItemParams): Promise<MoveItemResult> {
-  const { data, error } = await supabase.rpc("inventory_move_item", {
-    p_user_id: userId,
+  return rpc<MoveItemResult>("inventory_move_item", {
     p_from_type: fromType,
     p_from_slot: fromSlot,
     p_to_type: toType,
     p_to_slot: toSlot,
   });
-
-  if (error) throw error;
-  return data as MoveItemResult;
 }
 
 // ============ 수량 업데이트 ============
@@ -157,20 +148,15 @@ interface UpdateQuantityResult {
 }
 
 export async function updateItemQuantity({
-  userId,
   inventoryType = "personal",
   slot,
   quantity,
 }: UpdateQuantityParams): Promise<UpdateQuantityResult> {
-  const { data, error } = await supabase.rpc("inventory_update_quantity", {
-    p_user_id: userId,
+  return rpc<UpdateQuantityResult>("inventory_update_quantity", {
     p_inventory_type: inventoryType,
     p_slot: slot,
     p_quantity: quantity,
   });
-
-  if (error) throw error;
-  return data as UpdateQuantityResult;
 }
 
 // ============ 유틸리티 ============

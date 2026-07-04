@@ -1,4 +1,4 @@
-import { supabase } from "@/shared/api";
+import { authSignUp } from "@/shared/api";
 
 export interface SignUpParams {
   email: string;
@@ -7,16 +7,8 @@ export interface SignUpParams {
 }
 
 /**
- * 이메일 회원가입
+ * 이메일 회원가입 (자체 JWT 인증 — 이메일 확인 절차 없음, 즉시 로그인됨)
  */
 export async function signUp(params: SignUpParams): Promise<void> {
-  const { error } = await supabase.auth.signUp({
-    email: params.email,
-    password: params.password,
-    options: {
-      emailRedirectTo: params.redirectUrl || `${window.location.origin}/auth/callback`,
-    },
-  });
-
-  if (error) throw error;
+  await authSignUp(params.email, params.password);
 }

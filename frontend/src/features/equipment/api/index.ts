@@ -1,7 +1,7 @@
 // ============ Equipment API ============
 // 장비 관련 모든 API 함수
 
-import { supabase } from "@/shared/api/supabase";
+import { apiFetch, rpc } from "@/shared/api";
 import type {
   EnhancementResultType,
 } from "@/entities/item/types/enhancement";
@@ -82,22 +82,18 @@ export interface ActivateRunewordResponse {
 export async function enhance(params: EnhanceParams): Promise<EnhanceResponse> {
   const { characterId, instanceId, useProtection = false, useLuckBoost = false } = params;
 
-  const { data, error } = await supabase.rpc("enhance_equipment", {
+  const data = await rpc<EnhanceResponse>("enhance_equipment", {
     p_character_id: characterId,
     p_instance_id: instanceId,
     p_use_protection: useProtection,
     p_use_luck_boost: useLuckBoost,
   });
 
-  if (error) {
-    throw new Error(error.message);
-  }
-
   if (!data.success && data.error) {
     throw new Error(data.error);
   }
 
-  return data as EnhanceResponse;
+  return data;
 }
 
 // ============ 룬 API ============
@@ -108,22 +104,18 @@ export async function enhance(params: EnhanceParams): Promise<EnhanceResponse> {
 export async function insertRune(params: InsertRuneParams): Promise<InsertRuneResponse> {
   const { characterId, instanceId, socketIndex, itemId } = params;
 
-  const { data, error } = await supabase.rpc("insert_socket_item", {
+  const data = await rpc<InsertRuneResponse>("insert_socket_item", {
     p_character_id: characterId,
     p_instance_id: instanceId,
     p_socket_index: socketIndex,
     p_item_id: itemId,
   });
 
-  if (error) {
-    throw new Error(error.message);
-  }
-
   if (!data.success && data.error) {
     throw new Error(data.error);
   }
 
-  return data as InsertRuneResponse;
+  return data;
 }
 
 /**
@@ -132,21 +124,17 @@ export async function insertRune(params: InsertRuneParams): Promise<InsertRuneRe
 export async function removeRune(params: RemoveRuneParams): Promise<RemoveRuneResponse> {
   const { characterId, instanceId, socketIndex } = params;
 
-  const { data, error } = await supabase.rpc("remove_socket_item", {
+  const data = await rpc<RemoveRuneResponse>("remove_socket_item", {
     p_character_id: characterId,
     p_instance_id: instanceId,
     p_socket_index: socketIndex,
   });
 
-  if (error) {
-    throw new Error(error.message);
-  }
-
   if (!data.success && data.error) {
     throw new Error(data.error);
   }
 
-  return data as RemoveRuneResponse;
+  return data;
 }
 
 /**
@@ -157,15 +145,11 @@ export async function activateRuneword(
 ): Promise<ActivateRunewordResponse> {
   const { characterId, instanceId, runewordId } = params;
 
-  const { data, error } = await supabase.rpc("activate_runeword", {
+  const data = await rpc<ActivateRunewordResponse>("activate_runeword", {
     p_character_id: characterId,
     p_instance_id: instanceId,
     p_runeword_id: runewordId,
   });
-
-  if (error) {
-    throw new Error(error.message);
-  }
 
   if (!data.success && data.error) {
     throw new Error(data.error);
@@ -189,16 +173,18 @@ export async function createInstance(params: {
   maxSockets?: number;
   acquiredFrom?: string;
 }): Promise<{ instanceId: string; baseItemId: string; maxSockets: number }> {
-  const { data, error } = await supabase.rpc("create_equipment_instance", {
+  const data = await rpc<{
+    success: boolean;
+    error?: string;
+    instanceId: string;
+    baseItemId: string;
+    maxSockets: number;
+  }>("create_equipment_instance", {
     p_character_id: params.characterId,
     p_base_item_id: params.baseItemId,
     p_max_sockets: params.maxSockets ?? 0,
     p_acquired_from: params.acquiredFrom ?? "drop",
   });
-
-  if (error) {
-    throw new Error(error.message);
-  }
 
   if (!data.success) {
     throw new Error(data.error ?? "인스턴스 생성 실패");
@@ -215,48 +201,26 @@ export async function createInstance(params: {
  * 캐릭터의 장비 인스턴스 목록 조회
  */
 export async function fetchInstances(characterId: string) {
-  const { data, error } = await supabase
-    .from("equipment_instances")
-    .select("*")
-    .eq("character_id", characterId)
-    .order("created_at", { ascending: false });
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  return data;
+  return apiFetch<Record<string, unknown>[]>(
+    `/api/equipment-instances?characterId=${encodeURIComponent(characterId)}`
+  );
 }
 
 /**
  * 특정 장비 인스턴스 조회
  */
 export async function fetchInstance(instanceId: string) {
-  const { data, error } = await supabase
-    .from("equipment_instances")
-    .select("*")
-    .eq("id", instanceId)
-    .single();
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
-  return data;
+  return apiFetch<Record<string, unknown>>(
+    `/api/equipment-instances/${encodeURIComponent(instanceId)}`
+  );
 }
 
 /**
  * 장비 인스턴스 삭제
  */
 export async function deleteInstance(instanceId: string) {
-  const { error } = await supabase
-    .from("equipment_instances")
-    .delete()
-    .eq("id", instanceId);
-
-  if (error) {
-    throw new Error(error.message);
-  }
-
+  await apiFetch(`/api/equipment-instances/${encodeURIComponent(instanceId)}`, {
+    method: "DELETE",
+  });
   return true;
 }

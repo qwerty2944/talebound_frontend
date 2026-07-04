@@ -1,4 +1,4 @@
-import { supabase } from "@/shared/api";
+import { authSignIn } from "@/shared/api";
 
 export interface SignInParams {
   email: string;
@@ -12,26 +12,13 @@ export interface SignInResult {
 
 /**
  * 이메일/비밀번호로 로그인
+ * 백필 계정(비밀번호 미설정)은 ApiError(code: "PASSWORD_RESET_REQUIRED")를 던진다.
  */
 export async function signIn(params: SignInParams): Promise<SignInResult> {
-  const { data: authData, error } = await supabase.auth.signInWithPassword({
-    email: params.email,
-    password: params.password,
-  });
-
-  if (error) throw error;
-
-  // 캐릭터 존재 여부 확인
-  const { data: profile } = await supabase
-    .from("characters")
-    .select("character")
-    .eq("user_id", authData.user.id)
-    .single();
-
-  const hasCharacter = profile?.character !== null;
+  const data = await authSignIn(params.email, params.password);
 
   return {
-    userId: authData.user.id,
-    hasCharacter,
+    userId: data.user.id,
+    hasCharacter: data.hasCharacter,
   };
 }

@@ -2,7 +2,7 @@
  * User Abilities API - abilities 테이블 연동
  */
 
-import { supabase } from "@/shared/api";
+import { apiFetch, rpc } from "@/shared/api";
 
 // ============ 타입 정의 ============
 
@@ -27,18 +27,15 @@ export type AbilityCategory = "combat" | "magic" | "life";
 export async function fetchUserAbilities(
   characterId: string
 ): Promise<UserAbilities> {
-  const { data, error } = await supabase
-    .from("abilities")
-    .select("combat, magic, life")
-    .eq("user_id", characterId)
-    .single();
+  const data = await apiFetch<{
+    combat: Record<string, AbilityProgress> | null;
+    magic: Record<string, AbilityProgress> | null;
+    life: Record<string, AbilityProgress> | null;
+  } | null>(`/api/abilities/${encodeURIComponent(characterId)}`);
 
-  if (error) {
-    // 데이터가 없으면 빈 객체 반환
-    if (error.code === "PGRST116") {
-      return { combat: {}, magic: {}, life: {} };
-    }
-    throw error;
+  // 데이터가 없으면 빈 객체 반환
+  if (!data) {
+    return { combat: {}, magic: {}, life: {} };
   }
 
   return {
@@ -57,14 +54,12 @@ export async function increaseAbilityExp(
   abilityId: string,
   amount: number = 1
 ): Promise<AbilityProgress> {
-  const { data, error } = await supabase.rpc("increase_ability_exp", {
+  const data = await rpc<{ level: number; exp: number }>("increase_ability_exp", {
     p_character_id: characterId,
     p_category: category,
     p_ability_id: abilityId,
     p_amount: amount,
   });
-
-  if (error) throw error;
 
   return {
     level: data.level,
@@ -83,16 +78,14 @@ export async function updateAbilitiesProgress(
     life?: Record<string, number>;
   }
 ): Promise<UserAbilities> {
-  const { data, error } = await supabase.rpc("update_abilities_progress", {
+  const data = await rpc<UserAbilities>("update_abilities_progress", {
     p_character_id: characterId,
     p_combat: updates.combat || null,
     p_magic: updates.magic || null,
     p_life: updates.life || null,
   });
 
-  if (error) throw error;
-
-  return data as UserAbilities;
+  return data;
 }
 
 /**

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/shared/api";
+import { rpc } from "@/shared/api";
 import { profileKeys } from "@/entities/user";
 import type { CharacterAppearance, CharacterColors, CharacterStats } from "@/entities/character";
 
@@ -31,19 +31,13 @@ interface CharacterData {
 
 // ============ API ============
 
-export async function saveCharacter({ userId, ...params }: SaveCharacterParams) {
+export async function saveCharacter({ userId: _userId, ...params }: SaveCharacterParams) {
   const character: CharacterData = {
     ...params,
     isMain: true,
   };
 
-  const { data, error } = await supabase.rpc("save_character", {
-    p_user_id: userId,
-    p_character: character,
-  });
-
-  if (error) throw error;
-  return data;
+  return rpc("save_character", { p_character: character });
 }
 
 // ============ Hook ============

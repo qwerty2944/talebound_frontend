@@ -1,18 +1,40 @@
-import { supabase } from "@/shared/api";
+import { apiFetch, rpc } from "@/shared/api";
 import type { UserProfile, CrystalTier, ReligionData, DailyLoginResult } from "../types";
 import type { CharacterInjury } from "@/entities/status";
 import { filterNaturallyHealedInjuries } from "@/entities/status";
 
 // ============ 프로필 조회 API ============
 
-export async function fetchProfile(userId: string): Promise<UserProfile> {
-  const { data, error } = await supabase
-    .from("characters")
-    .select("*")
-    .eq("user_id", userId)
-    .single();
+interface ProfileRow {
+  id: string;
+  user_id: string;
+  nickname: string | null;
+  level: number | null;
+  experience: number | null;
+  gold: number | null;
+  gems: number | null;
+  fatigue: number | null;
+  max_fatigue: number | null;
+  fatigue_updated_at: string | null;
+  is_premium: boolean | null;
+  premium_until: string | null;
+  character: UserProfile["character"];
+  appearance: UserProfile["appearance"];
+  buffs: UserProfile["buffs"];
+  current_map_id: string | null;
+  whisper_charges: number | null;
+  crystal_tier: string | null;
+  current_hp: number | null;
+  current_mp: number | null;
+  injuries: CharacterInjury[] | null;
+  religion: ReligionData | null;
+  login_streak: number | null;
+  total_login_days: number | null;
+  last_login_date: string | null;
+}
 
-  if (error) throw error;
+export async function fetchProfile(_userId: string): Promise<UserProfile> {
+  const data = await apiFetch<ProfileRow>("/api/profile");
 
   // 부상 데이터 파싱 및 자연 치유 체크
   let injuries: CharacterInjury[] = data.injuries || [];
@@ -21,10 +43,10 @@ export async function fetchProfile(userId: string): Promise<UserProfile> {
 
     // 자연 치유된 부상이 있으면 DB 업데이트
     if (healed.length > 0) {
-      await supabase
-        .from("characters")
-        .update({ injuries: remaining })
-        .eq("user_id", userId);
+      await apiFetch("/api/profile", {
+        method: "PATCH",
+        body: { injuries: remaining },
+      });
       injuries = remaining;
     }
   }
@@ -61,13 +83,11 @@ export async function fetchProfile(userId: string): Promise<UserProfile> {
 
 // ============ 위치 업데이트 API ============
 
-export async function updateCurrentMap(userId: string, mapId: string): Promise<void> {
-  const { error } = await supabase
-    .from("characters")
-    .update({ current_map_id: mapId })
-    .eq("user_id", userId);
-
-  if (error) throw error;
+export async function updateCurrentMap(_userId: string, mapId: string): Promise<void> {
+  await apiFetch("/api/profile", {
+    method: "PATCH",
+    body: { current_map_id: mapId },
+  });
 }
 
 // ============ 프로필 업데이트 API ============
@@ -84,7 +104,7 @@ export interface UpdateProfileParams {
 }
 
 export async function updateProfile(params: UpdateProfileParams): Promise<void> {
-  const { userId, ...updates } = params;
+  const { userId: _userId, ...updates } = params;
 
   // snake_case 변환
   const dbUpdates: Record<string, unknown> = {};
@@ -98,12 +118,7 @@ export async function updateProfile(params: UpdateProfileParams): Promise<void> 
 
   if (Object.keys(dbUpdates).length === 0) return;
 
-  const { error } = await supabase
-    .from("characters")
-    .update(dbUpdates)
-    .eq("user_id", userId);
-
-  if (error) throw error;
+  await apiFetch("/api/profile", { method: "PATCH", body: dbUpdates });
 }
 
 // ============ 피로도 계산 (Lazy Calculation) ============
@@ -151,18 +166,18 @@ export interface ConsumeFatigueResult {
 }
 
 export async function consumeFatigue(
-  userId: string,
+  _userId: string,
   amount: number
 ): Promise<ConsumeFatigueResult> {
-  const { data, error } = await supabase.rpc("consume_fatigue", {
-    p_user_id: userId,
-    p_amount: amount,
-  });
+  const data = await rpc<{
+    success: boolean;
+    fatigue?: number;
+    consumed?: number;
+    maxFatigue?: number;
+    message?: string;
+  } | null>("consume_fatigue", { p_amount: amount });
 
-  if (error) throw error;
-
-  // RPC returns JSON directly (not array)
-  const result = data || { success: false, remaining: 0, consumed: 0, max: 100 };
+  const result = data || { success: false, fatigue: 0, consumed: 0, maxFatigue: 100 };
 
   return {
     success: result.success,
@@ -176,34 +191,24 @@ export async function consumeFatigue(
 // ============ 피로도 회복 API (DB RPC) ============
 
 export async function restoreFatigue(
-  userId: string,
+  _userId: string,
   amount: number
 ): Promise<number> {
-  const { data, error } = await supabase.rpc("restore_fatigue", {
-    p_user_id: userId,
-    p_amount: amount,
-  });
-
-  if (error) throw error;
-
+  const data = await rpc<number | null>("restore_fatigue", { p_amount: amount });
   return data || 0;
 }
 
 // ============ 크리스탈 사용 API (DB RPC) ============
 
 export async function useCrystal(
-  userId: string,
+  _userId: string,
   crystalTier: "basic" | "advanced" | "superior",
   charges: number
 ): Promise<number> {
-  const { data, error } = await supabase.rpc("use_crystal", {
-    p_user_id: userId,
+  const data = await rpc<number | null>("use_crystal", {
     p_crystal_tier: crystalTier,
     p_charges: charges,
   });
-
-  if (error) throw error;
-
   return data || 0;
 }
 
@@ -216,13 +221,11 @@ export interface ConsumeWhisperResult {
 }
 
 export async function consumeWhisperCharge(
-  userId: string
+  _userId: string
 ): Promise<ConsumeWhisperResult> {
-  const { data, error } = await supabase.rpc("consume_whisper_charge", {
-    p_user_id: userId,
-  });
-
-  if (error) throw error;
+  const data = await rpc<
+    Array<{ success: boolean; remaining_charges: number; crystal_tier: string | null }>
+  >("consume_whisper_charge", {});
 
   const result = data?.[0] || { success: false, remaining_charges: 0, crystal_tier: null };
 
@@ -282,28 +285,22 @@ export interface DefeatUpdateParams {
  * - 부상 추가
  */
 export async function updateProfileAfterDefeat(params: DefeatUpdateParams): Promise<void> {
-  const { userId, currentHp, currentMp, currentMapId, newInjury } = params;
+  const { currentHp, currentMp, currentMapId, newInjury } = params;
 
   // 부상이 있으면 DB에 추가 (RPC 사용)
   if (newInjury) {
-    const { error: injuryError } = await supabase.rpc("add_injury", {
-      p_user_id: userId,
-      p_injury: newInjury,
-    });
-    if (injuryError) throw injuryError;
+    await rpc("add_injury", { p_injury: newInjury });
   }
 
   // 나머지 필드 업데이트
-  const { error } = await supabase
-    .from("characters")
-    .update({
+  await apiFetch("/api/profile", {
+    method: "PATCH",
+    body: {
       current_hp: currentHp,
       current_mp: currentMp,
       current_map_id: currentMapId,
-    })
-    .eq("user_id", userId);
-
-  if (error) throw error;
+    },
+  });
 }
 
 // ============ 골드로 부상 치료 API ============
@@ -315,17 +312,18 @@ export interface HealInjuryWithGoldResult {
 }
 
 export async function healInjuryWithGold(
-  userId: string,
+  _userId: string,
   injuryIndex: number,
   goldCost: number
 ): Promise<HealInjuryWithGoldResult> {
-  const { data, error } = await supabase.rpc("heal_injury_with_gold", {
-    p_user_id: userId,
+  const data = await rpc<{
+    success?: boolean;
+    remaining_gold?: number;
+    removed_injury?: CharacterInjury | null;
+  } | null>("heal_injury_with_gold", {
     p_injury_index: injuryIndex,
     p_gold_cost: goldCost,
   });
-
-  if (error) throw error;
 
   return {
     success: data?.success ?? false,
@@ -341,12 +339,14 @@ export async function healInjuryWithGold(
  * - 새 날이면 streak 업데이트 후 isNewDay: true 반환
  * - 같은 날이면 업데이트 없이 isNewDay: false 반환
  */
-export async function checkDailyLogin(userId: string): Promise<DailyLoginResult> {
-  const { data, error } = await supabase.rpc("check_daily_login", {
-    p_user_id: userId,
-  });
-
-  if (error) throw error;
+export async function checkDailyLogin(_userId: string): Promise<DailyLoginResult> {
+  const data = await rpc<{
+    isNewDay?: boolean;
+    loginStreak?: number;
+    previousStreak?: number;
+    totalLoginDays?: number;
+    streakBroken?: boolean;
+  } | null>("check_daily_login", {});
 
   return {
     isNewDay: data?.isNewDay ?? false,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useEffect } from "react";
-import { supabase } from "@/shared/api";
+import type { Room } from "colyseus.js";
 import {
   usePvpStore,
   type DuelRequest,
@@ -9,10 +9,9 @@ import {
   type DuelState,
   type DuelEndResult,
 } from "@/application/stores";
-import type { RealtimeChannel } from "@supabase/supabase-js";
 import { DEFAULT_PROFICIENCIES } from "@/entities/ability";
 
-// ============ Realtime 이벤트 페이로드 타입 ============
+// ============ 이벤트 페이로드 타입 ============
 
 interface DuelRequestPayload {
   challengerId: string;
@@ -48,7 +47,7 @@ interface UseRealtimeDuelProps {
   mapId: string;
   userId: string;
   characterName: string;
-  channel: RealtimeChannel | null;
+  room: Room | null;
   onDuelStart?: () => void;
   onDuelEnd?: (result: DuelEndResult) => void;
 }
@@ -59,7 +58,7 @@ export function useRealtimeDuel({
   mapId,
   userId,
   characterName,
-  channel,
+  room,
   onDuelStart,
   onDuelEnd,
 }: UseRealtimeDuelProps) {
@@ -95,7 +94,7 @@ export function useRealtimeDuel({
 
   const requestDuel = useCallback(
     (targetId: string, targetName: string) => {
-      if (!channel || !userId || !characterName) return;
+      if (!room || !userId || !characterName) return;
 
       // 이미 보낸 요청이 있으면 무시
       if (sentRequest) {
@@ -123,26 +122,22 @@ export function useRealtimeDuel({
       // 로컬 상태 저장
       setSentRequest(request);
 
-      // 브로드캐스트 전송
-      channel.send({
-        type: "broadcast",
-        event: "duel_request",
-        payload: {
-          challengerId: userId,
-          challengerName: characterName,
-          targetId,
-          targetName,
-          mapId,
-          timestamp: now,
-        } as DuelRequestPayload,
-      });
+      // 룸으로 전송 (서버가 다른 클라이언트에 릴레이)
+      room.send("duel_request", {
+        challengerId: userId,
+        challengerName: characterName,
+        targetId,
+        targetName,
+        mapId,
+        timestamp: now,
+      } satisfies DuelRequestPayload);
 
       // 타임아웃 설정
       expiryTimerRef.current = setTimeout(() => {
         setSentRequest(null);
       }, DUEL_REQUEST_TIMEOUT);
     },
-    [channel, userId, characterName, mapId, sentRequest, activeDuel, setSentRequest]
+    [room, userId, characterName, mapId, sentRequest, activeDuel, setSentRequest]
   );
 
   // ============ 도전 취소 ============
@@ -159,78 +154,51 @@ export function useRealtimeDuel({
 
   const respondToDuel = useCallback(
     (challengerId: string, accepted: boolean) => {
-      if (!channel || !userId || !characterName) return;
+      if (!room || !userId || !characterName) return;
 
-      // 응답 브로드캐스트
-      channel.send({
-        type: "broadcast",
-        event: "duel_response",
-        payload: {
-          challengerId,
-          targetId: userId,
-          targetName: characterName,
-          accepted,
-        } as DuelResponsePayload,
-      });
+      room.send("duel_response", {
+        challengerId,
+        targetId: userId,
+        targetName: characterName,
+        accepted,
+      } satisfies DuelResponsePayload);
 
       // 대기 목록에서 제거
       removePendingRequest(challengerId);
     },
-    [channel, userId, characterName, removePendingRequest]
+    [room, userId, characterName, removePendingRequest]
   );
 
-  // ============ 결투 시작 브로드캐스트 ============
+  // ============ 결투 시작/행동/종료 전송 ============
 
   const broadcastDuelStart = useCallback(
     (duelState: DuelState) => {
-      if (!channel) return;
-
-      channel.send({
-        type: "broadcast",
-        event: "duel_start",
-        payload: { duelState } as DuelStartPayload,
-      });
+      room?.send("duel_start", { duelState } satisfies DuelStartPayload);
     },
-    [channel]
+    [room]
   );
-
-  // ============ 턴 행동 브로드캐스트 ============
 
   const broadcastAction = useCallback(
     (action: DuelAction) => {
-      if (!channel) return;
-
-      channel.send({
-        type: "broadcast",
-        event: "duel_action",
-        payload: { action } as DuelActionPayload,
-      });
+      room?.send("duel_action", { action } satisfies DuelActionPayload);
     },
-    [channel]
+    [room]
   );
-
-  // ============ 결투 종료 브로드캐스트 ============
 
   const broadcastDuelEnd = useCallback(
     (result: DuelEndResult) => {
-      if (!channel) return;
-
-      channel.send({
-        type: "broadcast",
-        event: "duel_end",
-        payload: { result } as DuelEndPayload,
-      });
+      room?.send("duel_end", { result } satisfies DuelEndPayload);
     },
-    [channel]
+    [room]
   );
 
-  // ============ Realtime 이벤트 핸들러 등록 ============
+  // ============ 이벤트 핸들러 등록 ============
 
   useEffect(() => {
-    if (!channel || !userId || !characterName) return;
+    if (!room || !userId || !characterName) return;
 
     // 도전 신청 수신
-    const handleDuelRequest = ({ payload }: { payload: DuelRequestPayload }) => {
+    const offRequest = room.onMessage("duel_request", (payload: DuelRequestPayload) => {
       // 나에게 온 도전만 처리
       if (payload.targetId !== userId) return;
 
@@ -248,10 +216,10 @@ export function useRealtimeDuel({
       };
 
       addPendingRequest(request);
-    };
+    });
 
     // 도전 응답 수신
-    const handleDuelResponse = ({ payload }: { payload: DuelResponsePayload }) => {
+    const offResponse = room.onMessage("duel_response", (payload: DuelResponsePayload) => {
       // 내가 보낸 요청에 대한 응답만 처리
       if (payload.challengerId !== userId) return;
 
@@ -261,12 +229,10 @@ export function useRealtimeDuel({
       }
 
       if (payload.accepted && sentRequest) {
-        // 수락됨 - 결투 시작 준비
-        // 도전자가 결투 상태를 생성하고 브로드캐스트
+        // 수락됨 - 도전자가 결투 상태를 생성하고 전송
         const duelId = `duel-${userId}-${payload.targetId}-${Date.now()}`;
 
         // TODO: 실제 스탯과 숙련도 가져오기
-        // 지금은 기본값 사용
         const defaultStats = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10, lck: 10, ambushChance: 0, ambushDamage: 0 };
 
         const player1 = {
@@ -320,7 +286,7 @@ export function useRealtimeDuel({
         // 로컬 상태 업데이트
         startDuel(duelState);
 
-        // 브로드캐스트
+        // 전송
         broadcastDuelStart(duelState);
 
         onDuelStart?.();
@@ -332,10 +298,10 @@ export function useRealtimeDuel({
         });
         setSentRequest(null);
       }
-    };
+    });
 
     // 결투 시작 수신
-    const handleDuelStart = ({ payload }: { payload: DuelStartPayload }) => {
+    const offStart = room.onMessage("duel_start", (payload: DuelStartPayload) => {
       const { duelState } = payload;
 
       // 내가 참가자인 경우에만 처리
@@ -350,10 +316,10 @@ export function useRealtimeDuel({
 
       startDuel(duelState);
       onDuelStart?.();
-    };
+    });
 
     // 턴 행동 수신
-    const handleDuelAction = ({ payload }: { payload: DuelActionPayload }) => {
+    const offAction = room.onMessage("duel_action", (payload: DuelActionPayload) => {
       const { action } = payload;
 
       // 현재 결투의 액션만 처리
@@ -364,10 +330,10 @@ export function useRealtimeDuel({
         applyAction(action);
         switchTurn();
       }
-    };
+    });
 
     // 결투 종료 수신
-    const handleDuelEnd = ({ payload }: { payload: DuelEndPayload }) => {
+    const offEnd = room.onMessage("duel_end", (payload: DuelEndPayload) => {
       const { result } = payload;
 
       // 현재 결투의 종료만 처리
@@ -375,22 +341,18 @@ export function useRealtimeDuel({
 
       endDuel(result);
       onDuelEnd?.(result);
-    };
+    });
 
-    // 이벤트 리스너 등록
-    channel.on("broadcast", { event: "duel_request" }, handleDuelRequest);
-    channel.on("broadcast", { event: "duel_response" }, handleDuelResponse);
-    channel.on("broadcast", { event: "duel_start" }, handleDuelStart);
-    channel.on("broadcast", { event: "duel_action" }, handleDuelAction);
-    channel.on("broadcast", { event: "duel_end" }, handleDuelEnd);
-
-    // 클린업
+    // 클린업: 리스너 해제
     return () => {
-      // Note: Supabase channel doesn't have off() method,
-      // but the channel will be removed when component unmounts
+      offRequest?.();
+      offResponse?.();
+      offStart?.();
+      offAction?.();
+      offEnd?.();
     };
   }, [
-    channel,
+    room,
     userId,
     characterName,
     activeDuel,

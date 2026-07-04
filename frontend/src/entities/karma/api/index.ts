@@ -1,4 +1,4 @@
-import { supabase } from "@/shared/api";
+import { apiFetch, rpc } from "@/shared/api";
 import type { KarmaRank } from "../types";
 
 // ============ 카르마 조회 ============
@@ -8,14 +8,8 @@ export interface KarmaData {
   rank: KarmaRank;
 }
 
-export async function fetchKarma(userId: string): Promise<KarmaData> {
-  const { data, error } = await supabase
-    .from("characters")
-    .select("karma")
-    .eq("user_id", userId)
-    .single();
-
-  if (error) throw error;
+export async function fetchKarma(_userId: string): Promise<KarmaData> {
+  const data = await apiFetch<{ karma: number | null } | null>("/api/profile");
 
   const karma = data?.karma ?? 0;
   const rank = getKarmaRankFromValue(karma);
@@ -31,17 +25,14 @@ export interface UpdateKarmaResult {
 }
 
 export async function updateKarma(
-  userId: string,
+  _userId: string,
   change: number,
   reason?: string
 ): Promise<UpdateKarmaResult> {
-  const { data, error } = await supabase.rpc("update_karma", {
-    p_user_id: userId,
+  const data = await rpc<Array<{ new_karma: number; karma_rank: string }>>("update_karma", {
     p_change: change,
     p_reason: reason || null,
   });
-
-  if (error) throw error;
 
   const result = data?.[0] || { new_karma: 0, karma_rank: "neutral" };
 

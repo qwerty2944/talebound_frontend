@@ -1,11 +1,26 @@
-export { supabase } from "./supabase";
+// HTTP 클라이언트 (Supabase 대체)
+export {
+  apiFetch,
+  rpc,
+  getToken,
+  setToken,
+  ApiError,
+  API_URL,
+  WS_URL,
+} from "./http";
 
 // 인증 API
 export {
   getSession,
   subscribeToAuthChanges,
   isAuthAvailable,
+  authSignIn,
+  authSignUp,
+  authSignOut,
+  authResetPassword,
   type AuthSession,
+  type AuthSessionData,
+  type AuthUser,
   type AuthSubscription,
 } from "./auth";
 

@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
-import { supabase } from "@/shared/api";
+import { useEffect, useRef, useCallback, useState } from "react";
+import type { Room } from "colyseus.js";
+import { getStateCallbacks } from "colyseus.js";
+import { joinMapRoom } from "@/shared/api/colyseus";
 import { useGameStore, useChatStore, parseChatCommand, type OnlineUser } from "@/application/stores";
-import { fetchRecentMessages, saveMessage, type ChatMessage } from "@/entities/chat";
+import { fetchRecentMessages, type ChatMessage } from "@/entities/chat";
 import { useMaps, getMapById } from "@/entities/map";
-import { updateLocation as updateLocationApi } from "@/features/player";
-import type { RealtimeChannel } from "@supabase/supabase-js";
 
 interface UseRealtimeChatProps {
   mapId: string;
@@ -19,8 +19,9 @@ export function useRealtimeChat({
   userId,
   characterName,
 }: UseRealtimeChatProps) {
-  const channelRef = useRef<RealtimeChannel | null>(null);
+  const roomRef = useRef<Room | null>(null);
   const mountedRef = useRef(true);
+  const [room, setRoom] = useState<Room | null>(null);
 
   const { setOnlineUsers, setConnected } = useGameStore();
   const { data: maps = [] } = useMaps();
@@ -57,26 +58,14 @@ export function useRealtimeChat({
     }
   }, [mapId, addMessages, loadFromCache, saveToCache]);
 
-  // 유저 위치 업데이트
-  const updateLocation = useCallback(async () => {
-    try {
-      await updateLocationApi({ userId, characterName, mapId });
-    } catch (error) {
-      console.error("Failed to update location:", error);
-    }
-  }, [userId, characterName, mapId]);
-
   // 메시지 전송
   const sendMessage = useCallback(
     async (input: string): Promise<boolean> => {
       const parsed = parseChatCommand(input, lastWhisperFrom);
       if (!parsed) return false;
 
-      const channel = channelRef.current;
-      if (!channel) return false;
-
-      // TODO: 귓속말 크리스탈 체크는 나중에 다시 활성화
-      // 현재 Realtime 연결 문제로 임시 비활성화
+      const currentRoom = roomRef.current;
+      if (!currentRoom) return false;
 
       const messageId = `${userId}-${Date.now()}`;
       const message: ChatMessage = {
@@ -93,33 +82,14 @@ export function useRealtimeChat({
       // 로컬에 먼저 추가 (즉시 표시)
       addMessage(message);
 
-      // 브로드캐스트 전송 (다른 유저에게)
+      // 서버로 전송 (릴레이 + DB 저장은 서버가 처리)
       if (parsed.type === "normal") {
-        channel.send({
-          type: "broadcast",
-          event: "chat_message",
-          payload: message,
-        });
+        currentRoom.send("chat_message", message);
       } else if (parsed.type === "whisper" && parsed.recipient) {
-        channel.send({
-          type: "broadcast",
-          event: "whisper",
-          payload: message,
-        });
+        currentRoom.send("whisper", message);
       }
 
-      // DB에 저장 (비동기)
-      saveMessage({
-        mapId,
-        senderId: userId,
-        senderName: characterName,
-        messageType: parsed.type,
-        recipientName: parsed.recipient,
-        content: parsed.content,
-      })
-        .then(() => saveToCache(mapId))
-        .catch((error) => console.error("Failed to save message:", error));
-
+      saveToCache(mapId);
       return true;
     },
     [mapId, userId, characterName, lastWhisperFrom, saveToCache, addMessage]
@@ -141,100 +111,84 @@ export function useRealtimeChat({
     [mapId, addMessage]
   );
 
-  // Realtime 채널 연결
+  // Colyseus 룸 연결
   useEffect(() => {
     if (!mapId || !userId || !characterName) {
-      console.log("[Realtime] Skipping - missing params:", { mapId, userId, characterName });
+      console.log("[Colyseus] Skipping - missing params:", { mapId, userId, characterName });
       return;
     }
 
-    console.log("[Realtime] Starting connection with:", { mapId, userId, characterName });
+    console.log("[Colyseus] Joining map room:", { mapId, userId, characterName });
     mountedRef.current = true;
-
-    // 기존 채널 정리
-    if (channelRef.current) {
-      console.log("[Realtime] Removing existing channel");
-      supabase.removeChannel(channelRef.current);
-    }
+    let disposed = false;
+    let joinedRoom: Room | null = null;
 
     clearMessages();
 
-    // Supabase 세션 확인
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      console.log("[Realtime] Session check:", session ? "authenticated" : "anonymous");
-    });
+    joinMapRoom({ mapId, characterName })
+      .then(async (r) => {
+        if (disposed) {
+          r.leave();
+          return;
+        }
 
-    const channel = supabase.channel(`map:${mapId}`, {
-      config: {
-        broadcast: { self: false },
-        presence: { key: userId },
-      },
-    });
-
-    console.log("[Realtime] Channel created, subscribing...");
-
-    // 일반 채팅 메시지
-    channel.on("broadcast", { event: "chat_message" }, ({ payload }) => {
-      if (mountedRef.current) {
-        addMessage(payload as ChatMessage);
-      }
-    });
-
-    // 귓말
-    channel.on("broadcast", { event: "whisper" }, ({ payload }) => {
-      if (!mountedRef.current) return;
-      const msg = payload as ChatMessage;
-      // 본인에게 온 귓말이거나 본인이 보낸 귓말만 표시
-      if (msg.recipientName === characterName || msg.senderId === userId) {
-        addMessage(msg);
-      }
-    });
-
-    // Presence 이벤트
-    channel.on("presence", { event: "sync" }, () => {
-      if (!mountedRef.current) return;
-      const state = channel.presenceState();
-      const users: OnlineUser[] = Object.entries(state).map(
-        ([key, presences]) => ({
-          userId: key,
-          characterName: (presences[0] as any)?.characterName || "Unknown",
-        })
-      );
-      setOnlineUsers(users);
-    });
-
-    channel.on("presence", { event: "join" }, ({ key, newPresences }) => {
-      if (!mountedRef.current) return;
-      const name = (newPresences[0] as any)?.characterName;
-      if (name && key !== userId) {
-        addSystemMessage(`${name}님이 입장했습니다.`);
-      }
-    });
-
-    channel.on("presence", { event: "leave" }, ({ key, leftPresences }) => {
-      if (!mountedRef.current) return;
-      const name = (leftPresences[0] as any)?.characterName;
-      if (name && key !== userId) {
-        addSystemMessage(`${name}님이 퇴장했습니다.`);
-      }
-    });
-
-    // 구독 시작
-    channel.subscribe(async (status, err) => {
-      console.log("[Realtime] Channel status:", status, err);
-
-      if (status === "SUBSCRIBED" && mountedRef.current) {
+        joinedRoom = r;
+        roomRef.current = r;
+        setRoom(r);
         setConnected(true);
 
-        // Presence 트래킹
-        await channel.track({
-          userId: userId,
-          characterName,
-          online_at: new Date().toISOString(),
+        // ---- 채팅/귓말 수신 ----
+        r.onMessage("chat_message", (payload: ChatMessage) => {
+          if (mountedRef.current) addMessage(payload);
         });
 
-        // 위치 업데이트 및 히스토리 로드
-        await updateLocation();
+        r.onMessage("whisper", (payload: ChatMessage) => {
+          if (mountedRef.current) addMessage(payload);
+        });
+
+        r.onMessage("whisper_error", (payload: { message: string }) => {
+          if (mountedRef.current) addSystemMessage(payload.message);
+        });
+
+        // ---- 접속자 목록 (presence 대체) ----
+        const $ = getStateCallbacks(r);
+        const players = new Map<string, OnlineUser>();
+
+        const syncOnlineUsers = () => {
+          if (!mountedRef.current) return;
+          setOnlineUsers(Array.from(players.values()));
+        };
+
+        $(r.state).players.onAdd(
+          (player: { userId: string; characterName: string }, sessionId: string) => {
+            players.set(sessionId, {
+              userId: player.userId,
+              characterName: player.characterName || "Unknown",
+            });
+            syncOnlineUsers();
+
+            if (player.userId !== userId && mountedRef.current) {
+              addSystemMessage(`${player.characterName}님이 입장했습니다.`);
+            }
+          }
+        );
+
+        $(r.state).players.onRemove(
+          (player: { userId: string; characterName: string }, sessionId: string) => {
+            players.delete(sessionId);
+            syncOnlineUsers();
+
+            if (player.userId !== userId && mountedRef.current) {
+              addSystemMessage(`${player.characterName}님이 퇴장했습니다.`);
+            }
+          }
+        );
+
+        r.onLeave(() => {
+          if (mountedRef.current) setConnected(false);
+        });
+
+        // 히스토리 로드 (위치 업데이트는 서버 onJoin이 처리)
         await loadHistory();
 
         if (mountedRef.current) {
@@ -247,36 +201,30 @@ export function useRealtimeChat({
             if (mapData?.nameKo) {
               addSystemMessage(`${mapData.nameKo}에 입장했습니다.`);
             } else if (mapsRef.current.length === 0 && retryCount < 5) {
-              // maps가 아직 로드되지 않았으면 재시도 (최대 5회)
               retryCount++;
               setTimeout(showEntryMessage, 200);
             } else {
-              // maps는 있지만 해당 맵이 없으면 ID 사용
               addSystemMessage(`${mapId}에 입장했습니다.`);
             }
           };
           showEntryMessage();
         }
-      } else if (status === "CHANNEL_ERROR") {
-        console.error("[Realtime] Channel error:", err);
-        setConnected(false);
-      } else if (status === "TIMED_OUT") {
-        console.error("[Realtime] Channel timed out");
-        setConnected(false);
-      }
-    });
-
-    channelRef.current = channel;
+      })
+      .catch((error) => {
+        console.error("[Colyseus] Failed to join room:", error);
+        if (mountedRef.current) setConnected(false);
+      });
 
     // 클린업
     return () => {
+      disposed = true;
       mountedRef.current = false;
       // 떠나기 전 캐시 저장
       saveToCache(mapId);
-      channel.untrack();
-      supabase.removeChannel(channel);
+      joinedRoom?.leave();
+      roomRef.current = null;
+      setRoom(null);
       setConnected(false);
-      channelRef.current = null;
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mapId, userId, characterName]);
@@ -284,5 +232,6 @@ export function useRealtimeChat({
   return {
     sendMessage,
     addSystemMessage,
+    room,
   };
 }

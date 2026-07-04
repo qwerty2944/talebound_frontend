@@ -1,5 +1,5 @@
 import { useCallback, useRef, useEffect } from "react";
-import { supabase } from "@/shared/api";
+import { rpc } from "@/shared/api";
 
 type AbilityCategory = "combat" | "magic" | "life";
 
@@ -95,17 +95,11 @@ export function useAbilityProgressTracker(options: UseAbilityProgressTrackerOpti
     try {
       log("Flushing ability progress", pending);
 
-      const { data, error } = await supabase.rpc("update_skill_progress", {
-        p_user_id: userId,
+      const data = await rpc("update_skill_progress", {
         p_combat: Object.keys(pending.combat).length > 0 ? pending.combat : null,
         p_magic: Object.keys(pending.magic).length > 0 ? pending.magic : null,
         p_life: Object.keys(pending.life).length > 0 ? pending.life : null,
       });
-
-      if (error) {
-        console.error("[AbilityTracker] Flush error:", error);
-        return false;
-      }
 
       // 성공 시 pending 초기화
       pendingRef.current = {

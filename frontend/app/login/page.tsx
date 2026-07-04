@@ -14,6 +14,7 @@ export default function LoginPage() {
     savedEmails,
     handleLogin,
     handleSignup,
+    handleResetPassword,
     switchMode,
     removeEmail,
   } = useAuth();
@@ -91,7 +92,14 @@ export default function LoginPage() {
 
             {/* 시스템 메시지 */}
             <div className="mb-6 font-mono text-sm" style={{ color: theme.colors.textDim }}>
-              <p>&gt; {mode === "login" ? "모험가여, 접속하시오..." : "새로운 모험가를 등록합니다..."}</p>
+              <p>
+                &gt;{" "}
+                {mode === "login"
+                  ? "모험가여, 접속하시오..."
+                  : mode === "reset"
+                    ? "새 비밀번호를 설정하시오..."
+                    : "새로운 모험가를 등록합니다..."}
+              </p>
               <p className="animate-pulse">_</p>
             </div>
 
@@ -109,7 +117,7 @@ export default function LoginPage() {
             ) : (
               <SignupForm
                 theme={theme}
-                onSubmit={handleSignup}
+                onSubmit={mode === "reset" ? handleResetPassword : handleSignup}
                 loading={loading}
                 error={error}
                 message={message}

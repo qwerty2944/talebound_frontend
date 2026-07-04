@@ -1,4 +1,4 @@
-import { supabase } from "@/shared/api";
+import { rpc } from "@/shared/api";
 import type { ChatMessage } from "../types";
 
 // ============ 채팅 API ============
@@ -10,14 +10,24 @@ export async function fetchRecentMessages(
   mapId: string,
   limit: number = 50
 ): Promise<ChatMessage[]> {
-  const { data, error } = await supabase.rpc("get_recent_messages", {
+  const data = await rpc<
+    Array<{
+      id: number | string;
+      map_id: string;
+      sender_id: string;
+      sender_name: string;
+      message_type: ChatMessage["messageType"];
+      recipient_id?: string;
+      recipient_name?: string;
+      content: string;
+      created_at: string;
+    }>
+  >("get_recent_messages", {
     p_map_id: mapId,
     p_limit: limit,
   });
 
-  if (error) throw error;
-
-  return (data || []).map((msg: any) => ({
+  return (data || []).map((msg) => ({
     id: msg.id.toString(),
     mapId: msg.map_id,
     senderId: msg.sender_id,
@@ -32,8 +42,9 @@ export async function fetchRecentMessages(
 
 /**
  * 메시지 저장
+ * @deprecated 채팅 저장은 이제 서버(MapRoom)가 브로드캐스트 시 직접 처리한다.
  */
-export async function saveMessage(message: {
+export async function saveMessage(_message: {
   mapId: string;
   senderId: string;
   senderName: string;
@@ -41,14 +52,5 @@ export async function saveMessage(message: {
   recipientName?: string;
   content: string;
 }): Promise<void> {
-  const { error } = await supabase.from("chat_messages").insert({
-    map_id: message.mapId,
-    sender_id: message.senderId,
-    sender_name: message.senderName,
-    message_type: message.messageType,
-    recipient_name: message.recipientName,
-    content: message.content,
-  });
-
-  if (error) throw error;
+  // no-op: MapRoom이 서버에서 저장
 }

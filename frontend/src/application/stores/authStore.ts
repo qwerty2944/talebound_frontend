@@ -1,14 +1,14 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { User, Session } from "@supabase/supabase-js";
+import type { AuthUser, AuthSessionData } from "@/shared/api";
 import { signOut as signOutApi } from "@/features/auth/sign-out";
 
 interface AuthStore {
-  user: User | null;
-  session: Session | null;
+  user: AuthUser | null;
+  session: AuthSessionData | null;
 
-  setUser: (user: User | null) => void;
-  setSession: (session: Session | null) => void;
+  setUser: (user: AuthUser | null) => void;
+  setSession: (session: AuthSessionData | null) => void;
   clear: () => void;
   signOut: () => Promise<void>;
 }

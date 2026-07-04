@@ -3,7 +3,7 @@
  * 트레이트 데이터 로드 및 JSONB 조작
  */
 
-import { supabase } from "@/shared/api/supabase";
+import { apiFetch } from "@/shared/api";
 import type { Trait, TraitSource } from "../types";
 
 // ============ JSON 데이터 로드 ============
@@ -43,19 +43,16 @@ export interface StoredTrait {
 
 // ============ JSONB 조작 ============
 
+async function saveTraits(traits: StoredTrait[]): Promise<void> {
+  await apiFetch("/api/profile", { method: "PATCH", body: { traits } });
+}
+
 /**
  * 캐릭터의 트레이트 목록 조회 (characters.traits JSONB)
  */
-export async function fetchCharacterTraits(userId: string): Promise<StoredTrait[]> {
-  const { data, error } = await supabase
-    .from("characters")
-    .select("traits")
-    .eq("user_id", userId)
-    .single();
+export async function fetchCharacterTraits(_userId: string): Promise<StoredTrait[]> {
+  const data = await apiFetch<{ traits: unknown } | null>("/api/profile");
 
-  if (error) throw error;
-
-  // traits가 null이거나 없으면 빈 배열
   const traits = data?.traits;
   if (!traits || !Array.isArray(traits)) return [];
 
@@ -71,7 +68,6 @@ export async function grantTrait(
   source: TraitSource,
   sourceDetail?: string
 ): Promise<StoredTrait[]> {
-  // 현재 트레이트 조회
   const currentTraits = await fetchCharacterTraits(userId);
 
   // 이미 있으면 스킵
@@ -79,7 +75,6 @@ export async function grantTrait(
     return currentTraits;
   }
 
-  // 새 트레이트 추가
   const newTrait: StoredTrait = {
     id: traitId,
     source,
@@ -88,14 +83,7 @@ export async function grantTrait(
   };
 
   const updatedTraits = [...currentTraits, newTrait];
-
-  // DB 업데이트
-  const { error } = await supabase
-    .from("characters")
-    .update({ traits: updatedTraits })
-    .eq("user_id", userId);
-
-  if (error) throw error;
+  await saveTraits(updatedTraits);
 
   return updatedTraits;
 }
@@ -107,12 +95,7 @@ export async function removeTrait(userId: string, traitId: string): Promise<Stor
   const currentTraits = await fetchCharacterTraits(userId);
   const updatedTraits = currentTraits.filter((t) => t.id !== traitId);
 
-  const { error } = await supabase
-    .from("characters")
-    .update({ traits: updatedTraits })
-    .eq("user_id", userId);
-
-  if (error) throw error;
+  await saveTraits(updatedTraits);
 
   return updatedTraits;
 }
@@ -137,13 +120,7 @@ export async function grantMultipleTraits(
     }));
 
   const updatedTraits = [...currentTraits, ...newTraits];
-
-  const { error } = await supabase
-    .from("characters")
-    .update({ traits: updatedTraits })
-    .eq("user_id", userId);
-
-  if (error) throw error;
+  await saveTraits(updatedTraits);
 
   return updatedTraits;
 }
@@ -151,11 +128,6 @@ export async function grantMultipleTraits(
 /**
  * 트레이트 전체 설정 (덮어쓰기)
  */
-export async function setTraits(userId: string, traits: StoredTrait[]): Promise<void> {
-  const { error } = await supabase
-    .from("characters")
-    .update({ traits })
-    .eq("user_id", userId);
-
-  if (error) throw error;
+export async function setTraits(_userId: string, traits: StoredTrait[]): Promise<void> {
+  await saveTraits(traits);
 }

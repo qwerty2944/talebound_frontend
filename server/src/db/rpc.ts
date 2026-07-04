@@ -25,7 +25,12 @@ export async function callDbFunction(
   const placeholders = names.map((n, i) => `${n} := $${i + 1}`).join(", ");
   const values = names.map((n) => {
     const v = args[n];
-    return v !== null && typeof v === "object" ? JSON.stringify(v) : v;
+    // 배열은 pg가 Postgres 배열 리터럴로 직렬화 (text[] 등),
+    // 일반 객체는 JSON 문자열로 보내 jsonb 파라미터에 코어싱되게 한다.
+    if (v !== null && typeof v === "object" && !Array.isArray(v)) {
+      return JSON.stringify(v);
+    }
+    return v;
   });
 
   const query = `select coalesce(jsonb_agg(to_jsonb(t)), '[]'::jsonb) as result from ${fn}(${placeholders}) as t`;

@@ -2,7 +2,7 @@
  * 통계 API 함수
  */
 
-import { supabase } from "@/shared/api";
+import { apiFetch, rpc } from "@/shared/api";
 import type {
   StatisticsData,
   CombatStatistics,
@@ -10,22 +10,22 @@ import type {
 } from "../types";
 import { DEFAULT_COMBAT_STATS } from "../types";
 
+interface StatisticsRow {
+  character_id: string;
+  combat: CombatStatistics | null;
+  created_at: string;
+  updated_at: string;
+}
+
 /**
  * 캐릭터 통계 조회
  */
 export async function fetchStatistics(
   characterId: string
 ): Promise<StatisticsData> {
-  const { data, error } = await supabase
-    .from("character_statistics")
-    .select("*")
-    .eq("character_id", characterId)
-    .single();
-
-  // PGRST116 = no rows found (아직 통계 레코드가 없는 경우)
-  if (error && error.code !== "PGRST116") {
-    throw error;
-  }
+  const data = await apiFetch<StatisticsRow | null>(
+    `/api/statistics/${characterId}`
+  );
 
   return {
     characterId,
@@ -54,7 +54,7 @@ export interface RecordBattleParams {
 export async function recordBattleResult(
   params: RecordBattleParams
 ): Promise<CombatStatistics> {
-  const { data, error } = await supabase.rpc("record_battle_result", {
+  const data = await rpc<CombatStatistics>("record_battle_result", {
     p_character_id: params.characterId,
     p_result: params.result,
     p_monster_id: params.monsterId ?? null,
@@ -64,12 +64,7 @@ export async function recordBattleResult(
     p_critical_count: params.criticalCount ?? 0,
   });
 
-  if (error) {
-    console.error("[Statistics] Failed to record battle result:", error);
-    throw error;
-  }
-
-  return data as CombatStatistics;
+  return data;
 }
 
 /**
@@ -84,16 +79,11 @@ export async function incrementCombatStat(
   path: string[],
   increment: number = 1
 ): Promise<CombatStatistics> {
-  const { data, error } = await supabase.rpc("increment_combat_stat", {
+  const data = await rpc<CombatStatistics>("increment_combat_stat", {
     p_character_id: characterId,
     p_path: path,
     p_increment: increment,
   });
 
-  if (error) {
-    console.error("[Statistics] Failed to increment stat:", error);
-    throw error;
-  }
-
-  return data as CombatStatistics;
+  return data;
 }

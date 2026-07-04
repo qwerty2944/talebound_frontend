@@ -1,29 +1,58 @@
-import { supabase } from "./supabase";
-import type { Session, Subscription } from "@supabase/supabase-js";
+import { apiFetch, getToken, setToken, ApiError } from "./http";
 
 // ============ 타입 ============
 
-export type AuthSession = Session | null;
+export interface AuthUser {
+  id: string;
+  email: string;
+}
+
+export interface AuthSessionData {
+  token: string;
+  user: AuthUser;
+}
+
+export type AuthSession = AuthSessionData | null;
 
 export interface AuthSubscription {
   unsubscribe: () => void;
 }
 
+interface AuthResponse {
+  token: string;
+  user: AuthUser;
+  hasCharacter: boolean;
+}
+
+// ============ 인증 상태 변경 이벤트 ============
+
+type AuthListener = (session: AuthSession) => void;
+const listeners = new Set<AuthListener>();
+
+function emit(session: AuthSession): void {
+  for (const listener of listeners) listener(session);
+}
+
 // ============ API ============
 
 /**
- * 현재 세션 조회
+ * 현재 세션 조회 (토큰 검증 포함)
  */
 export async function getSession(): Promise<AuthSession> {
-  if (!supabase) return null;
+  const token = getToken();
+  if (!token) return null;
 
-  const { data, error } = await supabase.auth.getSession();
-  if (error) {
-    console.error("Failed to get session:", error);
+  try {
+    const data = await apiFetch<{ user: AuthUser }>("/api/auth/me");
+    return { token, user: data.user };
+  } catch (e) {
+    if (e instanceof ApiError && e.status === 401) {
+      setToken(null); // 만료/무효 토큰 정리
+      return null;
+    }
+    console.error("Failed to get session:", e);
     return null;
   }
-
-  return data.session;
 }
 
 /**
@@ -32,22 +61,52 @@ export async function getSession(): Promise<AuthSession> {
 export function subscribeToAuthChanges(
   callback: (session: AuthSession) => void
 ): AuthSubscription | null {
-  if (!supabase) return null;
-
-  const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange((_event, session) => {
-    callback(session);
-  });
-
+  listeners.add(callback);
   return {
-    unsubscribe: () => subscription.unsubscribe(),
+    unsubscribe: () => listeners.delete(callback),
   };
 }
 
-/**
- * Supabase 클라이언트 사용 가능 여부
- */
 export function isAuthAvailable(): boolean {
-  return supabase !== null;
+  return true;
+}
+
+// ============ 로그인/가입/로그아웃 ============
+
+export async function authSignUp(email: string, password: string): Promise<AuthResponse> {
+  const data = await apiFetch<AuthResponse>("/api/auth/signup", {
+    method: "POST",
+    body: { email, password },
+  });
+  setToken(data.token);
+  emit({ token: data.token, user: data.user });
+  return data;
+}
+
+export async function authSignIn(email: string, password: string): Promise<AuthResponse> {
+  const data = await apiFetch<AuthResponse>("/api/auth/login", {
+    method: "POST",
+    body: { email, password },
+  });
+  setToken(data.token);
+  emit({ token: data.token, user: data.user });
+  return data;
+}
+
+/**
+ * 백필 유저(Supabase 이전 계정) 비밀번호 재설정
+ */
+export async function authResetPassword(email: string, password: string): Promise<AuthResponse> {
+  const data = await apiFetch<AuthResponse>("/api/auth/reset-password", {
+    method: "POST",
+    body: { email, password },
+  });
+  setToken(data.token);
+  emit({ token: data.token, user: data.user });
+  return data;
+}
+
+export async function authSignOut(): Promise<void> {
+  setToken(null);
+  emit(null);
 }

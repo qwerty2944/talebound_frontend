@@ -4,11 +4,6 @@
  */
 
 import type { StatusDefinition, StatusCategory } from "../types";
-import { supabase } from "@/shared/api/supabase";
-
-// Supabase Storage URL
-const STORAGE_BUCKET = "game-data";
-const STATUS_PATH = "status";
 
 interface StatusesResponse {
   version: string;
@@ -23,24 +18,9 @@ interface StatusesResponse {
 }
 
 /**
- * Supabase Storage에서 JSON 로드 (fallback: public 폴더)
+ * public 폴더에서 JSON 로드
  */
 async function loadStatusJson<T>(filename: string): Promise<T> {
-  try {
-    // Supabase Storage에서 시도
-    const { data, error } = await supabase.storage
-      .from(STORAGE_BUCKET)
-      .download(`${STATUS_PATH}/${filename}`);
-
-    if (data && !error) {
-      const text = await data.text();
-      return JSON.parse(text);
-    }
-  } catch {
-    console.warn(`[Status] Supabase 로드 실패, fallback 사용: ${filename}`);
-  }
-
-  // Fallback: public 폴더
   const response = await fetch(`/data/status/${filename}`);
   if (!response.ok) {
     throw new Error(`Failed to load ${filename}: ${response.status}`);

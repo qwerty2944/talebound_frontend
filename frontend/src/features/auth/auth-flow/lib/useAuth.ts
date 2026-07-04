@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { ApiError, authResetPassword } from "@/shared/api";
 import { signIn, signUp } from "../api";
 import type { LoginFormData } from "../ui/LoginForm";
 import type { SignupFormData } from "../ui/SignupForm";
@@ -45,7 +46,7 @@ function removeEmailFromStorage(email: string) {
 
 // ============ 훅 ============
 
-export type AuthMode = "login" | "signup";
+export type AuthMode = "login" | "signup" | "reset";
 
 interface UseAuthReturn {
   // 상태
@@ -58,6 +59,7 @@ interface UseAuthReturn {
   // 액션
   handleLogin: (data: LoginFormData) => Promise<void>;
   handleSignup: (data: SignupFormData) => Promise<void>;
+  handleResetPassword: (data: SignupFormData) => Promise<void>;
   switchMode: () => void;
   removeEmail: (email: string) => void;
 }
@@ -87,6 +89,13 @@ export function useAuth(): UseAuthReturn {
       saveEmail(data.email);
       router.push(result.hasCharacter ? "/game" : "/character-create");
     } catch (err) {
+      // 기존 Supabase 계정: 비밀번호 재설정 필요
+      if (err instanceof ApiError && err.code === "PASSWORD_RESET_REQUIRED") {
+        setMode("reset");
+        setMessage("계정 시스템이 이전되었습니다. 새 비밀번호를 설정해주세요.");
+        setError(null);
+        return;
+      }
       setError(err instanceof Error ? err.message : "오류가 발생했습니다");
     } finally {
       setLoading(false);
@@ -103,13 +112,30 @@ export function useAuth(): UseAuthReturn {
         email: data.email,
         password: data.password,
       });
-      setMessage("이메일을 확인해주세요!");
+      // 자체 인증: 이메일 확인 없이 즉시 로그인 → 캐릭터 생성으로
+      saveEmail(data.email);
+      router.push("/character-create");
     } catch (err) {
       setError(err instanceof Error ? err.message : "오류가 발생했습니다");
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [router]);
+
+  const handleResetPassword = useCallback(async (data: SignupFormData) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const result = await authResetPassword(data.email, data.password);
+      saveEmail(data.email);
+      router.push(result.hasCharacter ? "/game" : "/character-create");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "오류가 발생했습니다");
+    } finally {
+      setLoading(false);
+    }
+  }, [router]);
 
   const switchMode = useCallback(() => {
     setMode((prev) => (prev === "login" ? "signup" : "login"));
@@ -130,6 +156,7 @@ export function useAuth(): UseAuthReturn {
     savedEmails,
     handleLogin,
     handleSignup,
+    handleResetPassword,
     switchMode,
     removeEmail,
   };
