@@ -1,18 +1,12 @@
 {
-  "name": "mud-web-monorepo",
+  "name": "mud-web",
   "version": "0.1.0",
   "private": true,
   "workspaces": [
-    "frontend",
-    "backend"
+    "frontend"
   ],
   "scripts": {
-    "dev": "concurrently -n web,backend -c cyan,magenta \"npm:dev:web\" \"npm:dev:backend\"",
-    "dev:web": "npm run dev -w frontend",
-    "dev:backend": "npm run dev -w backend",
+    "dev": "npm run dev -w frontend",
     "build": "npm run build -w frontend"
-  },
-  "devDependencies": {
-    "concurrently": "^9.1.0"
   }
 }

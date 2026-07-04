@@ -1,0 +1,37 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_UserDto _$UserDtoFromJson(Map<String, dynamic> json) =>
+    _UserDto(id: json['id'] as String, email: json['email'] as String);
+
+Map<String, dynamic> _$UserDtoToJson(_UserDto instance) => <String, dynamic>{
+  'id': instance.id,
+  'email': instance.email,
+};
+
+_AuthResponseDto _$AuthResponseDtoFromJson(Map<String, dynamic> json) =>
+    _AuthResponseDto(
+      token: json['token'] as String,
+      user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
+      hasCharacter: json['hasCharacter'] as bool,
+    );
+
+Map<String, dynamic> _$AuthResponseDtoToJson(_AuthResponseDto instance) =>
+    <String, dynamic>{
+      'token': instance.token,
+      'user': instance.user.toJson(),
+      'hasCharacter': instance.hasCharacter,
+    };
+
+_MeResponseDto _$MeResponseDtoFromJson(Map<String, dynamic> json) =>
+    _MeResponseDto(
+      user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
+      hasCharacter: json['hasCharacter'] as bool,
+    );
+
+Map<String, dynamic> _$MeResponseDtoToJson(_MeResponseDto instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+      'hasCharacter': instance.hasCharacter,
+    };
