@@ -4,13 +4,12 @@
   "private": true,
   "workspaces": [
     "frontend",
-    "server",
-    "shared"
+    "backend"
   ],
   "scripts": {
-    "dev": "concurrently -n web,server -c cyan,magenta \"npm:dev:web\" \"npm:dev:server\"",
+    "dev": "concurrently -n web,backend -c cyan,magenta \"npm:dev:web\" \"npm:dev:backend\"",
     "dev:web": "npm run dev -w frontend",
-    "dev:server": "npm run dev -w server",
+    "dev:backend": "npm run dev -w backend",
     "build": "npm run build -w frontend"
   },
   "devDependencies": {
