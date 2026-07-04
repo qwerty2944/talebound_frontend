@@ -56,12 +56,21 @@ export function UnityCanvas() {
         </div>
       )}
 
-      {/* Unity canvas가 Portal로 렌더링될 컨테이너 */}
-      <div
-        ref={containerRef}
-        className="w-full h-full rounded-lg overflow-hidden"
-        style={{ background: "transparent" }}
-      />
+      {/* Unity canvas가 Portal로 렌더링될 컨테이너.
+          Unity 카메라는 세로 화각이 고정이라 캔버스가 좁으면 옆으로 뻗은 무기(창/활)가 잘린다.
+          aspect-ratio 하한(8:5)을 강제해 무기까지 항상 화면에 들어오게 한다. */}
+      <div className="w-full h-full flex items-center justify-center">
+        <div
+          ref={containerRef}
+          className="rounded-lg overflow-hidden"
+          style={{
+            background: "transparent",
+            width: "100%",
+            aspectRatio: "8 / 5",
+            maxHeight: "100%",
+          }}
+        />
+      </div>
     </div>
   );
 }
