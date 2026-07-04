@@ -1,0 +1,1259 @@
+{
+  "category": "helmet",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Helmet_01",
+      "spriteId": "elf_helmet_01",
+      "existingItems": [
+        {
+          "id": "leather_cap",
+          "nameKo": "가죽 모자",
+          "nameEn": "Leather Cap"
+        }
+      ],
+      "action": "review",
+      "nameKo": "루비 티아라",
+      "nameEn": "Ruby Tiara",
+      "rarity": "arcane"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Helmet_02",
+      "spriteId": "elf_helmet_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은빛 깃털 머리핀",
+      "nameEn": "Silver Feather Hairpin",
+      "rarity": "common"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Helmet_03",
+      "spriteId": "elf_helmet_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "호박 보석 날개 투구",
+      "nameEn": "Amber-Gem Winged Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Helmet_04",
+      "spriteId": "elf_helmet_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "호박 보석 머리핀",
+      "nameEn": "Amber Hairpin",
+      "rarity": "common"
+    },
+    {
+      "index": 4,
+      "sprite": "Elf_Helmet_05",
+      "spriteId": "elf_helmet_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "주황 볏 백은 투구",
+      "nameEn": "Orange-Crested Silver Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 5,
+      "sprite": "Elf_Helmet_06",
+      "spriteId": "elf_helmet_06",
+      "existingItems": [
+        {
+          "id": "iron_helmet",
+          "nameKo": "철 투구",
+          "nameEn": "Iron Helmet"
+        }
+      ],
+      "action": "review",
+      "nameKo": "사슴뿔 머리장식",
+      "nameEn": "Antler Headdress",
+      "rarity": "common"
+    },
+    {
+      "index": 6,
+      "sprite": "Elf_Helmet_07",
+      "spriteId": "elf_helmet_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프 잎사귀 투구",
+      "nameEn": "Elven Leaf Helm",
+      "rarity": "grand"
+    },
+    {
+      "index": 7,
+      "sprite": "Elf_Helmet_08",
+      "spriteId": "elf_helmet_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "초록 보석 뿔 서클릿",
+      "nameEn": "Green-Gem Antler Circlet",
+      "rarity": "grand"
+    },
+    {
+      "index": 8,
+      "sprite": "Elf_Helmet_09",
+      "spriteId": "elf_helmet_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "덩굴 감긴 철모",
+      "nameEn": "Vine-Wrapped Iron Helm",
+      "rarity": "grand"
+    },
+    {
+      "index": 9,
+      "sprite": "Elf_Helmet_10",
+      "spriteId": "elf_helmet_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "숲의 화관",
+      "nameEn": "Forest Wreath",
+      "rarity": "common"
+    },
+    {
+      "index": 10,
+      "sprite": "Elf_Helmet_11",
+      "spriteId": "elf_helmet_11",
+      "existingItems": [
+        {
+          "id": "steel_helmet",
+          "nameKo": "강철 투구",
+          "nameEn": "Steel Helmet"
+        }
+      ],
+      "action": "review",
+      "nameKo": "홍옥 날개 투구",
+      "nameEn": "Ruby Winged Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 11,
+      "sprite": "Elf_Helmet_12",
+      "spriteId": "elf_helmet_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 갈기 투구",
+      "nameEn": "Red-Maned Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 12,
+      "sprite": "Elf_Helmet_13",
+      "spriteId": "elf_helmet_13",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "홍옥 문장 투구",
+      "nameEn": "Ruby Crest Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 13,
+      "sprite": "Elf_Helmet_14",
+      "spriteId": "elf_helmet_14",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "화염 서클릿",
+      "nameEn": "Flame Circlet",
+      "rarity": "grand"
+    },
+    {
+      "index": 14,
+      "sprite": "Elf_Helmet_15",
+      "spriteId": "elf_helmet_15",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "호박 보석 머리띠",
+      "nameEn": "Amber Headband",
+      "rarity": "grand"
+    },
+    {
+      "index": 15,
+      "sprite": "Elf_Helmet_16",
+      "spriteId": "elf_helmet_16",
+      "existingItems": [
+        {
+          "id": "knight_helmet",
+          "nameKo": "기사의 투구",
+          "nameEn": "Knight's Helmet"
+        }
+      ],
+      "action": "review",
+      "nameKo": "황금 테 은빛 투구",
+      "nameEn": "Gold-Banded Silver Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 16,
+      "sprite": "Elf_Helmet_17",
+      "spriteId": "elf_helmet_17",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "마귀 눈 검은 투구",
+      "nameEn": "Demon-Eye Black Helm",
+      "rarity": "arcane"
+    },
+    {
+      "index": 17,
+      "sprite": "Elf_Helmet_18",
+      "spriteId": "elf_helmet_18",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "호박 보석 백은 투구",
+      "nameEn": "Amber-Gem Silver Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 18,
+      "sprite": "Elf_Helmet_19",
+      "spriteId": "elf_helmet_19",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "가시 돋친 흑철 투구",
+      "nameEn": "Spiked Black Iron Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 19,
+      "sprite": "Elf_Helmet_20",
+      "spriteId": "elf_helmet_20",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "펭귄 투구",
+      "nameEn": "Penguin Helm",
+      "rarity": "grand"
+    },
+    {
+      "index": 20,
+      "sprite": "Orc_Helmet_02",
+      "spriteId": "orc_helmet_02",
+      "existingItems": [
+        {
+          "id": "wizard_hat",
+          "nameKo": "마법사의 모자",
+          "nameEn": "Wizard Hat"
+        }
+      ],
+      "action": "review",
+      "nameKo": "뿔 달린 강철 투구",
+      "nameEn": "Horned Steel Helmet",
+      "rarity": "grand"
+    },
+    {
+      "index": 21,
+      "sprite": "Orc_Helmet_03",
+      "spriteId": "orc_helmet_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "뿔 달린 해골 투구",
+      "nameEn": "Horned Skull Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 22,
+      "sprite": "Orc_Helmet_04",
+      "spriteId": "orc_helmet_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "큰뿔 해골 가면",
+      "nameEn": "Great-Horned Skull Mask",
+      "rarity": "rare"
+    },
+    {
+      "index": 23,
+      "sprite": "Orc_Helmet_05",
+      "spriteId": "orc_helmet_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크 가죽 모자",
+      "nameEn": "Orc Leather Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 24,
+      "sprite": "Orc_Helmet_06",
+      "spriteId": "orc_helmet_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "비행사 고글 모자",
+      "nameEn": "Aviator Goggle Cap",
+      "rarity": "common"
+    },
+    {
+      "index": 25,
+      "sprite": "Undead_Helmet_01",
+      "spriteId": "undead_helmet_01",
+      "existingItems": [
+        {
+          "id": "elven_circlet",
+          "nameKo": "엘프의 관",
+          "nameEn": "Elven Circlet"
+        }
+      ],
+      "action": "review",
+      "nameKo": "밀짚모자",
+      "nameEn": "Straw Hat",
+      "rarity": "crude"
+    },
+    {
+      "index": 26,
+      "sprite": "Undead_Helmet_02",
+      "spriteId": "undead_helmet_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 털가죽 모자",
+      "nameEn": "Brown Fur Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 27,
+      "sprite": "Undead_Helmet_03",
+      "spriteId": "undead_helmet_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "화살 박힌 투구",
+      "nameEn": "Arrow-Riddled Helm",
+      "rarity": "common"
+    },
+    {
+      "index": 28,
+      "sprite": "Undead_Helmet_04",
+      "spriteId": "undead_helmet_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검푸른 강철 투구",
+      "nameEn": "Dark Blue Steel Helm",
+      "rarity": "grand"
+    },
+    {
+      "index": 29,
+      "sprite": "Undead_Helmet_05",
+      "spriteId": "undead_helmet_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "지느러미 강철 투구",
+      "nameEn": "Finned Steel Helm",
+      "rarity": "grand"
+    },
+    {
+      "index": 30,
+      "sprite": "Undead_Helmet_06",
+      "spriteId": "undead_helmet_06",
+      "existingItems": [
+        {
+          "id": "dragon_helm",
+          "nameKo": "드래곤 투구",
+          "nameEn": "Dragon Helm"
+        }
+      ],
+      "action": "review",
+      "nameKo": "드래곤 투구",
+      "nameEn": "Dragon Helm",
+      "rarity": "heroic"
+    },
+    {
+      "index": 31,
+      "sprite": "Undead_Helmet_07",
+      "spriteId": "undead_helmet_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "황금 왕관",
+      "nameEn": "Golden Crown",
+      "rarity": "unique"
+    },
+    {
+      "index": 32,
+      "sprite": "Helmet_m01",
+      "spriteId": "helmet_m01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "빨간 리본 머리장식",
+      "nameEn": "Red Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 33,
+      "sprite": "Helmet_m01_black",
+      "spriteId": "helmet_m01_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "분홍 리본 머리장식",
+      "nameEn": "Pink Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 34,
+      "sprite": "Helmet_m01_blonde",
+      "spriteId": "helmet_m01_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "하늘색 리본 머리장식",
+      "nameEn": "Sky-Blue Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 35,
+      "sprite": "Helmet_m01_brown",
+      "spriteId": "helmet_m01_brown",
+      "existingItems": [
+        {
+          "id": "crown_of_wisdom",
+          "nameKo": "지혜의 왕관",
+          "nameEn": "Crown of Wisdom"
+        }
+      ],
+      "action": "review",
+      "nameKo": "초록 리본 머리장식",
+      "nameEn": "Green Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 36,
+      "sprite": "Helmet_m01_color",
+      "spriteId": "helmet_m01_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "빨간 쌍리본 머리장식",
+      "nameEn": "Twin Red Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 37,
+      "sprite": "Helmet_m02",
+      "spriteId": "helmet_m02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "주황 리본 머리장식",
+      "nameEn": "Orange Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 38,
+      "sprite": "Helmet_m02_black",
+      "spriteId": "helmet_m02_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 리본 머리장식",
+      "nameEn": "White Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 39,
+      "sprite": "Helmet_m02_blonde",
+      "spriteId": "helmet_m02_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보랏빛 리본 머리장식",
+      "nameEn": "Violet Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 40,
+      "sprite": "Helmet_m02_brown",
+      "spriteId": "helmet_m02_brown",
+      "existingItems": [
+        {
+          "id": "legendary_helmet",
+          "nameKo": "전설의 투구",
+          "nameEn": "Legendary Helmet"
+        }
+      ],
+      "action": "review",
+      "nameKo": "진분홍 리본 머리장식",
+      "nameEn": "Magenta Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 41,
+      "sprite": "Helmet_m02_color",
+      "spriteId": "helmet_m02_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "귤빛 리본 머리장식",
+      "nameEn": "Tangerine Ribbon Hairpiece",
+      "rarity": "crude"
+    },
+    {
+      "index": 42,
+      "sprite": "Helmet_m03",
+      "spriteId": "helmet_m03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 니트 모자",
+      "nameEn": "Brown Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 43,
+      "sprite": "Helmet_m03_black",
+      "spriteId": "helmet_m03_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "초록 니트 모자",
+      "nameEn": "Green Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 44,
+      "sprite": "Helmet_m03_blonde",
+      "spriteId": "helmet_m03_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 니트 모자",
+      "nameEn": "Blue Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 45,
+      "sprite": "Helmet_m03_brown",
+      "spriteId": "helmet_m03_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "밤색 니트 모자",
+      "nameEn": "Chestnut Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 46,
+      "sprite": "Helmet_m03_color",
+      "spriteId": "helmet_m03_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "카키 니트 모자",
+      "nameEn": "Khaki Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 47,
+      "sprite": "Helmet_m04",
+      "spriteId": "helmet_m04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "자주 니트 모자",
+      "nameEn": "Maroon Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 48,
+      "sprite": "Helmet_m04_black",
+      "spriteId": "helmet_m04_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "빨간 니트 모자",
+      "nameEn": "Red Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 49,
+      "sprite": "Helmet_m04_blonde",
+      "spriteId": "helmet_m04_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보라 니트 모자",
+      "nameEn": "Purple Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 50,
+      "sprite": "Helmet_m04_brown",
+      "spriteId": "helmet_m04_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "베이지 줄무늬 니트 모자",
+      "nameEn": "Beige Striped Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 51,
+      "sprite": "Helmet_m04_color",
+      "spriteId": "helmet_m04_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "와인빛 니트 모자",
+      "nameEn": "Wine Knit Beanie",
+      "rarity": "crude"
+    },
+    {
+      "index": 52,
+      "sprite": "Helmet_m05",
+      "spriteId": "helmet_m05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "진홍 베레모",
+      "nameEn": "Crimson Beret",
+      "rarity": "common"
+    },
+    {
+      "index": 53,
+      "sprite": "Helmet_m05_black",
+      "spriteId": "helmet_m05_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "사과 모자",
+      "nameEn": "Apple Hat",
+      "rarity": "grand"
+    },
+    {
+      "index": 54,
+      "sprite": "Helmet_m05_blonde",
+      "spriteId": "helmet_m05_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "청록 베레모",
+      "nameEn": "Teal Beret",
+      "rarity": "common"
+    },
+    {
+      "index": 55,
+      "sprite": "Helmet_m05_brown",
+      "spriteId": "helmet_m05_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "크림 베레모",
+      "nameEn": "Cream Beret",
+      "rarity": "common"
+    },
+    {
+      "index": 56,
+      "sprite": "Helmet_m05_color",
+      "spriteId": "helmet_m05_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "다홍 베레모",
+      "nameEn": "Scarlet Beret",
+      "rarity": "common"
+    },
+    {
+      "index": 57,
+      "sprite": "Helmet_m06",
+      "spriteId": "helmet_m06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "빨간 베레모",
+      "nameEn": "Red Beret",
+      "rarity": "common"
+    },
+    {
+      "index": 58,
+      "sprite": "Helmet_m06_black",
+      "spriteId": "helmet_m06_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 베레모",
+      "nameEn": "Blue Beret",
+      "rarity": "common"
+    },
+    {
+      "index": 59,
+      "sprite": "Helmet_m06_blonde",
+      "spriteId": "helmet_m06_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "장미빛 베레모",
+      "nameEn": "Rose Beret",
+      "rarity": "common"
+    },
+    {
+      "index": 60,
+      "sprite": "Helmet_m06_brown",
+      "spriteId": "helmet_m06_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "버터색 베레모",
+      "nameEn": "Butter Beret",
+      "rarity": "common"
+    },
+    {
+      "index": 61,
+      "sprite": "Helmet_m06_color",
+      "spriteId": "helmet_m06_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "가지 모자",
+      "nameEn": "Eggplant Hat",
+      "rarity": "grand"
+    },
+    {
+      "index": 62,
+      "sprite": "Helmet_m07",
+      "spriteId": "helmet_m07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 야구 모자",
+      "nameEn": "Blue Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 63,
+      "sprite": "Helmet_m07_black",
+      "spriteId": "helmet_m07_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "청록 야구 모자",
+      "nameEn": "Teal Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 64,
+      "sprite": "Helmet_m07_blonde",
+      "spriteId": "helmet_m07_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "빨간 야구 모자",
+      "nameEn": "Red Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 65,
+      "sprite": "Helmet_m07_brown",
+      "spriteId": "helmet_m07_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "코발트 야구 모자",
+      "nameEn": "Cobalt Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 66,
+      "sprite": "Helmet_m07_color",
+      "spriteId": "helmet_m07_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 야구 모자",
+      "nameEn": "White Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 67,
+      "sprite": "Helmet_m08",
+      "spriteId": "helmet_m08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "분홍 야구 모자",
+      "nameEn": "Pink Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 68,
+      "sprite": "Helmet_m08_black",
+      "spriteId": "helmet_m08_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "주황 야구 모자",
+      "nameEn": "Orange Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 69,
+      "sprite": "Helmet_m08_blonde",
+      "spriteId": "helmet_m08_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "하늘색 야구 모자",
+      "nameEn": "Sky-Blue Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 70,
+      "sprite": "Helmet_m08_brown",
+      "spriteId": "helmet_m08_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "연보라 야구 모자",
+      "nameEn": "Lavender Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 71,
+      "sprite": "Helmet_m08_color",
+      "spriteId": "helmet_m08_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "연분홍 야구 모자",
+      "nameEn": "Light Pink Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 72,
+      "sprite": "Helmet_m09",
+      "spriteId": "helmet_m09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "청람 야구 모자",
+      "nameEn": "Indigo Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 73,
+      "sprite": "Helmet_m09_black",
+      "spriteId": "helmet_m09_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "진홍 야구 모자",
+      "nameEn": "Crimson Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 74,
+      "sprite": "Helmet_m09_blonde",
+      "spriteId": "helmet_m09_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "감청 야구 모자",
+      "nameEn": "Navy Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 75,
+      "sprite": "Helmet_m09_brown",
+      "spriteId": "helmet_m09_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "민트 야구 모자",
+      "nameEn": "Mint Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 76,
+      "sprite": "Helmet_m09_color",
+      "spriteId": "helmet_m09_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "크림 야구 모자",
+      "nameEn": "Cream Baseball Cap",
+      "rarity": "crude"
+    },
+    {
+      "index": 77,
+      "sprite": "Helmet_m10",
+      "spriteId": "helmet_m10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은빛 헤드폰",
+      "nameEn": "Silver Headphones",
+      "rarity": "common"
+    },
+    {
+      "index": 78,
+      "sprite": "Helmet_m10_black",
+      "spriteId": "helmet_m10_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "빨간 헤드폰",
+      "nameEn": "Red Headphones",
+      "rarity": "common"
+    },
+    {
+      "index": 79,
+      "sprite": "Helmet_m10_blonde",
+      "spriteId": "helmet_m10_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "백은 헤드폰",
+      "nameEn": "Platinum Headphones",
+      "rarity": "common"
+    },
+    {
+      "index": 80,
+      "sprite": "Helmet_m10_brown",
+      "spriteId": "helmet_m10_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 헤드폰",
+      "nameEn": "Gray Headphones",
+      "rarity": "common"
+    },
+    {
+      "index": 81,
+      "sprite": "Helmet_m10_color",
+      "spriteId": "helmet_m10_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "무쇠 헤드폰",
+      "nameEn": "Iron Headphones",
+      "rarity": "common"
+    },
+    {
+      "index": 82,
+      "sprite": "Helmet_m11",
+      "spriteId": "helmet_m11",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검은 중절모",
+      "nameEn": "Black Fedora",
+      "rarity": "common"
+    },
+    {
+      "index": 83,
+      "sprite": "Helmet_m11_black",
+      "spriteId": "helmet_m11_black",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 카우보이 모자",
+      "nameEn": "Brown Cowboy Hat",
+      "rarity": "common"
+    },
+    {
+      "index": 84,
+      "sprite": "Helmet_m11_blonde",
+      "spriteId": "helmet_m11_blonde",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "빨간 중절모",
+      "nameEn": "Red Fedora",
+      "rarity": "common"
+    },
+    {
+      "index": 85,
+      "sprite": "Helmet_m11_brown",
+      "spriteId": "helmet_m11_brown",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 띠 중절모",
+      "nameEn": "Red-Banded Fedora",
+      "rarity": "common"
+    },
+    {
+      "index": 86,
+      "sprite": "Helmet_m11_color",
+      "spriteId": "helmet_m11_color",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 중절모",
+      "nameEn": "White Fedora",
+      "rarity": "common"
+    },
+    {
+      "index": 87,
+      "sprite": "Helmet_Archer_1",
+      "spriteId": "helmet_archer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "초록 궁수 두건",
+      "nameEn": "Green Archer Hood",
+      "rarity": "grand"
+    },
+    {
+      "index": 88,
+      "sprite": "Helmet_Archer_2",
+      "spriteId": "helmet_archer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "깃털 사냥꾼 모자",
+      "nameEn": "Feathered Hunter Cap",
+      "rarity": "grand"
+    },
+    {
+      "index": 89,
+      "sprite": "Helmet_Healer_1",
+      "spriteId": "helmet_healer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 치유사 모자",
+      "nameEn": "White Healer Cap",
+      "rarity": "grand"
+    },
+    {
+      "index": 90,
+      "sprite": "Helmet_Healer_2",
+      "spriteId": "helmet_healer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 십자 두건",
+      "nameEn": "Red Cross Hood",
+      "rarity": "grand"
+    },
+    {
+      "index": 91,
+      "sprite": "Helmet_Knight_1",
+      "spriteId": "helmet_knight_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 볏 백부장 투구",
+      "nameEn": "Red-Crested Centurion Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 92,
+      "sprite": "Helmet_Knight_2",
+      "spriteId": "helmet_knight_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 날개 흑기사 투구",
+      "nameEn": "White-Winged Black Knight Helm",
+      "rarity": "arcane"
+    },
+    {
+      "index": 93,
+      "sprite": "Helmet_Rogue_1",
+      "spriteId": "helmet_rogue_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "그림자 도적 투구",
+      "nameEn": "Shadow Rogue Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 94,
+      "sprite": "Helmet_Rogue_2",
+      "spriteId": "helmet_rogue_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 매듭 반다나",
+      "nameEn": "Red-Knotted Bandana",
+      "rarity": "common"
+    },
+    {
+      "index": 95,
+      "sprite": "Helmet_Sorcerer",
+      "spriteId": "helmet_sorcerer",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검은 마법사 모자",
+      "nameEn": "Black Wizard Hat",
+      "rarity": "rare"
+    },
+    {
+      "index": 96,
+      "sprite": "Helmet_Sorceress",
+      "spriteId": "helmet_sorceress",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "화염 마녀 모자",
+      "nameEn": "Flame Witch Hat",
+      "rarity": "arcane"
+    },
+    {
+      "index": 97,
+      "sprite": "F_SR_Helmet",
+      "spriteId": "f_sr_helmet",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "토끼 귀 투구",
+      "nameEn": "Rabbit-Ear Helm",
+      "rarity": "grand"
+    },
+    {
+      "index": 98,
+      "sprite": "Helmet_1",
+      "spriteId": "helmet_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 가죽 코이프",
+      "nameEn": "Brown Leather Coif",
+      "rarity": "crude"
+    },
+    {
+      "index": 99,
+      "sprite": "Helmet_2",
+      "spriteId": "helmet_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은빛 사슬 두건",
+      "nameEn": "Silver Chain Coif",
+      "rarity": "common"
+    },
+    {
+      "index": 100,
+      "sprite": "Helmet_3",
+      "spriteId": "helmet_3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "자주빛 두건",
+      "nameEn": "Violet Coif",
+      "rarity": "crude"
+    },
+    {
+      "index": 101,
+      "sprite": "Helmet_4",
+      "spriteId": "helmet_4",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 뿔 강철 투구",
+      "nameEn": "Red-Horned Steel Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 102,
+      "sprite": "Helmet_5",
+      "spriteId": "helmet_5",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 뿔 흑철 투구",
+      "nameEn": "Red-Horned Black Iron Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 103,
+      "sprite": "Helmet_6",
+      "spriteId": "helmet_6",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "금빛 뿔 강철 투구",
+      "nameEn": "Gold-Horned Steel Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 104,
+      "sprite": "Helmet_7",
+      "spriteId": "helmet_7",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 패딩 투구",
+      "nameEn": "Blue Padded Helm",
+      "rarity": "common"
+    },
+    {
+      "index": 105,
+      "sprite": "Helmet_8",
+      "spriteId": "helmet_8",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "강철 투구",
+      "nameEn": "Steel Helmet",
+      "rarity": "grand"
+    },
+    {
+      "index": 106,
+      "sprite": "Helmet_9",
+      "spriteId": "helmet_9",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "격자 면갑 투구",
+      "nameEn": "Grilled-Visor Great Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 107,
+      "sprite": "Normal_Helmet1",
+      "spriteId": "normal_helmet1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "황동 뿔 투구",
+      "nameEn": "Brass-Horned Helm",
+      "rarity": "grand"
+    },
+    {
+      "index": 108,
+      "sprite": "Normal_Helmet2",
+      "spriteId": "normal_helmet2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 사슬 후드",
+      "nameEn": "Gray Chainmail Hood",
+      "rarity": "common"
+    },
+    {
+      "index": 109,
+      "sprite": "Normal_Helmet3",
+      "spriteId": "normal_helmet3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 누비 두건",
+      "nameEn": "Gray Padded Coif",
+      "rarity": "crude"
+    },
+    {
+      "index": 110,
+      "sprite": "New_Helmet_01",
+      "spriteId": "new_helmet_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 뿔 붉은 투구",
+      "nameEn": "White-Horned Red Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 111,
+      "sprite": "New_Helmet_02",
+      "spriteId": "new_helmet_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "푸른 강철 샐릿",
+      "nameEn": "Blue Steel Sallet",
+      "rarity": "grand"
+    },
+    {
+      "index": 112,
+      "sprite": "New_Helmet_03",
+      "spriteId": "new_helmet_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "감청 후드",
+      "nameEn": "Navy Blue Hood",
+      "rarity": "common"
+    },
+    {
+      "index": 113,
+      "sprite": "New_Helmet_04",
+      "spriteId": "new_helmet_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 뿔 바이킹 투구",
+      "nameEn": "White-Horned Viking Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 114,
+      "sprite": "New_Helmet_05",
+      "spriteId": "new_helmet_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "주황 뿔 은 투구",
+      "nameEn": "Orange-Horned Silver Helm",
+      "rarity": "rare"
+    },
+    {
+      "index": 115,
+      "sprite": "New_Helmet_06",
+      "spriteId": "new_helmet_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "무쇠 대투구",
+      "nameEn": "Iron Great Helm",
+      "rarity": "grand"
+    },
+    {
+      "index": 116,
+      "sprite": "New_Helmet_07",
+      "spriteId": "new_helmet_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 깃 황금 투구",
+      "nameEn": "Red-Plumed Golden Helm",
+      "rarity": "heroic"
+    },
+    {
+      "index": 117,
+      "sprite": "New_Helmet_08",
+      "spriteId": "new_helmet_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "핏빛 뿔 암흑 투구",
+      "nameEn": "Blood-Horned Dark Helm",
+      "rarity": "arcane"
+    },
+    {
+      "index": 118,
+      "sprite": "New_Helmet_09",
+      "spriteId": "new_helmet_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 가죽 후드",
+      "nameEn": "Brown Leather Hood",
+      "rarity": "crude"
+    },
+    {
+      "index": 119,
+      "sprite": "New_Helmet_10",
+      "spriteId": "new_helmet_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보랏빛 후드",
+      "nameEn": "Purple Hood",
+      "rarity": "crude"
+    }
+  ]
+}

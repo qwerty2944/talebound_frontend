@@ -1,0 +1,100 @@
+{
+  "category": "axe",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Orc_Weapon_02",
+      "spriteId": "orc_weapon_02",
+      "existingItems": [
+        {
+          "id": "rusty_axe",
+          "nameKo": "녹슨 도끼",
+          "nameEn": "Rusty Axe"
+        },
+        {
+          "id": "iron_axe",
+          "nameKo": "철 도끼",
+          "nameEn": "Iron Axe"
+        }
+      ],
+      "action": "review",
+      "nameKo": "철 도끼",
+      "nameEn": "Iron Axe",
+      "rarity": "common"
+    },
+    {
+      "index": 1,
+      "sprite": "Orc_Weapon_06",
+      "spriteId": "orc_weapon_06",
+      "existingItems": [
+        {
+          "id": "steel_axe",
+          "nameKo": "강철 도끼",
+          "nameEn": "Steel Axe"
+        }
+      ],
+      "action": "review",
+      "nameKo": "강철 도끼",
+      "nameEn": "Steel Axe",
+      "rarity": "grand"
+    },
+    {
+      "index": 2,
+      "sprite": "Orc_Weapon_07",
+      "spriteId": "orc_weapon_07",
+      "existingItems": [
+        {
+          "id": "battle_axe",
+          "nameKo": "전투 도끼",
+          "nameEn": "Battle Axe"
+        },
+        {
+          "id": "berserker_axe",
+          "nameKo": "광전사의 도끼",
+          "nameEn": "Berserker's Axe"
+        }
+      ],
+      "action": "review",
+      "nameKo": "전투 도끼",
+      "nameEn": "Battle Axe",
+      "rarity": "common"
+    },
+    {
+      "index": 3,
+      "sprite": "Undead_Weapon_06",
+      "spriteId": "undead_weapon_06",
+      "existingItems": [
+        {
+          "id": "orc_war_axe",
+          "nameKo": "오크 전쟁 도끼",
+          "nameEn": "Orc War Axe"
+        },
+        {
+          "id": "executioner_axe",
+          "nameKo": "처형자의 도끼",
+          "nameEn": "Executioner's Axe"
+        }
+      ],
+      "action": "review",
+      "nameKo": "처형자의 도끼",
+      "nameEn": "Executioner's Axe",
+      "rarity": "rare"
+    },
+    {
+      "index": 4,
+      "sprite": "Axe_1",
+      "spriteId": "axe_1",
+      "existingItems": [
+        {
+          "id": "legendary_axe",
+          "nameKo": "전설의 도끼",
+          "nameEn": "Legendary Axe"
+        }
+      ],
+      "action": "review",
+      "nameKo": "은빛 손도끼",
+      "nameEn": "Silver Hatchet",
+      "rarity": "common"
+    }
+  ]
+}

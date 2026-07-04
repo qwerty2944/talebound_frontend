@@ -2,12 +2,12 @@
   "category": "equipment",
   "subcategory": "weapon",
   "weaponType": "shield",
-  "spriteMapping": "/data/sprites/equipment/weapon/shield.json",
+  "spriteMapping": "/data/sprites/equipment/weapons/shield.json",
   "items": [
     {
       "id": "wooden_shield",
-      "nameKo": "나무 방패",
-      "nameEn": "Wooden Shield",
+      "nameKo": "낡은 엘프 방패",
+      "nameEn": "Worn Elven Shield",
       "description": "나무로 만든 기본적인 방패.",
       "rarity": "crude",
       "value": 30,
@@ -24,8 +24,8 @@
     },
     {
       "id": "iron_shield",
-      "nameKo": "철 방패",
-      "nameEn": "Iron Shield",
+      "nameKo": "뼈 장식 나무 방패",
+      "nameEn": "Bone-Adorned Wooden Shield",
       "description": "튼튼한 철제 방패.",
       "rarity": "common",
       "value": 120,
@@ -64,8 +64,8 @@
     },
     {
       "id": "knight_shield",
-      "nameKo": "기사의 방패",
-      "nameEn": "Knight's Shield",
+      "nameKo": "해골 방패",
+      "nameEn": "Skull Shield",
       "description": "왕국 기사단의 문장이 새겨진 방패.",
       "rarity": "rare",
       "value": 900,
@@ -85,8 +85,8 @@
     },
     {
       "id": "tower_shield",
-      "nameKo": "타워 실드",
-      "nameEn": "Tower Shield",
+      "nameKo": "정예 뼈 장식 나무 방패",
+      "nameEn": "Elite Bone-Adorned Wooden Shield",
       "description": "몸 전체를 가리는 거대한 방패.",
       "rarity": "rare",
       "value": 1200,
@@ -177,8 +177,8 @@
     },
     {
       "id": "legendary_shield",
-      "nameKo": "전설의 방패",
-      "nameEn": "Legendary Shield",
+      "nameKo": "전설의 해골 방패",
+      "nameEn": "Legendary Skull Shield",
       "description": "어떤 공격도 막아낸다는 전설의 방패.",
       "rarity": "legendary",
       "value": 75000,
@@ -197,6 +197,166 @@
         "con": 25
       },
       "spriteId": "undead_shield_03"
+    },
+    {
+      "id": "leaf_shield",
+      "nameKo": "잎사귀 방패",
+      "nameEn": "Leaf Shield",
+      "description": "잎사귀 방패. 방패 장비.",
+      "rarity": "common",
+      "value": 120,
+      "weight": 4,
+      "color": null,
+      "stats": {
+        "defense": 11,
+        "blockChance": 16
+      },
+      "requirements": {
+        "level": 1,
+        "str": 7,
+        "con": 7
+      },
+      "spriteId": "elf_shield_02"
+    },
+    {
+      "id": "red_round_shield",
+      "nameKo": "붉은 원형 방패",
+      "nameEn": "Red Round Shield",
+      "description": "붉은 원형 방패. 방패 장비.",
+      "rarity": "common",
+      "value": 120,
+      "weight": 4,
+      "color": null,
+      "stats": {
+        "defense": 11,
+        "blockChance": 16
+      },
+      "requirements": {
+        "level": 1,
+        "str": 7,
+        "con": 7
+      },
+      "spriteId": "elf_shield_03"
+    },
+    {
+      "id": "white_oval_shield",
+      "nameKo": "하얀 타원 방패",
+      "nameEn": "White Oval Shield",
+      "description": "하얀 타원 방패. 방패 장비.",
+      "rarity": "grand",
+      "value": 240,
+      "weight": 4,
+      "color": null,
+      "stats": {
+        "defense": 14,
+        "blockChance": 20
+      },
+      "requirements": {
+        "level": 3,
+        "str": 9,
+        "con": 9
+      },
+      "spriteId": "elf_shield_04"
+    },
+    {
+      "id": "starlight_cross_shield",
+      "nameKo": "별빛 십자 방패",
+      "nameEn": "Starlight Cross Shield",
+      "description": "별빛 십자 방패. 방패 장비.",
+      "rarity": "rare",
+      "value": 480,
+      "weight": 4,
+      "color": null,
+      "stats": {
+        "defense": 16,
+        "blockChance": 25
+      },
+      "requirements": {
+        "level": 5,
+        "str": 11,
+        "con": 11
+      },
+      "spriteId": "elf_weapon_16"
+    },
+    {
+      "id": "orc_round_shield",
+      "nameKo": "오크 원형 방패",
+      "nameEn": "Orc Round Shield",
+      "description": "오크 원형 방패. 방패 장비.",
+      "rarity": "crude",
+      "value": 60,
+      "weight": 4,
+      "color": null,
+      "stats": {
+        "defense": 8,
+        "blockChance": 12
+      },
+      "requirements": {
+        "level": 1,
+        "str": 5,
+        "con": 5
+      },
+      "spriteId": "orc_shield_01"
+    },
+    {
+      "id": "knights_crest_shield",
+      "nameKo": "기사 문장 방패",
+      "nameEn": "Knight's Crest Shield",
+      "description": "기사 문장 방패. 방패 장비.",
+      "rarity": "grand",
+      "value": 240,
+      "weight": 4,
+      "color": null,
+      "stats": {
+        "defense": 14,
+        "blockChance": 20
+      },
+      "requirements": {
+        "level": 3,
+        "str": 9,
+        "con": 9
+      },
+      "spriteId": "shield_knight_2"
+    },
+    {
+      "id": "rose_emblem_shield",
+      "nameKo": "장미 문양 방패",
+      "nameEn": "Rose Emblem Shield",
+      "description": "장미 문양 방패. 방패 장비.",
+      "rarity": "grand",
+      "value": 240,
+      "weight": 4,
+      "color": null,
+      "stats": {
+        "defense": 14,
+        "blockChance": 20
+      },
+      "requirements": {
+        "level": 3,
+        "str": 9,
+        "con": 9
+      },
+      "spriteId": "shield_sorceress"
+    },
+    {
+      "id": "iron_buckler",
+      "nameKo": "무쇠 버클러",
+      "nameEn": "Iron Buckler",
+      "description": "무쇠 버클러. 방패 장비.",
+      "rarity": "crude",
+      "value": 60,
+      "weight": 4,
+      "color": null,
+      "stats": {
+        "defense": 8,
+        "blockChance": 12
+      },
+      "requirements": {
+        "level": 1,
+        "str": 5,
+        "con": 5
+      },
+      "spriteId": "shield_1"
     }
   ]
 }

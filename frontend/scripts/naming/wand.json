@@ -1,0 +1,262 @@
+{
+  "category": "wand",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Weapon_01",
+      "spriteId": "elf_weapon_01",
+      "existingItems": [
+        {
+          "id": "apprentice_wand",
+          "nameKo": "견습 마법사의 지팡이",
+          "nameEn": "Apprentice Wand"
+        },
+        {
+          "id": "oak_wand",
+          "nameKo": "참나무 지팡이",
+          "nameEn": "Oak Wand"
+        }
+      ],
+      "action": "review",
+      "nameKo": "은십자 지팡이",
+      "nameEn": "Silver Cross Staff",
+      "rarity": "rare"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Weapon_04",
+      "spriteId": "elf_weapon_04",
+      "existingItems": [
+        {
+          "id": "crystal_wand",
+          "nameKo": "수정 지팡이",
+          "nameEn": "Crystal Wand"
+        }
+      ],
+      "action": "review",
+      "nameKo": "불꽃 구슬 지팡이",
+      "nameEn": "Flame Orb Wand",
+      "rarity": "rare"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Weapon_09",
+      "spriteId": "elf_weapon_09",
+      "existingItems": [
+        {
+          "id": "fire_wand",
+          "nameKo": "화염 지팡이",
+          "nameEn": "Fire Wand"
+        },
+        {
+          "id": "ice_wand",
+          "nameKo": "냉기 지팡이",
+          "nameEn": "Ice Wand"
+        },
+        {
+          "id": "lightning_wand",
+          "nameKo": "번개 지팡이",
+          "nameEn": "Lightning Wand"
+        }
+      ],
+      "action": "review",
+      "nameKo": "덩굴 감긴 지팡이",
+      "nameEn": "Vine-Wrapped Wand",
+      "rarity": "grand"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Weapon_10",
+      "spriteId": "elf_weapon_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "에메랄드 가지 지팡이",
+      "nameEn": "Emerald Branch Staff",
+      "rarity": "rare"
+    },
+    {
+      "index": 4,
+      "sprite": "Elf_Weapon_12",
+      "spriteId": "elf_weapon_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "루비 결정 완드",
+      "nameEn": "Ruby Crystal Wand",
+      "rarity": "rare"
+    },
+    {
+      "index": 5,
+      "sprite": "Elf_Weapon_15",
+      "spriteId": "elf_weapon_15",
+      "existingItems": [
+        {
+          "id": "archmage_staff",
+          "nameKo": "대마법사의 지팡이",
+          "nameEn": "Archmage Staff"
+        }
+      ],
+      "action": "review",
+      "nameKo": "대마법사의 지팡이",
+      "nameEn": "Archmage Staff",
+      "rarity": "heroic"
+    },
+    {
+      "index": 6,
+      "sprite": "Elf_Weapon_20",
+      "spriteId": "elf_weapon_20",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "화염 소용돌이 완드",
+      "nameEn": "Flame Swirl Wand",
+      "rarity": "arcane"
+    },
+    {
+      "index": 7,
+      "sprite": "Orc_Weapon_04",
+      "spriteId": "orc_weapon_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "루비 촉 완드",
+      "nameEn": "Ruby-Tipped Wand",
+      "rarity": "grand"
+    },
+    {
+      "index": 8,
+      "sprite": "Orc_Weapon_08",
+      "spriteId": "orc_weapon_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "나무 잔가지 완드",
+      "nameEn": "Twig Wand",
+      "rarity": "crude"
+    },
+    {
+      "index": 9,
+      "sprite": "Orc_Weapon_09",
+      "spriteId": "orc_weapon_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "굽은 나무 지팡이",
+      "nameEn": "Crooked Wooden Staff",
+      "rarity": "common"
+    },
+    {
+      "index": 10,
+      "sprite": "Undead_Weapon_01",
+      "spriteId": "undead_weapon_01",
+      "existingItems": [
+        {
+          "id": "shadow_staff",
+          "nameKo": "암흑 지팡이",
+          "nameEn": "Shadow Staff"
+        }
+      ],
+      "action": "review",
+      "nameKo": "잿빛 강철 지팡이",
+      "nameEn": "Ashen Steel Staff",
+      "rarity": "common"
+    },
+    {
+      "index": 11,
+      "sprite": "Undead_Weapon_02",
+      "spriteId": "undead_weapon_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "그림자 낫 지팡이",
+      "nameEn": "Shadow Sickle Wand",
+      "rarity": "grand"
+    },
+    {
+      "index": 12,
+      "sprite": "Undead_Weapon_07",
+      "spriteId": "undead_weapon_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "뼈 완드",
+      "nameEn": "Bone Wand",
+      "rarity": "common"
+    },
+    {
+      "index": 13,
+      "sprite": "Undead_Weapon_09",
+      "spriteId": "undead_weapon_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "해골 날개 지팡이",
+      "nameEn": "Winged Skull Staff",
+      "rarity": "rare"
+    },
+    {
+      "index": 14,
+      "sprite": "Weapon_Healer_1",
+      "spriteId": "weapon_healer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "치유사의 수정 지팡이",
+      "nameEn": "Healer's Crystal Staff",
+      "rarity": "rare"
+    },
+    {
+      "index": 15,
+      "sprite": "Weapon_Healer_2",
+      "spriteId": "weapon_healer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "황금 성직자 지팡이",
+      "nameEn": "Golden Cleric Staff",
+      "rarity": "heroic"
+    },
+    {
+      "index": 16,
+      "sprite": "Weapon_Sorcerer",
+      "spriteId": "weapon_sorcerer",
+      "existingItems": [
+        {
+          "id": "divine_staff",
+          "nameKo": "신성 지팡이",
+          "nameEn": "Divine Staff"
+        }
+      ],
+      "action": "review",
+      "nameKo": "핏빛 구슬 지팡이",
+      "nameEn": "Blood Orb Staff",
+      "rarity": "rare"
+    },
+    {
+      "index": 17,
+      "sprite": "Weapon_Sorceress",
+      "spriteId": "weapon_sorceress",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "자수정 황금 완드",
+      "nameEn": "Golden Amethyst Wand",
+      "rarity": "arcane"
+    },
+    {
+      "index": 18,
+      "sprite": "Ward_1",
+      "spriteId": "ward_1",
+      "existingItems": [
+        {
+          "id": "legendary_staff",
+          "nameKo": "전설의 지팡이",
+          "nameEn": "Legendary Staff"
+        }
+      ],
+      "action": "review",
+      "nameKo": "붉은 촉 나무 완드",
+      "nameEn": "Red-Tipped Wooden Wand",
+      "rarity": "common"
+    },
+    {
+      "index": 19,
+      "sprite": "New_Weapon_03",
+      "spriteId": "new_weapon_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "석류석 완드",
+      "nameEn": "Garnet Wand",
+      "rarity": "grand"
+    }
+  ]
+}

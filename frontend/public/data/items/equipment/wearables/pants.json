@@ -23,8 +23,8 @@
     },
     {
       "id": "leather_pants",
-      "nameKo": "가죽 바지",
-      "nameEn": "Leather Pants",
+      "nameKo": "주홍 비단 바지",
+      "nameEn": "Scarlet Silk Pants",
       "description": "가죽으로 만든 바지.",
       "rarity": "common",
       "value": 60,
@@ -41,8 +41,8 @@
     },
     {
       "id": "chain_leggings",
-      "nameKo": "쇠사슬 바지",
-      "nameEn": "Chain Leggings",
+      "nameKo": "주황 천 바지",
+      "nameEn": "Orange Cloth Pants",
       "description": "쇠사슬을 엮어 만든 바지.",
       "rarity": "grand",
       "value": 200,
@@ -79,8 +79,8 @@
     },
     {
       "id": "mage_pants",
-      "nameKo": "마법사의 바지",
-      "nameEn": "Mage Pants",
+      "nameKo": "오크 가죽 바지",
+      "nameEn": "Orc Leather Pants",
       "description": "마법사가 입는 로브 바지.",
       "rarity": "rare",
       "value": 400,
@@ -100,8 +100,8 @@
     },
     {
       "id": "knight_leggings",
-      "nameKo": "기사의 각반",
-      "nameEn": "Knight's Leggings",
+      "nameKo": "낡은 가죽 각반",
+      "nameEn": "Worn Leather Leggings",
       "description": "왕국 기사단의 각반.",
       "rarity": "arcane",
       "value": 1200,
@@ -146,8 +146,8 @@
     },
     {
       "id": "legendary_pants",
-      "nameKo": "전설의 각반",
-      "nameEn": "Legendary Leggings",
+      "nameKo": "밤도둑의 검은 바지",
+      "nameEn": "Nightthief's Black Pants",
       "description": "어떤 공격도 막아내는 전설의 각반.",
       "rarity": "legendary",
       "value": 50000,
@@ -164,6 +164,890 @@
         "con": 25
       },
       "spriteId": "pant_rogue_2"
+    },
+    {
+      "id": "pink_cloth_pants",
+      "nameKo": "분홍 천 바지",
+      "nameEn": "Pink Cloth Pants",
+      "description": "분홍 천 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_pant_02"
+    },
+    {
+      "id": "dark_brown_cloth_pants",
+      "nameKo": "짙은 갈색 천 바지",
+      "nameEn": "Dark Brown Cloth Pants",
+      "description": "짙은 갈색 천 바지. 하의 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_pant_03"
+    },
+    {
+      "id": "yellow_silk_pants",
+      "nameKo": "노란 비단 바지",
+      "nameEn": "Yellow Silk Pants",
+      "description": "노란 비단 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_04"
+    },
+    {
+      "id": "navy_traveler_pants",
+      "nameKo": "남색 여행자 바지",
+      "nameEn": "Navy Traveler Pants",
+      "description": "남색 여행자 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_pant_05"
+    },
+    {
+      "id": "brown_leather_pants",
+      "nameKo": "갈색 가죽 바지",
+      "nameEn": "Brown Leather Pants",
+      "description": "갈색 가죽 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_pant_07"
+    },
+    {
+      "id": "black_hunter_pants",
+      "nameKo": "검은 사냥꾼 바지",
+      "nameEn": "Black Hunter Pants",
+      "description": "검은 사냥꾼 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_08"
+    },
+    {
+      "id": "white_cloth_pants",
+      "nameKo": "흰 천 바지",
+      "nameEn": "White Cloth Pants",
+      "description": "흰 천 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_pant_09"
+    },
+    {
+      "id": "green_forestkeeper_pants",
+      "nameKo": "초록 숲지기 바지",
+      "nameEn": "Green Forestkeeper Pants",
+      "description": "초록 숲지기 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_10"
+    },
+    {
+      "id": "red_trimmed_black_pants",
+      "nameKo": "붉은 단 검은 바지",
+      "nameEn": "Red-Trimmed Black Pants",
+      "description": "붉은 단 검은 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_12"
+    },
+    {
+      "id": "white_dress_pants",
+      "nameKo": "흰 정장 바지",
+      "nameEn": "White Dress Pants",
+      "description": "흰 정장 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_13"
+    },
+    {
+      "id": "red_dancer_shorts",
+      "nameKo": "붉은 무용수 반바지",
+      "nameEn": "Red Dancer Shorts",
+      "description": "붉은 무용수 반바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_14"
+    },
+    {
+      "id": "navy_cloth_pants",
+      "nameKo": "남색 천 바지",
+      "nameEn": "Navy Cloth Pants",
+      "description": "남색 천 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_pant_15"
+    },
+    {
+      "id": "silvery_white_pants",
+      "nameKo": "은백색 바지",
+      "nameEn": "Silvery White Pants",
+      "description": "은백색 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_17"
+    },
+    {
+      "id": "amber_shorts",
+      "nameKo": "호박색 반바지",
+      "nameEn": "Amber Shorts",
+      "description": "호박색 반바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_pant_18"
+    },
+    {
+      "id": "indigo_pants",
+      "nameKo": "남보라 바지",
+      "nameEn": "Indigo Pants",
+      "description": "남보라 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_19"
+    },
+    {
+      "id": "pale_blue_pants",
+      "nameKo": "옅은 하늘색 바지",
+      "nameEn": "Pale Blue Pants",
+      "description": "옅은 하늘색 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_pant_20"
+    },
+    {
+      "id": "russet_warrior_pants",
+      "nameKo": "적갈색 전사 바지",
+      "nameEn": "Russet Warrior Pants",
+      "description": "적갈색 전사 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "orc_pant_02"
+    },
+    {
+      "id": "orc_hunting_pants",
+      "nameKo": "오크 사냥 바지",
+      "nameEn": "Orc Hunting Pants",
+      "description": "오크 사냥 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "orc_pant_03"
+    },
+    {
+      "id": "purple_shaman_pants",
+      "nameKo": "보랏빛 주술사 바지",
+      "nameEn": "Purple Shaman Pants",
+      "description": "보랏빛 주술사 바지. 하의 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 6
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "orc_pant_04"
+    },
+    {
+      "id": "blue_wraith_pants",
+      "nameKo": "푸른 망령 바지",
+      "nameEn": "Blue Wraith Pants",
+      "description": "푸른 망령 바지. 하의 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 6
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "undead_pant_01"
+    },
+    {
+      "id": "gravekeeper_pants",
+      "nameKo": "무덤지기 바지",
+      "nameEn": "Gravekeeper Pants",
+      "description": "무덤지기 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "undead_pant_03"
+    },
+    {
+      "id": "rotten_black_shorts",
+      "nameKo": "삭은 검은 반바지",
+      "nameEn": "Rotten Black Shorts",
+      "description": "삭은 검은 반바지. 하의 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "undead_pant_04"
+    },
+    {
+      "id": "deadmans_navy_pants",
+      "nameKo": "망자의 남색 바지",
+      "nameEn": "Deadman's Navy Pants",
+      "description": "망자의 남색 바지. 하의 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 6
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "undead_pant_05"
+    },
+    {
+      "id": "red_trimmed_white_pants",
+      "nameKo": "붉은 단 흰 바지",
+      "nameEn": "Red-Trimmed White Pants",
+      "description": "붉은 단 흰 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "foot_m01"
+    },
+    {
+      "id": "ashen_leggings",
+      "nameKo": "잿빛 각반",
+      "nameEn": "Ashen Leggings",
+      "description": "잿빛 각반. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "foot_m03"
+    },
+    {
+      "id": "blue_cotton_pants",
+      "nameKo": "파란 무명 바지",
+      "nameEn": "Blue Cotton Pants",
+      "description": "파란 무명 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "foot_m04"
+    },
+    {
+      "id": "black_cloth_pants",
+      "nameKo": "검은 천 바지",
+      "nameEn": "Black Cloth Pants",
+      "description": "검은 천 바지. 하의 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "foot_m05"
+    },
+    {
+      "id": "archers_leather_pants",
+      "nameKo": "궁수의 가죽 바지",
+      "nameEn": "Archer's Leather Pants",
+      "description": "궁수의 가죽 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "pant_archer_2"
+    },
+    {
+      "id": "healers_pink_pants",
+      "nameKo": "치유사의 연분홍 바지",
+      "nameEn": "Healer's Pink Pants",
+      "description": "치유사의 연분홍 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "pant_healer_1"
+    },
+    {
+      "id": "healers_brown_pants",
+      "nameKo": "치유사의 갈색 바지",
+      "nameEn": "Healer's Brown Pants",
+      "description": "치유사의 갈색 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "pant_healer_2"
+    },
+    {
+      "id": "knights_blue_pants",
+      "nameKo": "기사의 푸른 바지",
+      "nameEn": "Knight's Blue Pants",
+      "description": "기사의 푸른 바지. 하의 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 6
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "pant_knight_1"
+    },
+    {
+      "id": "knights_brown_leggings",
+      "nameKo": "기사의 갈색 각반",
+      "nameEn": "Knight's Brown Leggings",
+      "description": "기사의 갈색 각반. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "pant_knight_2"
+    },
+    {
+      "id": "rogues_brown_pants",
+      "nameKo": "도적의 갈색 바지",
+      "nameEn": "Rogue's Brown Pants",
+      "description": "도적의 갈색 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "pant_rogue_1"
+    },
+    {
+      "id": "sorcerers_white_pants",
+      "nameKo": "마도사의 흰 바지",
+      "nameEn": "Sorcerer's White Pants",
+      "description": "마도사의 흰 바지. 하의 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 6
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "pant_sorcerer"
+    },
+    {
+      "id": "sorceresss_red_pants",
+      "nameKo": "요술사의 붉은 바지",
+      "nameEn": "Sorceress's Red Pants",
+      "description": "요술사의 붉은 바지. 하의 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 6
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "pant_sorceress"
+    },
+    {
+      "id": "white_cotton_pants",
+      "nameKo": "흰 무명 바지",
+      "nameEn": "White Cotton Pants",
+      "description": "흰 무명 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "f_sr_pants"
+    },
+    {
+      "id": "deep_navy_pants",
+      "nameKo": "짙은 감청 바지",
+      "nameEn": "Deep Navy Pants",
+      "description": "짙은 감청 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "foot_1"
+    },
+    {
+      "id": "tan_leather_pants",
+      "nameKo": "황갈색 가죽 바지",
+      "nameEn": "Tan Leather Pants",
+      "description": "황갈색 가죽 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "foot_2"
+    },
+    {
+      "id": "purple_cloth_pants",
+      "nameKo": "보라 천 바지",
+      "nameEn": "Purple Cloth Pants",
+      "description": "보라 천 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "foot_3"
+    },
+    {
+      "id": "dark_green_pants",
+      "nameKo": "어두운 초록 바지",
+      "nameEn": "Dark Green Pants",
+      "description": "어두운 초록 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "foot_4"
+    },
+    {
+      "id": "night_sky_pants",
+      "nameKo": "밤하늘색 바지",
+      "nameEn": "Night Sky Pants",
+      "description": "밤하늘색 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_pant_01"
+    },
+    {
+      "id": "worn_brown_pants",
+      "nameKo": "낡은 갈색 바지",
+      "nameEn": "Worn Brown Pants",
+      "description": "낡은 갈색 바지. 하의 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_pant_02"
+    },
+    {
+      "id": "blue_cloth_pants",
+      "nameKo": "청색 천 바지",
+      "nameEn": "Blue Cloth Pants",
+      "description": "청색 천 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_pant_03"
+    },
+    {
+      "id": "navy_leather_pants",
+      "nameKo": "감청 가죽 바지",
+      "nameEn": "Navy Leather Pants",
+      "description": "감청 가죽 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_pant_04"
+    },
+    {
+      "id": "light_gray_cloth_pants",
+      "nameKo": "연회색 천 바지",
+      "nameEn": "Light Gray Cloth Pants",
+      "description": "연회색 천 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_pant_05"
+    },
+    {
+      "id": "flame_patterned_pants",
+      "nameKo": "불꽃 무늬 바지",
+      "nameEn": "Flame-Patterned Pants",
+      "description": "불꽃 무늬 바지. 하의 장비.",
+      "rarity": "heroic",
+      "value": 900,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 12
+      },
+      "spriteId": "new_pant_06"
+    },
+    {
+      "id": "red_cloth_pants",
+      "nameKo": "붉은 천 바지",
+      "nameEn": "Red Cloth Pants",
+      "description": "붉은 천 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_pant_07"
+    },
+    {
+      "id": "pure_white_priest_pants",
+      "nameKo": "새하얀 사제 바지",
+      "nameEn": "Pure White Priest Pants",
+      "description": "새하얀 사제 바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "new_pant_08"
+    },
+    {
+      "id": "green_cloth_pants",
+      "nameKo": "초록 천 바지",
+      "nameEn": "Green Cloth Pants",
+      "description": "초록 천 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_pant_09"
+    },
+    {
+      "id": "crimson_shorts",
+      "nameKo": "진홍 반바지",
+      "nameEn": "Crimson Shorts",
+      "description": "진홍 반바지. 하의 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "new_pant_10"
+    },
+    {
+      "id": "deep_blue_cloth_pants",
+      "nameKo": "쪽빛 천 바지",
+      "nameEn": "Deep Blue Cloth Pants",
+      "description": "쪽빛 천 바지. 하의 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_pant_11"
+    },
+    {
+      "id": "magenta_arcane_pants",
+      "nameKo": "자주색 마법 바지",
+      "nameEn": "Magenta Arcane Pants",
+      "description": "자주색 마법 바지. 하의 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 1.5,
+      "color": null,
+      "stats": {
+        "defense": 6
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "new_pant_12"
     }
   ]
 }

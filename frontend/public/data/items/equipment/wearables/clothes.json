@@ -41,8 +41,8 @@
     },
     {
       "id": "reinforced_clothes",
-      "nameKo": "강화된 옷",
-      "nameEn": "Reinforced Clothes",
+      "nameKo": "오크풍 허리 두르개",
+      "nameEn": "Orcish Waist Wrap",
       "description": "가죽으로 보강된 옷.",
       "rarity": "grand",
       "value": 180,
@@ -59,8 +59,8 @@
     },
     {
       "id": "rogue_outfit",
-      "nameKo": "도적의 복장",
-      "nameEn": "Rogue's Outfit",
+      "nameKo": "언데드풍 핏빛 로브",
+      "nameEn": "Undead Crimson Robe",
       "description": "도적들이 애용하는 검은 옷.",
       "rarity": "rare",
       "value": 450,
@@ -79,8 +79,8 @@
     },
     {
       "id": "hunter_garb",
-      "nameKo": "사냥꾼의 의복",
-      "nameEn": "Hunter's Garb",
+      "nameKo": "청백 체크 원피스",
+      "nameEn": "Blue-White Check Dress",
       "description": "사냥꾼이 입는 기능적인 옷.",
       "rarity": "rare",
       "value": 500,
@@ -99,8 +99,8 @@
     },
     {
       "id": "shadow_garb",
-      "nameKo": "그림자의 의복",
-      "nameEn": "Shadow Garb",
+      "nameKo": "흰 카디건과 자주 원피스",
+      "nameEn": "White Cardigan with Plum Dress",
       "description": "어둠에 녹아드는 검은 옷.",
       "rarity": "arcane",
       "value": 1500,
@@ -120,8 +120,8 @@
     },
     {
       "id": "assassin_attire",
-      "nameKo": "암살자의 복장",
-      "nameEn": "Assassin's Attire",
+      "nameKo": "남색 정장",
+      "nameEn": "Navy Suit",
       "description": "암살 길드의 특수 복장.",
       "rarity": "heroic",
       "value": 4000,
@@ -142,8 +142,8 @@
     },
     {
       "id": "legendary_clothes",
-      "nameKo": "전설의 의복",
-      "nameEn": "Legendary Clothes",
+      "nameKo": "물방울 무늬 분홍 티셔츠",
+      "nameEn": "Dotted Pink Tee",
       "description": "바람처럼 빠르다는 전설의 옷.",
       "rarity": "legendary",
       "value": 55000,
@@ -162,6 +162,2097 @@
         "dex": 30
       },
       "spriteId": "tee_3_c1"
+    },
+    {
+      "id": "elven_pink_blouse",
+      "nameKo": "엘프풍 분홍 블라우스",
+      "nameEn": "Elven Pink Blouse",
+      "description": "엘프풍 분홍 블라우스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_02"
+    },
+    {
+      "id": "elven_blue_tunic",
+      "nameKo": "엘프풍 푸른 튜닉",
+      "nameEn": "Elven Blue Tunic",
+      "description": "엘프풍 푸른 튜닉. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_03"
+    },
+    {
+      "id": "elven_brown_jacket",
+      "nameKo": "엘프풍 갈색 재킷",
+      "nameEn": "Elven Brown Jacket",
+      "description": "엘프풍 갈색 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_04"
+    },
+    {
+      "id": "elven_brown_travel_shirt",
+      "nameKo": "엘프풍 갈색 여행 셔츠",
+      "nameEn": "Elven Brown Travel Shirt",
+      "description": "엘프풍 갈색 여행 셔츠. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_05"
+    },
+    {
+      "id": "elven_green_hunter_top",
+      "nameKo": "엘프풍 녹색 사냥꾼 상의",
+      "nameEn": "Elven Green Hunter Top",
+      "description": "엘프풍 녹색 사냥꾼 상의. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_cloth_06"
+    },
+    {
+      "id": "elven_blue_sashed_shirt",
+      "nameKo": "엘프풍 청색 띠 셔츠",
+      "nameEn": "Elven Blue-Sashed Shirt",
+      "description": "엘프풍 청색 띠 셔츠. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_07"
+    },
+    {
+      "id": "elven_brown_vest_shirt",
+      "nameKo": "엘프풍 갈색 조끼 셔츠",
+      "nameEn": "Elven Brown Vest Shirt",
+      "description": "엘프풍 갈색 조끼 셔츠. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_08"
+    },
+    {
+      "id": "elven_dark_brown_vest",
+      "nameKo": "엘프풍 짙은 갈색 조끼",
+      "nameEn": "Elven Dark Brown Vest",
+      "description": "엘프풍 짙은 갈색 조끼. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_09"
+    },
+    {
+      "id": "elven_green_sashed_dress",
+      "nameKo": "엘프풍 녹색 띠 원피스",
+      "nameEn": "Elven Green-Sashed Dress",
+      "description": "엘프풍 녹색 띠 원피스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_10"
+    },
+    {
+      "id": "elven_red_ceremonial_coat",
+      "nameKo": "엘프풍 붉은 예복 코트",
+      "nameEn": "Elven Red Ceremonial Coat",
+      "description": "엘프풍 붉은 예복 코트. 옷 장비.",
+      "rarity": "rare",
+      "value": 160,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_cloth_12"
+    },
+    {
+      "id": "elven_sky_blue_jacket",
+      "nameKo": "엘프풍 하늘색 재킷",
+      "nameEn": "Elven Sky-Blue Jacket",
+      "description": "엘프풍 하늘색 재킷. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_cloth_13"
+    },
+    {
+      "id": "elven_red_sashed_blouse",
+      "nameKo": "엘프풍 붉은 띠 블라우스",
+      "nameEn": "Elven Red-Sashed Blouse",
+      "description": "엘프풍 붉은 띠 블라우스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_14"
+    },
+    {
+      "id": "elven_white_silk_shirt",
+      "nameKo": "엘프풍 흰 비단 셔츠",
+      "nameEn": "Elven White Silk Shirt",
+      "description": "엘프풍 흰 비단 셔츠. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_cloth_15"
+    },
+    {
+      "id": "elven_navy_formal_garb",
+      "nameKo": "엘프풍 남색 관복",
+      "nameEn": "Elven Navy Formal Garb",
+      "description": "엘프풍 남색 관복. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_cloth_16"
+    },
+    {
+      "id": "elven_navy_jacket",
+      "nameKo": "엘프풍 남색 재킷",
+      "nameEn": "Elven Navy Jacket",
+      "description": "엘프풍 남색 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_cloth_17"
+    },
+    {
+      "id": "elven_white_vestment",
+      "nameKo": "엘프풍 흰 사제복",
+      "nameEn": "Elven White Vestment",
+      "description": "엘프풍 흰 사제복. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_cloth_18"
+    },
+    {
+      "id": "elven_epauletted_shirt",
+      "nameKo": "엘프풍 견장 달린 셔츠",
+      "nameEn": "Elven Epauletted Shirt",
+      "description": "엘프풍 견장 달린 셔츠. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_cloth_19"
+    },
+    {
+      "id": "elven_white_officer_coat",
+      "nameKo": "엘프풍 흰 장교 코트",
+      "nameEn": "Elven White Officer Coat",
+      "description": "엘프풍 흰 장교 코트. 옷 장비.",
+      "rarity": "rare",
+      "value": 160,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_cloth_20"
+    },
+    {
+      "id": "orcish_leather_vest",
+      "nameKo": "오크풍 가죽 조끼",
+      "nameEn": "Orcish Leather Vest",
+      "description": "오크풍 가죽 조끼. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "orc_cloth_02"
+    },
+    {
+      "id": "orcish_bone_trimmed_shoulder_wrap",
+      "nameKo": "오크풍 뼈 장식 어깨걸이",
+      "nameEn": "Orcish Bone-Trimmed Shoulder Wrap",
+      "description": "오크풍 뼈 장식 어깨걸이. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "orc_cloth_03"
+    },
+    {
+      "id": "orcish_leather_baldric_2",
+      "nameKo": "오크풍 가죽 어깨끈",
+      "nameEn": "Orcish Leather Baldric",
+      "description": "오크풍 가죽 어깨끈. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "orc_cloth_04"
+    },
+    {
+      "id": "orcish_black_loincloth",
+      "nameKo": "오크풍 검은 허리천",
+      "nameEn": "Orcish Black Loincloth",
+      "description": "오크풍 검은 허리천. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "orc_cloth_05"
+    },
+    {
+      "id": "ragged_blue_waistband",
+      "nameKo": "누더기 푸른 허리띠",
+      "nameEn": "Ragged Blue Waistband",
+      "description": "누더기 푸른 허리띠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "undead_cloth_01"
+    },
+    {
+      "id": "undead_bloodied_rags",
+      "nameKo": "언데드풍 핏빛 누더기",
+      "nameEn": "Undead Bloodied Rags",
+      "description": "언데드풍 핏빛 누더기. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "undead_cloth_02"
+    },
+    {
+      "id": "undead_worn_leather_tatters",
+      "nameKo": "언데드풍 낡은 가죽 누더기",
+      "nameEn": "Undead Worn Leather Tatters",
+      "description": "언데드풍 낡은 가죽 누더기. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "undead_cloth_03"
+    },
+    {
+      "id": "undead_dark_wristwraps",
+      "nameKo": "언데드풍 검푸른 손목 감개",
+      "nameEn": "Undead Dark Wristwraps",
+      "description": "언데드풍 검푸른 손목 감개. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "undead_cloth_04"
+    },
+    {
+      "id": "undead_navy_waist_rags",
+      "nameKo": "언데드풍 남색 허리 누더기",
+      "nameEn": "Undead Navy Waist Rags",
+      "description": "언데드풍 남색 허리 누더기. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "undead_cloth_05"
+    },
+    {
+      "id": "undead_tattered_maroon_coat",
+      "nameKo": "언데드풍 해진 암적색 코트",
+      "nameEn": "Undead Tattered Maroon Coat",
+      "description": "언데드풍 해진 암적색 코트. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "undead_cloth_07"
+    },
+    {
+      "id": "pink_blouse",
+      "nameKo": "분홍 블라우스",
+      "nameEn": "Pink Blouse",
+      "description": "분홍 블라우스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_1"
+    },
+    {
+      "id": "light_green_blouse",
+      "nameKo": "연두색 블라우스",
+      "nameEn": "Light Green Blouse",
+      "description": "연두색 블라우스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_1_c1"
+    },
+    {
+      "id": "purple_blouse",
+      "nameKo": "보라색 블라우스",
+      "nameEn": "Purple Blouse",
+      "description": "보라색 블라우스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_1_c2"
+    },
+    {
+      "id": "gray_blouse",
+      "nameKo": "회색 블라우스",
+      "nameEn": "Gray Blouse",
+      "description": "회색 블라우스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_1_g"
+    },
+    {
+      "id": "blue_diamond_pattern_sweater",
+      "nameKo": "파란 다이아 무늬 스웨터",
+      "nameEn": "Blue Diamond-Pattern Sweater",
+      "description": "파란 다이아 무늬 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_2"
+    },
+    {
+      "id": "magenta_diamond_pattern_sweater",
+      "nameKo": "자홍색 다이아 무늬 스웨터",
+      "nameEn": "Magenta Diamond-Pattern Sweater",
+      "description": "자홍색 다이아 무늬 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_2_c1"
+    },
+    {
+      "id": "yellow_diamond_pattern_sweater",
+      "nameKo": "노란 다이아 무늬 스웨터",
+      "nameEn": "Yellow Diamond-Pattern Sweater",
+      "description": "노란 다이아 무늬 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_2_c2"
+    },
+    {
+      "id": "gray_diamond_pattern_sweater",
+      "nameKo": "회색 다이아 무늬 스웨터",
+      "nameEn": "Gray Diamond-Pattern Sweater",
+      "description": "회색 다이아 무늬 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_2_g"
+    },
+    {
+      "id": "red_white_check_dress",
+      "nameKo": "적백 체크 원피스",
+      "nameEn": "Red-White Check Dress",
+      "description": "적백 체크 원피스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_3_c1"
+    },
+    {
+      "id": "teal_check_dress",
+      "nameKo": "청록 체크 원피스",
+      "nameEn": "Teal Check Dress",
+      "description": "청록 체크 원피스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_3_c2"
+    },
+    {
+      "id": "gray_check_dress",
+      "nameKo": "회백 체크 원피스",
+      "nameEn": "Gray Check Dress",
+      "description": "회백 체크 원피스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_3_g"
+    },
+    {
+      "id": "red_off_shoulder_top",
+      "nameKo": "붉은 오프숄더 상의",
+      "nameEn": "Red Off-Shoulder Top",
+      "description": "붉은 오프숄더 상의. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_4"
+    },
+    {
+      "id": "pink_off_shoulder_top",
+      "nameKo": "분홍 오프숄더 상의",
+      "nameEn": "Pink Off-Shoulder Top",
+      "description": "분홍 오프숄더 상의. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_4_c1"
+    },
+    {
+      "id": "black_off_shoulder_top",
+      "nameKo": "검은 오프숄더 상의",
+      "nameEn": "Black Off-Shoulder Top",
+      "description": "검은 오프숄더 상의. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_4_c2"
+    },
+    {
+      "id": "gray_off_shoulder_top",
+      "nameKo": "회색 오프숄더 상의",
+      "nameEn": "Gray Off-Shoulder Top",
+      "description": "회색 오프숄더 상의. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_4_g"
+    },
+    {
+      "id": "pink_cardigan_dress",
+      "nameKo": "분홍 카디건 원피스",
+      "nameEn": "Pink Cardigan Dress",
+      "description": "분홍 카디건 원피스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_5"
+    },
+    {
+      "id": "mint_cardigan_dress",
+      "nameKo": "민트 카디건 원피스",
+      "nameEn": "Mint Cardigan Dress",
+      "description": "민트 카디건 원피스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_5_c1"
+    },
+    {
+      "id": "gray_cardigan_dress",
+      "nameKo": "회색 카디건 원피스",
+      "nameEn": "Gray Cardigan Dress",
+      "description": "회색 카디건 원피스. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "dress_5_g"
+    },
+    {
+      "id": "blue_overalls",
+      "nameKo": "파란 멜빵 작업복",
+      "nameEn": "Blue Overalls",
+      "description": "파란 멜빵 작업복. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "farmer"
+    },
+    {
+      "id": "red_overalls",
+      "nameKo": "붉은 멜빵 작업복",
+      "nameEn": "Red Overalls",
+      "description": "붉은 멜빵 작업복. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "farmer_c1"
+    },
+    {
+      "id": "plum_overalls",
+      "nameKo": "자주색 멜빵 작업복",
+      "nameEn": "Plum Overalls",
+      "description": "자주색 멜빵 작업복. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "farmer_c2"
+    },
+    {
+      "id": "gray_overalls",
+      "nameKo": "회색 멜빵 작업복",
+      "nameEn": "Gray Overalls",
+      "description": "회색 멜빵 작업복. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "farmer_g"
+    },
+    {
+      "id": "slate_hoodie",
+      "nameKo": "회청색 후드티",
+      "nameEn": "Slate Hoodie",
+      "description": "회청색 후드티. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "hoodie"
+    },
+    {
+      "id": "yellow_hoodie",
+      "nameKo": "노란 후드티",
+      "nameEn": "Yellow Hoodie",
+      "description": "노란 후드티. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "hoodie_c1"
+    },
+    {
+      "id": "blue_hoodie",
+      "nameKo": "파란 후드티",
+      "nameEn": "Blue Hoodie",
+      "description": "파란 후드티. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "hoodie_c2"
+    },
+    {
+      "id": "black_suit",
+      "nameKo": "검은 정장",
+      "nameEn": "Black Suit",
+      "description": "검은 정장. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "suit_1"
+    },
+    {
+      "id": "purple_suit",
+      "nameKo": "보라색 정장",
+      "nameEn": "Purple Suit",
+      "description": "보라색 정장. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "suit_1_c2"
+    },
+    {
+      "id": "ashen_suit",
+      "nameKo": "잿빛 정장",
+      "nameEn": "Ashen Suit",
+      "description": "잿빛 정장. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "suit_1_g"
+    },
+    {
+      "id": "silver_open_jacket",
+      "nameKo": "은빛 열린 재킷",
+      "nameEn": "Silver Open Jacket",
+      "description": "은빛 열린 재킷. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "suit_2"
+    },
+    {
+      "id": "blue_open_jacket",
+      "nameKo": "파란 열린 재킷",
+      "nameEn": "Blue Open Jacket",
+      "description": "파란 열린 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "suit_2_c1"
+    },
+    {
+      "id": "red_open_jacket",
+      "nameKo": "붉은 열린 재킷",
+      "nameEn": "Red Open Jacket",
+      "description": "붉은 열린 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "suit_2_c2"
+    },
+    {
+      "id": "gray_open_jacket",
+      "nameKo": "회색 열린 재킷",
+      "nameEn": "Gray Open Jacket",
+      "description": "회색 열린 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "suit_2_g"
+    },
+    {
+      "id": "crimson_jacket",
+      "nameKo": "진홍색 재킷",
+      "nameEn": "Crimson Jacket",
+      "description": "진홍색 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "suit_3"
+    },
+    {
+      "id": "orange_jacket",
+      "nameKo": "주황색 재킷",
+      "nameEn": "Orange Jacket",
+      "description": "주황색 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "suit_3_c1"
+    },
+    {
+      "id": "lavender_jacket",
+      "nameKo": "연보라 재킷",
+      "nameEn": "Lavender Jacket",
+      "description": "연보라 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "suit_3_c2"
+    },
+    {
+      "id": "ashen_jacket",
+      "nameKo": "잿빛 재킷",
+      "nameEn": "Ashen Jacket",
+      "description": "잿빛 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "suit_3_g"
+    },
+    {
+      "id": "blue_striped_white_tee",
+      "nameKo": "파란 줄무늬 흰 티셔츠",
+      "nameEn": "Blue-Striped White Tee",
+      "description": "파란 줄무늬 흰 티셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_1"
+    },
+    {
+      "id": "red_striped_yellow_tee",
+      "nameKo": "빨간 줄무늬 노란 티셔츠",
+      "nameEn": "Red-Striped Yellow Tee",
+      "description": "빨간 줄무늬 노란 티셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_1_c1"
+    },
+    {
+      "id": "white_striped_black_tee",
+      "nameKo": "흰 줄무늬 검은 티셔츠",
+      "nameEn": "White-Striped Black Tee",
+      "description": "흰 줄무늬 검은 티셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_1_g1"
+    },
+    {
+      "id": "gray_striped_white_tee",
+      "nameKo": "회색 줄무늬 흰 티셔츠",
+      "nameEn": "Gray-Striped White Tee",
+      "description": "회색 줄무늬 흰 티셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_1_g2"
+    },
+    {
+      "id": "yellow_tank_top",
+      "nameKo": "노란 민소매 셔츠",
+      "nameEn": "Yellow Tank Top",
+      "description": "노란 민소매 셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_2"
+    },
+    {
+      "id": "orange_tank_top",
+      "nameKo": "주황 민소매 셔츠",
+      "nameEn": "Orange Tank Top",
+      "description": "주황 민소매 셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_2_c1"
+    },
+    {
+      "id": "teal_tank_top",
+      "nameKo": "청록 민소매 셔츠",
+      "nameEn": "Teal Tank Top",
+      "description": "청록 민소매 셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_2_c2"
+    },
+    {
+      "id": "gray_tank_top",
+      "nameKo": "회색 민소매 셔츠",
+      "nameEn": "Gray Tank Top",
+      "description": "회색 민소매 셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_2_g"
+    },
+    {
+      "id": "dotted_blue_tee",
+      "nameKo": "물방울 무늬 파란 티셔츠",
+      "nameEn": "Dotted Blue Tee",
+      "description": "물방울 무늬 파란 티셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_3"
+    },
+    {
+      "id": "dotted_yellow_tee",
+      "nameKo": "물방울 무늬 노란 티셔츠",
+      "nameEn": "Dotted Yellow Tee",
+      "description": "물방울 무늬 노란 티셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_3_c2"
+    },
+    {
+      "id": "dotted_gray_tee",
+      "nameKo": "물방울 무늬 회색 티셔츠",
+      "nameEn": "Dotted Gray Tee",
+      "description": "물방울 무늬 회색 티셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "tee_3_g"
+    },
+    {
+      "id": "brown_winter_jacket",
+      "nameKo": "갈색 겨울 재킷",
+      "nameEn": "Brown Winter Jacket",
+      "description": "갈색 겨울 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter1"
+    },
+    {
+      "id": "navy_winter_jacket",
+      "nameKo": "남색 겨울 재킷",
+      "nameEn": "Navy Winter Jacket",
+      "description": "남색 겨울 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter1_c1"
+    },
+    {
+      "id": "dark_red_winter_jacket",
+      "nameKo": "암적색 겨울 재킷",
+      "nameEn": "Dark Red Winter Jacket",
+      "description": "암적색 겨울 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter1_c2"
+    },
+    {
+      "id": "charcoal_winter_jacket",
+      "nameKo": "검회색 겨울 재킷",
+      "nameEn": "Charcoal Winter Jacket",
+      "description": "검회색 겨울 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter1_g"
+    },
+    {
+      "id": "mint_winter_coat",
+      "nameKo": "민트색 겨울 코트",
+      "nameEn": "Mint Winter Coat",
+      "description": "민트색 겨울 코트. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter2"
+    },
+    {
+      "id": "olive_winter_coat",
+      "nameKo": "올리브색 겨울 코트",
+      "nameEn": "Olive Winter Coat",
+      "description": "올리브색 겨울 코트. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter2_c1"
+    },
+    {
+      "id": "pink_winter_coat",
+      "nameKo": "분홍 겨울 코트",
+      "nameEn": "Pink Winter Coat",
+      "description": "분홍 겨울 코트. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter2_c2"
+    },
+    {
+      "id": "gray_winter_coat",
+      "nameKo": "회색 겨울 코트",
+      "nameEn": "Gray Winter Coat",
+      "description": "회색 겨울 코트. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter2_g"
+    },
+    {
+      "id": "burgundy_winter_sweater",
+      "nameKo": "자주색 겨울 스웨터",
+      "nameEn": "Burgundy Winter Sweater",
+      "description": "자주색 겨울 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter3"
+    },
+    {
+      "id": "brown_winter_sweater",
+      "nameKo": "갈색 겨울 스웨터",
+      "nameEn": "Brown Winter Sweater",
+      "description": "갈색 겨울 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter3_c1"
+    },
+    {
+      "id": "navy_winter_sweater",
+      "nameKo": "남색 겨울 스웨터",
+      "nameEn": "Navy Winter Sweater",
+      "description": "남색 겨울 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter3_c2"
+    },
+    {
+      "id": "gray_winter_sweater",
+      "nameKo": "회색 겨울 스웨터",
+      "nameEn": "Gray Winter Sweater",
+      "description": "회색 겨울 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "winter3_g"
+    },
+    {
+      "id": "archers_silver_trimmed_battledress",
+      "nameKo": "궁수의 은장식 전투복",
+      "nameEn": "Archer's Silver-Trimmed Battledress",
+      "description": "궁수의 은장식 전투복. 옷 장비.",
+      "rarity": "rare",
+      "value": 160,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "cloth_archer_1"
+    },
+    {
+      "id": "archers_green_tunic",
+      "nameKo": "궁수의 녹색 튜닉",
+      "nameEn": "Archer's Green Tunic",
+      "description": "궁수의 녹색 튜닉. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "cloth_archer_2"
+    },
+    {
+      "id": "healers_white_robe",
+      "nameKo": "치유사의 흰 로브",
+      "nameEn": "Healer's White Robe",
+      "description": "치유사의 흰 로브. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "cloth_healer_1"
+    },
+    {
+      "id": "healers_deep_green_robe",
+      "nameKo": "치유사의 짙은 녹색 로브",
+      "nameEn": "Healer's Deep Green Robe",
+      "description": "치유사의 짙은 녹색 로브. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "cloth_healer_2"
+    },
+    {
+      "id": "knights_dark_blue_battledress",
+      "nameKo": "기사의 군청색 전투복",
+      "nameEn": "Knight's Dark Blue Battledress",
+      "description": "기사의 군청색 전투복. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "cloth_knight_1"
+    },
+    {
+      "id": "knights_blue_war_garb",
+      "nameKo": "기사의 푸른 무장복",
+      "nameEn": "Knight's Blue War Garb",
+      "description": "기사의 푸른 무장복. 옷 장비.",
+      "rarity": "rare",
+      "value": 160,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "cloth_knight_2"
+    },
+    {
+      "id": "rogues_gray_pauldron_top",
+      "nameKo": "도적의 잿빛 견장 상의",
+      "nameEn": "Rogue's Gray-Pauldron Top",
+      "description": "도적의 잿빛 견장 상의. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "cloth_rogue_1"
+    },
+    {
+      "id": "rogues_brown_belted_top",
+      "nameKo": "도적의 갈색 혁대 상의",
+      "nameEn": "Rogue's Brown-Belted Top",
+      "description": "도적의 갈색 혁대 상의. 옷 장비.",
+      "rarity": "grand",
+      "value": 80,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "cloth_rogue_2"
+    },
+    {
+      "id": "sorcerers_black_vestment",
+      "nameKo": "마법사의 검은 예복",
+      "nameEn": "Sorcerer's Black Vestment",
+      "description": "마법사의 검은 예복. 옷 장비.",
+      "rarity": "rare",
+      "value": 160,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "cloth_sorcerer"
+    },
+    {
+      "id": "sorceresss_red_vest",
+      "nameKo": "마녀의 붉은 조끼",
+      "nameEn": "Sorceress's Red Vest",
+      "description": "마녀의 붉은 조끼. 옷 장비.",
+      "rarity": "rare",
+      "value": 160,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "cloth_sorceress"
+    },
+    {
+      "id": "violet_robe",
+      "nameKo": "보랏빛 로브",
+      "nameEn": "Violet Robe",
+      "description": "보랏빛 로브. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_1"
+    },
+    {
+      "id": "teal_travel_garb",
+      "nameKo": "청록색 여행복",
+      "nameEn": "Teal Travel Garb",
+      "description": "청록색 여행복. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_10"
+    },
+    {
+      "id": "blue_travel_jacket",
+      "nameKo": "푸른 여행 재킷",
+      "nameEn": "Blue Travel Jacket",
+      "description": "푸른 여행 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_11"
+    },
+    {
+      "id": "rose_shirt",
+      "nameKo": "장밋빛 셔츠",
+      "nameEn": "Rose Shirt",
+      "description": "장밋빛 셔츠. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_12"
+    },
+    {
+      "id": "crimson_robe",
+      "nameKo": "진홍색 로브",
+      "nameEn": "Crimson Robe",
+      "description": "진홍색 로브. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_2"
+    },
+    {
+      "id": "tan_shirt",
+      "nameKo": "황갈색 셔츠",
+      "nameEn": "Tan Shirt",
+      "description": "황갈색 셔츠. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_3"
+    },
+    {
+      "id": "green_sweater",
+      "nameKo": "초록 스웨터",
+      "nameEn": "Green Sweater",
+      "description": "초록 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_4"
+    },
+    {
+      "id": "pink_striped_tee",
+      "nameKo": "분홍 줄무늬 티셔츠",
+      "nameEn": "Pink Striped Tee",
+      "description": "분홍 줄무늬 티셔츠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_5"
+    },
+    {
+      "id": "yellow_sweater",
+      "nameKo": "노란 스웨터",
+      "nameEn": "Yellow Sweater",
+      "description": "노란 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_6"
+    },
+    {
+      "id": "deep_green_sweater",
+      "nameKo": "짙은 초록 스웨터",
+      "nameEn": "Deep Green Sweater",
+      "description": "짙은 초록 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_7"
+    },
+    {
+      "id": "brown_casual_shirt",
+      "nameKo": "갈색 평상복",
+      "nameEn": "Brown Casual Shirt",
+      "description": "갈색 평상복. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_8"
+    },
+    {
+      "id": "black_chest_strap",
+      "nameKo": "검은 가슴띠",
+      "nameEn": "Black Chest Strap",
+      "description": "검은 가슴띠. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "cloth_9"
+    },
+    {
+      "id": "white_silk_blouse",
+      "nameKo": "흰 비단 블라우스",
+      "nameEn": "White Silk Blouse",
+      "description": "흰 비단 블라우스. 옷 장비.",
+      "rarity": "rare",
+      "value": 160,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "f_sr_cloth"
+    },
+    {
+      "id": "brown_traveler_tunic",
+      "nameKo": "갈색 여행자 튜닉",
+      "nameEn": "Brown Traveler Tunic",
+      "description": "갈색 여행자 튜닉. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "normal_cloth1"
+    },
+    {
+      "id": "navy_track_jacket",
+      "nameKo": "남색 운동 재킷",
+      "nameEn": "Navy Track Jacket",
+      "description": "남색 운동 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_01"
+    },
+    {
+      "id": "flame_patterned_jacket",
+      "nameKo": "불꽃무늬 재킷",
+      "nameEn": "Flame-Patterned Jacket",
+      "description": "불꽃무늬 재킷. 옷 장비.",
+      "rarity": "rare",
+      "value": 160,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "new_cloth_02"
+    },
+    {
+      "id": "striped_blue_jacket",
+      "nameKo": "줄무늬 파란 재킷",
+      "nameEn": "Striped Blue Jacket",
+      "description": "줄무늬 파란 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_03"
+    },
+    {
+      "id": "navy_waist_wrap",
+      "nameKo": "남색 허리감개",
+      "nameEn": "Navy Waist Wrap",
+      "description": "남색 허리감개. 옷 장비.",
+      "rarity": "crude",
+      "value": 20,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_04"
+    },
+    {
+      "id": "light_brown_coat",
+      "nameKo": "연갈색 코트",
+      "nameEn": "Light Brown Coat",
+      "description": "연갈색 코트. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_05"
+    },
+    {
+      "id": "silver_gray_sweater",
+      "nameKo": "은회색 스웨터",
+      "nameEn": "Silver-Gray Sweater",
+      "description": "은회색 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_06"
+    },
+    {
+      "id": "orange_sweater",
+      "nameKo": "주황 스웨터",
+      "nameEn": "Orange Sweater",
+      "description": "주황 스웨터. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_07"
+    },
+    {
+      "id": "green_shirt_with_white_hem",
+      "nameKo": "흰 밑단 초록 셔츠",
+      "nameEn": "Green Shirt with White Hem",
+      "description": "흰 밑단 초록 셔츠. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_08"
+    },
+    {
+      "id": "orange_rugby_shirt",
+      "nameKo": "주황 럭비 셔츠",
+      "nameEn": "Orange Rugby Shirt",
+      "description": "주황 럭비 셔츠. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_09"
+    },
+    {
+      "id": "green_shirt_with_white_collar",
+      "nameKo": "흰 깃 초록 셔츠",
+      "nameEn": "Green Shirt with White Collar",
+      "description": "흰 깃 초록 셔츠. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_10"
+    },
+    {
+      "id": "brown_zip_up_jacket",
+      "nameKo": "갈색 집업 재킷",
+      "nameEn": "Brown Zip-Up Jacket",
+      "description": "갈색 집업 재킷. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_11"
+    },
+    {
+      "id": "plum_striped_coat",
+      "nameKo": "자주빛 줄무늬 코트",
+      "nameEn": "Plum Striped Coat",
+      "description": "자주빛 줄무늬 코트. 옷 장비.",
+      "rarity": "common",
+      "value": 40,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "defense": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_cloth_12"
     }
   ]
 }

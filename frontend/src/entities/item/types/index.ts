@@ -273,11 +273,14 @@ export type SpriteCategory =
   | "axe"      // axeCount: 5
   | "bow"      // bowCount: 10
   | "wand"     // wandCount: 20
+  | "spear"    // spearCount: 2
+  | "dagger"   // daggerCount: 2
   // 방어구 스프라이트
   | "armor"    // armorCount: 59
   | "cloth"    // clothCount: 131
   | "helmet"   // helmetCount: 120
-  | "pant";    // pantCount: 60
+  | "pant"     // pantCount: 60
+  | "back";    // backCount: 34
 
 // 스프라이트 참조 (외형 + 색상)
 export interface SpriteReference {
@@ -334,10 +337,13 @@ export const SPRITE_CATEGORY_CONFIG: Record<SpriteCategory, {
   axe: { nameKo: "도끼", unityMethod: "JS_SetAxe", maxIndex: 4 },
   bow: { nameKo: "활", unityMethod: "JS_SetBow", maxIndex: 9 },
   wand: { nameKo: "지팡이", unityMethod: "JS_SetWand", maxIndex: 19 },
+  spear: { nameKo: "창", unityMethod: "JS_SetSpear", maxIndex: 1 },
+  dagger: { nameKo: "단검", unityMethod: "JS_SetDagger", maxIndex: 1 },
   armor: { nameKo: "갑옷", unityMethod: "JS_SetArmor", maxIndex: 58 },
   cloth: { nameKo: "의복", unityMethod: "JS_SetCloth", maxIndex: 130 },
   helmet: { nameKo: "투구", unityMethod: "JS_SetHelmet", maxIndex: 119 },
   pant: { nameKo: "바지", unityMethod: "JS_SetPant", maxIndex: 59 },
+  back: { nameKo: "망토", unityMethod: "JS_SetBack", maxIndex: 33 },
 };
 
 // ============ Equipment Data ============

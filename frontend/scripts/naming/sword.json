@@ -1,0 +1,339 @@
+{
+  "category": "sword",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Weapon_03",
+      "spriteId": "elf_weapon_03",
+      "existingItems": [
+        {
+          "id": "rusty_sword",
+          "nameKo": "녹슨 검",
+          "nameEn": "Rusty Sword"
+        },
+        {
+          "id": "iron_sword",
+          "nameKo": "철검",
+          "nameEn": "Iron Sword"
+        }
+      ],
+      "action": "review",
+      "nameKo": "철검",
+      "nameEn": "Iron Sword",
+      "rarity": "common"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Weapon_05",
+      "spriteId": "elf_weapon_05",
+      "existingItems": [
+        {
+          "id": "steel_sword",
+          "nameKo": "강철검",
+          "nameEn": "Steel Sword"
+        }
+      ],
+      "action": "review",
+      "nameKo": "강철검",
+      "nameEn": "Steel Sword",
+      "rarity": "common"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Weapon_07",
+      "spriteId": "elf_weapon_07",
+      "existingItems": [
+        {
+          "id": "silver_sword",
+          "nameKo": "은검",
+          "nameEn": "Silver Sword"
+        }
+      ],
+      "action": "review",
+      "nameKo": "덩굴 엘프 검",
+      "nameEn": "Vine Elf Sword",
+      "rarity": "grand"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Weapon_08",
+      "spriteId": "elf_weapon_08",
+      "existingItems": [
+        {
+          "id": "knight_sword",
+          "nameKo": "기사의 검",
+          "nameEn": "Knight's Sword"
+        }
+      ],
+      "action": "review",
+      "nameKo": "잎사귀 엘프 검",
+      "nameEn": "Leaf Elf Sword",
+      "rarity": "grand"
+    },
+    {
+      "index": 4,
+      "sprite": "Elf_Weapon_11",
+      "spriteId": "elf_weapon_11",
+      "existingItems": [
+        {
+          "id": "mithril_sword",
+          "nameKo": "미스릴 검",
+          "nameEn": "Mithril Sword"
+        }
+      ],
+      "action": "review",
+      "nameKo": "화염검",
+      "nameEn": "Flame Sword",
+      "rarity": "rare"
+    },
+    {
+      "index": 5,
+      "sprite": "Elf_Weapon_13",
+      "spriteId": "elf_weapon_13",
+      "existingItems": [
+        {
+          "id": "flame_sword",
+          "nameKo": "화염검",
+          "nameEn": "Flame Sword"
+        },
+        {
+          "id": "frost_sword",
+          "nameKo": "냉기검",
+          "nameEn": "Frost Sword"
+        },
+        {
+          "id": "thunder_sword",
+          "nameKo": "번개검",
+          "nameEn": "Thunder Sword"
+        }
+      ],
+      "action": "review",
+      "nameKo": "냉기검",
+      "nameEn": "Frost Sword",
+      "rarity": "rare"
+    },
+    {
+      "index": 6,
+      "sprite": "Elf_Weapon_17",
+      "spriteId": "elf_weapon_17",
+      "existingItems": [
+        {
+          "id": "holy_sword",
+          "nameKo": "성검",
+          "nameEn": "Holy Sword"
+        },
+        {
+          "id": "cursed_sword",
+          "nameKo": "저주받은 검",
+          "nameEn": "Cursed Sword"
+        }
+      ],
+      "action": "review",
+      "nameKo": "성검",
+      "nameEn": "Holy Sword",
+      "rarity": "heroic"
+    },
+    {
+      "index": 7,
+      "sprite": "Elf_Weapon_19",
+      "spriteId": "elf_weapon_19",
+      "existingItems": [
+        {
+          "id": "dragon_slayer",
+          "nameKo": "용살검",
+          "nameEn": "Dragon Slayer"
+        }
+      ],
+      "action": "review",
+      "nameKo": "용살검",
+      "nameEn": "Dragon Slayer",
+      "rarity": "unique"
+    },
+    {
+      "index": 8,
+      "sprite": "Orc_Weapon_05",
+      "spriteId": "orc_weapon_05",
+      "existingItems": [
+        {
+          "id": "legendary_sword",
+          "nameKo": "전설의 검",
+          "nameEn": "Legendary Sword"
+        }
+      ],
+      "action": "review",
+      "nameKo": "오크 대검",
+      "nameEn": "Orc Greatsword",
+      "rarity": "grand"
+    },
+    {
+      "index": 9,
+      "sprite": "Undead_Weapon_03",
+      "spriteId": "undead_weapon_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "무딘 망자의 검",
+      "nameEn": "Dull Undead Sword",
+      "rarity": "crude"
+    },
+    {
+      "index": 10,
+      "sprite": "Undead_Weapon_08",
+      "spriteId": "undead_weapon_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "도굴꾼의 검",
+      "nameEn": "Grave Robber's Sword",
+      "rarity": "common"
+    },
+    {
+      "index": 11,
+      "sprite": "Undead_Weapon_10",
+      "spriteId": "undead_weapon_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "백골검",
+      "nameEn": "Bone-White Sword",
+      "rarity": "rare"
+    },
+    {
+      "index": 12,
+      "sprite": "Weapon_Knight_1",
+      "spriteId": "weapon_knight_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "황금 장식 기사검",
+      "nameEn": "Gilded Knight Sword",
+      "rarity": "heroic"
+    },
+    {
+      "index": 13,
+      "sprite": "Weapon_Knight_2",
+      "spriteId": "weapon_knight_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "기사의 대검",
+      "nameEn": "Knight's Greatsword",
+      "rarity": "rare"
+    },
+    {
+      "index": 14,
+      "sprite": "Sword_1",
+      "spriteId": "sword_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "짧은 철검",
+      "nameEn": "Short Iron Sword",
+      "rarity": "crude"
+    },
+    {
+      "index": 15,
+      "sprite": "Sword_2",
+      "spriteId": "sword_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "병사의 검",
+      "nameEn": "Soldier's Sword",
+      "rarity": "common"
+    },
+    {
+      "index": 16,
+      "sprite": "Sword_3",
+      "spriteId": "sword_3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "장검",
+      "nameEn": "Longsword",
+      "rarity": "common"
+    },
+    {
+      "index": 17,
+      "sprite": "Sword_4",
+      "spriteId": "sword_4",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "가느다란 세검",
+      "nameEn": "Slender Rapier",
+      "rarity": "common"
+    },
+    {
+      "index": 18,
+      "sprite": "Sword_5",
+      "spriteId": "sword_5",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "핏빛 룬 검",
+      "nameEn": "Blood Rune Sword",
+      "rarity": "unique"
+    },
+    {
+      "index": 19,
+      "sprite": "Sword_6",
+      "spriteId": "sword_6",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "여행자의 소검",
+      "nameEn": "Traveler's Small Sword",
+      "rarity": "crude"
+    },
+    {
+      "index": 20,
+      "sprite": "New_Weapon_01",
+      "spriteId": "new_weapon_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "저주받은 마검",
+      "nameEn": "Cursed Demon Blade",
+      "rarity": "heroic"
+    },
+    {
+      "index": 21,
+      "sprite": "New_Weapon_06",
+      "spriteId": "new_weapon_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은검",
+      "nameEn": "Silver Sword",
+      "rarity": "grand"
+    },
+    {
+      "index": 22,
+      "sprite": "New_Weapon_17",
+      "spriteId": "new_weapon_17",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "톱니검",
+      "nameEn": "Serrated Sword",
+      "rarity": "rare"
+    },
+    {
+      "index": 23,
+      "sprite": "New_Weapon_18",
+      "spriteId": "new_weapon_18",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "루비 첨검",
+      "nameEn": "Ruby-Tipped Estoc",
+      "rarity": "rare"
+    },
+    {
+      "index": 24,
+      "sprite": "New_Weapon_19",
+      "spriteId": "new_weapon_19",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "연습용 소검",
+      "nameEn": "Practice Short Sword",
+      "rarity": "crude"
+    },
+    {
+      "index": 25,
+      "sprite": "New_Weapon_20",
+      "spriteId": "new_weapon_20",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "불꽃 장식 검",
+      "nameEn": "Flame-Hilted Sword",
+      "rarity": "rare"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "category": "spear",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Soon_Spear",
+      "spriteId": "soon_spear",
+      "existingItems": [
+        {
+          "id": "wooden_spear",
+          "nameKo": "나무 창",
+          "nameEn": "Wooden Spear"
+        },
+        {
+          "id": "halberd",
+          "nameKo": "할버드",
+          "nameEn": "Halberd"
+        },
+        {
+          "id": "dragon_lance",
+          "nameKo": "드래곤 랜스",
+          "nameEn": "Dragon Lance"
+        }
+      ],
+      "action": "review",
+      "nameKo": "강철 창",
+      "nameEn": "Steel Spear",
+      "rarity": "common"
+    },
+    {
+      "index": 1,
+      "sprite": "Spear_1",
+      "spriteId": "spear_1",
+      "existingItems": [
+        {
+          "id": "iron_spear",
+          "nameKo": "철 창",
+          "nameEn": "Iron Spear"
+        },
+        {
+          "id": "steel_spear",
+          "nameKo": "강철 창",
+          "nameEn": "Steel Spear"
+        },
+        {
+          "id": "war_spear",
+          "nameKo": "전투 창",
+          "nameEn": "War Spear"
+        },
+        {
+          "id": "legendary_spear",
+          "nameKo": "전설의 창",
+          "nameEn": "Legendary Spear"
+        }
+      ],
+      "action": "review",
+      "nameKo": "쇠스랑",
+      "nameEn": "Pitchfork",
+      "rarity": "crude"
+    }
+  ]
+}

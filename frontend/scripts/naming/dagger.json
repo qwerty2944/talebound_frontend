@@ -1,0 +1,67 @@
+{
+  "category": "dagger",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Weapon_Rogue_1",
+      "spriteId": "weapon_rogue_1",
+      "existingItems": [
+        {
+          "id": "rusty_dagger",
+          "nameKo": "녹슨 단검",
+          "nameEn": "Rusty Dagger"
+        },
+        {
+          "id": "iron_dagger",
+          "nameKo": "철 단검",
+          "nameEn": "Iron Dagger"
+        },
+        {
+          "id": "steel_dagger",
+          "nameKo": "강철 단검",
+          "nameEn": "Steel Dagger"
+        }
+      ],
+      "action": "review",
+      "nameKo": "강철 단검",
+      "nameEn": "Steel Dagger",
+      "rarity": "common"
+    },
+    {
+      "index": 1,
+      "sprite": "Weapon_Rogue_2",
+      "spriteId": "weapon_rogue_2",
+      "existingItems": [
+        {
+          "id": "assassin_dagger",
+          "nameKo": "암살자의 단검",
+          "nameEn": "Assassin's Dagger"
+        },
+        {
+          "id": "poison_dagger",
+          "nameKo": "맹독 단검",
+          "nameEn": "Poison Dagger"
+        },
+        {
+          "id": "mithril_dagger",
+          "nameKo": "미스릴 단검",
+          "nameEn": "Mithril Dagger"
+        },
+        {
+          "id": "shadow_dagger",
+          "nameKo": "그림자 단검",
+          "nameEn": "Shadow Dagger"
+        },
+        {
+          "id": "legendary_dagger",
+          "nameKo": "전설의 단검",
+          "nameEn": "Legendary Dagger"
+        }
+      ],
+      "action": "review",
+      "nameKo": "암살자의 단검",
+      "nameEn": "Assassin's Dagger",
+      "rarity": "rare"
+    }
+  ]
+}

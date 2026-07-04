@@ -30,7 +30,7 @@ const ITEMS_DIR = "public/data/items";
 // 카테고리별 설정
 const CATEGORIES = {
   equipment: {
-    subdirs: ["equipment/weapons", "equipment/armors", "equipment/accessories"],
+    subdirs: ["equipment/weapons", "equipment/wearables", "equipment/accessories"],
     output: "equipment.json",
     type: "equipment",
   },

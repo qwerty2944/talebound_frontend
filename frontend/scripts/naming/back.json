@@ -1,0 +1,404 @@
+{
+  "category": "back",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Back_01",
+      "spriteId": "elf_back_01",
+      "existingItems": [
+        {
+          "id": "simple_cape",
+          "nameKo": "단순한 망토",
+          "nameEn": "Simple Cape"
+        }
+      ],
+      "action": "review",
+      "nameKo": "단순한 망토",
+      "nameEn": "Simple Cape",
+      "rarity": "common"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Back_02",
+      "spriteId": "elf_back_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회청색 망토",
+      "nameEn": "Blue-Gray Cape",
+      "rarity": "crude"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Back_03",
+      "spriteId": "elf_back_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "짙은 갈색 망토",
+      "nameEn": "Dark Brown Cape",
+      "rarity": "crude"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Back_04",
+      "spriteId": "elf_back_04",
+      "existingItems": [
+        {
+          "id": "traveler_cloak",
+          "nameKo": "여행자의 망토",
+          "nameEn": "Traveler's Cloak"
+        }
+      ],
+      "action": "review",
+      "nameKo": "여행자의 망토",
+      "nameEn": "Traveler's Cloak",
+      "rarity": "common"
+    },
+    {
+      "index": 4,
+      "sprite": "Elf_Back_05",
+      "spriteId": "elf_back_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "심연의 청록 망토",
+      "nameEn": "Deep Teal Cape",
+      "rarity": "grand"
+    },
+    {
+      "index": 5,
+      "sprite": "Elf_Back_06",
+      "spriteId": "elf_back_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "숲빛 망토",
+      "nameEn": "Forest Green Cape",
+      "rarity": "common"
+    },
+    {
+      "index": 6,
+      "sprite": "Elf_Back_07",
+      "spriteId": "elf_back_07",
+      "existingItems": [
+        {
+          "id": "adventurer_cloak",
+          "nameKo": "모험가의 망토",
+          "nameEn": "Adventurer's Cloak"
+        }
+      ],
+      "action": "review",
+      "nameKo": "모험가의 망토",
+      "nameEn": "Adventurer's Cloak",
+      "rarity": "common"
+    },
+    {
+      "index": 7,
+      "sprite": "Elf_Back_08",
+      "spriteId": "elf_back_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 깃 망토",
+      "nameEn": "Red-Trimmed Cape",
+      "rarity": "common"
+    },
+    {
+      "index": 8,
+      "sprite": "Elf_Back_09",
+      "spriteId": "elf_back_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "휘날리는 진홍 망토",
+      "nameEn": "Flowing Crimson Cape",
+      "rarity": "rare"
+    },
+    {
+      "index": 9,
+      "sprite": "Elf_Back_10",
+      "spriteId": "elf_back_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "푸른 안개 망토",
+      "nameEn": "Blue Mist Cape",
+      "rarity": "crude"
+    },
+    {
+      "index": 10,
+      "sprite": "Elf_Back_11",
+      "spriteId": "elf_back_11",
+      "existingItems": [
+        {
+          "id": "knight_cape",
+          "nameKo": "기사의 망토",
+          "nameEn": "Knight's Cape"
+        }
+      ],
+      "action": "review",
+      "nameKo": "기사의 망토",
+      "nameEn": "Knight's Cape",
+      "rarity": "grand"
+    },
+    {
+      "index": 11,
+      "sprite": "Elf_Back_12",
+      "spriteId": "elf_back_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프 순찰자의 망토",
+      "nameEn": "Elven Ranger's Cloak",
+      "rarity": "grand"
+    },
+    {
+      "index": 12,
+      "sprite": "Orc_Back_01",
+      "spriteId": "orc_back_01",
+      "existingItems": [
+        {
+          "id": "mage_cloak",
+          "nameKo": "마법사의 망토",
+          "nameEn": "Mage's Cloak"
+        }
+      ],
+      "action": "review",
+      "nameKo": "오크 화살통",
+      "nameEn": "Orc Quiver",
+      "rarity": "common"
+    },
+    {
+      "index": 13,
+      "sprite": "Orc_Back_02",
+      "spriteId": "orc_back_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크 누더기 망토",
+      "nameEn": "Orc Ragged Cape",
+      "rarity": "crude"
+    },
+    {
+      "index": 14,
+      "sprite": "Orc_Back_03",
+      "spriteId": "orc_back_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크 가죽 망토",
+      "nameEn": "Orc Hide Cape",
+      "rarity": "crude"
+    },
+    {
+      "index": 15,
+      "sprite": "Undead_Back_01",
+      "spriteId": "undead_back_01",
+      "existingItems": [
+        {
+          "id": "shadow_cloak",
+          "nameKo": "그림자 망토",
+          "nameEn": "Shadow Cloak"
+        }
+      ],
+      "action": "review",
+      "nameKo": "해진 수의 망토",
+      "nameEn": "Tattered Shroud Cloak",
+      "rarity": "crude"
+    },
+    {
+      "index": 16,
+      "sprite": "Undead_Back_02",
+      "spriteId": "undead_back_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흡혈귀의 붉은 망토",
+      "nameEn": "Vampire's Red Cape",
+      "rarity": "rare"
+    },
+    {
+      "index": 17,
+      "sprite": "Back_Archer_1",
+      "spriteId": "back_archer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "사냥꾼의 초록 망토",
+      "nameEn": "Hunter's Green Cape",
+      "rarity": "common"
+    },
+    {
+      "index": 18,
+      "sprite": "Back_Archer_2",
+      "spriteId": "back_archer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "궁수의 화살통",
+      "nameEn": "Archer's Quiver",
+      "rarity": "common"
+    },
+    {
+      "index": 19,
+      "sprite": "Back_Healer_1",
+      "spriteId": "back_healer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "장밋빛 망토",
+      "nameEn": "Rose Cape",
+      "rarity": "grand"
+    },
+    {
+      "index": 20,
+      "sprite": "Back_Healer_2",
+      "spriteId": "back_healer_2",
+      "existingItems": [
+        {
+          "id": "phoenix_wings",
+          "nameKo": "불사조의 날개",
+          "nameEn": "Phoenix Wings"
+        }
+      ],
+      "action": "review",
+      "nameKo": "잿빛 사제 망토",
+      "nameEn": "Ashen Priest Cape",
+      "rarity": "grand"
+    },
+    {
+      "index": 21,
+      "sprite": "Back_Knight_1",
+      "spriteId": "back_knight_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "진홍 기사 망토",
+      "nameEn": "Crimson Knight Cape",
+      "rarity": "rare"
+    },
+    {
+      "index": 22,
+      "sprite": "Back_Knight_2",
+      "spriteId": "back_knight_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "푸른 기사 망토",
+      "nameEn": "Blue Knight Cape",
+      "rarity": "rare"
+    },
+    {
+      "index": 23,
+      "sprite": "Back_Rogue_1",
+      "spriteId": "back_rogue_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 배낭",
+      "nameEn": "Red Backpack",
+      "rarity": "common"
+    },
+    {
+      "index": 24,
+      "sprite": "Back_Rogue_2",
+      "spriteId": "back_rogue_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "밤도둑의 망토",
+      "nameEn": "Night Thief's Cloak",
+      "rarity": "grand"
+    },
+    {
+      "index": 25,
+      "sprite": "Back_Sorcerer",
+      "spriteId": "back_sorcerer",
+      "existingItems": [
+        {
+          "id": "angel_wings",
+          "nameKo": "천사의 날개",
+          "nameEn": "Angel Wings"
+        },
+        {
+          "id": "demon_wings",
+          "nameKo": "악마의 날개",
+          "nameEn": "Demon Wings"
+        }
+      ],
+      "action": "review",
+      "nameKo": "진홍 마도사 망토",
+      "nameEn": "Crimson Sorcerer's Cape",
+      "rarity": "rare"
+    },
+    {
+      "index": 26,
+      "sprite": "Back_Sorceress",
+      "spriteId": "back_sorceress",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "밤하늘 망토",
+      "nameEn": "Night Sky Cape",
+      "rarity": "rare"
+    },
+    {
+      "index": 27,
+      "sprite": "Back_1",
+      "spriteId": "back_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "다홍색 망토",
+      "nameEn": "Scarlet Cape",
+      "rarity": "common"
+    },
+    {
+      "index": 28,
+      "sprite": "Back_2",
+      "spriteId": "back_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보랏빛 망토",
+      "nameEn": "Violet Cape",
+      "rarity": "common"
+    },
+    {
+      "index": 29,
+      "sprite": "Back_3",
+      "spriteId": "back_3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "낡은 갈색 망토",
+      "nameEn": "Worn Brown Cape",
+      "rarity": "crude"
+    },
+    {
+      "index": 30,
+      "sprite": "BowBack_1",
+      "spriteId": "bowback_1",
+      "existingItems": [
+        {
+          "id": "legendary_cloak",
+          "nameKo": "전설의 망토",
+          "nameEn": "Legendary Cloak"
+        }
+      ],
+      "action": "review",
+      "nameKo": "화살 꾸러미",
+      "nameEn": "Bundle of Arrows",
+      "rarity": "common"
+    },
+    {
+      "index": 31,
+      "sprite": "Soon_Back1",
+      "spriteId": "soon_back1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "악마의 핏빛 날개",
+      "nameEn": "Demonic Blood Wings",
+      "rarity": "legendary"
+    },
+    {
+      "index": 32,
+      "sprite": "New_Back_01",
+      "spriteId": "new_back_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "여행용 물주머니",
+      "nameEn": "Travel Waterskin",
+      "rarity": "crude"
+    },
+    {
+      "index": 33,
+      "sprite": "New_Back_02",
+      "spriteId": "new_back_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "깃털 화살통",
+      "nameEn": "Feathered Quiver",
+      "rarity": "grand"
+    }
+  ]
+}

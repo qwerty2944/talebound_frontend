@@ -2,12 +2,12 @@
   "category": "equipment",
   "subcategory": "weapon",
   "weaponType": "wand",
-  "spriteMapping": "/data/sprites/equipment/weapon/wand.json",
+  "spriteMapping": "/data/sprites/equipment/weapons/wand.json",
   "items": [
     {
       "id": "apprentice_wand",
-      "nameKo": "견습 마법사의 지팡이",
-      "nameEn": "Apprentice Wand",
+      "nameKo": "은십자 지팡이",
+      "nameEn": "Silver Cross Staff",
       "description": "마법 입문자용 기본 지팡이.",
       "rarity": "crude",
       "value": 40,
@@ -25,8 +25,8 @@
     },
     {
       "id": "oak_wand",
-      "nameKo": "참나무 지팡이",
-      "nameEn": "Oak Wand",
+      "nameKo": "강화된 은십자 지팡이",
+      "nameEn": "Reinforced Silver Cross Staff",
       "description": "참나무로 만든 기본 지팡이.",
       "rarity": "common",
       "value": 100,
@@ -45,8 +45,8 @@
     },
     {
       "id": "crystal_wand",
-      "nameKo": "수정 지팡이",
-      "nameEn": "Crystal Wand",
+      "nameKo": "불꽃 구슬 지팡이",
+      "nameEn": "Flame Orb Wand",
       "description": "수정이 박힌 마법 지팡이.",
       "rarity": "grand",
       "value": 350,
@@ -66,8 +66,8 @@
     },
     {
       "id": "fire_wand",
-      "nameKo": "화염 지팡이",
-      "nameEn": "Fire Wand",
+      "nameKo": "덩굴 감긴 지팡이",
+      "nameEn": "Vine-Wrapped Wand",
       "description": "화염 마법이 깃든 지팡이.",
       "rarity": "rare",
       "value": 800,
@@ -90,8 +90,8 @@
     },
     {
       "id": "ice_wand",
-      "nameKo": "냉기 지팡이",
-      "nameEn": "Ice Wand",
+      "nameKo": "정예 덩굴 감긴 지팡이",
+      "nameEn": "Elite Vine-Wrapped Wand",
       "description": "냉기 마법이 깃든 지팡이.",
       "rarity": "rare",
       "value": 800,
@@ -114,8 +114,8 @@
     },
     {
       "id": "lightning_wand",
-      "nameKo": "번개 지팡이",
-      "nameEn": "Lightning Wand",
+      "nameKo": "대가의 덩굴 감긴 지팡이",
+      "nameEn": "Master's Vine-Wrapped Wand",
       "description": "번개 마법이 깃든 지팡이.",
       "rarity": "rare",
       "value": 850,
@@ -160,8 +160,8 @@
     },
     {
       "id": "divine_staff",
-      "nameKo": "신성 지팡이",
-      "nameEn": "Divine Staff",
+      "nameKo": "핏빛 구슬 지팡이",
+      "nameEn": "Blood Orb Staff",
       "description": "신의 축복이 깃든 성스러운 지팡이.",
       "rarity": "heroic",
       "value": 6000,
@@ -187,8 +187,8 @@
     },
     {
       "id": "shadow_staff",
-      "nameKo": "암흑 지팡이",
-      "nameEn": "Shadow Staff",
+      "nameKo": "잿빛 강철 지팡이",
+      "nameEn": "Ashen Steel Staff",
       "description": "어둠의 힘이 깃든 금지된 지팡이.",
       "rarity": "heroic",
       "value": 5500,
@@ -213,8 +213,8 @@
     },
     {
       "id": "legendary_staff",
-      "nameKo": "전설의 지팡이",
-      "nameEn": "Legendary Staff",
+      "nameKo": "붉은 촉 나무 완드",
+      "nameEn": "Red-Tipped Wooden Wand",
       "description": "세계를 뒤흔들었다는 전설의 대지팡이.",
       "rarity": "legendary",
       "value": 95000,
@@ -234,6 +234,266 @@
         "int": 35
       },
       "spriteId": "ward_1"
+    },
+    {
+      "id": "emerald_branch_staff",
+      "nameKo": "에메랄드 가지 지팡이",
+      "nameEn": "Emerald Branch Staff",
+      "description": "에메랄드 가지 지팡이. 지팡이 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 16,
+        "attackSpeed": 1,
+        "mp": 21
+      },
+      "requirements": {
+        "level": 5,
+        "int": 11
+      },
+      "spriteId": "elf_weapon_10"
+    },
+    {
+      "id": "ruby_crystal_wand",
+      "nameKo": "루비 결정 완드",
+      "nameEn": "Ruby Crystal Wand",
+      "description": "루비 결정 완드. 지팡이 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 16,
+        "attackSpeed": 1,
+        "mp": 21
+      },
+      "requirements": {
+        "level": 5,
+        "int": 11
+      },
+      "spriteId": "elf_weapon_12"
+    },
+    {
+      "id": "flame_swirl_wand",
+      "nameKo": "화염 소용돌이 완드",
+      "nameEn": "Flame Swirl Wand",
+      "description": "화염 소용돌이 완드. 지팡이 장비.",
+      "rarity": "arcane",
+      "value": 800,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 19,
+        "attackSpeed": 1,
+        "mp": 24
+      },
+      "requirements": {
+        "level": 8,
+        "int": 13
+      },
+      "spriteId": "elf_weapon_20"
+    },
+    {
+      "id": "ruby_tipped_wand",
+      "nameKo": "루비 촉 완드",
+      "nameEn": "Ruby-Tipped Wand",
+      "description": "루비 촉 완드. 지팡이 장비.",
+      "rarity": "grand",
+      "value": 200,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 14,
+        "attackSpeed": 1,
+        "mp": 17
+      },
+      "requirements": {
+        "level": 3,
+        "int": 9
+      },
+      "spriteId": "orc_weapon_04"
+    },
+    {
+      "id": "twig_wand",
+      "nameKo": "나무 잔가지 완드",
+      "nameEn": "Twig Wand",
+      "description": "나무 잔가지 완드. 지팡이 장비.",
+      "rarity": "crude",
+      "value": 50,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 8,
+        "attackSpeed": 1,
+        "mp": 10
+      },
+      "requirements": {
+        "level": 1,
+        "int": 5
+      },
+      "spriteId": "orc_weapon_08"
+    },
+    {
+      "id": "crooked_wooden_staff",
+      "nameKo": "굽은 나무 지팡이",
+      "nameEn": "Crooked Wooden Staff",
+      "description": "굽은 나무 지팡이. 지팡이 장비.",
+      "rarity": "common",
+      "value": 100,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 11,
+        "attackSpeed": 1,
+        "mp": 14
+      },
+      "requirements": {
+        "level": 1,
+        "int": 7
+      },
+      "spriteId": "orc_weapon_09"
+    },
+    {
+      "id": "shadow_sickle_wand",
+      "nameKo": "그림자 낫 지팡이",
+      "nameEn": "Shadow Sickle Wand",
+      "description": "그림자 낫 지팡이. 지팡이 장비.",
+      "rarity": "grand",
+      "value": 200,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 14,
+        "attackSpeed": 1,
+        "mp": 17
+      },
+      "requirements": {
+        "level": 3,
+        "int": 9
+      },
+      "spriteId": "undead_weapon_02"
+    },
+    {
+      "id": "bone_wand",
+      "nameKo": "뼈 완드",
+      "nameEn": "Bone Wand",
+      "description": "뼈 완드. 지팡이 장비.",
+      "rarity": "common",
+      "value": 100,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 11,
+        "attackSpeed": 1,
+        "mp": 14
+      },
+      "requirements": {
+        "level": 1,
+        "int": 7
+      },
+      "spriteId": "undead_weapon_07"
+    },
+    {
+      "id": "winged_skull_staff",
+      "nameKo": "해골 날개 지팡이",
+      "nameEn": "Winged Skull Staff",
+      "description": "해골 날개 지팡이. 지팡이 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 16,
+        "attackSpeed": 1,
+        "mp": 21
+      },
+      "requirements": {
+        "level": 5,
+        "int": 11
+      },
+      "spriteId": "undead_weapon_09"
+    },
+    {
+      "id": "healers_crystal_staff",
+      "nameKo": "치유사의 수정 지팡이",
+      "nameEn": "Healer's Crystal Staff",
+      "description": "치유사의 수정 지팡이. 지팡이 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 16,
+        "attackSpeed": 1,
+        "mp": 21
+      },
+      "requirements": {
+        "level": 5,
+        "int": 11
+      },
+      "spriteId": "weapon_healer_1"
+    },
+    {
+      "id": "golden_cleric_staff",
+      "nameKo": "황금 성직자 지팡이",
+      "nameEn": "Golden Cleric Staff",
+      "description": "황금 성직자 지팡이. 지팡이 장비.",
+      "rarity": "heroic",
+      "value": 1500,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 22,
+        "attackSpeed": 1,
+        "mp": 28
+      },
+      "requirements": {
+        "level": 12,
+        "int": 15
+      },
+      "spriteId": "weapon_healer_2"
+    },
+    {
+      "id": "golden_amethyst_wand",
+      "nameKo": "자수정 황금 완드",
+      "nameEn": "Golden Amethyst Wand",
+      "description": "자수정 황금 완드. 지팡이 장비.",
+      "rarity": "arcane",
+      "value": 800,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 19,
+        "attackSpeed": 1,
+        "mp": 24
+      },
+      "requirements": {
+        "level": 8,
+        "int": 13
+      },
+      "spriteId": "weapon_sorceress"
+    },
+    {
+      "id": "garnet_wand",
+      "nameKo": "석류석 완드",
+      "nameEn": "Garnet Wand",
+      "description": "석류석 완드. 지팡이 장비.",
+      "rarity": "grand",
+      "value": 200,
+      "weight": 1,
+      "color": null,
+      "stats": {
+        "magicDamage": 14,
+        "attackSpeed": 1,
+        "mp": 17
+      },
+      "requirements": {
+        "level": 3,
+        "int": 9
+      },
+      "spriteId": "new_weapon_03"
     }
   ]
 }

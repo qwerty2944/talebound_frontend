@@ -79,8 +79,8 @@
     },
     {
       "id": "mage_cloak",
-      "nameKo": "마법사의 망토",
-      "nameEn": "Mage's Cloak",
+      "nameKo": "오크 화살통",
+      "nameEn": "Orc Quiver",
       "description": "마법사가 두르는 신비로운 망토.",
       "rarity": "rare",
       "value": 500,
@@ -100,8 +100,8 @@
     },
     {
       "id": "shadow_cloak",
-      "nameKo": "그림자 망토",
-      "nameEn": "Shadow Cloak",
+      "nameKo": "해진 수의 망토",
+      "nameEn": "Tattered Shroud Cloak",
       "description": "어둠에 녹아드는 검은 망토.",
       "rarity": "arcane",
       "value": 1500,
@@ -121,8 +121,8 @@
     },
     {
       "id": "phoenix_wings",
-      "nameKo": "불사조의 날개",
-      "nameEn": "Phoenix Wings",
+      "nameKo": "잿빛 사제 망토",
+      "nameEn": "Ashen Priest Cape",
       "description": "불사조 깃털로 만든 망토.",
       "rarity": "heroic",
       "value": 6000,
@@ -148,8 +148,8 @@
     },
     {
       "id": "angel_wings",
-      "nameKo": "천사의 날개",
-      "nameEn": "Angel Wings",
+      "nameKo": "진홍 마도사 망토",
+      "nameEn": "Crimson Sorcerer's Cape",
       "description": "천상의 힘이 깃든 순백의 날개.",
       "rarity": "unique",
       "value": 20000,
@@ -174,8 +174,8 @@
     },
     {
       "id": "demon_wings",
-      "nameKo": "악마의 날개",
-      "nameEn": "Demon Wings",
+      "nameKo": "대가의 진홍 마도사 망토",
+      "nameEn": "Master's Crimson Sorcerer's Cape",
       "description": "암흑의 힘이 깃든 검은 날개.",
       "rarity": "unique",
       "value": 18000,
@@ -200,8 +200,8 @@
     },
     {
       "id": "legendary_cloak",
-      "nameKo": "전설의 망토",
-      "nameEn": "Legendary Cloak",
+      "nameKo": "화살 꾸러미",
+      "nameEn": "Bundle of Arrows",
       "description": "모든 것을 감싸는 전설의 망토.",
       "rarity": "legendary",
       "value": 45000,
@@ -218,6 +218,456 @@
         "level": 50
       },
       "spriteId": "bowback_1"
+    },
+    {
+      "id": "blue_gray_cape",
+      "nameKo": "회청색 망토",
+      "nameEn": "Blue-Gray Cape",
+      "description": "회청색 망토. 등 장비 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 2,
+        "moveSpeed": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_back_02"
+    },
+    {
+      "id": "dark_brown_cape",
+      "nameKo": "짙은 갈색 망토",
+      "nameEn": "Dark Brown Cape",
+      "description": "짙은 갈색 망토. 등 장비 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 2,
+        "moveSpeed": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_back_03"
+    },
+    {
+      "id": "deep_teal_cape",
+      "nameKo": "심연의 청록 망토",
+      "nameEn": "Deep Teal Cape",
+      "description": "심연의 청록 망토. 등 장비 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_back_05"
+    },
+    {
+      "id": "forest_green_cape",
+      "nameKo": "숲빛 망토",
+      "nameEn": "Forest Green Cape",
+      "description": "숲빛 망토. 등 장비 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_back_06"
+    },
+    {
+      "id": "red_trimmed_cape",
+      "nameKo": "붉은 깃 망토",
+      "nameEn": "Red-Trimmed Cape",
+      "description": "붉은 깃 망토. 등 장비 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_back_08"
+    },
+    {
+      "id": "flowing_crimson_cape",
+      "nameKo": "휘날리는 진홍 망토",
+      "nameEn": "Flowing Crimson Cape",
+      "description": "휘날리는 진홍 망토. 등 장비 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 4,
+        "moveSpeed": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_back_09"
+    },
+    {
+      "id": "blue_mist_cape",
+      "nameKo": "푸른 안개 망토",
+      "nameEn": "Blue Mist Cape",
+      "description": "푸른 안개 망토. 등 장비 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 2,
+        "moveSpeed": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_back_10"
+    },
+    {
+      "id": "elven_rangers_cloak",
+      "nameKo": "엘프 순찰자의 망토",
+      "nameEn": "Elven Ranger's Cloak",
+      "description": "엘프 순찰자의 망토. 등 장비 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_back_12"
+    },
+    {
+      "id": "orc_ragged_cape",
+      "nameKo": "오크 누더기 망토",
+      "nameEn": "Orc Ragged Cape",
+      "description": "오크 누더기 망토. 등 장비 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 2,
+        "moveSpeed": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "orc_back_02"
+    },
+    {
+      "id": "orc_hide_cape",
+      "nameKo": "오크 가죽 망토",
+      "nameEn": "Orc Hide Cape",
+      "description": "오크 가죽 망토. 등 장비 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 2,
+        "moveSpeed": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "orc_back_03"
+    },
+    {
+      "id": "vampires_red_cape",
+      "nameKo": "흡혈귀의 붉은 망토",
+      "nameEn": "Vampire's Red Cape",
+      "description": "흡혈귀의 붉은 망토. 등 장비 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 4,
+        "moveSpeed": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "undead_back_02"
+    },
+    {
+      "id": "hunters_green_cape",
+      "nameKo": "사냥꾼의 초록 망토",
+      "nameEn": "Hunter's Green Cape",
+      "description": "사냥꾼의 초록 망토. 등 장비 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "back_archer_1"
+    },
+    {
+      "id": "archers_quiver",
+      "nameKo": "궁수의 화살통",
+      "nameEn": "Archer's Quiver",
+      "description": "궁수의 화살통. 등 장비 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "back_archer_2"
+    },
+    {
+      "id": "rose_cape",
+      "nameKo": "장밋빛 망토",
+      "nameEn": "Rose Cape",
+      "description": "장밋빛 망토. 등 장비 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "back_healer_1"
+    },
+    {
+      "id": "crimson_knight_cape",
+      "nameKo": "진홍 기사 망토",
+      "nameEn": "Crimson Knight Cape",
+      "description": "진홍 기사 망토. 등 장비 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 4,
+        "moveSpeed": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "back_knight_1"
+    },
+    {
+      "id": "blue_knight_cape",
+      "nameKo": "푸른 기사 망토",
+      "nameEn": "Blue Knight Cape",
+      "description": "푸른 기사 망토. 등 장비 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 4,
+        "moveSpeed": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "back_knight_2"
+    },
+    {
+      "id": "red_backpack",
+      "nameKo": "붉은 배낭",
+      "nameEn": "Red Backpack",
+      "description": "붉은 배낭. 등 장비 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "back_rogue_1"
+    },
+    {
+      "id": "night_thiefs_cloak",
+      "nameKo": "밤도둑의 망토",
+      "nameEn": "Night Thief's Cloak",
+      "description": "밤도둑의 망토. 등 장비 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "back_rogue_2"
+    },
+    {
+      "id": "night_sky_cape",
+      "nameKo": "밤하늘 망토",
+      "nameEn": "Night Sky Cape",
+      "description": "밤하늘 망토. 등 장비 장비.",
+      "rarity": "rare",
+      "value": 240,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 4,
+        "moveSpeed": 4
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "back_sorceress"
+    },
+    {
+      "id": "scarlet_cape",
+      "nameKo": "다홍색 망토",
+      "nameEn": "Scarlet Cape",
+      "description": "다홍색 망토. 등 장비 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "back_1"
+    },
+    {
+      "id": "violet_cape",
+      "nameKo": "보랏빛 망토",
+      "nameEn": "Violet Cape",
+      "description": "보랏빛 망토. 등 장비 장비.",
+      "rarity": "common",
+      "value": 60,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "back_2"
+    },
+    {
+      "id": "worn_brown_cape",
+      "nameKo": "낡은 갈색 망토",
+      "nameEn": "Worn Brown Cape",
+      "description": "낡은 갈색 망토. 등 장비 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 2,
+        "moveSpeed": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "back_3"
+    },
+    {
+      "id": "demonic_blood_wings",
+      "nameKo": "악마의 핏빛 날개",
+      "nameEn": "Demonic Blood Wings",
+      "description": "악마의 핏빛 날개. 등 장비 장비.",
+      "rarity": "legendary",
+      "value": 30000,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 9,
+        "moveSpeed": 9
+      },
+      "requirements": {
+        "level": 35
+      },
+      "spriteId": "soon_back1"
+    },
+    {
+      "id": "travel_waterskin",
+      "nameKo": "여행용 물주머니",
+      "nameEn": "Travel Waterskin",
+      "description": "여행용 물주머니. 등 장비 장비.",
+      "rarity": "crude",
+      "value": 30,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 2,
+        "moveSpeed": 2
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_back_01"
+    },
+    {
+      "id": "feathered_quiver",
+      "nameKo": "깃털 화살통",
+      "nameEn": "Feathered Quiver",
+      "description": "깃털 화살통. 등 장비 장비.",
+      "rarity": "grand",
+      "value": 120,
+      "weight": 0.5,
+      "color": null,
+      "stats": {
+        "defense": 3,
+        "moveSpeed": 3
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "new_back_02"
     }
   ]
 }

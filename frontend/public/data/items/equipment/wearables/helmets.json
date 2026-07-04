@@ -6,8 +6,8 @@
   "items": [
     {
       "id": "leather_cap",
-      "nameKo": "가죽 모자",
-      "nameEn": "Leather Cap",
+      "nameKo": "루비 티아라",
+      "nameEn": "Ruby Tiara",
       "description": "가죽으로 만든 기본 모자.",
       "rarity": "crude",
       "value": 20,
@@ -23,8 +23,8 @@
     },
     {
       "id": "iron_helmet",
-      "nameKo": "철 투구",
-      "nameEn": "Iron Helmet",
+      "nameKo": "사슴뿔 머리장식",
+      "nameEn": "Antler Headdress",
       "description": "철로 만든 기본 투구.",
       "rarity": "common",
       "value": 80,
@@ -41,8 +41,8 @@
     },
     {
       "id": "steel_helmet",
-      "nameKo": "강철 투구",
-      "nameEn": "Steel Helmet",
+      "nameKo": "홍옥 날개 투구",
+      "nameEn": "Ruby Winged Helm",
       "description": "단단한 강철 투구.",
       "rarity": "grand",
       "value": 250,
@@ -59,8 +59,8 @@
     },
     {
       "id": "knight_helmet",
-      "nameKo": "기사의 투구",
-      "nameEn": "Knight's Helmet",
+      "nameKo": "황금 테 은빛 투구",
+      "nameEn": "Gold-Banded Silver Helm",
       "description": "왕국 기사단의 투구.",
       "rarity": "rare",
       "value": 600,
@@ -79,8 +79,8 @@
     },
     {
       "id": "wizard_hat",
-      "nameKo": "마법사의 모자",
-      "nameEn": "Wizard Hat",
+      "nameKo": "뿔 달린 강철 투구",
+      "nameEn": "Horned Steel Helmet",
       "description": "마법사가 쓰는 뾰족한 모자.",
       "rarity": "rare",
       "value": 550,
@@ -100,8 +100,8 @@
     },
     {
       "id": "elven_circlet",
-      "nameKo": "엘프의 관",
-      "nameEn": "Elven Circlet",
+      "nameKo": "밀짚모자",
+      "nameEn": "Straw Hat",
       "description": "엘프 귀족이 쓰는 우아한 관.",
       "rarity": "arcane",
       "value": 1500,
@@ -145,8 +145,8 @@
     },
     {
       "id": "crown_of_wisdom",
-      "nameKo": "지혜의 왕관",
-      "nameEn": "Crown of Wisdom",
+      "nameKo": "초록 리본 머리장식",
+      "nameEn": "Green Ribbon Hairpiece",
       "description": "고대 현자가 착용했던 왕관.",
       "rarity": "unique",
       "value": 12000,
@@ -167,8 +167,8 @@
     },
     {
       "id": "legendary_helmet",
-      "nameKo": "전설의 투구",
-      "nameEn": "Legendary Helmet",
+      "nameKo": "진분홍 리본 머리장식",
+      "nameEn": "Magenta Ribbon Hairpiece",
       "description": "모든 공격을 막아낸다는 전설의 투구.",
       "rarity": "legendary",
       "value": 60000,
@@ -185,6 +185,1893 @@
         "con": 25
       },
       "spriteId": "helmet_m02_brown"
+    },
+    {
+      "id": "silver_feather_hairpin",
+      "nameKo": "은빛 깃털 머리핀",
+      "nameEn": "Silver Feather Hairpin",
+      "description": "은빛 깃털 머리핀. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_helmet_02"
+    },
+    {
+      "id": "amber_gem_winged_helm",
+      "nameKo": "호박 보석 날개 투구",
+      "nameEn": "Amber-Gem Winged Helm",
+      "description": "호박 보석 날개 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_helmet_03"
+    },
+    {
+      "id": "amber_hairpin",
+      "nameKo": "호박 보석 머리핀",
+      "nameEn": "Amber Hairpin",
+      "description": "호박 보석 머리핀. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_helmet_04"
+    },
+    {
+      "id": "orange_crested_silver_helm",
+      "nameKo": "주황 볏 백은 투구",
+      "nameEn": "Orange-Crested Silver Helm",
+      "description": "주황 볏 백은 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_helmet_05"
+    },
+    {
+      "id": "elven_leaf_helm",
+      "nameKo": "엘프 잎사귀 투구",
+      "nameEn": "Elven Leaf Helm",
+      "description": "엘프 잎사귀 투구. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_helmet_07"
+    },
+    {
+      "id": "green_gem_antler_circlet",
+      "nameKo": "초록 보석 뿔 서클릿",
+      "nameEn": "Green-Gem Antler Circlet",
+      "description": "초록 보석 뿔 서클릿. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_helmet_08"
+    },
+    {
+      "id": "vine_wrapped_iron_helm",
+      "nameKo": "덩굴 감긴 철모",
+      "nameEn": "Vine-Wrapped Iron Helm",
+      "description": "덩굴 감긴 철모. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_helmet_09"
+    },
+    {
+      "id": "forest_wreath",
+      "nameKo": "숲의 화관",
+      "nameEn": "Forest Wreath",
+      "description": "숲의 화관. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "elf_helmet_10"
+    },
+    {
+      "id": "red_maned_helm",
+      "nameKo": "붉은 갈기 투구",
+      "nameEn": "Red-Maned Helm",
+      "description": "붉은 갈기 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_helmet_12"
+    },
+    {
+      "id": "ruby_crest_helm",
+      "nameKo": "홍옥 문장 투구",
+      "nameEn": "Ruby Crest Helm",
+      "description": "홍옥 문장 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_helmet_13"
+    },
+    {
+      "id": "flame_circlet",
+      "nameKo": "화염 서클릿",
+      "nameEn": "Flame Circlet",
+      "description": "화염 서클릿. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_helmet_14"
+    },
+    {
+      "id": "amber_headband",
+      "nameKo": "호박 보석 머리띠",
+      "nameEn": "Amber Headband",
+      "description": "호박 보석 머리띠. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_helmet_15"
+    },
+    {
+      "id": "demon_eye_black_helm",
+      "nameKo": "마귀 눈 검은 투구",
+      "nameEn": "Demon-Eye Black Helm",
+      "description": "마귀 눈 검은 투구. 머리 장비 장비.",
+      "rarity": "arcane",
+      "value": 640,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 10
+      },
+      "requirements": {
+        "level": 8
+      },
+      "spriteId": "elf_helmet_17"
+    },
+    {
+      "id": "amber_gem_silver_helm",
+      "nameKo": "호박 보석 백은 투구",
+      "nameEn": "Amber-Gem Silver Helm",
+      "description": "호박 보석 백은 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_helmet_18"
+    },
+    {
+      "id": "spiked_black_iron_helm",
+      "nameKo": "가시 돋친 흑철 투구",
+      "nameEn": "Spiked Black Iron Helm",
+      "description": "가시 돋친 흑철 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "elf_helmet_19"
+    },
+    {
+      "id": "penguin_helm",
+      "nameKo": "펭귄 투구",
+      "nameEn": "Penguin Helm",
+      "description": "펭귄 투구. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "elf_helmet_20"
+    },
+    {
+      "id": "horned_skull_helm",
+      "nameKo": "뿔 달린 해골 투구",
+      "nameEn": "Horned Skull Helm",
+      "description": "뿔 달린 해골 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "orc_helmet_03"
+    },
+    {
+      "id": "great_horned_skull_mask",
+      "nameKo": "큰뿔 해골 가면",
+      "nameEn": "Great-Horned Skull Mask",
+      "description": "큰뿔 해골 가면. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "orc_helmet_04"
+    },
+    {
+      "id": "orc_leather_cap",
+      "nameKo": "오크 가죽 모자",
+      "nameEn": "Orc Leather Cap",
+      "description": "오크 가죽 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "orc_helmet_05"
+    },
+    {
+      "id": "aviator_goggle_cap",
+      "nameKo": "비행사 고글 모자",
+      "nameEn": "Aviator Goggle Cap",
+      "description": "비행사 고글 모자. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "orc_helmet_06"
+    },
+    {
+      "id": "brown_fur_cap",
+      "nameKo": "갈색 털가죽 모자",
+      "nameEn": "Brown Fur Cap",
+      "description": "갈색 털가죽 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "undead_helmet_02"
+    },
+    {
+      "id": "arrow_riddled_helm",
+      "nameKo": "화살 박힌 투구",
+      "nameEn": "Arrow-Riddled Helm",
+      "description": "화살 박힌 투구. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "undead_helmet_03"
+    },
+    {
+      "id": "dark_blue_steel_helm",
+      "nameKo": "검푸른 강철 투구",
+      "nameEn": "Dark Blue Steel Helm",
+      "description": "검푸른 강철 투구. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "undead_helmet_04"
+    },
+    {
+      "id": "finned_steel_helm",
+      "nameKo": "지느러미 강철 투구",
+      "nameEn": "Finned Steel Helm",
+      "description": "지느러미 강철 투구. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "undead_helmet_05"
+    },
+    {
+      "id": "golden_crown",
+      "nameKo": "황금 왕관",
+      "nameEn": "Golden Crown",
+      "description": "황금 왕관. 머리 장비 장비.",
+      "rarity": "unique",
+      "value": 2400,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 12
+      },
+      "requirements": {
+        "level": 16
+      },
+      "spriteId": "undead_helmet_07"
+    },
+    {
+      "id": "red_ribbon_hairpiece",
+      "nameKo": "빨간 리본 머리장식",
+      "nameEn": "Red Ribbon Hairpiece",
+      "description": "빨간 리본 머리장식. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m01"
+    },
+    {
+      "id": "pink_ribbon_hairpiece",
+      "nameKo": "분홍 리본 머리장식",
+      "nameEn": "Pink Ribbon Hairpiece",
+      "description": "분홍 리본 머리장식. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m01_black"
+    },
+    {
+      "id": "sky_blue_ribbon_hairpiece",
+      "nameKo": "하늘색 리본 머리장식",
+      "nameEn": "Sky-Blue Ribbon Hairpiece",
+      "description": "하늘색 리본 머리장식. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m01_blonde"
+    },
+    {
+      "id": "twin_red_ribbon_hairpiece",
+      "nameKo": "빨간 쌍리본 머리장식",
+      "nameEn": "Twin Red Ribbon Hairpiece",
+      "description": "빨간 쌍리본 머리장식. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m01_color"
+    },
+    {
+      "id": "orange_ribbon_hairpiece",
+      "nameKo": "주황 리본 머리장식",
+      "nameEn": "Orange Ribbon Hairpiece",
+      "description": "주황 리본 머리장식. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m02"
+    },
+    {
+      "id": "white_ribbon_hairpiece",
+      "nameKo": "흰 리본 머리장식",
+      "nameEn": "White Ribbon Hairpiece",
+      "description": "흰 리본 머리장식. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m02_black"
+    },
+    {
+      "id": "violet_ribbon_hairpiece",
+      "nameKo": "보랏빛 리본 머리장식",
+      "nameEn": "Violet Ribbon Hairpiece",
+      "description": "보랏빛 리본 머리장식. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m02_blonde"
+    },
+    {
+      "id": "tangerine_ribbon_hairpiece",
+      "nameKo": "귤빛 리본 머리장식",
+      "nameEn": "Tangerine Ribbon Hairpiece",
+      "description": "귤빛 리본 머리장식. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m02_color"
+    },
+    {
+      "id": "brown_knit_beanie",
+      "nameKo": "갈색 니트 모자",
+      "nameEn": "Brown Knit Beanie",
+      "description": "갈색 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m03"
+    },
+    {
+      "id": "green_knit_beanie",
+      "nameKo": "초록 니트 모자",
+      "nameEn": "Green Knit Beanie",
+      "description": "초록 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m03_black"
+    },
+    {
+      "id": "blue_knit_beanie",
+      "nameKo": "파란 니트 모자",
+      "nameEn": "Blue Knit Beanie",
+      "description": "파란 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m03_blonde"
+    },
+    {
+      "id": "chestnut_knit_beanie",
+      "nameKo": "밤색 니트 모자",
+      "nameEn": "Chestnut Knit Beanie",
+      "description": "밤색 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m03_brown"
+    },
+    {
+      "id": "khaki_knit_beanie",
+      "nameKo": "카키 니트 모자",
+      "nameEn": "Khaki Knit Beanie",
+      "description": "카키 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m03_color"
+    },
+    {
+      "id": "maroon_knit_beanie",
+      "nameKo": "자주 니트 모자",
+      "nameEn": "Maroon Knit Beanie",
+      "description": "자주 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m04"
+    },
+    {
+      "id": "red_knit_beanie",
+      "nameKo": "빨간 니트 모자",
+      "nameEn": "Red Knit Beanie",
+      "description": "빨간 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m04_black"
+    },
+    {
+      "id": "purple_knit_beanie",
+      "nameKo": "보라 니트 모자",
+      "nameEn": "Purple Knit Beanie",
+      "description": "보라 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m04_blonde"
+    },
+    {
+      "id": "beige_striped_beanie",
+      "nameKo": "베이지 줄무늬 니트 모자",
+      "nameEn": "Beige Striped Beanie",
+      "description": "베이지 줄무늬 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m04_brown"
+    },
+    {
+      "id": "wine_knit_beanie",
+      "nameKo": "와인빛 니트 모자",
+      "nameEn": "Wine Knit Beanie",
+      "description": "와인빛 니트 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m04_color"
+    },
+    {
+      "id": "crimson_beret",
+      "nameKo": "진홍 베레모",
+      "nameEn": "Crimson Beret",
+      "description": "진홍 베레모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m05"
+    },
+    {
+      "id": "apple_hat",
+      "nameKo": "사과 모자",
+      "nameEn": "Apple Hat",
+      "description": "사과 모자. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "helmet_m05_black"
+    },
+    {
+      "id": "teal_beret",
+      "nameKo": "청록 베레모",
+      "nameEn": "Teal Beret",
+      "description": "청록 베레모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m05_blonde"
+    },
+    {
+      "id": "cream_beret",
+      "nameKo": "크림 베레모",
+      "nameEn": "Cream Beret",
+      "description": "크림 베레모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m05_brown"
+    },
+    {
+      "id": "scarlet_beret",
+      "nameKo": "다홍 베레모",
+      "nameEn": "Scarlet Beret",
+      "description": "다홍 베레모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m05_color"
+    },
+    {
+      "id": "red_beret",
+      "nameKo": "빨간 베레모",
+      "nameEn": "Red Beret",
+      "description": "빨간 베레모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m06"
+    },
+    {
+      "id": "blue_beret",
+      "nameKo": "파란 베레모",
+      "nameEn": "Blue Beret",
+      "description": "파란 베레모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m06_black"
+    },
+    {
+      "id": "rose_beret",
+      "nameKo": "장미빛 베레모",
+      "nameEn": "Rose Beret",
+      "description": "장미빛 베레모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m06_blonde"
+    },
+    {
+      "id": "butter_beret",
+      "nameKo": "버터색 베레모",
+      "nameEn": "Butter Beret",
+      "description": "버터색 베레모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m06_brown"
+    },
+    {
+      "id": "eggplant_hat",
+      "nameKo": "가지 모자",
+      "nameEn": "Eggplant Hat",
+      "description": "가지 모자. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "helmet_m06_color"
+    },
+    {
+      "id": "blue_baseball_cap",
+      "nameKo": "파란 야구 모자",
+      "nameEn": "Blue Baseball Cap",
+      "description": "파란 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m07"
+    },
+    {
+      "id": "teal_baseball_cap",
+      "nameKo": "청록 야구 모자",
+      "nameEn": "Teal Baseball Cap",
+      "description": "청록 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m07_black"
+    },
+    {
+      "id": "red_baseball_cap",
+      "nameKo": "빨간 야구 모자",
+      "nameEn": "Red Baseball Cap",
+      "description": "빨간 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m07_blonde"
+    },
+    {
+      "id": "cobalt_baseball_cap",
+      "nameKo": "코발트 야구 모자",
+      "nameEn": "Cobalt Baseball Cap",
+      "description": "코발트 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m07_brown"
+    },
+    {
+      "id": "white_baseball_cap",
+      "nameKo": "흰 야구 모자",
+      "nameEn": "White Baseball Cap",
+      "description": "흰 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m07_color"
+    },
+    {
+      "id": "pink_baseball_cap",
+      "nameKo": "분홍 야구 모자",
+      "nameEn": "Pink Baseball Cap",
+      "description": "분홍 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m08"
+    },
+    {
+      "id": "orange_baseball_cap",
+      "nameKo": "주황 야구 모자",
+      "nameEn": "Orange Baseball Cap",
+      "description": "주황 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m08_black"
+    },
+    {
+      "id": "sky_blue_baseball_cap",
+      "nameKo": "하늘색 야구 모자",
+      "nameEn": "Sky-Blue Baseball Cap",
+      "description": "하늘색 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m08_blonde"
+    },
+    {
+      "id": "lavender_baseball_cap",
+      "nameKo": "연보라 야구 모자",
+      "nameEn": "Lavender Baseball Cap",
+      "description": "연보라 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m08_brown"
+    },
+    {
+      "id": "light_pink_baseball_cap",
+      "nameKo": "연분홍 야구 모자",
+      "nameEn": "Light Pink Baseball Cap",
+      "description": "연분홍 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m08_color"
+    },
+    {
+      "id": "indigo_baseball_cap",
+      "nameKo": "청람 야구 모자",
+      "nameEn": "Indigo Baseball Cap",
+      "description": "청람 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m09"
+    },
+    {
+      "id": "crimson_baseball_cap",
+      "nameKo": "진홍 야구 모자",
+      "nameEn": "Crimson Baseball Cap",
+      "description": "진홍 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m09_black"
+    },
+    {
+      "id": "navy_baseball_cap",
+      "nameKo": "감청 야구 모자",
+      "nameEn": "Navy Baseball Cap",
+      "description": "감청 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m09_blonde"
+    },
+    {
+      "id": "mint_baseball_cap",
+      "nameKo": "민트 야구 모자",
+      "nameEn": "Mint Baseball Cap",
+      "description": "민트 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m09_brown"
+    },
+    {
+      "id": "cream_baseball_cap",
+      "nameKo": "크림 야구 모자",
+      "nameEn": "Cream Baseball Cap",
+      "description": "크림 야구 모자. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m09_color"
+    },
+    {
+      "id": "silver_headphones",
+      "nameKo": "은빛 헤드폰",
+      "nameEn": "Silver Headphones",
+      "description": "은빛 헤드폰. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m10"
+    },
+    {
+      "id": "red_headphones",
+      "nameKo": "빨간 헤드폰",
+      "nameEn": "Red Headphones",
+      "description": "빨간 헤드폰. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m10_black"
+    },
+    {
+      "id": "platinum_headphones",
+      "nameKo": "백은 헤드폰",
+      "nameEn": "Platinum Headphones",
+      "description": "백은 헤드폰. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m10_blonde"
+    },
+    {
+      "id": "gray_headphones",
+      "nameKo": "회색 헤드폰",
+      "nameEn": "Gray Headphones",
+      "description": "회색 헤드폰. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m10_brown"
+    },
+    {
+      "id": "iron_headphones",
+      "nameKo": "무쇠 헤드폰",
+      "nameEn": "Iron Headphones",
+      "description": "무쇠 헤드폰. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m10_color"
+    },
+    {
+      "id": "black_fedora",
+      "nameKo": "검은 중절모",
+      "nameEn": "Black Fedora",
+      "description": "검은 중절모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m11"
+    },
+    {
+      "id": "brown_cowboy_hat",
+      "nameKo": "갈색 카우보이 모자",
+      "nameEn": "Brown Cowboy Hat",
+      "description": "갈색 카우보이 모자. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m11_black"
+    },
+    {
+      "id": "red_fedora",
+      "nameKo": "빨간 중절모",
+      "nameEn": "Red Fedora",
+      "description": "빨간 중절모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m11_blonde"
+    },
+    {
+      "id": "red_banded_fedora",
+      "nameKo": "붉은 띠 중절모",
+      "nameEn": "Red-Banded Fedora",
+      "description": "붉은 띠 중절모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m11_brown"
+    },
+    {
+      "id": "white_fedora",
+      "nameKo": "흰 중절모",
+      "nameEn": "White Fedora",
+      "description": "흰 중절모. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_m11_color"
+    },
+    {
+      "id": "green_archer_hood",
+      "nameKo": "초록 궁수 두건",
+      "nameEn": "Green Archer Hood",
+      "description": "초록 궁수 두건. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "helmet_archer_1"
+    },
+    {
+      "id": "feathered_hunter_cap",
+      "nameKo": "깃털 사냥꾼 모자",
+      "nameEn": "Feathered Hunter Cap",
+      "description": "깃털 사냥꾼 모자. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "helmet_archer_2"
+    },
+    {
+      "id": "white_healer_cap",
+      "nameKo": "흰 치유사 모자",
+      "nameEn": "White Healer Cap",
+      "description": "흰 치유사 모자. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "helmet_healer_1"
+    },
+    {
+      "id": "red_cross_hood",
+      "nameKo": "붉은 십자 두건",
+      "nameEn": "Red Cross Hood",
+      "description": "붉은 십자 두건. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "helmet_healer_2"
+    },
+    {
+      "id": "red_crested_centurion_helm",
+      "nameKo": "붉은 볏 백부장 투구",
+      "nameEn": "Red-Crested Centurion Helm",
+      "description": "붉은 볏 백부장 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "helmet_knight_1"
+    },
+    {
+      "id": "white_winged_black_knight_helm",
+      "nameKo": "흰 날개 흑기사 투구",
+      "nameEn": "White-Winged Black Knight Helm",
+      "description": "흰 날개 흑기사 투구. 머리 장비 장비.",
+      "rarity": "arcane",
+      "value": 640,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 10
+      },
+      "requirements": {
+        "level": 8
+      },
+      "spriteId": "helmet_knight_2"
+    },
+    {
+      "id": "shadow_rogue_helm",
+      "nameKo": "그림자 도적 투구",
+      "nameEn": "Shadow Rogue Helm",
+      "description": "그림자 도적 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "helmet_rogue_1"
+    },
+    {
+      "id": "red_knotted_bandana",
+      "nameKo": "붉은 매듭 반다나",
+      "nameEn": "Red-Knotted Bandana",
+      "description": "붉은 매듭 반다나. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_rogue_2"
+    },
+    {
+      "id": "black_wizard_hat",
+      "nameKo": "검은 마법사 모자",
+      "nameEn": "Black Wizard Hat",
+      "description": "검은 마법사 모자. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "helmet_sorcerer"
+    },
+    {
+      "id": "flame_witch_hat",
+      "nameKo": "화염 마녀 모자",
+      "nameEn": "Flame Witch Hat",
+      "description": "화염 마녀 모자. 머리 장비 장비.",
+      "rarity": "arcane",
+      "value": 640,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 10
+      },
+      "requirements": {
+        "level": 8
+      },
+      "spriteId": "helmet_sorceress"
+    },
+    {
+      "id": "rabbit_ear_helm",
+      "nameKo": "토끼 귀 투구",
+      "nameEn": "Rabbit-Ear Helm",
+      "description": "토끼 귀 투구. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "f_sr_helmet"
+    },
+    {
+      "id": "brown_leather_coif",
+      "nameKo": "갈색 가죽 코이프",
+      "nameEn": "Brown Leather Coif",
+      "description": "갈색 가죽 코이프. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_1"
+    },
+    {
+      "id": "silver_chain_coif",
+      "nameKo": "은빛 사슬 두건",
+      "nameEn": "Silver Chain Coif",
+      "description": "은빛 사슬 두건. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_2"
+    },
+    {
+      "id": "violet_coif",
+      "nameKo": "자주빛 두건",
+      "nameEn": "Violet Coif",
+      "description": "자주빛 두건. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_3"
+    },
+    {
+      "id": "red_horned_steel_helm",
+      "nameKo": "붉은 뿔 강철 투구",
+      "nameEn": "Red-Horned Steel Helm",
+      "description": "붉은 뿔 강철 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "helmet_4"
+    },
+    {
+      "id": "red_horned_black_iron_helm",
+      "nameKo": "붉은 뿔 흑철 투구",
+      "nameEn": "Red-Horned Black Iron Helm",
+      "description": "붉은 뿔 흑철 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "helmet_5"
+    },
+    {
+      "id": "gold_horned_steel_helm",
+      "nameKo": "금빛 뿔 강철 투구",
+      "nameEn": "Gold-Horned Steel Helm",
+      "description": "금빛 뿔 강철 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "helmet_6"
+    },
+    {
+      "id": "blue_padded_helm",
+      "nameKo": "파란 패딩 투구",
+      "nameEn": "Blue Padded Helm",
+      "description": "파란 패딩 투구. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "helmet_7"
+    },
+    {
+      "id": "steel_helmet_2",
+      "nameKo": "강철 투구",
+      "nameEn": "Steel Helmet",
+      "description": "강철 투구. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "helmet_8"
+    },
+    {
+      "id": "grilled_visor_great_helm",
+      "nameKo": "격자 면갑 투구",
+      "nameEn": "Grilled-Visor Great Helm",
+      "description": "격자 면갑 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "helmet_9"
+    },
+    {
+      "id": "brass_horned_helm",
+      "nameKo": "황동 뿔 투구",
+      "nameEn": "Brass-Horned Helm",
+      "description": "황동 뿔 투구. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "normal_helmet1"
+    },
+    {
+      "id": "gray_chainmail_hood",
+      "nameKo": "회색 사슬 후드",
+      "nameEn": "Gray Chainmail Hood",
+      "description": "회색 사슬 후드. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "normal_helmet2"
+    },
+    {
+      "id": "gray_padded_coif",
+      "nameKo": "회색 누비 두건",
+      "nameEn": "Gray Padded Coif",
+      "description": "회색 누비 두건. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "normal_helmet3"
+    },
+    {
+      "id": "white_horned_red_helm",
+      "nameKo": "흰 뿔 붉은 투구",
+      "nameEn": "White-Horned Red Helm",
+      "description": "흰 뿔 붉은 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "new_helmet_01"
+    },
+    {
+      "id": "blue_steel_sallet",
+      "nameKo": "푸른 강철 샐릿",
+      "nameEn": "Blue Steel Sallet",
+      "description": "푸른 강철 샐릿. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "new_helmet_02"
+    },
+    {
+      "id": "navy_blue_hood",
+      "nameKo": "감청 후드",
+      "nameEn": "Navy Blue Hood",
+      "description": "감청 후드. 머리 장비 장비.",
+      "rarity": "common",
+      "value": 80,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 5
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_helmet_03"
+    },
+    {
+      "id": "white_horned_viking_helm",
+      "nameKo": "흰 뿔 바이킹 투구",
+      "nameEn": "White-Horned Viking Helm",
+      "description": "흰 뿔 바이킹 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "new_helmet_04"
+    },
+    {
+      "id": "orange_horned_silver_helm",
+      "nameKo": "주황 뿔 은 투구",
+      "nameEn": "Orange-Horned Silver Helm",
+      "description": "주황 뿔 은 투구. 머리 장비 장비.",
+      "rarity": "rare",
+      "value": 320,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 8
+      },
+      "requirements": {
+        "level": 5
+      },
+      "spriteId": "new_helmet_05"
+    },
+    {
+      "id": "iron_great_helm",
+      "nameKo": "무쇠 대투구",
+      "nameEn": "Iron Great Helm",
+      "description": "무쇠 대투구. 머리 장비 장비.",
+      "rarity": "grand",
+      "value": 160,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 7
+      },
+      "requirements": {
+        "level": 3
+      },
+      "spriteId": "new_helmet_06"
+    },
+    {
+      "id": "red_plumed_golden_helm",
+      "nameKo": "붉은 깃 황금 투구",
+      "nameEn": "Red-Plumed Golden Helm",
+      "description": "붉은 깃 황금 투구. 머리 장비 장비.",
+      "rarity": "heroic",
+      "value": 1200,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 11
+      },
+      "requirements": {
+        "level": 12
+      },
+      "spriteId": "new_helmet_07"
+    },
+    {
+      "id": "blood_horned_dark_helm",
+      "nameKo": "핏빛 뿔 암흑 투구",
+      "nameEn": "Blood-Horned Dark Helm",
+      "description": "핏빛 뿔 암흑 투구. 머리 장비 장비.",
+      "rarity": "arcane",
+      "value": 640,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 10
+      },
+      "requirements": {
+        "level": 8
+      },
+      "spriteId": "new_helmet_08"
+    },
+    {
+      "id": "brown_leather_hood",
+      "nameKo": "갈색 가죽 후드",
+      "nameEn": "Brown Leather Hood",
+      "description": "갈색 가죽 후드. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_helmet_09"
+    },
+    {
+      "id": "purple_hood",
+      "nameKo": "보랏빛 후드",
+      "nameEn": "Purple Hood",
+      "description": "보랏빛 후드. 머리 장비 장비.",
+      "rarity": "crude",
+      "value": 40,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "defense": 4
+      },
+      "requirements": {
+        "level": 1
+      },
+      "spriteId": "new_helmet_10"
     }
   ]
 }

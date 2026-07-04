@@ -1,0 +1,196 @@
+{
+  "category": "shield",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Shield_01",
+      "spriteId": "elf_shield_01",
+      "existingItems": [
+        {
+          "id": "wooden_shield",
+          "nameKo": "나무 방패",
+          "nameEn": "Wooden Shield"
+        },
+        {
+          "id": "elven_shield",
+          "nameKo": "엘프 방패",
+          "nameEn": "Elven Shield"
+        }
+      ],
+      "action": "review",
+      "nameKo": "엘프 방패",
+      "nameEn": "Elven Shield",
+      "rarity": "grand"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Shield_02",
+      "spriteId": "elf_shield_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "잎사귀 방패",
+      "nameEn": "Leaf Shield",
+      "rarity": "common"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Shield_03",
+      "spriteId": "elf_shield_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 원형 방패",
+      "nameEn": "Red Round Shield",
+      "rarity": "common"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Shield_04",
+      "spriteId": "elf_shield_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "하얀 타원 방패",
+      "nameEn": "White Oval Shield",
+      "rarity": "grand"
+    },
+    {
+      "index": 4,
+      "sprite": "Elf_Weapon_16",
+      "spriteId": "elf_weapon_16",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "별빛 십자 방패",
+      "nameEn": "Starlight Cross Shield",
+      "rarity": "rare"
+    },
+    {
+      "index": 5,
+      "sprite": "Orc_Shield_01",
+      "spriteId": "orc_shield_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크 원형 방패",
+      "nameEn": "Orc Round Shield",
+      "rarity": "crude"
+    },
+    {
+      "index": 6,
+      "sprite": "Undead_Shield_01",
+      "spriteId": "undead_shield_01",
+      "existingItems": [
+        {
+          "id": "iron_shield",
+          "nameKo": "철 방패",
+          "nameEn": "Iron Shield"
+        },
+        {
+          "id": "tower_shield",
+          "nameKo": "타워 실드",
+          "nameEn": "Tower Shield"
+        }
+      ],
+      "action": "review",
+      "nameKo": "뼈 장식 나무 방패",
+      "nameEn": "Bone-Adorned Wooden Shield",
+      "rarity": "common"
+    },
+    {
+      "index": 7,
+      "sprite": "Undead_Shield_02",
+      "spriteId": "undead_shield_02",
+      "existingItems": [
+        {
+          "id": "steel_shield",
+          "nameKo": "강철 방패",
+          "nameEn": "Steel Shield"
+        }
+      ],
+      "action": "review",
+      "nameKo": "강철 방패",
+      "nameEn": "Steel Shield",
+      "rarity": "common"
+    },
+    {
+      "index": 8,
+      "sprite": "Undead_Shield_03",
+      "spriteId": "undead_shield_03",
+      "existingItems": [
+        {
+          "id": "knight_shield",
+          "nameKo": "기사의 방패",
+          "nameEn": "Knight's Shield"
+        },
+        {
+          "id": "legendary_shield",
+          "nameKo": "전설의 방패",
+          "nameEn": "Legendary Shield"
+        }
+      ],
+      "action": "review",
+      "nameKo": "해골 방패",
+      "nameEn": "Skull Shield",
+      "rarity": "rare"
+    },
+    {
+      "index": 9,
+      "sprite": "Shield_Knight_1",
+      "spriteId": "shield_knight_1",
+      "existingItems": [
+        {
+          "id": "holy_shield",
+          "nameKo": "성스러운 방패",
+          "nameEn": "Holy Shield"
+        }
+      ],
+      "action": "review",
+      "nameKo": "성스러운 방패",
+      "nameEn": "Holy Shield",
+      "rarity": "heroic"
+    },
+    {
+      "index": 10,
+      "sprite": "Shield_Knight_2",
+      "spriteId": "shield_knight_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "기사 문장 방패",
+      "nameEn": "Knight's Crest Shield",
+      "rarity": "grand"
+    },
+    {
+      "index": 11,
+      "sprite": "Shield_Sorcerer",
+      "spriteId": "shield_sorcerer",
+      "existingItems": [
+        {
+          "id": "dragon_shield",
+          "nameKo": "드래곤 방패",
+          "nameEn": "Dragon Shield"
+        }
+      ],
+      "action": "review",
+      "nameKo": "드래곤 방패",
+      "nameEn": "Dragon Shield",
+      "rarity": "rare"
+    },
+    {
+      "index": 12,
+      "sprite": "Shield_Sorceress",
+      "spriteId": "shield_sorceress",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "장미 문양 방패",
+      "nameEn": "Rose Emblem Shield",
+      "rarity": "grand"
+    },
+    {
+      "index": 13,
+      "sprite": "Shield_1",
+      "spriteId": "shield_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "무쇠 버클러",
+      "nameEn": "Iron Buckler",
+      "rarity": "crude"
+    }
+  ]
+}

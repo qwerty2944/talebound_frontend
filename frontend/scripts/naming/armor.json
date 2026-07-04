@@ -1,0 +1,649 @@
+{
+  "category": "armor",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Armor_01",
+      "spriteId": "elf_armor_01",
+      "existingItems": [
+        {
+          "id": "cloth_shirt",
+          "nameKo": "천 셔츠",
+          "nameEn": "Cloth Shirt"
+        }
+      ],
+      "action": "review",
+      "nameKo": "엘프풍 정찰병 견갑",
+      "nameEn": "Elven Scout Shoulder Guard",
+      "rarity": "crude"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Armor_02",
+      "spriteId": "elf_armor_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 은백 갑주",
+      "nameEn": "Elven Silverwhite Armor",
+      "rarity": "rare"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Armor_03",
+      "spriteId": "elf_armor_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 은빛 견갑",
+      "nameEn": "Elven Silver Pauldron",
+      "rarity": "common"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Armor_04",
+      "spriteId": "elf_armor_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 백은 판금 갑옷",
+      "nameEn": "Elven White-Silver Plate Armor",
+      "rarity": "rare"
+    },
+    {
+      "index": 4,
+      "sprite": "Elf_Armor_05",
+      "spriteId": "elf_armor_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 강철 어깨 보호구",
+      "nameEn": "Elven Steel Shoulder Guard",
+      "rarity": "crude"
+    },
+    {
+      "index": 5,
+      "sprite": "Elf_Armor_06",
+      "spriteId": "elf_armor_06",
+      "existingItems": [
+        {
+          "id": "leather_armor",
+          "nameKo": "가죽 갑옷",
+          "nameEn": "Leather Armor"
+        }
+      ],
+      "action": "review",
+      "nameKo": "가죽 갑옷",
+      "nameEn": "Leather Armor",
+      "rarity": "common"
+    },
+    {
+      "index": 6,
+      "sprite": "Elf_Armor_07",
+      "spriteId": "elf_armor_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 숲지기 가시 갑옷",
+      "nameEn": "Elven Thornguard Armor",
+      "rarity": "grand"
+    },
+    {
+      "index": 7,
+      "sprite": "Elf_Armor_08",
+      "spriteId": "elf_armor_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 나뭇잎 견갑",
+      "nameEn": "Elven Leaf Pauldrons",
+      "rarity": "common"
+    },
+    {
+      "index": 8,
+      "sprite": "Elf_Armor_09",
+      "spriteId": "elf_armor_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 새싹 가죽 견갑",
+      "nameEn": "Elven Sapling Leather Guard",
+      "rarity": "crude"
+    },
+    {
+      "index": 9,
+      "sprite": "Elf_Armor_10",
+      "spriteId": "elf_armor_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 진홍 예장 갑주",
+      "nameEn": "Elven Crimson Regalia",
+      "rarity": "heroic"
+    },
+    {
+      "index": 10,
+      "sprite": "Elf_Armor_11",
+      "spriteId": "elf_armor_11",
+      "existingItems": [
+        {
+          "id": "chainmail",
+          "nameKo": "쇄자갑",
+          "nameEn": "Chainmail"
+        }
+      ],
+      "action": "review",
+      "nameKo": "엘프풍 호박빛 견갑",
+      "nameEn": "Elven Amber Pauldrons",
+      "rarity": "common"
+    },
+    {
+      "index": 11,
+      "sprite": "Elf_Armor_12",
+      "spriteId": "elf_armor_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 홍백 판금 흉갑",
+      "nameEn": "Elven Red-White Breastplate",
+      "rarity": "rare"
+    },
+    {
+      "index": 12,
+      "sprite": "Elf_Armor_13",
+      "spriteId": "elf_armor_13",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 노을빛 흉대",
+      "nameEn": "Elven Sunset Chestband",
+      "rarity": "grand"
+    },
+    {
+      "index": 13,
+      "sprite": "Elf_Armor_14",
+      "spriteId": "elf_armor_14",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 불꽃 견갑",
+      "nameEn": "Elven Flame Pauldrons",
+      "rarity": "grand"
+    },
+    {
+      "index": 14,
+      "sprite": "Elf_Armor_15",
+      "spriteId": "elf_armor_15",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 흑단 견갑",
+      "nameEn": "Elven Ebony Pauldrons",
+      "rarity": "common"
+    },
+    {
+      "index": 15,
+      "sprite": "Elf_Armor_16",
+      "spriteId": "elf_armor_16",
+      "existingItems": [
+        {
+          "id": "plate_armor",
+          "nameKo": "판금 갑옷",
+          "nameEn": "Plate Armor"
+        }
+      ],
+      "action": "review",
+      "nameKo": "엘프풍 야청 강철 견갑",
+      "nameEn": "Elven Dusksteel Pauldrons",
+      "rarity": "grand"
+    },
+    {
+      "index": 16,
+      "sprite": "Elf_Armor_17",
+      "spriteId": "elf_armor_17",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 흑은 견갑",
+      "nameEn": "Elven Darksilver Pauldrons",
+      "rarity": "grand"
+    },
+    {
+      "index": 17,
+      "sprite": "Elf_Armor_18",
+      "spriteId": "elf_armor_18",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 보석 박힌 흉대",
+      "nameEn": "Elven Jeweled Chestguard",
+      "rarity": "rare"
+    },
+    {
+      "index": 18,
+      "sprite": "Elf_Armor_19",
+      "spriteId": "elf_armor_19",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 황혼 견갑",
+      "nameEn": "Elven Twilight Shoulder Guard",
+      "rarity": "common"
+    },
+    {
+      "index": 19,
+      "sprite": "Orc_Armor_01",
+      "spriteId": "orc_armor_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크풍 해골 견갑",
+      "nameEn": "Orcish Skull Pauldron",
+      "rarity": "grand"
+    },
+    {
+      "index": 20,
+      "sprite": "Orc_Armor_02",
+      "spriteId": "orc_armor_02",
+      "existingItems": [
+        {
+          "id": "mage_robe",
+          "nameKo": "마법사의 로브",
+          "nameEn": "Mage Robe"
+        }
+      ],
+      "action": "review",
+      "nameKo": "오크풍 강철 흉갑",
+      "nameEn": "Orcish Steel Breastplate",
+      "rarity": "grand"
+    },
+    {
+      "index": 21,
+      "sprite": "Orc_Armor_03",
+      "spriteId": "orc_armor_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크풍 가죽 어깨띠",
+      "nameEn": "Orcish Leather Baldric",
+      "rarity": "crude"
+    },
+    {
+      "index": 22,
+      "sprite": "Orc_Armor_04",
+      "spriteId": "orc_armor_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크풍 거친 가죽 흉대",
+      "nameEn": "Orcish Rough Hide Band",
+      "rarity": "crude"
+    },
+    {
+      "index": 23,
+      "sprite": "Undead_Armor_01",
+      "spriteId": "undead_armor_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 칠흑 갑주",
+      "nameEn": "Undead Pitch-Black Armor",
+      "rarity": "rare"
+    },
+    {
+      "index": 24,
+      "sprite": "Undead_Armor_02",
+      "spriteId": "undead_armor_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 낡은 수의",
+      "nameEn": "Undead Tattered Shroud",
+      "rarity": "crude"
+    },
+    {
+      "index": 25,
+      "sprite": "Undead_Armor_03",
+      "spriteId": "undead_armor_03",
+      "existingItems": [
+        {
+          "id": "knight_armor",
+          "nameKo": "기사의 갑옷",
+          "nameEn": "Knight's Armor"
+        }
+      ],
+      "action": "review",
+      "nameKo": "언데드풍 밤빛 어깨띠",
+      "nameEn": "Undead Nightshade Baldric",
+      "rarity": "common"
+    },
+    {
+      "index": 26,
+      "sprite": "Undead_Armor_04",
+      "spriteId": "undead_armor_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 무덤 파수꾼 흉갑",
+      "nameEn": "Undead Graveguard Breastplate",
+      "rarity": "grand"
+    },
+    {
+      "index": 27,
+      "sprite": "Undead_Armor_05",
+      "spriteId": "undead_armor_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 망자의 강철 견갑",
+      "nameEn": "Undead Deathsteel Pauldron",
+      "rarity": "grand"
+    },
+    {
+      "index": 28,
+      "sprite": "Undead_Armor_06",
+      "spriteId": "undead_armor_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 지옥불 갑주",
+      "nameEn": "Undead Hellfire Armor",
+      "rarity": "unique"
+    },
+    {
+      "index": 29,
+      "sprite": "Undead_Armor_07",
+      "spriteId": "undead_armor_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 화염 군주 갑주",
+      "nameEn": "Undead Flamelord Armor",
+      "rarity": "legendary"
+    },
+    {
+      "index": 30,
+      "sprite": "Armor_Archer_1",
+      "spriteId": "armor_archer_1",
+      "existingItems": [
+        {
+          "id": "dragon_armor",
+          "nameKo": "드래곤 갑옷",
+          "nameEn": "Dragon Armor"
+        }
+      ],
+      "action": "review",
+      "nameKo": "궁수풍 초록 사냥 튜닉",
+      "nameEn": "Archer Green Hunting Tunic",
+      "rarity": "common"
+    },
+    {
+      "index": 31,
+      "sprite": "Armor_Archer_2",
+      "spriteId": "armor_archer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "궁수풍 가죽 어깨끈",
+      "nameEn": "Archer Leather Strap",
+      "rarity": "crude"
+    },
+    {
+      "index": 32,
+      "sprite": "Armor_Healer_1",
+      "spriteId": "armor_healer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "치유사풍 분홍 덧옷",
+      "nameEn": "Healer Pink Tabard",
+      "rarity": "common"
+    },
+    {
+      "index": 33,
+      "sprite": "Armor_Healer_2",
+      "spriteId": "armor_healer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "치유사풍 흰 사제복",
+      "nameEn": "Healer White Vestment",
+      "rarity": "grand"
+    },
+    {
+      "index": 34,
+      "sprite": "Armor_Knight_1",
+      "spriteId": "armor_knight_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "기사풍 강철 견갑",
+      "nameEn": "Knight Steel Pauldrons",
+      "rarity": "grand"
+    },
+    {
+      "index": 35,
+      "sprite": "Armor_Knight_2",
+      "spriteId": "armor_knight_2",
+      "existingItems": [
+        {
+          "id": "archmage_robe",
+          "nameKo": "대마법사의 로브",
+          "nameEn": "Archmage Robe"
+        }
+      ],
+      "action": "review",
+      "nameKo": "기사풍 판금 갑옷",
+      "nameEn": "Knight Plate Armor",
+      "rarity": "rare"
+    },
+    {
+      "index": 36,
+      "sprite": "Armor_Rogue_1",
+      "spriteId": "armor_rogue_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "도적풍 붉은 조끼",
+      "nameEn": "Rogue Red Vest",
+      "rarity": "common"
+    },
+    {
+      "index": 37,
+      "sprite": "Armor_Rogue_2",
+      "spriteId": "armor_rogue_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "도적풍 검은 견갑",
+      "nameEn": "Rogue Black Pauldrons",
+      "rarity": "grand"
+    },
+    {
+      "index": 38,
+      "sprite": "Armor_Sorcerer",
+      "spriteId": "armor_sorcerer",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "마도사풍 예복",
+      "nameEn": "Sorcerer Vestment",
+      "rarity": "rare"
+    },
+    {
+      "index": 39,
+      "sprite": "Armor_1",
+      "spriteId": "armor_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "적갈색 가죽 상의",
+      "nameEn": "Russet Leather Jerkin",
+      "rarity": "crude"
+    },
+    {
+      "index": 40,
+      "sprite": "Armor_2",
+      "spriteId": "armor_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "강철 흉대",
+      "nameEn": "Steel Chestband",
+      "rarity": "common"
+    },
+    {
+      "index": 41,
+      "sprite": "Armor_3",
+      "spriteId": "armor_3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "무쇠 흉갑",
+      "nameEn": "Iron Breastplate",
+      "rarity": "common"
+    },
+    {
+      "index": 42,
+      "sprite": "Armor_4",
+      "spriteId": "armor_4",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "가시 돋친 강철 갑주",
+      "nameEn": "Spiked Steel Armor",
+      "rarity": "rare"
+    },
+    {
+      "index": 43,
+      "sprite": "Armor_5",
+      "spriteId": "armor_5",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "가죽 어깨띠",
+      "nameEn": "Leather Baldric",
+      "rarity": "crude"
+    },
+    {
+      "index": 44,
+      "sprite": "Armor_6",
+      "spriteId": "armor_6",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "허리 가죽끈",
+      "nameEn": "Leather Waist Strap",
+      "rarity": "crude"
+    },
+    {
+      "index": 45,
+      "sprite": "Armor_7",
+      "spriteId": "armor_7",
+      "existingItems": [
+        {
+          "id": "legendary_armor",
+          "nameKo": "전설의 갑옷",
+          "nameEn": "Legendary Armor"
+        }
+      ],
+      "action": "review",
+      "nameKo": "강철 흉갑",
+      "nameEn": "Steel Cuirass",
+      "rarity": "common"
+    },
+    {
+      "index": 46,
+      "sprite": "Armor_8",
+      "spriteId": "armor_8",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은빛 판금 갑주",
+      "nameEn": "Silver Plate Armor",
+      "rarity": "rare"
+    },
+    {
+      "index": 47,
+      "sprite": "Normal_Armor1",
+      "spriteId": "normal_armor1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흑철 갑옷",
+      "nameEn": "Blacksteel Armor",
+      "rarity": "grand"
+    },
+    {
+      "index": 48,
+      "sprite": "New_Armor_01",
+      "spriteId": "new_armor_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "진홍 강철 갑주",
+      "nameEn": "Crimson Steel Armor",
+      "rarity": "rare"
+    },
+    {
+      "index": 49,
+      "sprite": "New_Armor_02",
+      "spriteId": "new_armor_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은빛 흉갑",
+      "nameEn": "Silver Breastplate",
+      "rarity": "common"
+    },
+    {
+      "index": 50,
+      "sprite": "New_Armor_03",
+      "spriteId": "new_armor_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 천 흉대",
+      "nameEn": "White Cloth Chestband",
+      "rarity": "crude"
+    },
+    {
+      "index": 51,
+      "sprite": "New_Armor_04",
+      "spriteId": "new_armor_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "여행자의 가죽 어깨띠",
+      "nameEn": "Traveler Leather Baldric",
+      "rarity": "crude"
+    },
+    {
+      "index": 52,
+      "sprite": "New_Armor_05",
+      "spriteId": "new_armor_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "가죽 흉갑",
+      "nameEn": "Leather Cuirass",
+      "rarity": "common"
+    },
+    {
+      "index": 53,
+      "sprite": "New_Armor_06",
+      "spriteId": "new_armor_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "푸른 강철 사슬 갑옷",
+      "nameEn": "Blue Steel Chainmail",
+      "rarity": "rare"
+    },
+    {
+      "index": 54,
+      "sprite": "New_Armor_07",
+      "spriteId": "new_armor_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "백금 성기사 갑주",
+      "nameEn": "White-Gold Paladin Armor",
+      "rarity": "heroic"
+    },
+    {
+      "index": 55,
+      "sprite": "New_Armor_08",
+      "spriteId": "new_armor_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "불꽃 문양 흑청 갑주",
+      "nameEn": "Flame-Etched Dark Armor",
+      "rarity": "heroic"
+    },
+    {
+      "index": 56,
+      "sprite": "New_Armor_09",
+      "spriteId": "new_armor_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "두꺼운 가죽 갑옷",
+      "nameEn": "Thick Leather Armor",
+      "rarity": "common"
+    },
+    {
+      "index": 57,
+      "sprite": "New_Armor_10",
+      "spriteId": "new_armor_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "사냥꾼의 가죽띠",
+      "nameEn": "Hunter Leather Strap",
+      "rarity": "crude"
+    },
+    {
+      "index": 58,
+      "sprite": "New_Armor_12",
+      "spriteId": "new_armor_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "호박 버클 허리띠",
+      "nameEn": "Amber-Buckle Belt",
+      "rarity": "crude"
+    }
+  ]
+}

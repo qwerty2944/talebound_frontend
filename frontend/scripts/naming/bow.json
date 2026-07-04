@@ -1,0 +1,152 @@
+{
+  "category": "bow",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Weapon_02",
+      "spriteId": "elf_weapon_02",
+      "existingItems": [
+        {
+          "id": "wooden_bow",
+          "nameKo": "나무 활",
+          "nameEn": "Wooden Bow"
+        },
+        {
+          "id": "short_bow",
+          "nameKo": "단궁",
+          "nameEn": "Short Bow"
+        }
+      ],
+      "action": "review",
+      "nameKo": "단궁",
+      "nameEn": "Short Bow",
+      "rarity": "common"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Weapon_06",
+      "spriteId": "elf_weapon_06",
+      "existingItems": [
+        {
+          "id": "long_bow",
+          "nameKo": "장궁",
+          "nameEn": "Long Bow"
+        }
+      ],
+      "action": "review",
+      "nameKo": "덩굴 활",
+      "nameEn": "Vine Bow",
+      "rarity": "grand"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Weapon_14",
+      "spriteId": "elf_weapon_14",
+      "existingItems": [
+        {
+          "id": "composite_bow",
+          "nameKo": "합성궁",
+          "nameEn": "Composite Bow"
+        }
+      ],
+      "action": "review",
+      "nameKo": "합성궁",
+      "nameEn": "Composite Bow",
+      "rarity": "grand"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Weapon_18",
+      "spriteId": "elf_weapon_18",
+      "existingItems": [
+        {
+          "id": "elven_bow",
+          "nameKo": "엘프의 활",
+          "nameEn": "Elven Bow"
+        }
+      ],
+      "action": "review",
+      "nameKo": "엘프의 활",
+      "nameEn": "Elven Bow",
+      "rarity": "rare"
+    },
+    {
+      "index": 4,
+      "sprite": "Orc_Weapon_03",
+      "spriteId": "orc_weapon_03",
+      "existingItems": [
+        {
+          "id": "wind_bow",
+          "nameKo": "바람의 활",
+          "nameEn": "Wind Bow"
+        }
+      ],
+      "action": "review",
+      "nameKo": "오크 사냥활",
+      "nameEn": "Orc Hunting Bow",
+      "rarity": "crude"
+    },
+    {
+      "index": 5,
+      "sprite": "Undead_Weapon_04",
+      "spriteId": "undead_weapon_04",
+      "existingItems": [
+        {
+          "id": "phoenix_bow",
+          "nameKo": "불사조의 활",
+          "nameEn": "Phoenix Bow"
+        }
+      ],
+      "action": "review",
+      "nameKo": "뼈 활",
+      "nameEn": "Bone Bow",
+      "rarity": "common"
+    },
+    {
+      "index": 6,
+      "sprite": "Undead_Weapon_05",
+      "spriteId": "undead_weapon_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "망령의 활",
+      "nameEn": "Wraith Bow",
+      "rarity": "rare"
+    },
+    {
+      "index": 7,
+      "sprite": "Weapon_Archer_1",
+      "spriteId": "weapon_archer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "화염 활",
+      "nameEn": "Flame Bow",
+      "rarity": "arcane"
+    },
+    {
+      "index": 8,
+      "sprite": "Weapon_Archer_2",
+      "spriteId": "weapon_archer_2",
+      "existingItems": [
+        {
+          "id": "legendary_bow",
+          "nameKo": "전설의 활",
+          "nameEn": "Legendary Bow"
+        }
+      ],
+      "action": "review",
+      "nameKo": "전설의 활",
+      "nameEn": "Legendary Bow",
+      "rarity": "legendary"
+    },
+    {
+      "index": 9,
+      "sprite": "Bow_1",
+      "spriteId": "bow_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "낡은 나무 활",
+      "nameEn": "Worn Wooden Bow",
+      "rarity": "crude"
+    }
+  ]
+}

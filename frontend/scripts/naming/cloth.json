@@ -1,0 +1,1363 @@
+{
+  "category": "cloth",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Cloth_01",
+      "spriteId": "elf_cloth_01",
+      "existingItems": [
+        {
+          "id": "simple_tunic",
+          "nameKo": "단순한 튜닉",
+          "nameEn": "Simple Tunic"
+        }
+      ],
+      "action": "review",
+      "nameKo": "단순한 튜닉",
+      "nameEn": "Simple Tunic",
+      "rarity": "common"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Cloth_02",
+      "spriteId": "elf_cloth_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 분홍 블라우스",
+      "nameEn": "Elven Pink Blouse",
+      "rarity": "common"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Cloth_03",
+      "spriteId": "elf_cloth_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 푸른 튜닉",
+      "nameEn": "Elven Blue Tunic",
+      "rarity": "common"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Cloth_04",
+      "spriteId": "elf_cloth_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 갈색 재킷",
+      "nameEn": "Elven Brown Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 4,
+      "sprite": "Elf_Cloth_05",
+      "spriteId": "elf_cloth_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 갈색 여행 셔츠",
+      "nameEn": "Elven Brown Travel Shirt",
+      "rarity": "common"
+    },
+    {
+      "index": 5,
+      "sprite": "Elf_Cloth_06",
+      "spriteId": "elf_cloth_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 녹색 사냥꾼 상의",
+      "nameEn": "Elven Green Hunter Top",
+      "rarity": "grand"
+    },
+    {
+      "index": 6,
+      "sprite": "Elf_Cloth_07",
+      "spriteId": "elf_cloth_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 청색 띠 셔츠",
+      "nameEn": "Elven Blue-Sashed Shirt",
+      "rarity": "common"
+    },
+    {
+      "index": 7,
+      "sprite": "Elf_Cloth_08",
+      "spriteId": "elf_cloth_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 갈색 조끼 셔츠",
+      "nameEn": "Elven Brown Vest Shirt",
+      "rarity": "common"
+    },
+    {
+      "index": 8,
+      "sprite": "Elf_Cloth_09",
+      "spriteId": "elf_cloth_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 짙은 갈색 조끼",
+      "nameEn": "Elven Dark Brown Vest",
+      "rarity": "common"
+    },
+    {
+      "index": 9,
+      "sprite": "Elf_Cloth_10",
+      "spriteId": "elf_cloth_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 녹색 띠 원피스",
+      "nameEn": "Elven Green-Sashed Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 10,
+      "sprite": "Elf_Cloth_11",
+      "spriteId": "elf_cloth_11",
+      "existingItems": [
+        {
+          "id": "traveler_clothes",
+          "nameKo": "여행자의 옷",
+          "nameEn": "Traveler's Clothes"
+        }
+      ],
+      "action": "review",
+      "nameKo": "여행자의 옷",
+      "nameEn": "Traveler's Clothes",
+      "rarity": "common"
+    },
+    {
+      "index": 11,
+      "sprite": "Elf_Cloth_12",
+      "spriteId": "elf_cloth_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 붉은 예복 코트",
+      "nameEn": "Elven Red Ceremonial Coat",
+      "rarity": "rare"
+    },
+    {
+      "index": 12,
+      "sprite": "Elf_Cloth_13",
+      "spriteId": "elf_cloth_13",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 하늘색 재킷",
+      "nameEn": "Elven Sky-Blue Jacket",
+      "rarity": "grand"
+    },
+    {
+      "index": 13,
+      "sprite": "Elf_Cloth_14",
+      "spriteId": "elf_cloth_14",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 붉은 띠 블라우스",
+      "nameEn": "Elven Red-Sashed Blouse",
+      "rarity": "common"
+    },
+    {
+      "index": 14,
+      "sprite": "Elf_Cloth_15",
+      "spriteId": "elf_cloth_15",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 흰 비단 셔츠",
+      "nameEn": "Elven White Silk Shirt",
+      "rarity": "grand"
+    },
+    {
+      "index": 15,
+      "sprite": "Elf_Cloth_16",
+      "spriteId": "elf_cloth_16",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 남색 관복",
+      "nameEn": "Elven Navy Formal Garb",
+      "rarity": "grand"
+    },
+    {
+      "index": 16,
+      "sprite": "Elf_Cloth_17",
+      "spriteId": "elf_cloth_17",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 남색 재킷",
+      "nameEn": "Elven Navy Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 17,
+      "sprite": "Elf_Cloth_18",
+      "spriteId": "elf_cloth_18",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 흰 사제복",
+      "nameEn": "Elven White Vestment",
+      "rarity": "grand"
+    },
+    {
+      "index": 18,
+      "sprite": "Elf_Cloth_19",
+      "spriteId": "elf_cloth_19",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 견장 달린 셔츠",
+      "nameEn": "Elven Epauletted Shirt",
+      "rarity": "grand"
+    },
+    {
+      "index": 19,
+      "sprite": "Elf_Cloth_20",
+      "spriteId": "elf_cloth_20",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "엘프풍 흰 장교 코트",
+      "nameEn": "Elven White Officer Coat",
+      "rarity": "rare"
+    },
+    {
+      "index": 20,
+      "sprite": "Orc_Cloth_01",
+      "spriteId": "orc_cloth_01",
+      "existingItems": [
+        {
+          "id": "reinforced_clothes",
+          "nameKo": "강화된 옷",
+          "nameEn": "Reinforced Clothes"
+        }
+      ],
+      "action": "review",
+      "nameKo": "오크풍 허리 두르개",
+      "nameEn": "Orcish Waist Wrap",
+      "rarity": "crude"
+    },
+    {
+      "index": 21,
+      "sprite": "Orc_Cloth_02",
+      "spriteId": "orc_cloth_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크풍 가죽 조끼",
+      "nameEn": "Orcish Leather Vest",
+      "rarity": "common"
+    },
+    {
+      "index": 22,
+      "sprite": "Orc_Cloth_03",
+      "spriteId": "orc_cloth_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크풍 뼈 장식 어깨걸이",
+      "nameEn": "Orcish Bone-Trimmed Shoulder Wrap",
+      "rarity": "grand"
+    },
+    {
+      "index": 23,
+      "sprite": "Orc_Cloth_04",
+      "spriteId": "orc_cloth_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크풍 가죽 어깨끈",
+      "nameEn": "Orcish Leather Baldric",
+      "rarity": "crude"
+    },
+    {
+      "index": 24,
+      "sprite": "Orc_Cloth_05",
+      "spriteId": "orc_cloth_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크풍 검은 허리천",
+      "nameEn": "Orcish Black Loincloth",
+      "rarity": "crude"
+    },
+    {
+      "index": 25,
+      "sprite": "Undead_Cloth_01",
+      "spriteId": "undead_cloth_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "누더기 푸른 허리띠",
+      "nameEn": "Ragged Blue Waistband",
+      "rarity": "crude"
+    },
+    {
+      "index": 26,
+      "sprite": "Undead_Cloth_02",
+      "spriteId": "undead_cloth_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 핏빛 누더기",
+      "nameEn": "Undead Bloodied Rags",
+      "rarity": "crude"
+    },
+    {
+      "index": 27,
+      "sprite": "Undead_Cloth_03",
+      "spriteId": "undead_cloth_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 낡은 가죽 누더기",
+      "nameEn": "Undead Worn Leather Tatters",
+      "rarity": "crude"
+    },
+    {
+      "index": 28,
+      "sprite": "Undead_Cloth_04",
+      "spriteId": "undead_cloth_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 검푸른 손목 감개",
+      "nameEn": "Undead Dark Wristwraps",
+      "rarity": "crude"
+    },
+    {
+      "index": 29,
+      "sprite": "Undead_Cloth_05",
+      "spriteId": "undead_cloth_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 남색 허리 누더기",
+      "nameEn": "Undead Navy Waist Rags",
+      "rarity": "crude"
+    },
+    {
+      "index": 30,
+      "sprite": "Undead_Cloth_06",
+      "spriteId": "undead_cloth_06",
+      "existingItems": [
+        {
+          "id": "rogue_outfit",
+          "nameKo": "도적의 복장",
+          "nameEn": "Rogue's Outfit"
+        }
+      ],
+      "action": "review",
+      "nameKo": "언데드풍 핏빛 로브",
+      "nameEn": "Undead Crimson Robe",
+      "rarity": "grand"
+    },
+    {
+      "index": 31,
+      "sprite": "Undead_Cloth_07",
+      "spriteId": "undead_cloth_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "언데드풍 해진 암적색 코트",
+      "nameEn": "Undead Tattered Maroon Coat",
+      "rarity": "grand"
+    },
+    {
+      "index": 32,
+      "sprite": "dress_1",
+      "spriteId": "dress_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "분홍 블라우스",
+      "nameEn": "Pink Blouse",
+      "rarity": "common"
+    },
+    {
+      "index": 33,
+      "sprite": "dress_1_c1",
+      "spriteId": "dress_1_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "연두색 블라우스",
+      "nameEn": "Light Green Blouse",
+      "rarity": "common"
+    },
+    {
+      "index": 34,
+      "sprite": "dress_1_c2",
+      "spriteId": "dress_1_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보라색 블라우스",
+      "nameEn": "Purple Blouse",
+      "rarity": "common"
+    },
+    {
+      "index": 35,
+      "sprite": "dress_1_g",
+      "spriteId": "dress_1_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 블라우스",
+      "nameEn": "Gray Blouse",
+      "rarity": "common"
+    },
+    {
+      "index": 36,
+      "sprite": "dress_2",
+      "spriteId": "dress_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 다이아 무늬 스웨터",
+      "nameEn": "Blue Diamond-Pattern Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 37,
+      "sprite": "dress_2_c1",
+      "spriteId": "dress_2_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "자홍색 다이아 무늬 스웨터",
+      "nameEn": "Magenta Diamond-Pattern Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 38,
+      "sprite": "dress_2_c2",
+      "spriteId": "dress_2_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "노란 다이아 무늬 스웨터",
+      "nameEn": "Yellow Diamond-Pattern Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 39,
+      "sprite": "dress_2_g",
+      "spriteId": "dress_2_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 다이아 무늬 스웨터",
+      "nameEn": "Gray Diamond-Pattern Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 40,
+      "sprite": "dress_3",
+      "spriteId": "dress_3",
+      "existingItems": [
+        {
+          "id": "hunter_garb",
+          "nameKo": "사냥꾼의 의복",
+          "nameEn": "Hunter's Garb"
+        }
+      ],
+      "action": "review",
+      "nameKo": "청백 체크 원피스",
+      "nameEn": "Blue-White Check Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 41,
+      "sprite": "dress_3_c1",
+      "spriteId": "dress_3_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "적백 체크 원피스",
+      "nameEn": "Red-White Check Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 42,
+      "sprite": "dress_3_c2",
+      "spriteId": "dress_3_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "청록 체크 원피스",
+      "nameEn": "Teal Check Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 43,
+      "sprite": "dress_3_g",
+      "spriteId": "dress_3_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회백 체크 원피스",
+      "nameEn": "Gray Check Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 44,
+      "sprite": "dress_4",
+      "spriteId": "dress_4",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 오프숄더 상의",
+      "nameEn": "Red Off-Shoulder Top",
+      "rarity": "common"
+    },
+    {
+      "index": 45,
+      "sprite": "dress_4_c1",
+      "spriteId": "dress_4_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "분홍 오프숄더 상의",
+      "nameEn": "Pink Off-Shoulder Top",
+      "rarity": "common"
+    },
+    {
+      "index": 46,
+      "sprite": "dress_4_c2",
+      "spriteId": "dress_4_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검은 오프숄더 상의",
+      "nameEn": "Black Off-Shoulder Top",
+      "rarity": "common"
+    },
+    {
+      "index": 47,
+      "sprite": "dress_4_g",
+      "spriteId": "dress_4_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 오프숄더 상의",
+      "nameEn": "Gray Off-Shoulder Top",
+      "rarity": "common"
+    },
+    {
+      "index": 48,
+      "sprite": "dress_5",
+      "spriteId": "dress_5",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "분홍 카디건 원피스",
+      "nameEn": "Pink Cardigan Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 49,
+      "sprite": "dress_5_c1",
+      "spriteId": "dress_5_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "민트 카디건 원피스",
+      "nameEn": "Mint Cardigan Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 50,
+      "sprite": "dress_5_c2",
+      "spriteId": "dress_5_c2",
+      "existingItems": [
+        {
+          "id": "shadow_garb",
+          "nameKo": "그림자의 의복",
+          "nameEn": "Shadow Garb"
+        }
+      ],
+      "action": "review",
+      "nameKo": "흰 카디건과 자주 원피스",
+      "nameEn": "White Cardigan with Plum Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 51,
+      "sprite": "dress_5_g",
+      "spriteId": "dress_5_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 카디건 원피스",
+      "nameEn": "Gray Cardigan Dress",
+      "rarity": "common"
+    },
+    {
+      "index": 52,
+      "sprite": "farmer",
+      "spriteId": "farmer",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 멜빵 작업복",
+      "nameEn": "Blue Overalls",
+      "rarity": "common"
+    },
+    {
+      "index": 53,
+      "sprite": "farmer_c1",
+      "spriteId": "farmer_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 멜빵 작업복",
+      "nameEn": "Red Overalls",
+      "rarity": "common"
+    },
+    {
+      "index": 54,
+      "sprite": "farmer_c2",
+      "spriteId": "farmer_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "자주색 멜빵 작업복",
+      "nameEn": "Plum Overalls",
+      "rarity": "common"
+    },
+    {
+      "index": 55,
+      "sprite": "farmer_g",
+      "spriteId": "farmer_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 멜빵 작업복",
+      "nameEn": "Gray Overalls",
+      "rarity": "common"
+    },
+    {
+      "index": 56,
+      "sprite": "hoodie",
+      "spriteId": "hoodie",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회청색 후드티",
+      "nameEn": "Slate Hoodie",
+      "rarity": "common"
+    },
+    {
+      "index": 57,
+      "sprite": "hoodie_c1",
+      "spriteId": "hoodie_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "노란 후드티",
+      "nameEn": "Yellow Hoodie",
+      "rarity": "common"
+    },
+    {
+      "index": 58,
+      "sprite": "hoodie_c2",
+      "spriteId": "hoodie_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 후드티",
+      "nameEn": "Blue Hoodie",
+      "rarity": "common"
+    },
+    {
+      "index": 59,
+      "sprite": "suit_1",
+      "spriteId": "suit_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검은 정장",
+      "nameEn": "Black Suit",
+      "rarity": "grand"
+    },
+    {
+      "index": 60,
+      "sprite": "suit_1_c1",
+      "spriteId": "suit_1_c1",
+      "existingItems": [
+        {
+          "id": "assassin_attire",
+          "nameKo": "암살자의 복장",
+          "nameEn": "Assassin's Attire"
+        }
+      ],
+      "action": "review",
+      "nameKo": "남색 정장",
+      "nameEn": "Navy Suit",
+      "rarity": "grand"
+    },
+    {
+      "index": 61,
+      "sprite": "suit_1_c2",
+      "spriteId": "suit_1_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보라색 정장",
+      "nameEn": "Purple Suit",
+      "rarity": "grand"
+    },
+    {
+      "index": 62,
+      "sprite": "suit_1_g",
+      "spriteId": "suit_1_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "잿빛 정장",
+      "nameEn": "Ashen Suit",
+      "rarity": "grand"
+    },
+    {
+      "index": 63,
+      "sprite": "suit_2",
+      "spriteId": "suit_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은빛 열린 재킷",
+      "nameEn": "Silver Open Jacket",
+      "rarity": "grand"
+    },
+    {
+      "index": 64,
+      "sprite": "suit_2_c1",
+      "spriteId": "suit_2_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 열린 재킷",
+      "nameEn": "Blue Open Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 65,
+      "sprite": "suit_2_c2",
+      "spriteId": "suit_2_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 열린 재킷",
+      "nameEn": "Red Open Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 66,
+      "sprite": "suit_2_g",
+      "spriteId": "suit_2_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 열린 재킷",
+      "nameEn": "Gray Open Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 67,
+      "sprite": "suit_3",
+      "spriteId": "suit_3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "진홍색 재킷",
+      "nameEn": "Crimson Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 68,
+      "sprite": "suit_3_c1",
+      "spriteId": "suit_3_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "주황색 재킷",
+      "nameEn": "Orange Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 69,
+      "sprite": "suit_3_c2",
+      "spriteId": "suit_3_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "연보라 재킷",
+      "nameEn": "Lavender Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 70,
+      "sprite": "suit_3_g",
+      "spriteId": "suit_3_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "잿빛 재킷",
+      "nameEn": "Ashen Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 71,
+      "sprite": "tee_1",
+      "spriteId": "tee_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 줄무늬 흰 티셔츠",
+      "nameEn": "Blue-Striped White Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 72,
+      "sprite": "tee_1_c1",
+      "spriteId": "tee_1_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "빨간 줄무늬 노란 티셔츠",
+      "nameEn": "Red-Striped Yellow Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 73,
+      "sprite": "tee_1_g1",
+      "spriteId": "tee_1_g1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 줄무늬 검은 티셔츠",
+      "nameEn": "White-Striped Black Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 74,
+      "sprite": "tee_1_g2",
+      "spriteId": "tee_1_g2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 줄무늬 흰 티셔츠",
+      "nameEn": "Gray-Striped White Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 75,
+      "sprite": "tee_2",
+      "spriteId": "tee_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "노란 민소매 셔츠",
+      "nameEn": "Yellow Tank Top",
+      "rarity": "crude"
+    },
+    {
+      "index": 76,
+      "sprite": "tee_2_c1",
+      "spriteId": "tee_2_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "주황 민소매 셔츠",
+      "nameEn": "Orange Tank Top",
+      "rarity": "crude"
+    },
+    {
+      "index": 77,
+      "sprite": "tee_2_c2",
+      "spriteId": "tee_2_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "청록 민소매 셔츠",
+      "nameEn": "Teal Tank Top",
+      "rarity": "crude"
+    },
+    {
+      "index": 78,
+      "sprite": "tee_2_g",
+      "spriteId": "tee_2_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 민소매 셔츠",
+      "nameEn": "Gray Tank Top",
+      "rarity": "crude"
+    },
+    {
+      "index": 79,
+      "sprite": "tee_3",
+      "spriteId": "tee_3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "물방울 무늬 파란 티셔츠",
+      "nameEn": "Dotted Blue Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 80,
+      "sprite": "tee_3_c1",
+      "spriteId": "tee_3_c1",
+      "existingItems": [
+        {
+          "id": "legendary_clothes",
+          "nameKo": "전설의 의복",
+          "nameEn": "Legendary Clothes"
+        }
+      ],
+      "action": "review",
+      "nameKo": "물방울 무늬 분홍 티셔츠",
+      "nameEn": "Dotted Pink Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 81,
+      "sprite": "tee_3_c2",
+      "spriteId": "tee_3_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "물방울 무늬 노란 티셔츠",
+      "nameEn": "Dotted Yellow Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 82,
+      "sprite": "tee_3_g",
+      "spriteId": "tee_3_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "물방울 무늬 회색 티셔츠",
+      "nameEn": "Dotted Gray Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 83,
+      "sprite": "winter1",
+      "spriteId": "winter1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 겨울 재킷",
+      "nameEn": "Brown Winter Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 84,
+      "sprite": "winter1_c1",
+      "spriteId": "winter1_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "남색 겨울 재킷",
+      "nameEn": "Navy Winter Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 85,
+      "sprite": "winter1_c2",
+      "spriteId": "winter1_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "암적색 겨울 재킷",
+      "nameEn": "Dark Red Winter Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 86,
+      "sprite": "winter1_g",
+      "spriteId": "winter1_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검회색 겨울 재킷",
+      "nameEn": "Charcoal Winter Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 87,
+      "sprite": "winter2",
+      "spriteId": "winter2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "민트색 겨울 코트",
+      "nameEn": "Mint Winter Coat",
+      "rarity": "common"
+    },
+    {
+      "index": 88,
+      "sprite": "winter2_c1",
+      "spriteId": "winter2_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "올리브색 겨울 코트",
+      "nameEn": "Olive Winter Coat",
+      "rarity": "common"
+    },
+    {
+      "index": 89,
+      "sprite": "winter2_c2",
+      "spriteId": "winter2_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "분홍 겨울 코트",
+      "nameEn": "Pink Winter Coat",
+      "rarity": "common"
+    },
+    {
+      "index": 90,
+      "sprite": "winter2_g",
+      "spriteId": "winter2_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 겨울 코트",
+      "nameEn": "Gray Winter Coat",
+      "rarity": "common"
+    },
+    {
+      "index": 91,
+      "sprite": "winter3",
+      "spriteId": "winter3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "자주색 겨울 스웨터",
+      "nameEn": "Burgundy Winter Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 92,
+      "sprite": "winter3_c1",
+      "spriteId": "winter3_c1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 겨울 스웨터",
+      "nameEn": "Brown Winter Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 93,
+      "sprite": "winter3_c2",
+      "spriteId": "winter3_c2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "남색 겨울 스웨터",
+      "nameEn": "Navy Winter Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 94,
+      "sprite": "winter3_g",
+      "spriteId": "winter3_g",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "회색 겨울 스웨터",
+      "nameEn": "Gray Winter Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 95,
+      "sprite": "Cloth_Archer_1",
+      "spriteId": "cloth_archer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "궁수의 은장식 전투복",
+      "nameEn": "Archer's Silver-Trimmed Battledress",
+      "rarity": "rare"
+    },
+    {
+      "index": 96,
+      "sprite": "Cloth_Archer_2",
+      "spriteId": "cloth_archer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "궁수의 녹색 튜닉",
+      "nameEn": "Archer's Green Tunic",
+      "rarity": "grand"
+    },
+    {
+      "index": 97,
+      "sprite": "Cloth_Healer_1",
+      "spriteId": "cloth_healer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "치유사의 흰 로브",
+      "nameEn": "Healer's White Robe",
+      "rarity": "grand"
+    },
+    {
+      "index": 98,
+      "sprite": "Cloth_Healer_2",
+      "spriteId": "cloth_healer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "치유사의 짙은 녹색 로브",
+      "nameEn": "Healer's Deep Green Robe",
+      "rarity": "grand"
+    },
+    {
+      "index": 99,
+      "sprite": "Cloth_Knight_1",
+      "spriteId": "cloth_knight_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "기사의 군청색 전투복",
+      "nameEn": "Knight's Dark Blue Battledress",
+      "rarity": "grand"
+    },
+    {
+      "index": 100,
+      "sprite": "Cloth_Knight_2",
+      "spriteId": "cloth_knight_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "기사의 푸른 무장복",
+      "nameEn": "Knight's Blue War Garb",
+      "rarity": "rare"
+    },
+    {
+      "index": 101,
+      "sprite": "Cloth_Rogue_1",
+      "spriteId": "cloth_rogue_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "도적의 잿빛 견장 상의",
+      "nameEn": "Rogue's Gray-Pauldron Top",
+      "rarity": "grand"
+    },
+    {
+      "index": 102,
+      "sprite": "Cloth_Rogue_2",
+      "spriteId": "cloth_rogue_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "도적의 갈색 혁대 상의",
+      "nameEn": "Rogue's Brown-Belted Top",
+      "rarity": "grand"
+    },
+    {
+      "index": 103,
+      "sprite": "Cloth_Sorcerer",
+      "spriteId": "cloth_sorcerer",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "마법사의 검은 예복",
+      "nameEn": "Sorcerer's Black Vestment",
+      "rarity": "rare"
+    },
+    {
+      "index": 104,
+      "sprite": "Cloth_Sorceress",
+      "spriteId": "cloth_sorceress",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "마녀의 붉은 조끼",
+      "nameEn": "Sorceress's Red Vest",
+      "rarity": "rare"
+    },
+    {
+      "index": 105,
+      "sprite": "Cloth_1",
+      "spriteId": "cloth_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보랏빛 로브",
+      "nameEn": "Violet Robe",
+      "rarity": "common"
+    },
+    {
+      "index": 106,
+      "sprite": "Cloth_10",
+      "spriteId": "cloth_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "청록색 여행복",
+      "nameEn": "Teal Travel Garb",
+      "rarity": "common"
+    },
+    {
+      "index": 107,
+      "sprite": "Cloth_11",
+      "spriteId": "cloth_11",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "푸른 여행 재킷",
+      "nameEn": "Blue Travel Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 108,
+      "sprite": "Cloth_12",
+      "spriteId": "cloth_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "장밋빛 셔츠",
+      "nameEn": "Rose Shirt",
+      "rarity": "common"
+    },
+    {
+      "index": 109,
+      "sprite": "Cloth_2",
+      "spriteId": "cloth_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "진홍색 로브",
+      "nameEn": "Crimson Robe",
+      "rarity": "common"
+    },
+    {
+      "index": 110,
+      "sprite": "Cloth_3",
+      "spriteId": "cloth_3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "황갈색 셔츠",
+      "nameEn": "Tan Shirt",
+      "rarity": "common"
+    },
+    {
+      "index": 111,
+      "sprite": "Cloth_4",
+      "spriteId": "cloth_4",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "초록 스웨터",
+      "nameEn": "Green Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 112,
+      "sprite": "Cloth_5",
+      "spriteId": "cloth_5",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "분홍 줄무늬 티셔츠",
+      "nameEn": "Pink Striped Tee",
+      "rarity": "crude"
+    },
+    {
+      "index": 113,
+      "sprite": "Cloth_6",
+      "spriteId": "cloth_6",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "노란 스웨터",
+      "nameEn": "Yellow Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 114,
+      "sprite": "Cloth_7",
+      "spriteId": "cloth_7",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "짙은 초록 스웨터",
+      "nameEn": "Deep Green Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 115,
+      "sprite": "Cloth_8",
+      "spriteId": "cloth_8",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 평상복",
+      "nameEn": "Brown Casual Shirt",
+      "rarity": "crude"
+    },
+    {
+      "index": 116,
+      "sprite": "Cloth_9",
+      "spriteId": "cloth_9",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검은 가슴띠",
+      "nameEn": "Black Chest Strap",
+      "rarity": "crude"
+    },
+    {
+      "index": 117,
+      "sprite": "F_SR_Cloth",
+      "spriteId": "f_sr_cloth",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 비단 블라우스",
+      "nameEn": "White Silk Blouse",
+      "rarity": "rare"
+    },
+    {
+      "index": 118,
+      "sprite": "Normal_Cloth1",
+      "spriteId": "normal_cloth1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 여행자 튜닉",
+      "nameEn": "Brown Traveler Tunic",
+      "rarity": "common"
+    },
+    {
+      "index": 119,
+      "sprite": "New_Cloth_01",
+      "spriteId": "new_cloth_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "남색 운동 재킷",
+      "nameEn": "Navy Track Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 120,
+      "sprite": "New_Cloth_02",
+      "spriteId": "new_cloth_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "불꽃무늬 재킷",
+      "nameEn": "Flame-Patterned Jacket",
+      "rarity": "rare"
+    },
+    {
+      "index": 121,
+      "sprite": "New_Cloth_03",
+      "spriteId": "new_cloth_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "줄무늬 파란 재킷",
+      "nameEn": "Striped Blue Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 122,
+      "sprite": "New_Cloth_04",
+      "spriteId": "new_cloth_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "남색 허리감개",
+      "nameEn": "Navy Waist Wrap",
+      "rarity": "crude"
+    },
+    {
+      "index": 123,
+      "sprite": "New_Cloth_05",
+      "spriteId": "new_cloth_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "연갈색 코트",
+      "nameEn": "Light Brown Coat",
+      "rarity": "common"
+    },
+    {
+      "index": 124,
+      "sprite": "New_Cloth_06",
+      "spriteId": "new_cloth_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은회색 스웨터",
+      "nameEn": "Silver-Gray Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 125,
+      "sprite": "New_Cloth_07",
+      "spriteId": "new_cloth_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "주황 스웨터",
+      "nameEn": "Orange Sweater",
+      "rarity": "common"
+    },
+    {
+      "index": 126,
+      "sprite": "New_Cloth_08",
+      "spriteId": "new_cloth_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 밑단 초록 셔츠",
+      "nameEn": "Green Shirt with White Hem",
+      "rarity": "common"
+    },
+    {
+      "index": 127,
+      "sprite": "New_Cloth_09",
+      "spriteId": "new_cloth_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "주황 럭비 셔츠",
+      "nameEn": "Orange Rugby Shirt",
+      "rarity": "common"
+    },
+    {
+      "index": 128,
+      "sprite": "New_Cloth_10",
+      "spriteId": "new_cloth_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 깃 초록 셔츠",
+      "nameEn": "Green Shirt with White Collar",
+      "rarity": "common"
+    },
+    {
+      "index": 129,
+      "sprite": "New_Cloth_11",
+      "spriteId": "new_cloth_11",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 집업 재킷",
+      "nameEn": "Brown Zip-Up Jacket",
+      "rarity": "common"
+    },
+    {
+      "index": 130,
+      "sprite": "New_Cloth_12",
+      "spriteId": "new_cloth_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "자주빛 줄무늬 코트",
+      "nameEn": "Plum Striped Coat",
+      "rarity": "common"
+    }
+  ]
+}

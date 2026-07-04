@@ -2,12 +2,12 @@
   "category": "equipment",
   "subcategory": "weapon",
   "weaponType": "bow",
-  "spriteMapping": "/data/sprites/equipment/weapon/bow.json",
+  "spriteMapping": "/data/sprites/equipment/weapons/bow.json",
   "items": [
     {
       "id": "wooden_bow",
-      "nameKo": "나무 활",
-      "nameEn": "Wooden Bow",
+      "nameKo": "낡은 단궁",
+      "nameEn": "Worn Short Bow",
       "description": "단순한 나무로 만든 활.",
       "rarity": "crude",
       "value": 30,
@@ -45,8 +45,8 @@
     },
     {
       "id": "long_bow",
-      "nameKo": "장궁",
-      "nameEn": "Long Bow",
+      "nameKo": "덩굴 활",
+      "nameEn": "Vine Bow",
       "description": "긴 사거리의 대형 활.",
       "rarity": "grand",
       "value": 300,
@@ -109,8 +109,8 @@
     },
     {
       "id": "wind_bow",
-      "nameKo": "바람의 활",
-      "nameEn": "Wind Bow",
+      "nameKo": "오크 사냥활",
+      "nameEn": "Orc Hunting Bow",
       "description": "바람의 정령이 깃든 마법 활.",
       "rarity": "heroic",
       "value": 5000,
@@ -131,8 +131,8 @@
     },
     {
       "id": "phoenix_bow",
-      "nameKo": "불사조의 활",
-      "nameEn": "Phoenix Bow",
+      "nameKo": "뼈 활",
+      "nameEn": "Bone Bow",
       "description": "불사조의 깃털로 만든 화염의 활.",
       "rarity": "unique",
       "value": 12000,
@@ -176,6 +176,66 @@
         "dex": 32
       },
       "spriteId": "weapon_archer_2"
+    },
+    {
+      "id": "wraith_bow",
+      "nameKo": "망령의 활",
+      "nameEn": "Wraith Bow",
+      "description": "망령의 활. 활 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "damage": 14,
+        "attackSpeed": 1,
+        "range": 3
+      },
+      "requirements": {
+        "level": 5,
+        "dex": 11
+      },
+      "spriteId": "undead_weapon_05"
+    },
+    {
+      "id": "flame_bow",
+      "nameKo": "화염 활",
+      "nameEn": "Flame Bow",
+      "description": "화염 활. 활 장비.",
+      "rarity": "arcane",
+      "value": 800,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "damage": 17,
+        "attackSpeed": 1,
+        "range": 3
+      },
+      "requirements": {
+        "level": 8,
+        "dex": 13
+      },
+      "spriteId": "weapon_archer_1"
+    },
+    {
+      "id": "worn_wooden_bow",
+      "nameKo": "낡은 나무 활",
+      "nameEn": "Worn Wooden Bow",
+      "description": "낡은 나무 활. 활 장비.",
+      "rarity": "crude",
+      "value": 50,
+      "weight": 2,
+      "color": null,
+      "stats": {
+        "damage": 7,
+        "attackSpeed": 1,
+        "range": 3
+      },
+      "requirements": {
+        "level": 1,
+        "dex": 5
+      },
+      "spriteId": "bow_1"
     }
   ]
 }

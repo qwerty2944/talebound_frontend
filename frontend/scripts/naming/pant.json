@@ -1,0 +1,653 @@
+{
+  "category": "pant",
+  "sprites": [
+    {
+      "index": 0,
+      "sprite": "Elf_Pant_01",
+      "spriteId": "elf_pant_01",
+      "existingItems": [
+        {
+          "id": "cloth_pants",
+          "nameKo": "천 바지",
+          "nameEn": "Cloth Pants"
+        }
+      ],
+      "action": "review",
+      "nameKo": "천 바지",
+      "nameEn": "Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 1,
+      "sprite": "Elf_Pant_02",
+      "spriteId": "elf_pant_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "분홍 천 바지",
+      "nameEn": "Pink Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 2,
+      "sprite": "Elf_Pant_03",
+      "spriteId": "elf_pant_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "짙은 갈색 천 바지",
+      "nameEn": "Dark Brown Cloth Pants",
+      "rarity": "crude"
+    },
+    {
+      "index": 3,
+      "sprite": "Elf_Pant_04",
+      "spriteId": "elf_pant_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "노란 비단 바지",
+      "nameEn": "Yellow Silk Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 4,
+      "sprite": "Elf_Pant_05",
+      "spriteId": "elf_pant_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "남색 여행자 바지",
+      "nameEn": "Navy Traveler Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 5,
+      "sprite": "Elf_Pant_06",
+      "spriteId": "elf_pant_06",
+      "existingItems": [
+        {
+          "id": "leather_pants",
+          "nameKo": "가죽 바지",
+          "nameEn": "Leather Pants"
+        }
+      ],
+      "action": "review",
+      "nameKo": "주홍 비단 바지",
+      "nameEn": "Scarlet Silk Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 6,
+      "sprite": "Elf_Pant_07",
+      "spriteId": "elf_pant_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "갈색 가죽 바지",
+      "nameEn": "Brown Leather Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 7,
+      "sprite": "Elf_Pant_08",
+      "spriteId": "elf_pant_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검은 사냥꾼 바지",
+      "nameEn": "Black Hunter Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 8,
+      "sprite": "Elf_Pant_09",
+      "spriteId": "elf_pant_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 천 바지",
+      "nameEn": "White Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 9,
+      "sprite": "Elf_Pant_10",
+      "spriteId": "elf_pant_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "초록 숲지기 바지",
+      "nameEn": "Green Forestkeeper Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 10,
+      "sprite": "Elf_Pant_11",
+      "spriteId": "elf_pant_11",
+      "existingItems": [
+        {
+          "id": "chain_leggings",
+          "nameKo": "쇠사슬 바지",
+          "nameEn": "Chain Leggings"
+        }
+      ],
+      "action": "review",
+      "nameKo": "주황 천 바지",
+      "nameEn": "Orange Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 11,
+      "sprite": "Elf_Pant_12",
+      "spriteId": "elf_pant_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 단 검은 바지",
+      "nameEn": "Red-Trimmed Black Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 12,
+      "sprite": "Elf_Pant_13",
+      "spriteId": "elf_pant_13",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 정장 바지",
+      "nameEn": "White Dress Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 13,
+      "sprite": "Elf_Pant_14",
+      "spriteId": "elf_pant_14",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 무용수 반바지",
+      "nameEn": "Red Dancer Shorts",
+      "rarity": "grand"
+    },
+    {
+      "index": 14,
+      "sprite": "Elf_Pant_15",
+      "spriteId": "elf_pant_15",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "남색 천 바지",
+      "nameEn": "Navy Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 15,
+      "sprite": "Elf_Pant_16",
+      "spriteId": "elf_pant_16",
+      "existingItems": [
+        {
+          "id": "plate_leggings",
+          "nameKo": "판금 다리보호구",
+          "nameEn": "Plate Leggings"
+        }
+      ],
+      "action": "review",
+      "nameKo": "판금 다리보호구",
+      "nameEn": "Plate Leggings",
+      "rarity": "rare"
+    },
+    {
+      "index": 16,
+      "sprite": "Elf_Pant_17",
+      "spriteId": "elf_pant_17",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "은백색 바지",
+      "nameEn": "Silvery White Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 17,
+      "sprite": "Elf_Pant_18",
+      "spriteId": "elf_pant_18",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "호박색 반바지",
+      "nameEn": "Amber Shorts",
+      "rarity": "common"
+    },
+    {
+      "index": 18,
+      "sprite": "Elf_Pant_19",
+      "spriteId": "elf_pant_19",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "남보라 바지",
+      "nameEn": "Indigo Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 19,
+      "sprite": "Elf_Pant_20",
+      "spriteId": "elf_pant_20",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "옅은 하늘색 바지",
+      "nameEn": "Pale Blue Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 20,
+      "sprite": "Orc_Pant_01",
+      "spriteId": "orc_pant_01",
+      "existingItems": [
+        {
+          "id": "mage_pants",
+          "nameKo": "마법사의 바지",
+          "nameEn": "Mage Pants"
+        }
+      ],
+      "action": "review",
+      "nameKo": "오크 가죽 바지",
+      "nameEn": "Orc Leather Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 21,
+      "sprite": "Orc_Pant_02",
+      "spriteId": "orc_pant_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "적갈색 전사 바지",
+      "nameEn": "Russet Warrior Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 22,
+      "sprite": "Orc_Pant_03",
+      "spriteId": "orc_pant_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "오크 사냥 바지",
+      "nameEn": "Orc Hunting Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 23,
+      "sprite": "Orc_Pant_04",
+      "spriteId": "orc_pant_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보랏빛 주술사 바지",
+      "nameEn": "Purple Shaman Pants",
+      "rarity": "rare"
+    },
+    {
+      "index": 24,
+      "sprite": "Undead_Pant_01",
+      "spriteId": "undead_pant_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "푸른 망령 바지",
+      "nameEn": "Blue Wraith Pants",
+      "rarity": "rare"
+    },
+    {
+      "index": 25,
+      "sprite": "Undead_Pant_02",
+      "spriteId": "undead_pant_02",
+      "existingItems": [
+        {
+          "id": "knight_leggings",
+          "nameKo": "기사의 각반",
+          "nameEn": "Knight's Leggings"
+        }
+      ],
+      "action": "review",
+      "nameKo": "낡은 가죽 각반",
+      "nameEn": "Worn Leather Leggings",
+      "rarity": "crude"
+    },
+    {
+      "index": 26,
+      "sprite": "Undead_Pant_03",
+      "spriteId": "undead_pant_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "무덤지기 바지",
+      "nameEn": "Gravekeeper Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 27,
+      "sprite": "Undead_Pant_04",
+      "spriteId": "undead_pant_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "삭은 검은 반바지",
+      "nameEn": "Rotten Black Shorts",
+      "rarity": "crude"
+    },
+    {
+      "index": 28,
+      "sprite": "Undead_Pant_05",
+      "spriteId": "undead_pant_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "망자의 남색 바지",
+      "nameEn": "Deadman's Navy Pants",
+      "rarity": "rare"
+    },
+    {
+      "index": 29,
+      "sprite": "Foot_m01",
+      "spriteId": "foot_m01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 단 흰 바지",
+      "nameEn": "Red-Trimmed White Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 30,
+      "sprite": "Foot_m02",
+      "spriteId": "foot_m02",
+      "existingItems": [
+        {
+          "id": "dragon_leggings",
+          "nameKo": "드래곤 각반",
+          "nameEn": "Dragon Leggings"
+        }
+      ],
+      "action": "review",
+      "nameKo": "드래곤 각반",
+      "nameEn": "Dragon Leggings",
+      "rarity": "heroic"
+    },
+    {
+      "index": 31,
+      "sprite": "Foot_m03",
+      "spriteId": "foot_m03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "잿빛 각반",
+      "nameEn": "Ashen Leggings",
+      "rarity": "common"
+    },
+    {
+      "index": 32,
+      "sprite": "Foot_m04",
+      "spriteId": "foot_m04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "파란 무명 바지",
+      "nameEn": "Blue Cotton Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 33,
+      "sprite": "Foot_m05",
+      "spriteId": "foot_m05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "검은 천 바지",
+      "nameEn": "Black Cloth Pants",
+      "rarity": "crude"
+    },
+    {
+      "index": 34,
+      "sprite": "Pant_Archer_2",
+      "spriteId": "pant_archer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "궁수의 가죽 바지",
+      "nameEn": "Archer's Leather Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 35,
+      "sprite": "Pant_Healer_1",
+      "spriteId": "pant_healer_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "치유사의 연분홍 바지",
+      "nameEn": "Healer's Pink Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 36,
+      "sprite": "Pant_Healer_2",
+      "spriteId": "pant_healer_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "치유사의 갈색 바지",
+      "nameEn": "Healer's Brown Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 37,
+      "sprite": "Pant_Knight_1",
+      "spriteId": "pant_knight_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "기사의 푸른 바지",
+      "nameEn": "Knight's Blue Pants",
+      "rarity": "rare"
+    },
+    {
+      "index": 38,
+      "sprite": "Pant_Knight_2",
+      "spriteId": "pant_knight_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "기사의 갈색 각반",
+      "nameEn": "Knight's Brown Leggings",
+      "rarity": "grand"
+    },
+    {
+      "index": 39,
+      "sprite": "Pant_Rogue_1",
+      "spriteId": "pant_rogue_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "도적의 갈색 바지",
+      "nameEn": "Rogue's Brown Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 40,
+      "sprite": "Pant_Rogue_2",
+      "spriteId": "pant_rogue_2",
+      "existingItems": [
+        {
+          "id": "legendary_pants",
+          "nameKo": "전설의 각반",
+          "nameEn": "Legendary Leggings"
+        }
+      ],
+      "action": "review",
+      "nameKo": "밤도둑의 검은 바지",
+      "nameEn": "Nightthief's Black Pants",
+      "rarity": "rare"
+    },
+    {
+      "index": 41,
+      "sprite": "Pant_Sorcerer",
+      "spriteId": "pant_sorcerer",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "마도사의 흰 바지",
+      "nameEn": "Sorcerer's White Pants",
+      "rarity": "rare"
+    },
+    {
+      "index": 42,
+      "sprite": "Pant_Sorceress",
+      "spriteId": "pant_sorceress",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "요술사의 붉은 바지",
+      "nameEn": "Sorceress's Red Pants",
+      "rarity": "rare"
+    },
+    {
+      "index": 43,
+      "sprite": "F_SR_Pants",
+      "spriteId": "f_sr_pants",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "흰 무명 바지",
+      "nameEn": "White Cotton Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 44,
+      "sprite": "Foot_1",
+      "spriteId": "foot_1",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "짙은 감청 바지",
+      "nameEn": "Deep Navy Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 45,
+      "sprite": "Foot_2",
+      "spriteId": "foot_2",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "황갈색 가죽 바지",
+      "nameEn": "Tan Leather Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 46,
+      "sprite": "Foot_3",
+      "spriteId": "foot_3",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "보라 천 바지",
+      "nameEn": "Purple Cloth Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 47,
+      "sprite": "Foot_4",
+      "spriteId": "foot_4",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "어두운 초록 바지",
+      "nameEn": "Dark Green Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 48,
+      "sprite": "New_Pant_01",
+      "spriteId": "new_pant_01",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "밤하늘색 바지",
+      "nameEn": "Night Sky Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 49,
+      "sprite": "New_Pant_02",
+      "spriteId": "new_pant_02",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "낡은 갈색 바지",
+      "nameEn": "Worn Brown Pants",
+      "rarity": "crude"
+    },
+    {
+      "index": 50,
+      "sprite": "New_Pant_03",
+      "spriteId": "new_pant_03",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "청색 천 바지",
+      "nameEn": "Blue Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 51,
+      "sprite": "New_Pant_04",
+      "spriteId": "new_pant_04",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "감청 가죽 바지",
+      "nameEn": "Navy Leather Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 52,
+      "sprite": "New_Pant_05",
+      "spriteId": "new_pant_05",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "연회색 천 바지",
+      "nameEn": "Light Gray Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 53,
+      "sprite": "New_Pant_06",
+      "spriteId": "new_pant_06",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "불꽃 무늬 바지",
+      "nameEn": "Flame-Patterned Pants",
+      "rarity": "heroic"
+    },
+    {
+      "index": 54,
+      "sprite": "New_Pant_07",
+      "spriteId": "new_pant_07",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "붉은 천 바지",
+      "nameEn": "Red Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 55,
+      "sprite": "New_Pant_08",
+      "spriteId": "new_pant_08",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "새하얀 사제 바지",
+      "nameEn": "Pure White Priest Pants",
+      "rarity": "grand"
+    },
+    {
+      "index": 56,
+      "sprite": "New_Pant_09",
+      "spriteId": "new_pant_09",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "초록 천 바지",
+      "nameEn": "Green Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 57,
+      "sprite": "New_Pant_10",
+      "spriteId": "new_pant_10",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "진홍 반바지",
+      "nameEn": "Crimson Shorts",
+      "rarity": "grand"
+    },
+    {
+      "index": 58,
+      "sprite": "New_Pant_11",
+      "spriteId": "new_pant_11",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "쪽빛 천 바지",
+      "nameEn": "Deep Blue Cloth Pants",
+      "rarity": "common"
+    },
+    {
+      "index": 59,
+      "sprite": "New_Pant_12",
+      "spriteId": "new_pant_12",
+      "existingItems": [],
+      "action": "create",
+      "nameKo": "자주색 마법 바지",
+      "nameEn": "Magenta Arcane Pants",
+      "rarity": "rare"
+    }
+  ]
+}

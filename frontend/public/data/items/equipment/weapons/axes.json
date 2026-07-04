@@ -2,12 +2,12 @@
   "category": "equipment",
   "subcategory": "weapon",
   "weaponType": "axe",
-  "spriteMapping": "/data/sprites/equipment/weapon/axe.json",
+  "spriteMapping": "/data/sprites/equipment/weapons/axe.json",
   "items": [
     {
       "id": "rusty_axe",
-      "nameKo": "녹슨 도끼",
-      "nameEn": "Rusty Axe",
+      "nameKo": "낡은 철 도끼",
+      "nameEn": "Worn Iron Axe",
       "description": "녹이 슨 오래된 도끼.",
       "rarity": "crude",
       "value": 25,
@@ -82,8 +82,8 @@
     },
     {
       "id": "berserker_axe",
-      "nameKo": "광전사의 도끼",
-      "nameEn": "Berserker's Axe",
+      "nameKo": "정예 전투 도끼",
+      "nameEn": "Elite Battle Axe",
       "description": "피에 굶주린 광전사의 도끼.",
       "rarity": "arcane",
       "value": 2500,
@@ -103,8 +103,8 @@
     },
     {
       "id": "orc_war_axe",
-      "nameKo": "오크 전쟁 도끼",
-      "nameEn": "Orc War Axe",
+      "nameKo": "대가의 처형자의 도끼",
+      "nameEn": "Master's Executioner's Axe",
       "description": "오크 족장이 사용하던 거대한 도끼.",
       "rarity": "heroic",
       "value": 5500,
@@ -146,8 +146,8 @@
     },
     {
       "id": "legendary_axe",
-      "nameKo": "전설의 도끼",
-      "nameEn": "Legendary Axe",
+      "nameKo": "은빛 손도끼",
+      "nameEn": "Silver Hatchet",
       "description": "거인도 두려워하는 전설의 대도끼.",
       "rarity": "legendary",
       "value": 90000,

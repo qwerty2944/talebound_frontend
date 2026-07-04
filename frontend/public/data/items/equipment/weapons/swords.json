@@ -2,12 +2,12 @@
   "category": "equipment",
   "subcategory": "weapon",
   "weaponType": "sword",
-  "spriteMapping": "/data/sprites/equipment/weapon/sword.json",
+  "spriteMapping": "/data/sprites/equipment/weapons/sword.json",
   "items": [
     {
       "id": "rusty_sword",
-      "nameKo": "녹슨 검",
-      "nameEn": "Rusty Sword",
+      "nameKo": "낡은 철검",
+      "nameEn": "Worn Iron Sword",
       "description": "녹이 슬어 무뎌진 오래된 검.",
       "rarity": "crude",
       "value": 20,
@@ -62,8 +62,8 @@
     },
     {
       "id": "silver_sword",
-      "nameKo": "은검",
-      "nameEn": "Silver Sword",
+      "nameKo": "덩굴 엘프 검",
+      "nameEn": "Vine Elf Sword",
       "description": "은으로 제작된 검. 언데드에게 추가 피해.",
       "rarity": "rare",
       "value": 800,
@@ -85,8 +85,8 @@
     },
     {
       "id": "knight_sword",
-      "nameKo": "기사의 검",
-      "nameEn": "Knight's Sword",
+      "nameKo": "잎사귀 엘프 검",
+      "nameEn": "Leaf Elf Sword",
       "description": "왕국 기사단의 상징적인 검.",
       "rarity": "rare",
       "value": 1200,
@@ -105,8 +105,8 @@
     },
     {
       "id": "mithril_sword",
-      "nameKo": "미스릴 검",
-      "nameEn": "Mithril Sword",
+      "nameKo": "화염검",
+      "nameEn": "Flame Sword",
       "description": "가볍고 날카로운 미스릴제 검.",
       "rarity": "arcane",
       "value": 3000,
@@ -126,8 +126,8 @@
     },
     {
       "id": "flame_sword",
-      "nameKo": "화염검",
-      "nameEn": "Flame Sword",
+      "nameKo": "대가의 냉기검",
+      "nameEn": "Master's Frost Sword",
       "description": "불꽃이 감도는 마법 검.",
       "rarity": "heroic",
       "value": 5000,
@@ -172,8 +172,8 @@
     },
     {
       "id": "thunder_sword",
-      "nameKo": "번개검",
-      "nameEn": "Thunder Sword",
+      "nameKo": "고대 냉기검",
+      "nameEn": "Ancient Frost Sword",
       "description": "번개가 서린 전격의 검.",
       "rarity": "heroic",
       "value": 5200,
@@ -224,8 +224,8 @@
     },
     {
       "id": "cursed_sword",
-      "nameKo": "저주받은 검",
-      "nameEn": "Cursed Sword",
+      "nameKo": "대가의 성검",
+      "nameEn": "Master's Holy Sword",
       "description": "어둠의 힘이 감도는 저주받은 검.",
       "rarity": "unique",
       "value": 10000,
@@ -273,8 +273,8 @@
     },
     {
       "id": "legendary_sword",
-      "nameKo": "전설의 검",
-      "nameEn": "Legendary Sword",
+      "nameKo": "오크 대검",
+      "nameEn": "Orc Greatsword",
       "description": "신화 속에서만 전해지던 전설의 명검.",
       "rarity": "legendary",
       "value": 100000,
@@ -293,6 +293,329 @@
         "dex": 15
       },
       "spriteId": "orc_weapon_05"
+    },
+    {
+      "id": "dull_undead_sword",
+      "nameKo": "무딘 망자의 검",
+      "nameEn": "Dull Undead Sword",
+      "description": "무딘 망자의 검. 검 장비.",
+      "rarity": "crude",
+      "value": 50,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 8,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 1,
+        "str": 5
+      },
+      "spriteId": "undead_weapon_03"
+    },
+    {
+      "id": "grave_robbers_sword",
+      "nameKo": "도굴꾼의 검",
+      "nameEn": "Grave Robber's Sword",
+      "description": "도굴꾼의 검. 검 장비.",
+      "rarity": "common",
+      "value": 100,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 11,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 1,
+        "str": 7
+      },
+      "spriteId": "undead_weapon_08"
+    },
+    {
+      "id": "bone_white_sword",
+      "nameKo": "백골검",
+      "nameEn": "Bone-White Sword",
+      "description": "백골검. 검 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 16,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 5,
+        "str": 11
+      },
+      "spriteId": "undead_weapon_10"
+    },
+    {
+      "id": "gilded_knight_sword",
+      "nameKo": "황금 장식 기사검",
+      "nameEn": "Gilded Knight Sword",
+      "description": "황금 장식 기사검. 검 장비.",
+      "rarity": "heroic",
+      "value": 1500,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 22,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 12,
+        "str": 15
+      },
+      "spriteId": "weapon_knight_1"
+    },
+    {
+      "id": "knights_greatsword",
+      "nameKo": "기사의 대검",
+      "nameEn": "Knight's Greatsword",
+      "description": "기사의 대검. 검 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 16,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 5,
+        "str": 11
+      },
+      "spriteId": "weapon_knight_2"
+    },
+    {
+      "id": "short_iron_sword",
+      "nameKo": "짧은 철검",
+      "nameEn": "Short Iron Sword",
+      "description": "짧은 철검. 검 장비.",
+      "rarity": "crude",
+      "value": 50,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 8,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 1,
+        "str": 5
+      },
+      "spriteId": "sword_1"
+    },
+    {
+      "id": "soldiers_sword",
+      "nameKo": "병사의 검",
+      "nameEn": "Soldier's Sword",
+      "description": "병사의 검. 검 장비.",
+      "rarity": "common",
+      "value": 100,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 11,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 1,
+        "str": 7
+      },
+      "spriteId": "sword_2"
+    },
+    {
+      "id": "longsword",
+      "nameKo": "장검",
+      "nameEn": "Longsword",
+      "description": "장검. 검 장비.",
+      "rarity": "common",
+      "value": 100,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 11,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 1,
+        "str": 7
+      },
+      "spriteId": "sword_3"
+    },
+    {
+      "id": "slender_rapier",
+      "nameKo": "가느다란 세검",
+      "nameEn": "Slender Rapier",
+      "description": "가느다란 세검. 검 장비.",
+      "rarity": "common",
+      "value": 100,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 11,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 1,
+        "str": 7
+      },
+      "spriteId": "sword_4"
+    },
+    {
+      "id": "blood_rune_sword",
+      "nameKo": "핏빛 룬 검",
+      "nameEn": "Blood Rune Sword",
+      "description": "핏빛 룬 검. 검 장비.",
+      "rarity": "unique",
+      "value": 3000,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 25,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 16,
+        "str": 17
+      },
+      "spriteId": "sword_5"
+    },
+    {
+      "id": "travelers_small_sword",
+      "nameKo": "여행자의 소검",
+      "nameEn": "Traveler's Small Sword",
+      "description": "여행자의 소검. 검 장비.",
+      "rarity": "crude",
+      "value": 50,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 8,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 1,
+        "str": 5
+      },
+      "spriteId": "sword_6"
+    },
+    {
+      "id": "cursed_demon_blade",
+      "nameKo": "저주받은 마검",
+      "nameEn": "Cursed Demon Blade",
+      "description": "저주받은 마검. 검 장비.",
+      "rarity": "heroic",
+      "value": 1500,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 22,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 12,
+        "str": 15
+      },
+      "spriteId": "new_weapon_01"
+    },
+    {
+      "id": "silver_sword_2",
+      "nameKo": "은검",
+      "nameEn": "Silver Sword",
+      "description": "은검. 검 장비.",
+      "rarity": "grand",
+      "value": 200,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 14,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 3,
+        "str": 9
+      },
+      "spriteId": "new_weapon_06"
+    },
+    {
+      "id": "serrated_sword",
+      "nameKo": "톱니검",
+      "nameEn": "Serrated Sword",
+      "description": "톱니검. 검 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 16,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 5,
+        "str": 11
+      },
+      "spriteId": "new_weapon_17"
+    },
+    {
+      "id": "ruby_tipped_estoc",
+      "nameKo": "루비 첨검",
+      "nameEn": "Ruby-Tipped Estoc",
+      "description": "루비 첨검. 검 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 16,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 5,
+        "str": 11
+      },
+      "spriteId": "new_weapon_18"
+    },
+    {
+      "id": "practice_short_sword",
+      "nameKo": "연습용 소검",
+      "nameEn": "Practice Short Sword",
+      "description": "연습용 소검. 검 장비.",
+      "rarity": "crude",
+      "value": 50,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 8,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 1,
+        "str": 5
+      },
+      "spriteId": "new_weapon_19"
+    },
+    {
+      "id": "flame_hilted_sword",
+      "nameKo": "불꽃 장식 검",
+      "nameEn": "Flame-Hilted Sword",
+      "description": "불꽃 장식 검. 검 장비.",
+      "rarity": "rare",
+      "value": 400,
+      "weight": 3,
+      "color": null,
+      "stats": {
+        "damage": 16,
+        "attackSpeed": 1
+      },
+      "requirements": {
+        "level": 5,
+        "str": 11
+      },
+      "spriteId": "new_weapon_20"
     }
   ]
 }
