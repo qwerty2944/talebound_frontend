@@ -29,6 +29,7 @@ import {
   calculateProficiencyGain,
   canGainProficiency,
   useProficiencies,
+  useGainProficiency,
   getProficiencyValue,
 } from "@/entities/ability";
 import {
@@ -73,8 +74,7 @@ export function useEndBattle(options: UseEndBattleOptions) {
   const { userId, onVictory, onDefeat, onFled } = options;
   const { battle, resetBattle } = useBattleStore();
   const queryClient = useQueryClient();
-  // TODO: useGainProficiency was removed, need to implement with useIncreaseAbilityExp
-  // const gainProficiency = useIncreaseAbilityExp(userId ?? "");
+  const gainProficiency = useGainProficiency(userId);
   const { data: profile } = useProfile(userId);
   const { data: proficiencies } = useProficiencies(userId);
   const { data: maps = [] } = useMaps();
@@ -190,11 +190,20 @@ export function useEndBattle(options: UseEndBattleOptions) {
       }
 
       // 2. 숙련도 증가 (레벨 기반)
-      // TODO: Implement with useIncreaseAbilityExp after refactoring
       if (rewards.proficiencyGain && userId) {
         if (rewards.proficiencyGain.gained && rewards.proficiencyGain.amount > 0) {
-          // Proficiency gain temporarily disabled - needs refactoring
-          console.log(`[Proficiency] Would gain ${rewards.proficiencyGain.amount} ${rewards.proficiencyGain.type}`);
+          try {
+            const result = await gainProficiency.mutateAsync({
+              type: rewards.proficiencyGain.type,
+              amount: rewards.proficiencyGain.amount,
+            });
+            toast.success(
+              `숙련도 +${rewards.proficiencyGain.amount} (${result.value})`,
+              { icon: "⚔️" }
+            );
+          } catch (error) {
+            console.error("Failed to gain proficiency:", error);
+          }
         } else if (rewards.proficiencyGain.reason === "level_too_low") {
           // 레벨이 너무 낮아 숙련도 미획득 (조용히 처리, 토스트 안 띄움)
           console.log(`[Proficiency] Level too low for gain (level diff: ${rewards.proficiencyGain.levelDiff})`);

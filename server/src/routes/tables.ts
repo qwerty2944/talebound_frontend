@@ -82,6 +82,45 @@ tablesRouter.get("/abilities/:userId", async (req, res) => {
   res.json({ data: rows[0] ?? null });
 });
 
+// ============ proficiencies (숙련도, 0-100) ============
+
+const PROFICIENCY_KEYS = new Set([
+  "light_sword", "medium_sword", "great_sword", "axe", "mace", "dagger",
+  "spear", "bow", "crossbow", "staff", "fist", "shield",
+  "fire", "ice", "lightning", "earth", "holy", "dark", "poison", "arcane",
+]);
+
+tablesRouter.get("/proficiencies", async (req, res) => {
+  const { rows } = await pool.query(
+    `select values from proficiencies where user_id = $1`,
+    [req.userId]
+  );
+  res.json({ data: rows[0]?.values ?? {} });
+});
+
+tablesRouter.post("/proficiencies/gain", async (req, res) => {
+  const { type, amount } = req.body ?? {};
+  if (!PROFICIENCY_KEYS.has(type) || typeof amount !== "number" || amount <= 0 || amount > 10) {
+    res.status(400).json({ error: "잘못된 숙련도 증가 요청입니다" });
+    return;
+  }
+
+  const { rows } = await pool.query(
+    `insert into proficiencies (user_id, values)
+     values ($1, jsonb_build_object($2::text, least(100, $3::numeric)))
+     on conflict (user_id) do update set
+       values = proficiencies.values || jsonb_build_object(
+         $2::text,
+         least(100, coalesce((proficiencies.values->>$2)::numeric, 0) + $3::numeric)
+       ),
+       updated_at = now()
+     returning (values->>$2)::numeric as new_value`,
+    [req.userId, type, amount]
+  );
+
+  res.json({ data: { type, value: Number(rows[0]?.new_value ?? 0) } });
+});
+
 // ============ equipment_instances ============
 
 tablesRouter.get("/equipment-instances", async (req, res) => {

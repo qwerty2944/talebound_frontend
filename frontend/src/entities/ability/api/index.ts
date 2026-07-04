@@ -2,6 +2,8 @@
  * Ability API - 스펠과 스킬 데이터를 통합하여 Ability로 변환
  */
 
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { apiFetch } from "@/shared/api";
 import type { Ability, AbilityLevelEffects } from "../types";
 
 // 몬스터 어빌리티 원본 타입
@@ -401,28 +403,107 @@ export const ATTACK_TYPE_TO_KNOWLEDGE: Record<PhysicalAttackType, KnowledgeType>
 };
 
 // ============ Proficiency Functions ============
-export function useProficiencies(_userId: string | undefined) {
-  return { data: DEFAULT_PROFICIENCIES, isLoading: false, error: null };
+
+const proficiencyKeys = {
+  user: (userId: string) => ["proficiencies", userId] as const,
+};
+
+/**
+ * 숙련도 조회 (백엔드 proficiencies 테이블)
+ */
+export function useProficiencies(userId: string | undefined) {
+  return useQuery({
+    queryKey: proficiencyKeys.user(userId || ""),
+    queryFn: async (): Promise<Proficiencies> => {
+      const data = await apiFetch<Partial<Proficiencies>>("/api/proficiencies");
+      return { ...DEFAULT_PROFICIENCIES, ...data };
+    },
+    enabled: !!userId,
+    staleTime: 1000 * 60 * 5,
+  });
+}
+
+/**
+ * 숙련도 증가 mutation
+ */
+export function useGainProficiency(userId: string | undefined) {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (params: { type: ProficiencyType; amount: number }) =>
+      apiFetch<{ type: ProficiencyType; value: number }>("/api/proficiencies/gain", {
+        method: "POST",
+        body: params,
+      }),
+    onSuccess: () => {
+      if (userId) {
+        queryClient.invalidateQueries({ queryKey: proficiencyKeys.user(userId) });
+      }
+    },
+  });
 }
 
 export function getProficiencyValue(
-  _proficiencies: Proficiencies | null | undefined,
-  _type: ProficiencyType
+  proficiencies: Proficiencies | null | undefined,
+  type: ProficiencyType
 ): number {
-  return 0;
+  return proficiencies?.[type as keyof Proficiencies] ?? 0;
 }
 
 export function getProficiencyInfo(type: ProficiencyType): ProficiencyInfo | undefined {
   return ALL_PROFICIENCIES.find((p) => p.id === type);
 }
 
-export function getRankInfo(_level: number) {
-  return { id: "novice", nameKo: "초보", nameEn: "Novice", minLevel: 0, damageBonus: 0, speedBonus: 0 };
+// 숙련도 등급 (docs/proficiency-system.md)
+export interface ProficiencyRank {
+  id: string;
+  nameKo: string;
+  nameEn: string;
+  minLevel: number;
+  damageBonus: number;
+  speedBonus: number;
 }
 
-export function getDamageBonus(_level: number): number { return 0; }
-export function getDamageMultiplier(_level: number): number { return 1.0; }
-export function getDayBoostMultiplier(_element: MagicElement): number { return 1.0; }
+export const PROFICIENCY_RANKS: ProficiencyRank[] = [
+  { id: "novice", nameKo: "초보", nameEn: "Novice", minLevel: 0, damageBonus: 0, speedBonus: 0 },
+  { id: "apprentice", nameKo: "견습", nameEn: "Apprentice", minLevel: 20, damageBonus: 5, speedBonus: 0 },
+  { id: "journeyman", nameKo: "숙련", nameEn: "Journeyman", minLevel: 40, damageBonus: 10, speedBonus: 5 },
+  { id: "expert", nameKo: "전문가", nameEn: "Expert", minLevel: 60, damageBonus: 15, speedBonus: 10 },
+  { id: "master", nameKo: "달인", nameEn: "Master", minLevel: 80, damageBonus: 20, speedBonus: 15 },
+  { id: "grandmaster", nameKo: "대가", nameEn: "Grandmaster", minLevel: 100, damageBonus: 25, speedBonus: 20 },
+];
+
+export function getRankInfo(level: number) {
+  let rank = PROFICIENCY_RANKS[0];
+  for (const r of PROFICIENCY_RANKS) {
+    if (level >= r.minLevel) rank = r;
+  }
+  return rank;
+}
+
+export function getDamageBonus(level: number): number {
+  return getRankInfo(level).damageBonus;
+}
+
+export function getDamageMultiplier(level: number): number {
+  return 1 + getDamageBonus(level) / 100;
+}
+
+// 요일별 속성 강화 (월=ice, 화=fire, 수=lightning, 목=earth, 금=holy, 토=dark, 일=없음)
+const DAY_BOOST_ELEMENTS: Array<MagicElement | null> = [
+  null,        // 일 (日)
+  "ice",       // 월 (月)
+  "fire",      // 화 (火)
+  "lightning", // 수 (水)
+  "earth",     // 목 (木)
+  "holy",      // 금 (金)
+  "dark",      // 토 (土)
+];
+
+export function getDayBoostMultiplier(element: MagicElement): number {
+  const boosted = DAY_BOOST_ELEMENTS[new Date().getDay()];
+  return boosted === element ? 1.2 : 1.0;
+}
 
 export function isWeaponProficiency(type: ProficiencyType): type is WeaponType {
   return WEAPON_PROFICIENCIES.some((p) => p.id === type);
@@ -432,29 +513,70 @@ export function isMagicProficiency(type: ProficiencyType): type is MagicElement 
   return MAGIC_PROFICIENCIES.some((p) => p.id === type);
 }
 
+// 속성 상성 (fire→ice→lightning→earth→fire 순환, holy↔dark 상호)
+const ELEMENT_STRONG_AGAINST: Partial<Record<MagicElement, MagicElement>> = {
+  fire: "ice",
+  ice: "lightning",
+  lightning: "earth",
+  earth: "fire",
+  holy: "dark",
+  dark: "holy",
+};
+
+const ELEMENT_WEAK_AGAINST: Partial<Record<MagicElement, MagicElement>> = {
+  fire: "earth",
+  ice: "fire",
+  lightning: "ice",
+  earth: "lightning",
+};
+
 export function getMagicEffectiveness(
-  _attackElement: MagicElement,
-  _targetElement: MagicElement | undefined
+  attackElement: MagicElement,
+  targetElement: MagicElement | undefined
 ): number {
+  if (!targetElement) return 1.0;
+  if (ELEMENT_STRONG_AGAINST[attackElement] === targetElement) return 1.5;
+  if (ELEMENT_WEAK_AGAINST[attackElement] === targetElement) return 0.75;
   return 1.0;
 }
 
-export function calculateProficiencyGain(_params: {
+/**
+ * 레벨 기반 숙련도 획득 계산
+ * - 몬스터가 플레이어보다 5레벨 이상 낮으면 획득 없음
+ * - 상위 몬스터일수록 더 많이 획득, 숙련도 100 도달 시 종료
+ */
+export function calculateProficiencyGain(params: {
   proficiencyType: ProficiencyType;
   currentProficiency: number;
   playerLevel: number;
   monsterLevel: number;
   attackSuccess: boolean;
 }) {
-  return { gained: false, amount: 0, levelDiff: 0, reason: "disabled" };
+  const { currentProficiency, playerLevel, monsterLevel, attackSuccess } = params;
+  const levelDiff = monsterLevel - playerLevel;
+
+  if (!attackSuccess) {
+    return { gained: false, amount: 0, levelDiff, reason: "attack_failed" };
+  }
+  if (currentProficiency >= 100) {
+    return { gained: false, amount: 0, levelDiff, reason: "max_proficiency" };
+  }
+  if (levelDiff < -5) {
+    return { gained: false, amount: 0, levelDiff, reason: "level_too_low" };
+  }
+
+  // 기본 1, 동급 이상 몬스터 2, 5레벨 이상 상위 몬스터 3
+  const amount = levelDiff >= 5 ? 3 : levelDiff >= 0 ? 2 : 1;
+
+  return { gained: true, amount, levelDiff, reason: "success" };
 }
 
 export function canGainProficiency(
-  _currentProficiency: number,
-  _playerLevel: number,
-  _monsterLevel: number
+  currentProficiency: number,
+  playerLevel: number,
+  monsterLevel: number
 ): boolean {
-  return false;
+  return currentProficiency < 100 && monsterLevel - playerLevel >= -5;
 }
 
 // ============ Knowledge Bonus ============

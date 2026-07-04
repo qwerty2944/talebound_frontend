@@ -72,6 +72,8 @@ export {
   WEAPON_BLOCK_CONFIG,
   ATTACK_TYPE_TO_KNOWLEDGE,
   useProficiencies,
+  useGainProficiency,
+  PROFICIENCY_RANKS,
   getProficiencyValue,
   getProficiencyInfo,
   getRankInfo,
