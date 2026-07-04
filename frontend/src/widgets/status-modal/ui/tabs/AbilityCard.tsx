@@ -72,14 +72,15 @@ export function AbilityCard({ ability, skillId, progress, isInProgress, theme }:
           </div>
         )}
 
-        {/* 진행 중 스킬의 경험치 */}
-        {isInProgress && progress && (
-          <div
-            className="text-xs font-mono mt-1"
-            style={{ color: theme.colors.textMuted }}
-          >
-            경험치: {progress.exp}
-          </div>
+        {/* 경험치 진행바 */}
+        {progress && ability && (
+          <ExpBar
+            exp={progress.exp}
+            expPerLevel={ability.expPerLevel || 100}
+            level={progress.level}
+            maxLevel={ability.maxLevel || 10}
+            theme={theme}
+          />
         )}
       </div>
 
@@ -87,6 +88,49 @@ export function AbilityCard({ ability, skillId, progress, isInProgress, theme }:
       {isHovered && ability && (
         <AbilityTooltip ability={ability} progress={progress} theme={theme} />
       )}
+    </div>
+  );
+}
+
+// ============ 경험치 진행바 ============
+
+interface ExpBarProps {
+  exp: number;
+  expPerLevel: number;
+  level: number;
+  maxLevel: number;
+  theme: Theme;
+}
+
+function ExpBar({ exp, expPerLevel, level, maxLevel, theme }: ExpBarProps) {
+  const isMaxLevel = level >= maxLevel;
+  const currentExp = Math.min(exp, expPerLevel);
+  const percent = isMaxLevel ? 100 : Math.min(100, (currentExp / expPerLevel) * 100);
+
+  return (
+    <div className="mt-2">
+      <div className="flex justify-between text-[10px] font-mono mb-0.5">
+        <span style={{ color: theme.colors.textMuted }}>
+          {isMaxLevel ? "최대 레벨" : "경험치"}
+        </span>
+        {!isMaxLevel && (
+          <span style={{ color: theme.colors.textDim }}>
+            {currentExp}/{expPerLevel}
+          </span>
+        )}
+      </div>
+      <div
+        className="h-1.5 w-full overflow-hidden rounded-sm"
+        style={{ background: theme.colors.bgLight }}
+      >
+        <div
+          className="h-full transition-all"
+          style={{
+            width: `${percent}%`,
+            background: isMaxLevel ? theme.colors.warning : theme.colors.primary,
+          }}
+        />
+      </div>
     </div>
   );
 }

@@ -8,6 +8,9 @@ import {
   groupAbilitiesByCategory,
 } from "@/entities/ability/lib/abilityHelpers";
 import { AbilityCard } from "./AbilityCard";
+import { LearnableAbilities } from "./LearnableAbilities";
+import { useAuthStore } from "@/application/stores";
+import { useProfile, getMainCharacter } from "@/entities/user";
 
 // 어빌리티 진행도 가져오기 (레벨과 경험치)
 function getAbilityProgress(
@@ -25,6 +28,11 @@ function getAbilityProgress(
 }
 
 export function AbilitiesTab({ theme, learnedSkills, abilities, userAbilities, isLoading }: AbilitiesTabProps) {
+  const { session } = useAuthStore();
+  const userId = session?.user?.id;
+  const { data: profile } = useProfile(userId);
+  const mainCharacter = getMainCharacter(profile);
+
   // userAbilities에서 레벨 1 이상인 스킬 목록
   const dbLearnedSkills = useMemo(() => {
     if (!userAbilities) return [];
@@ -81,12 +89,22 @@ export function AbilitiesTab({ theme, learnedSkills, abilities, userAbilities, i
 
   if (allDisplaySkills.length === 0) {
     return (
-      <div
-        className="flex flex-col items-center justify-center h-64 font-mono"
-        style={{ color: theme.colors.textMuted }}
-      >
-        <p className="text-4xl mb-4">📖</p>
-        <p>습득한 어빌리티가 없습니다</p>
+      <div className="space-y-6">
+        <div
+          className="flex flex-col items-center justify-center h-40 font-mono"
+          style={{ color: theme.colors.textMuted }}
+        >
+          <p className="text-4xl mb-4">📖</p>
+          <p>습득한 어빌리티가 없습니다</p>
+        </div>
+        <LearnableAbilities
+          theme={theme}
+          userId={userId}
+          abilities={abilities}
+          userAbilities={userAbilities}
+          learnedIds={allDisplaySkills}
+          stats={mainCharacter?.stats}
+        />
       </div>
     );
   }
@@ -143,6 +161,16 @@ export function AbilitiesTab({ theme, learnedSkills, abilities, userAbilities, i
           </div>
         );
       })}
+
+      {/* 미습득 어빌리티 (수련 시작) */}
+      <LearnableAbilities
+        theme={theme}
+        userId={userId}
+        abilities={abilities}
+        userAbilities={userAbilities}
+        learnedIds={allDisplaySkills}
+        stats={mainCharacter?.stats}
+      />
     </div>
   );
 }
