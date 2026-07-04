@@ -204,6 +204,7 @@ interface BattleStore {
 
   // MP
   useMp: (amount: number) => boolean;
+  restoreMp: (amount: number) => void;
 
   // 도주
   playerFlee: () => boolean;
@@ -702,6 +703,29 @@ export const useBattleStore = create<BattleStore>((set, get) => ({
       },
     });
     return true;
+  },
+
+  // MP 회복
+  restoreMp: (amount) => {
+    const { battle } = get();
+    const newMp = Math.min(battle.playerMaxMp, battle.playerMp + amount);
+    const actualRestore = newMp - battle.playerMp;
+
+    if (actualRestore > 0) {
+      set({
+        battle: {
+          ...battle,
+          playerMp: newMp,
+        },
+      });
+
+      get().addLog({
+        turn: battle.turn,
+        actor: "player",
+        action: "heal",
+        message: `MP를 ${actualRestore} 회복했다!`,
+      });
+    }
   },
 
   // 도주

@@ -204,7 +204,10 @@ export function StatusModal({ open, onClose }: StatusModalProps) {
 
     return ELEMENTS.map((el) => {
       // 기본 보너스 (캐릭터/장비)
-      const baseBonus = 0; // TODO: derivedStats.totalElementBoost[el.id] if exists
+      const baseBonus =
+        derivedStats?.totalElementBoost?.[
+          el.id as keyof typeof derivedStats.totalElementBoost
+        ] ?? 0;
 
       // 시간대 보너스
       const timeMultiplier = getElementTimeMultiplier(el.id as ElementId, period);
@@ -234,7 +237,7 @@ export function StatusModal({ open, onClose }: StatusModalProps) {
         totalBonus,
       };
     });
-  }, [gameTime?.period, weather?.currentWeather, currentMap?.terrain]);
+  }, [gameTime?.period, weather?.currentWeather, currentMap?.terrain, derivedStats]);
 
   // 특성 데이터 변환 (TraitList는 Trait[] 타입 필요)
   const characterTraits = useMemo(() => {

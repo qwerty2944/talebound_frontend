@@ -8,6 +8,7 @@ import { getProficiencyInfo, getProficiencyValue, useAbilities, getApCost, isPhy
 import type { BattleActionTab, CombatSubTab } from "./ActionTabs";
 import { CombatSubTabs, COMBAT_SUB_TABS, COMBAT_SUB_TAB_ORDER } from "./ActionTabs";
 import { MagicSubTabs, MAGIC_ELEMENTS, type MagicElement } from "./MagicSubTabs";
+import { BattleItemPanel } from "./BattleItemPanel";
 
 // 방어 행동 타입
 export type DefenseAction = "guard" | "dodge" | "counter";
@@ -33,6 +34,7 @@ export function ActionPanel({
 }: ActionPanelProps) {
   const { theme } = useThemeStore();
   const { canUseSkill, isPlayerSilenced } = useBattleStore();
+  const playerCurrentAp = useBattleStore((state) => state.battle.playerCurrentAp);
   const { mainHand, learnedSkills } = useEquipmentStore();
 
   // 전투 스킬 서브탭 상태
@@ -238,7 +240,7 @@ export function ActionPanel({
                   {filteredCombatSkills.map((skill) => {
                     const skillApCost = getSkillApCost(skill);
                     const canCast = canUseSkill(skill.baseCost?.mp ?? 0);
-                    const hasEnoughAp = true; // TODO: AP 체크 추가
+                    const hasEnoughAp = playerCurrentAp >= skillApCost;
                     const canUse = canCast && hasEnoughAp;
                     return (
                       <SkillButton
@@ -376,12 +378,7 @@ export function ActionPanel({
       {activeTab === "item" && (
         <div className="flex flex-col h-full">
           <div className="flex-1 overflow-y-auto px-3 py-2">
-            <div
-              className="text-center py-4 font-mono text-sm"
-              style={{ color: theme.colors.textMuted }}
-            >
-              🎒 아이템 기능 준비 중...
-            </div>
+            <BattleItemPanel disabled={disabled} />
           </div>
         </div>
       )}

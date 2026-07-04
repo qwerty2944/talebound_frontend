@@ -1,6 +1,13 @@
 // add-item
 export { addItem, useAddItem } from "./add-item";
 
+// use-consumable
+export {
+  useUseConsumable,
+  type UseConsumableParams,
+  type UseConsumableResult,
+} from "./use-consumable";
+
 // remove-item
 export { removeItem, useRemoveItem } from "./remove-item";
 
