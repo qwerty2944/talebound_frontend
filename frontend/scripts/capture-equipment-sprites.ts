@@ -68,9 +68,13 @@ async function main() {
 
   console.log("Waiting for Unity to load (max 120s)...");
   await page.waitForFunction(
-    () =>
-      (window as unknown as { __spritesLoaded: boolean }).__spritesLoaded &&
-      window.__unityCapture?.ready(),
+    () => {
+      const w = window as unknown as {
+        __spritesLoaded: boolean;
+        __unityCapture?: { ready: () => boolean };
+      };
+      return w.__spritesLoaded && !!w.__unityCapture?.ready();
+    },
     { timeout: 120_000 }
   );
   // Unity 초기 렌더 안정화
@@ -87,7 +91,7 @@ async function main() {
     fs.mkdirSync(dir, { recursive: true });
 
     // 카테고리 시작 전 초기화 (이전 카테고리 장비 제거)
-    await page.evaluate(() => window.__unityCapture!.reset());
+    await page.evaluate(() => (window as unknown as { __unityCapture: { reset: () => void } }).__unityCapture.reset());
     await page.waitForTimeout(300);
 
     console.log(`\n[${category}] ${sprites.length} sprites`);
@@ -100,7 +104,9 @@ async function main() {
       );
 
       await page.evaluate(
-        ([c, idx]) => window.__unityCapture!.set(c as string, idx as number),
+        ([c, idx]) =>
+          (window as unknown as { __unityCapture: { set: (c: string, i: number) => void } })
+            .__unityCapture.set(c as string, idx as number),
         [category, i]
       );
       // Unity가 다음 Update에서 적용 + 한 프레임 렌더 보장
@@ -119,7 +125,9 @@ async function main() {
 
     // 카테고리 종료 후 해당 슬롯 해제
     await page.evaluate(
-      (c) => window.__unityCapture!.set(c as string, -1),
+      (c) =>
+        (window as unknown as { __unityCapture: { set: (c: string, i: number) => void } })
+          .__unityCapture.set(c as string, -1),
       category
     );
   }
