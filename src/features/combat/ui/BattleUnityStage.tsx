@@ -45,6 +45,15 @@ export function BattleUnityStage({ userId }: { userId: string }) {
     return () => unregisterViewport(viewportId);
   }, [isBoss, viewportId, registerViewport, unregisterViewport]);
 
+  // 보스 등장 인트로 (전투 시작 시 ~2.2초)
+  const [showIntro, setShowIntro] = useState(false);
+  useEffect(() => {
+    if (!isBoss) return;
+    setShowIntro(true);
+    const t = setTimeout(() => setShowIntro(false), 2200);
+    return () => clearTimeout(t);
+  }, [isBoss, monster?.id]);
+
   // 보스 피격 플래시/흔들림 (플레이어가 데미지를 줬을 때)
   const [bossHitFlash, setBossHitFlash] = useState(false);
   const prevMonsterHp = useRef(battle.monsterCurrentHp);
@@ -81,6 +90,32 @@ export function BattleUnityStage({ userId }: { userId: string }) {
       >
         👑 {monster.nameKo}
       </div>
+
+      {/* 보스 등장 인트로 오버레이 */}
+      {showIntro && (
+        <div
+          className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none"
+          style={{ background: `${theme.colors.bgDark}` }}
+        >
+          <div
+            className="animate-boss-intro-veil absolute inset-0"
+            style={{
+              background: `radial-gradient(ellipse at center, ${bossColor}33, ${theme.colors.bgDark})`,
+            }}
+          />
+          <div className="animate-boss-intro-name relative text-center">
+            <div className="text-xs font-mono mb-1" style={{ color: `${bossColor}cc` }}>
+              ⚠ BOSS ⚠
+            </div>
+            <div
+              className="text-2xl font-mono font-bold"
+              style={{ color: bossColor, textShadow: `0 0 16px ${bossColor}` }}
+            >
+              👑 {monster.nameKo}
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="flex items-end justify-between h-full px-4 pb-3 pt-6">
         {/* 좌측: 내 캐릭터 (유니티) */}

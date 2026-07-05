@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import toast from "react-hot-toast";
@@ -31,6 +31,13 @@ import {
 } from "@/entities/map";
 import type { Monster } from "@/entities/monster";
 import { useProficiencies } from "@/entities/ability";
+import type { CharacterStats } from "@/entities/character";
+import {
+  useCharacterTraitsWithDetails,
+  calculateAggregatedEffects,
+  applyStatModifiers,
+} from "@/entities/trait";
+import type { Trait } from "@/entities/trait";
 import type { ProficiencyType, CombatProficiencyType } from "@/entities/ability";
 import { GameTimeClock, AtmosphericText, useRealtimeGameTime, getPeriodOverlayStyle } from "@/entities/game-time";
 import { WeatherDisplay } from "@/entities/weather";
@@ -41,7 +48,7 @@ import { useDuelAction } from "@/features/pvp";
 import { useUpdateLocation } from "@/features/player";
 import { useCheckDailyLogin } from "@/features/login-streak";
 import { useThemeStore } from "@/application/stores";
-import { CollapsibleSection } from "@/shared/ui";
+import { CollapsibleSection, LevelUpBanner } from "@/shared/ui";
 import type { DailyLoginResult } from "@/entities/user";
 
 // 동적 임포트: 조건부 렌더링 컴포넌트 (번들 최적화)
@@ -93,6 +100,7 @@ export default function GamePage() {
   const [showWorldMap, setShowWorldMap] = useState(false);
   const [showStatusModal, setShowStatusModal] = useState(false);
   const [selectedNpc, setSelectedNpc] = useState<Npc | null>(null);
+  const [levelUpBanner, setLevelUpBanner] = useState<{ newLevel: number; levelsGained: number } | null>(null);
 
   // 연속 로그인 시스템
   const [showStreakModal, setShowStreakModal] = useState(false);
@@ -139,6 +147,26 @@ export default function GamePage() {
 
   const mainCharacter = getMainCharacter(profile);
   const fatiguePercent = getFatiguePercent(profile);
+
+  // 특성 효과 집계 (전투 스탯 보정용)
+  const { data: characterTraitsData } = useCharacterTraitsWithDetails(session?.user?.id);
+  const traitEffects = useMemo(() => {
+    const traits = (characterTraitsData ?? [])
+      .map((ct) => ct.trait)
+      .filter((t): t is Trait => t !== undefined);
+    if (traits.length === 0) return null;
+    return calculateAggregatedEffects(traits);
+  }, [characterTraitsData]);
+
+  // 특성 스탯 보정을 적용한 전투용 스탯.
+  // applyStatModifiers는 7개 기본 스탯만 반환하므로, 기존 스탯 위에 덮어써
+  // 선택적 전투 스탯(physicalAttack 등)을 보존한다. 특성이 없으면 원본 그대로.
+  const combatStats = useMemo<CharacterStats | undefined>(() => {
+    const base = mainCharacter?.stats;
+    if (!base) return undefined;
+    if (!traitEffects) return base;
+    return { ...base, ...applyStatModifiers(base, traitEffects) };
+  }, [mainCharacter?.stats, traitEffects]);
 
   // 헤더 HP/MP 표시용 (전투 시작 계산과 동일 공식)
   const headerMaxHp = 50 + (mainCharacter?.stats?.con ?? 10) * 5 + (profile?.level ?? 1) * 10;
@@ -339,6 +367,13 @@ export default function GamePage() {
     userId: session?.user?.id,
     onVictory: (rewards) => {
       console.log("[Battle] Victory! Rewards:", rewards);
+      // 레벨업 시 축하 배너 연출
+      if (rewards.levelUp) {
+        setLevelUpBanner({
+          newLevel: rewards.levelUp.newLevel,
+          levelsGained: rewards.levelUp.levelsGained,
+        });
+      }
       // 전투 승리 시 퀘스트 kill 진행도가 서버에서 갱신됨 → 목록 무효화
       if (session?.user?.id) {
         queryClient.invalidateQueries({ queryKey: questKeys.list(session.user.id) });
@@ -714,8 +749,9 @@ export default function GamePage() {
       {battle.isInBattle && mainCharacter?.stats && session?.user?.id && (
         <BattlePanel
           userId={session.user.id}
-          characterStats={mainCharacter.stats}
+          characterStats={combatStats ?? mainCharacter.stats}
           proficiencies={proficiencies}
+          traitEffects={traitEffects}
           onFlee={handleFlee}
           onVictory={handleVictory}
           onDefeat={handleDefeat}
@@ -782,6 +818,15 @@ export default function GamePage() {
           open={showStreakModal}
           onClose={() => setShowStreakModal(false)}
           result={loginResult}
+        />
+      )}
+
+      {/* 레벨업 축하 배너 */}
+      {levelUpBanner && (
+        <LevelUpBanner
+          newLevel={levelUpBanner.newLevel}
+          levelsGained={levelUpBanner.levelsGained}
+          onDone={() => setLevelUpBanner(null)}
         />
       )}
 

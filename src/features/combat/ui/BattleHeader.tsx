@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useThemeStore } from "@/shared/config";
 import { useBattleStore } from "@/application/stores";
+import { FloatingNumbers } from "@/shared/ui";
 import { StatusEffectDisplay } from "./StatusEffectDisplay";
 
 export function BattleHeader() {
@@ -63,7 +64,11 @@ export function BattleHeader() {
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">{battle.monster.icon}</span>
+            <span
+              className={`text-2xl inline-block ${monsterDamageShake ? "animate-icon-hit" : ""}`}
+            >
+              {battle.monster.icon}
+            </span>
             <div>
               <h2
                 className="font-mono font-bold"
@@ -97,11 +102,12 @@ export function BattleHeader() {
       <div className="p-4 space-y-3">
         {/* 몬스터 HP */}
         <div
-          className={`transition-transform ${monsterDamageShake ? "animate-shake" : ""}`}
+          className={`relative transition-transform ${monsterDamageShake ? "animate-shake" : ""}`}
           style={{
             animation: monsterDamageShake ? "shake 0.3s ease-in-out" : "none",
           }}
         >
+          <FloatingNumbers target="monster" />
           <div className="flex justify-between items-center text-xs font-mono mb-1">
             <div className="flex items-center gap-2">
               <span style={{ color: theme.colors.error }}>
@@ -139,11 +145,12 @@ export function BattleHeader() {
 
         {/* 플레이어 HP */}
         <div
-          className={`transition-transform ${playerDamageShake ? "animate-shake" : ""}`}
+          className={`relative transition-transform ${playerDamageShake ? "animate-shake" : ""}`}
           style={{
             animation: playerDamageShake ? "shake 0.3s ease-in-out" : "none",
           }}
         >
+          <FloatingNumbers target="player" />
           <div className="flex justify-between items-center text-xs font-mono mb-1">
             <div className="flex items-center gap-2">
               <span style={{ color: theme.colors.success }}>나</span>
