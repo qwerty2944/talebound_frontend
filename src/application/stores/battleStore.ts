@@ -63,6 +63,8 @@ export interface BattleState {
   isInBattle: boolean;
   monster: Monster | null;
   phase: BattlePhase;
+  /** 서버 보상 정산용 전투 토큰 (POST /api/battle/start 발급) */
+  battleToken: string | null;
 
   // HP/MP
   monsterCurrentHp: number;
@@ -130,6 +132,7 @@ const DEFAULT_MONSTER_MAX_AP = 10;
 // 초기 상태
 const initialBattleState: BattleState = {
   isInBattle: false,
+  battleToken: null,
   monster: null,
   phase: "planning",
   monsterCurrentHp: 0,
@@ -181,6 +184,7 @@ interface BattleStore {
   ) => void;
   endBattle: (result: BattleResult) => void;
   resetBattle: () => void;
+  setBattleToken: (token: string | null) => void;
 
   // AP/큐 시스템
   addToPlayerQueue: (action: QueuedAction) => boolean;
@@ -297,6 +301,7 @@ export const useBattleStore = create<BattleStore>((set, get) => ({
     set({
       battle: {
         isInBattle: true,
+        battleToken: null,
         monster,
         phase: "planning",
         monsterCurrentHp: monster.stats.hp,
@@ -364,6 +369,11 @@ export const useBattleStore = create<BattleStore>((set, get) => ({
   // 전투 초기화
   resetBattle: () => {
     set({ battle: initialBattleState });
+  },
+
+  // 전투 토큰 저장 (서버 보상 정산용)
+  setBattleToken: (token) => {
+    set((state) => ({ battle: { ...state.battle, battleToken: token } }));
   },
 
   // 플레이어 큐에 행동 추가

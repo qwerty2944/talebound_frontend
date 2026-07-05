@@ -8,7 +8,9 @@
       "nameEn": "Cave Centipede",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["ancient_ruins"],
+      "mapIds": [
+        "ancient_ruins"
+      ],
       "level": 10,
       "element": "dark",
       "icon": "🐛",
@@ -32,12 +34,26 @@
         }
       },
       "rewards": {
-        "exp": 60,
-        "gold": 5
+        "exp": 85,
+        "gold": 25
       },
       "drops": [
-        { "itemId": "centipede_leg", "chance": 0.4, "quantity": [2, 4] },
-        { "itemId": "centipede_venom", "chance": 0.15, "quantity": [1, 1] }
+        {
+          "itemId": "centipede_leg",
+          "chance": 0.4,
+          "quantity": [
+            2,
+            4
+          ]
+        },
+        {
+          "itemId": "centipede_venom",
+          "chance": 0.15,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "statusEffect": {

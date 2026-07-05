@@ -1,6 +1,7 @@
 // ============ Enhancement System Types ============
 
 import type { EquipmentStats } from "./index";
+import enhancementData from "../../../../public/data/config/enhancement.json";
 
 // ============ Enhancement Info ============
 
@@ -56,128 +57,12 @@ export interface EnhancementLevelConfig {
   requiredMaterialCount?: number;
 }
 
-/** 강화 설정 테이블 (+1 ~ +15) */
-export const ENHANCEMENT_CONFIG: EnhancementLevelConfig[] = [
-  // +1 ~ +2: 100% 성공, 실패 없음
-  {
-    level: 1,
-    successRate: 100,
-    statMultiplier: 1.05,
-    failPenalty: "none",
-    goldCost: 100,
-  },
-  {
-    level: 2,
-    successRate: 100,
-    statMultiplier: 1.1,
-    failPenalty: "none",
-    goldCost: 200,
-  },
-  // +3 ~ +5: 높은 성공률, 실패해도 유지
-  {
-    level: 3,
-    successRate: 95,
-    statMultiplier: 1.15,
-    failPenalty: "none",
-    goldCost: 500,
-  },
-  {
-    level: 4,
-    successRate: 90,
-    statMultiplier: 1.2,
-    failPenalty: "none",
-    goldCost: 1000,
-  },
-  {
-    level: 5,
-    successRate: 80,
-    statMultiplier: 1.3,
-    failPenalty: "none",
-    goldCost: 2000,
-  },
-  // +6 ~ +10: 중간 난이도, 실패 시 하락
-  {
-    level: 6,
-    successRate: 70,
-    statMultiplier: 1.4,
-    failPenalty: "downgrade",
-    goldCost: 5000,
-  },
-  {
-    level: 7,
-    successRate: 60,
-    statMultiplier: 1.5,
-    failPenalty: "downgrade",
-    goldCost: 10000,
-  },
-  {
-    level: 8,
-    successRate: 50,
-    statMultiplier: 1.65,
-    failPenalty: "downgrade",
-    goldCost: 20000,
-  },
-  {
-    level: 9,
-    successRate: 40,
-    statMultiplier: 1.8,
-    failPenalty: "downgrade",
-    goldCost: 40000,
-  },
-  {
-    level: 10,
-    successRate: 30,
-    statMultiplier: 2.0,
-    failPenalty: "downgrade",
-    goldCost: 80000,
-  },
-  // +11 ~ +15: 고위험, 실패 시 파괴 가능 (보호 아이템 필요)
-  {
-    level: 11,
-    successRate: 25,
-    statMultiplier: 2.25,
-    failPenalty: "destroy",
-    goldCost: 150000,
-    requiredMaterial: "enhancement_stone_high",
-    requiredMaterialCount: 1,
-  },
-  {
-    level: 12,
-    successRate: 20,
-    statMultiplier: 2.5,
-    failPenalty: "destroy",
-    goldCost: 300000,
-    requiredMaterial: "enhancement_stone_high",
-    requiredMaterialCount: 2,
-  },
-  {
-    level: 13,
-    successRate: 15,
-    statMultiplier: 2.8,
-    failPenalty: "destroy",
-    goldCost: 500000,
-    requiredMaterial: "enhancement_stone_high",
-    requiredMaterialCount: 3,
-  },
-  {
-    level: 14,
-    successRate: 10,
-    statMultiplier: 3.2,
-    failPenalty: "destroy",
-    goldCost: 1000000,
-    requiredMaterial: "enhancement_stone_high",
-    requiredMaterialCount: 4,
-  },
-  {
-    level: 15,
-    successRate: 5,
-    statMultiplier: 4.0,
-    failPenalty: "destroy",
-    goldCost: 2000000,
-    requiredMaterial: "enhancement_stone_high",
-    requiredMaterialCount: 5,
-  },
-];
+/**
+ * 강화 설정 테이블 (+1 ~ +15)
+ * 단일 소스: public/data/config/enhancement.json (백엔드도 같은 파일을 sync해서 검증에 사용)
+ */
+export const ENHANCEMENT_CONFIG: EnhancementLevelConfig[] =
+  enhancementData.levels as EnhancementLevelConfig[];
 
 // ============ Enhancement Attempt ============
 

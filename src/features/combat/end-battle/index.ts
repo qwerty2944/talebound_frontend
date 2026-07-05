@@ -1,31 +1,23 @@
 "use client";
 
 import { useCallback } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { useBattleStore } from "@/application/stores";
-import { rollDrops, calculateExpBonus } from "@/entities/monster";
+import { calculateExpBonus } from "@/entities/monster";
 import {
   profileKeys,
   updateProfile,
-  checkLevelUp,
   useProfile,
   getRespawnLocation,
   updateProfileAfterDefeat,
 } from "@/entities/user";
 import { inventoryKeys } from "@/entities/inventory";
 import { fetchItemById } from "@/entities/item";
-import { addItem } from "@/features/inventory";
-import {
-  calculateKarmaChange,
-  updateKarma,
-  karmaKeys,
-  formatKarma,
-  getKarmaRank,
-} from "@/entities/karma";
+import { karmaKeys } from "@/entities/karma";
+import { completeBattleOnServer } from "../api/battleServer";
 import type { ProficiencyType } from "@/entities/ability";
 import {
   calculateProficiencyGain,
-  canGainProficiency,
   useProficiencies,
   useGainProficiency,
   getProficiencyValue,
@@ -95,8 +87,8 @@ export function useEndBattle(options: UseEndBattleOptions) {
     // 골드
     const gold = currentBattle.monster.rewards.gold;
 
-    // 드롭 아이템 - 미리 계산된 드랍 사용 (없으면 새로 롤)
-    const drops = preRolledDrops ?? rollDrops(currentBattle.monster.drops);
+    // 드롭 아이템은 서버가 롤·지급한다 (settle 후 채워짐)
+    const drops = preRolledDrops ?? [];
 
     // 숙련도 증가 (사용한 무기/마법) - 레벨 기반 시스템
     let proficiencyGain: BattleRewards["proficiencyGain"] = undefined;
@@ -123,11 +115,8 @@ export function useEndBattle(options: UseEndBattleOptions) {
       };
     }
 
-    // 카르마 변화 계산
-    const karmaChange = calculateKarmaChange(
-      currentBattle.monster.alignment,
-      currentBattle.monster.level
-    );
+    // 카르마는 서버 정산에서 처리 (표시는 settle 후)
+    const karmaChange = 0;
 
     // 스킬 경험치 획득 (battleStore에서 추적)
     const skillExpGains = Object.keys(currentBattle.skillExpGains).length > 0
@@ -153,37 +142,49 @@ export function useEndBattle(options: UseEndBattleOptions) {
     }
 
     try {
-      // 1. 경험치/골드 지급 + 레벨업 체크 + HP/MP 저장
-      if (userId) {
+      // 1. 서버 권위 보상 정산 (exp/gold/드랍/카르마/레벨업은 서버가 계산·지급)
+      if (userId && currentBattleState.battleToken && currentBattleState.monster) {
         try {
-          const totalExp = profile.experience + rewards.exp;
-          const levelUpResult = checkLevelUp(profile.level, totalExp);
-
-          await updateProfile({
-            userId,
-            level: levelUpResult.newLevel,
-            experience: levelUpResult.newExp,
-            gold: profile.gold + rewards.gold,
-            // 전투 후 HP/MP 저장
+          const settled = await completeBattleOnServer({
+            battleToken: currentBattleState.battleToken,
+            result: "victory",
             currentHp: currentBattleState.playerCurrentHp,
             currentMp: currentBattleState.playerMp,
           });
 
-          // 레벨업 알림
-          if (levelUpResult.leveledUp) {
-            rewards.levelUp = {
-              newLevel: levelUpResult.newLevel,
-              levelsGained: levelUpResult.levelsGained,
-            };
+          // 실제 지급된 값으로 보상 표시 갱신
+          rewards.exp = settled.exp;
+          rewards.gold = settled.gold;
+          rewards.drops = settled.drops;
+          rewards.karmaChange = settled.karmaChange;
 
-            if (levelUpResult.levelsGained === 1) {
-              toast.success(`레벨 업! Lv.${levelUpResult.newLevel}`);
+          if (settled.levelUp.leveledUp) {
+            rewards.levelUp = {
+              newLevel: settled.levelUp.newLevel,
+              levelsGained: settled.levelUp.levelsGained,
+            };
+            if (settled.levelUp.levelsGained === 1) {
+              toast.success(`레벨 업! Lv.${settled.levelUp.newLevel}`);
             } else {
-              toast.success(`${levelUpResult.levelsGained} 레벨 상승! Lv.${levelUpResult.newLevel}`);
+              toast.success(`${settled.levelUp.levelsGained} 레벨 상승! Lv.${settled.levelUp.newLevel}`);
             }
           }
+
+          if (settled.karmaChange > 0) toast.success(`카르마 +${settled.karmaChange}`);
+          else if (settled.karmaChange < 0) toast.error(`카르마 ${settled.karmaChange}`);
+
+          // 드랍 알림 (지급은 서버가 이미 완료)
+          for (const drop of settled.drops) {
+            fetchItemById(drop.itemId)
+              .then((item) => {
+                const name = item?.nameKo ?? drop.itemId;
+                toast(`${item?.icon && item.icon.length <= 2 ? item.icon : "📦"} ${name} x${drop.quantity} 획득!`);
+              })
+              .catch(() => toast(`📦 ${drop.itemId} x${drop.quantity} 획득!`));
+          }
         } catch (error) {
-          console.error("Failed to update profile:", error);
+          console.error("Failed to settle battle rewards:", error);
+          toast.error("보상 정산에 실패했습니다");
         }
       }
 
@@ -208,42 +209,7 @@ export function useEndBattle(options: UseEndBattleOptions) {
         }
       }
 
-      // 3. 카르마 변화 적용
-      if (rewards.karmaChange && rewards.karmaChange !== 0 && userId) {
-        try {
-          const reason = `${monsterName} 처치`;
-
-          await updateKarma(userId, rewards.karmaChange, reason);
-
-          // 카르마 변화 알림
-          if (rewards.karmaChange > 0) {
-            toast.success(`카르마 +${rewards.karmaChange}`);
-          } else {
-            toast.error(`카르마 ${rewards.karmaChange}`);
-          }
-        } catch (error) {
-          console.error("Failed to update karma:", error);
-        }
-      }
-
-      // 4. 드롭 아이템 인벤토리에 추가
-      if (rewards.drops.length > 0 && userId) {
-        for (const drop of rewards.drops) {
-          try {
-            const item = await fetchItemById(drop.itemId);
-            if (item) {
-              await addItem({
-                userId,
-                itemId: drop.itemId,
-                itemType: item.type,
-                quantity: drop.quantity,
-              });
-            }
-          } catch (error) {
-            console.error("Failed to add drop item:", error);
-          }
-        }
-      }
+      // 3~4. 카르마/드랍은 서버 정산(1번)에서 이미 처리됨
 
       // 5. 통계 기록
       if (profile?.id) {

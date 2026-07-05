@@ -8,7 +8,9 @@
       "nameEn": "Forest Wisp",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["deep_forest"],
+      "mapIds": [
+        "deep_forest"
+      ],
       "level": 6,
       "element": "holy",
       "icon": "✨",
@@ -32,16 +34,33 @@
         }
       },
       "rewards": {
-        "exp": 35,
-        "gold": 0
+        "exp": 44,
+        "gold": 15
       },
       "drops": [
-        { "itemId": "wisp_essence", "chance": 0.25, "quantity": [1, 1] },
-        { "itemId": "holy_essence", "chance": 0.1, "quantity": [1, 1] }
+        {
+          "itemId": "wisp_essence",
+          "chance": 0.25,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "holy_essence",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "defensive",
       "spawnCondition": {
-        "period": ["night", "dawn"]
+        "period": [
+          "night",
+          "dawn"
+        ]
       },
       "description": {
         "ko": "숲 속을 떠도는 신비한 빛. 물리 공격에 강하고 불에 약하며 물/대지 마법에 강하다.",
@@ -54,7 +73,9 @@
       "nameEn": "Water Spirit",
       "rank": "normal",
       "alignment": "good",
-      "mapIds": ["deep_forest"],
+      "mapIds": [
+        "deep_forest"
+      ],
       "level": 7,
       "element": "ice",
       "icon": "💧",
@@ -78,16 +99,32 @@
         }
       },
       "rewards": {
-        "exp": 42,
-        "gold": 0
+        "exp": 53,
+        "gold": 18
       },
       "drops": [
-        { "itemId": "spirit_water", "chance": 0.3, "quantity": [1, 2] },
-        { "itemId": "ice_essence", "chance": 0.12, "quantity": [1, 1] }
+        {
+          "itemId": "spirit_water",
+          "chance": 0.3,
+          "quantity": [
+            1,
+            2
+          ]
+        },
+        {
+          "itemId": "ice_essence",
+          "chance": 0.12,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "defensive",
       "spawnCondition": {
-        "weather": ["rainy"]
+        "weather": [
+          "rainy"
+        ]
       },
       "description": {
         "ko": "맑은 물에서 태어난 정령. 불에 매우 약하고 물/대지에 강하다. 비 오는 날에만 나타난다.",
@@ -100,7 +137,9 @@
       "nameEn": "Earth Spirit",
       "rank": "elite",
       "alignment": "neutral",
-      "mapIds": ["deep_forest"],
+      "mapIds": [
+        "deep_forest"
+      ],
       "level": 9,
       "element": "earth",
       "icon": "🪨",
@@ -124,13 +163,34 @@
         }
       },
       "rewards": {
-        "exp": 65,
-        "gold": 0
+        "exp": 74,
+        "gold": 22
       },
       "drops": [
-        { "itemId": "spirit_stone", "chance": 0.35, "quantity": [1, 2] },
-        { "itemId": "earth_essence", "chance": 0.2, "quantity": [1, 1] },
-        { "itemId": "ancient_soil", "chance": 0.1, "quantity": [1, 1] }
+        {
+          "itemId": "spirit_stone",
+          "chance": 0.35,
+          "quantity": [
+            1,
+            2
+          ]
+        },
+        {
+          "itemId": "earth_essence",
+          "chance": 0.2,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "ancient_soil",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "territorial",
       "description": {
@@ -144,7 +204,9 @@
       "nameEn": "Ancient Spirit",
       "rank": "elite",
       "alignment": "neutral",
-      "mapIds": ["ancient_ruins"],
+      "mapIds": [
+        "ancient_ruins"
+      ],
       "level": 12,
       "element": "holy",
       "icon": "👻",
@@ -168,17 +230,41 @@
         }
       },
       "rewards": {
-        "exp": 80,
-        "gold": 10
+        "exp": 109,
+        "gold": 30
       },
       "drops": [
-        { "itemId": "ancient_essence", "chance": 0.25, "quantity": [1, 1] },
-        { "itemId": "holy_essence", "chance": 0.15, "quantity": [1, 1] },
-        { "itemId": "spirit_fragment", "chance": 0.3, "quantity": [1, 2] }
+        {
+          "itemId": "ancient_essence",
+          "chance": 0.25,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "holy_essence",
+          "chance": 0.15,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "spirit_fragment",
+          "chance": 0.3,
+          "quantity": [
+            1,
+            2
+          ]
+        }
       ],
       "behavior": "territorial",
       "spawnCondition": {
-        "period": ["night", "dawn"]
+        "period": [
+          "night",
+          "dawn"
+        ]
       },
       "description": {
         "ko": "유적을 지키는 고대의 정령. 물리 공격이 거의 통하지 않으며 암흑 마법에 약하다.",
@@ -191,7 +277,9 @@
       "nameEn": "Wind Sprite",
       "rank": "normal",
       "alignment": "good",
-      "mapIds": ["forest_clearing"],
+      "mapIds": [
+        "forest_clearing"
+      ],
       "level": 5,
       "element": "lightning",
       "icon": "🌬️",
@@ -215,16 +303,32 @@
         }
       },
       "rewards": {
-        "exp": 28,
-        "gold": 0
+        "exp": 35,
+        "gold": 12
       },
       "drops": [
-        { "itemId": "wind_essence", "chance": 0.2, "quantity": [1, 1] },
-        { "itemId": "fairy_dust", "chance": 0.15, "quantity": [1, 2] }
+        {
+          "itemId": "wind_essence",
+          "chance": 0.2,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "fairy_dust",
+          "chance": 0.15,
+          "quantity": [
+            1,
+            2
+          ]
+        }
       ],
       "behavior": "passive",
       "spawnCondition": {
-        "weather": ["stormy"]
+        "weather": [
+          "stormy"
+        ]
       },
       "description": {
         "ko": "바람을 타고 다니는 작은 요정. 폭풍이 올 때 나타난다. 번개에 매우 강하고 대지에 약하다.",
@@ -237,7 +341,9 @@
       "nameEn": "Forest Guardian",
       "rank": "boss",
       "alignment": "good",
-      "mapIds": ["deep_forest"],
+      "mapIds": [
+        "deep_forest"
+      ],
       "level": 15,
       "element": "earth",
       "icon": "🌳",
@@ -265,11 +371,46 @@
         "gold": 100
       },
       "drops": [
-        { "itemId": "guardian_heart", "chance": 0.5, "quantity": [1, 1] },
-        { "itemId": "ancient_bark", "chance": 0.8, "quantity": [2, 4] },
-        { "itemId": "earth_essence", "chance": 0.6, "quantity": [2, 3] },
-        { "itemId": "nature_blessing", "chance": 0.2, "quantity": [1, 1] },
-        { "itemId": "forest_guardian_staff", "chance": 0.1, "quantity": [1, 1] }
+        {
+          "itemId": "guardian_heart",
+          "chance": 0.5,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "ancient_bark",
+          "chance": 0.8,
+          "quantity": [
+            2,
+            4
+          ]
+        },
+        {
+          "itemId": "earth_essence",
+          "chance": 0.6,
+          "quantity": [
+            2,
+            3
+          ]
+        },
+        {
+          "itemId": "nature_blessing",
+          "chance": 0.2,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "forest_guardian_staff",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "territorial",
       "abilities": [

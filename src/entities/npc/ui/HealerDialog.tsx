@@ -35,8 +35,9 @@ export function HealerDialog({
   const [healingIndex, setHealingIndex] = useState<number | null>(null);
 
   const healMutation = useMutation({
-    mutationFn: (params: { injuryIndex: number; goldCost: number }) =>
-      healInjuryWithGold(userId, params.injuryIndex, params.goldCost),
+    // 비용은 서버가 NPC 가격표로 계산·검증한다
+    mutationFn: (params: { injuryIndex: number }) =>
+      healInjuryWithGold(userId, params.injuryIndex, npc.id),
     onSuccess: (result, variables) => {
       if (result.success) {
         toast.success(npc.dialogues.healSuccess || "치료 완료!");
@@ -64,7 +65,7 @@ export function HealerDialog({
     }
 
     setHealingIndex(index);
-    healMutation.mutate({ injuryIndex: index, goldCost: cost });
+    healMutation.mutate({ injuryIndex: index });
   };
 
   const getRemainingHealTime = (injury: CharacterInjury): string | null => {

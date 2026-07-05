@@ -8,7 +8,9 @@
       "nameEn": "Forest Bandit",
       "rank": "normal",
       "alignment": "evil",
-      "mapIds": ["bandit_camp"],
+      "mapIds": [
+        "bandit_camp"
+      ],
       "level": 4,
       "element": null,
       "icon": "🗡️",
@@ -32,13 +34,34 @@
         }
       },
       "rewards": {
-        "exp": 25,
-        "gold": 15
+        "exp": 27,
+        "gold": 20
       },
       "drops": [
-        { "itemId": "stolen_coin", "chance": 0.5, "quantity": [5, 15] },
-        { "itemId": "rusty_dagger", "chance": 0.08, "quantity": [1, 1] },
-        { "itemId": "bandit_mask", "chance": 0.05, "quantity": [1, 1] }
+        {
+          "itemId": "stolen_coin",
+          "chance": 0.5,
+          "quantity": [
+            5,
+            15
+          ]
+        },
+        {
+          "itemId": "rusty_dagger",
+          "chance": 0.08,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "bandit_mask",
+          "chance": 0.05,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "description": {
@@ -52,7 +75,9 @@
       "nameEn": "Bandit Archer",
       "rank": "normal",
       "alignment": "evil",
-      "mapIds": ["bandit_camp"],
+      "mapIds": [
+        "bandit_camp"
+      ],
       "level": 5,
       "element": null,
       "icon": "🏹",
@@ -76,13 +101,34 @@
         }
       },
       "rewards": {
-        "exp": 28,
-        "gold": 12
+        "exp": 35,
+        "gold": 24
       },
       "drops": [
-        { "itemId": "stolen_coin", "chance": 0.4, "quantity": [3, 10] },
-        { "itemId": "crude_arrow", "chance": 0.6, "quantity": [5, 15] },
-        { "itemId": "hunting_bow", "chance": 0.05, "quantity": [1, 1] }
+        {
+          "itemId": "stolen_coin",
+          "chance": 0.4,
+          "quantity": [
+            3,
+            10
+          ]
+        },
+        {
+          "itemId": "crude_arrow",
+          "chance": 0.6,
+          "quantity": [
+            5,
+            15
+          ]
+        },
+        {
+          "itemId": "hunting_bow",
+          "chance": 0.05,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "description": {
@@ -96,7 +142,9 @@
       "nameEn": "Bandit Brute",
       "rank": "elite",
       "alignment": "evil",
-      "mapIds": ["bandit_camp"],
+      "mapIds": [
+        "bandit_camp"
+      ],
       "level": 6,
       "element": null,
       "icon": "💪",
@@ -120,13 +168,34 @@
         }
       },
       "rewards": {
-        "exp": 40,
-        "gold": 25
+        "exp": 44,
+        "gold": 30
       },
       "drops": [
-        { "itemId": "stolen_coin", "chance": 0.6, "quantity": [10, 25] },
-        { "itemId": "spiked_club", "chance": 0.1, "quantity": [1, 1] },
-        { "itemId": "bandit_insignia", "chance": 0.08, "quantity": [1, 1] }
+        {
+          "itemId": "stolen_coin",
+          "chance": 0.6,
+          "quantity": [
+            10,
+            25
+          ]
+        },
+        {
+          "itemId": "spiked_club",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "bandit_insignia",
+          "chance": 0.08,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "description": {
@@ -140,7 +209,9 @@
       "nameEn": "Bandit Mage",
       "rank": "elite",
       "alignment": "evil",
-      "mapIds": ["deep_forest"],
+      "mapIds": [
+        "deep_forest"
+      ],
       "level": 8,
       "element": "fire",
       "icon": "🔥",
@@ -164,14 +235,42 @@
         }
       },
       "rewards": {
-        "exp": 55,
-        "gold": 30
+        "exp": 63,
+        "gold": 40
       },
       "drops": [
-        { "itemId": "stolen_coin", "chance": 0.5, "quantity": [15, 30] },
-        { "itemId": "fire_scroll", "chance": 0.15, "quantity": [1, 1] },
-        { "itemId": "mage_robe_torn", "chance": 0.1, "quantity": [1, 1] },
-        { "itemId": "fire_essence", "chance": 0.08, "quantity": [1, 1] }
+        {
+          "itemId": "stolen_coin",
+          "chance": 0.5,
+          "quantity": [
+            15,
+            30
+          ]
+        },
+        {
+          "itemId": "fire_scroll",
+          "chance": 0.15,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "mage_robe_torn",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "fire_essence",
+          "chance": 0.08,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "description": {
@@ -185,7 +284,9 @@
       "nameEn": "Highway Robber",
       "rank": "normal",
       "alignment": "evil",
-      "mapIds": ["deep_forest"],
+      "mapIds": [
+        "deep_forest"
+      ],
       "level": 7,
       "element": null,
       "icon": "🥷",
@@ -209,13 +310,34 @@
         }
       },
       "rewards": {
-        "exp": 45,
-        "gold": 35
+        "exp": 53,
+        "gold": 36
       },
       "drops": [
-        { "itemId": "stolen_goods", "chance": 0.4, "quantity": [1, 2] },
-        { "itemId": "stolen_coin", "chance": 0.7, "quantity": [20, 50] },
-        { "itemId": "smoke_bomb", "chance": 0.1, "quantity": [1, 2] }
+        {
+          "itemId": "stolen_goods",
+          "chance": 0.4,
+          "quantity": [
+            1,
+            2
+          ]
+        },
+        {
+          "itemId": "stolen_coin",
+          "chance": 0.7,
+          "quantity": [
+            20,
+            50
+          ]
+        },
+        {
+          "itemId": "smoke_bomb",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            2
+          ]
+        }
       ],
       "behavior": "aggressive",
       "description": {

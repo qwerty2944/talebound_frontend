@@ -45,6 +45,20 @@ export function LoginStreakModal({ open, onClose, result }: LoginStreakModalProp
               </div>
             </div>
 
+            {/* 출석 보상 */}
+            {result.goldReward > 0 && (
+              <div
+                className="text-center text-sm mb-4 p-2 rounded font-mono"
+                style={{
+                  color: theme.colors.success,
+                  background: `${theme.colors.success}15`,
+                  border: `1px solid ${theme.colors.success}30`,
+                }}
+              >
+                💰 출석 보상 +{result.goldReward} Gold
+              </div>
+            )}
+
             {/* 연속 끊김 경고 */}
             {result.streakBroken && result.previousStreak > 1 && (
               <div
