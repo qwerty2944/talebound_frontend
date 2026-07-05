@@ -12,10 +12,14 @@ import type { Npc } from "@/entities/npc";
 import { healInjuryWithGold, profileKeys } from "@/entities/user";
 import toast from "react-hot-toast";
 
+/** 이 레벨 이하 캐릭터는 치료비 무료 (서버 npc.service와 동일 규칙). */
+const FREE_HEAL_MAX_LEVEL = 5;
+
 interface HealerDialogProps {
   npc: Npc;
   injuries: CharacterInjury[];
   playerGold: number;
+  playerLevel: number;
   userId: string;
   onClose: () => void;
 }
@@ -27,6 +31,7 @@ export function HealerDialog({
   npc,
   injuries,
   playerGold,
+  playerLevel,
   userId,
   onClose,
 }: HealerDialogProps) {
@@ -53,7 +58,11 @@ export function HealerDialog({
     },
   });
 
+  // 레벨 5 이하는 무료 (실제 비용 판정은 서버 권위)
+  const isFreeHeal = playerLevel <= FREE_HEAL_MAX_LEVEL;
+
   const getHealingCost = (type: InjuryType): number => {
+    if (isFreeHeal) return 0;
     return npc.services?.healing?.[type]?.gold || 0;
   };
 
@@ -207,6 +216,11 @@ export function HealerDialog({
                         <>
                           <span className="animate-spin">⏳</span>
                           <span>치료 중...</span>
+                        </>
+                      ) : cost === 0 ? (
+                        <>
+                          <span>✨</span>
+                          <span>무료 치료</span>
                         </>
                       ) : (
                         <>

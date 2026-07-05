@@ -803,6 +803,7 @@ export default function GamePage() {
           npc={selectedNpc}
           injuries={profile.injuries}
           playerGold={profile.gold}
+          playerLevel={profile.level}
           userId={session.user.id}
           onClose={() => setSelectedNpc(null)}
         />
