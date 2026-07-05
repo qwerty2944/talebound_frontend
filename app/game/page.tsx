@@ -27,11 +27,13 @@ import {
 } from "@/entities/map";
 import type { Monster } from "@/entities/monster";
 import { useProficiencies } from "@/entities/ability";
-import type { ProficiencyType } from "@/entities/ability";
+import type { ProficiencyType, CombatProficiencyType } from "@/entities/ability";
 import { GameTimeClock, AtmosphericText, useRealtimeGameTime, getPeriodOverlayStyle } from "@/entities/game-time";
 import { WeatherDisplay } from "@/entities/weather";
 import { useBattleStore, usePvpStore } from "@/application/stores";
 import { useStartBattle, useEndBattle } from "@/features/combat";
+import { useRealtimeDuel, DuelRequestModal, DuelBattlePanel } from "@/features/duel";
+import { useDuelAction } from "@/features/pvp";
 import { useUpdateLocation } from "@/features/player";
 import { useCheckDailyLogin } from "@/features/login-streak";
 import { useThemeStore } from "@/application/stores";
@@ -215,10 +217,49 @@ export default function GamePage() {
     }
   }, [mapId, maps, setThemeByTerrain]);
 
-  const { sendMessage } = useRealtimeChat({
+  const { sendMessage, room } = useRealtimeChat({
     mapId: mapId || "starting_village",
     userId: session?.user?.id || "",
     characterName: myCharacterName,
+  });
+
+  // ============ PvP 결투 ============
+  const {
+    requestDuel,
+    respondToDuel,
+    pendingRequests,
+    activeDuel,
+    isInDuel,
+    broadcastAction,
+    broadcastDuelEnd,
+    resetDuel,
+  } = useRealtimeDuel({
+    mapId: mapId || "starting_village",
+    userId: session?.user?.id || "",
+    characterName: myCharacterName,
+    room,
+    stats: mainCharacter?.stats,
+    proficiencies,
+    level: profile?.level ?? 1,
+    currentHp: profile?.currentHp,
+  });
+
+  const duelAction = useDuelAction({
+    userId: session?.user?.id || "",
+    onAction: broadcastAction,
+    onVictory: () => {
+      const duel = usePvpStore.getState().activeDuel;
+      const myId = session?.user?.id;
+      if (duel && myId) {
+        broadcastDuelEnd({
+          duelId: duel.duelId,
+          winnerId: myId,
+          loserId: duel.player1.id === myId ? duel.player2.id : duel.player1.id,
+          reason: "knockout",
+        });
+        toast.success("🏆 결투 승리!");
+      }
+    },
   });
 
   const handleMapChange = async (newMapId: string) => {
@@ -494,7 +535,15 @@ export default function GamePage() {
         <div className="flex-none lg:w-64 flex flex-col gap-2 min-h-0 max-h-[50vh] lg:max-h-full overflow-y-auto">
           {/* 접속 유저 */}
           <CollapsibleSection id="sidebar_players" title="접속 유저" icon="👥" defaultOpen={true}>
-            <PlayerList currentUserId={session.user.id} compact />
+            <PlayerList
+              currentUserId={session.user.id}
+              compact
+              canDuel={!battle.isInBattle && !isInDuel}
+              onDuelRequest={(target) => {
+                requestDuel(target.userId, target.characterName);
+                toast(`${target.characterName}님에게 결투를 신청했습니다.`, { icon: "⚔️" });
+              }}
+            />
           </CollapsibleSection>
 
           {/* 몬스터 목록 */}
@@ -574,6 +623,26 @@ export default function GamePage() {
           playerGold={profile.gold}
           userId={session.user.id}
           onClose={() => setSelectedNpc(null)}
+        />
+      )}
+
+      {/* 결투 신청 수신 모달 */}
+      {pendingRequests.length > 0 && !isInDuel && (
+        <DuelRequestModal
+          request={pendingRequests[0]}
+          onAccept={() => respondToDuel(pendingRequests[0].challengerId, true)}
+          onDecline={() => respondToDuel(pendingRequests[0].challengerId, false)}
+        />
+      )}
+
+      {/* 결투 패널 */}
+      {activeDuel && (
+        <DuelBattlePanel
+          userId={session.user.id}
+          duel={activeDuel}
+          onAttack={(attackType) => duelAction.attack(attackType as CombatProficiencyType)}
+          onFlee={() => duelAction.flee()}
+          onClose={resetDuel}
         />
       )}
 

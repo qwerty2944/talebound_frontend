@@ -4,8 +4,6 @@ import { useCallback } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useBattleStore } from "@/application/stores";
 import { rollDrops, calculateExpBonus } from "@/entities/monster";
-// TODO: Re-enable after implementing proficiency gain with useIncreaseAbilityExp
-// import { useIncreaseAbilityExp } from "@/entities/ability";
 import {
   profileKeys,
   updateProfile,
