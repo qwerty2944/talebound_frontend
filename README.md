@@ -30,8 +30,7 @@ npm install
 # 환경 변수 설정
 cp .env.example .env.local
 # .env.local에 Supabase 정보 입력:
-# NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
-# NEXT_PUBLIC_SUPABASE_ANON_KEY=xxx
+# NEXT_PUBLIC_API_URL=http://localhost:2567  (프로덕션: https://kr-icn-db6aac61.colyseus.cloud)
 
 # 개발 서버 실행
 npm run dev

@@ -51,7 +51,7 @@ Fantasy MUD 게임 웹 클라이언트. Unity WebGL 캐릭터 빌더 + Supabase 
 ## 기술 스택
 - **Framework**: Next.js 16 (App Router)
 - **상태관리**: Zustand (클라이언트), React Query (서버)
-- **백엔드**: Supabase (Auth, Database, Realtime, Storage)
+- **백엔드**: 자체 NestJS + Colyseus 서버 ([talebound_backend](https://github.com/qwerty2944/talebound_backend)) — REST `/api/*` + WebSocket 룸
 - **Unity**: react-unity-webgl
 
 ## 아키텍처: FSD (Feature-Sliced Design)
@@ -821,9 +821,17 @@ npx tsx scripts/generate-abilities.ts
 ## 환경 변수
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=xxx
+# 백엔드 주소 (미설정 시 http://localhost:2567)
+# 프로덕션: https://kr-icn-db6aac61.colyseus.cloud (Vercel에 설정됨)
+NEXT_PUBLIC_API_URL=http://localhost:2567
 ```
+
+WebSocket 주소는 `NEXT_PUBLIC_API_URL`에서 자동 파생된다 (`http→ws`). Supabase 클라이언트는 더 이상 사용하지 않는다 — 모든 데이터 접근은 백엔드 REST(`/api/*`)와 Colyseus 룸을 통한다.
+
+### 배포
+- 프론트: Vercel 프로젝트 `talebound` → https://talebound-web.vercel.app
+- 백엔드: Colyseus Cloud → [talebound_backend README](https://github.com/qwerty2944/talebound_backend) 참조
+- 채팅은 서버에 저장하지 않는다 (Colyseus 릴레이 + 브라우저 로컬 캐시만)
 
 ## Unity 연동
 

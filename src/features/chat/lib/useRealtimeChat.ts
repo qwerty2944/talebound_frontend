@@ -5,7 +5,7 @@ import type { Room } from "colyseus.js";
 import { getStateCallbacks } from "colyseus.js";
 import { joinMapRoom } from "@/shared/api/colyseus";
 import { useGameStore, useChatStore, parseChatCommand, type OnlineUser } from "@/application/stores";
-import { fetchRecentMessages, type ChatMessage } from "@/entities/chat";
+import type { ChatMessage } from "@/entities/chat";
 import { useMaps, getMapById } from "@/entities/map";
 
 interface UseRealtimeChatProps {
@@ -31,32 +31,16 @@ export function useRealtimeChat({
   mapsRef.current = maps;
   const {
     addMessage,
-    addMessages,
     lastWhisperFrom,
     clearMessages,
     loadFromCache,
     saveToCache,
   } = useChatStore();
 
-  // 채팅 히스토리 로드 (캐시 우선)
+  // 채팅 히스토리는 서버에 저장하지 않는다 — 로컬 캐시만 사용
   const loadHistory = useCallback(async () => {
-    // 1. 캐시에서 먼저 로드 (즉시 표시)
     loadFromCache(mapId);
-
-    try {
-      // 2. 서버에서 최신 데이터 가져오기
-      const messages = await fetchRecentMessages(mapId, 50);
-
-      // 시간순 정렬 (오래된 것 먼저)
-      messages.reverse();
-      addMessages(messages);
-
-      // 3. 캐시 업데이트
-      saveToCache(mapId);
-    } catch (error) {
-      console.error("Failed to load chat history:", error);
-    }
-  }, [mapId, addMessages, loadFromCache, saveToCache]);
+  }, [mapId, loadFromCache]);
 
   // 메시지 전송
   const sendMessage = useCallback(
@@ -82,7 +66,7 @@ export function useRealtimeChat({
       // 로컬에 먼저 추가 (즉시 표시)
       addMessage(message);
 
-      // 서버로 전송 (릴레이 + DB 저장은 서버가 처리)
+      // 서버로 전송 (Colyseus 릴레이)
       if (parsed.type === "normal") {
         currentRoom.send("chat_message", message);
       } else if (parsed.type === "whisper" && parsed.recipient) {
