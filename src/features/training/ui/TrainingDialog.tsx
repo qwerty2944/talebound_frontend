@@ -4,6 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useThemeStore } from "@/application/stores";
 import { ApiError } from "@/shared/api";
+import { useCountUp } from "@/shared/lib";
 import type { Npc } from "@/entities/npc";
 import {
   ALL_PROFICIENCIES,
@@ -29,6 +30,11 @@ export function TrainingDialog({ npc, userId, playerGold, onClose }: TrainingDia
   const { data: proficiencies } = useProficiencies(userId);
   const trainMutation = useTrainProficiency(userId);
   const [trainingType, setTrainingType] = useState<ProficiencyType | null>(null);
+  const [goldDisplay, goldDir] = useCountUp(playerGold);
+  // 방금 상승한 숙련도(게이지 광택 + 상승 수치 플로팅용)
+  const [gain, setGain] = useState<{ type: ProficiencyType; delta: number; nonce: number } | null>(
+    null
+  );
 
   const handleTrain = (type: ProficiencyType, current: number, cost: number) => {
     if (current >= MAX_VALUE) return;
@@ -41,6 +47,8 @@ export function TrainingDialog({ npc, userId, playerGold, onClose }: TrainingDia
       { proficiencyType: type },
       {
         onSuccess: (res) => {
+          const delta = Math.max(0, res.value - current);
+          setGain({ type, delta: delta || 2, nonce: (gain?.nonce ?? 0) + 1 });
           toast.success(
             `${npc.dialogues.success ?? "잘했어. 점점 나아지고 있군."} (+2 → ${res.value})`,
             { icon: "📈" }
@@ -78,9 +86,17 @@ export function TrainingDialog({ npc, userId, playerGold, onClose }: TrainingDia
               <h2 className="font-mono font-bold truncate" style={{ color: theme.colors.text }}>
                 {npc.nameKo}
               </h2>
-              <p className="text-sm font-mono" style={{ color: theme.colors.textMuted }}>
-                {npc.dialogues.train ?? npc.dialogues.greeting}
-              </p>
+              <div
+                className="speech-bubble mt-1 inline-block px-2.5 py-1.5 text-sm font-mono"
+                style={{
+                  background: theme.colors.bgLight,
+                  borderLeft: `2px solid ${theme.colors.border}`,
+                  borderBottom: `2px solid ${theme.colors.border}`,
+                  color: theme.colors.textMuted,
+                }}
+              >
+                “{npc.dialogues.train ?? npc.dialogues.greeting}”
+              </div>
             </div>
           </div>
         </div>
@@ -97,6 +113,7 @@ export function TrainingDialog({ npc, userId, playerGold, onClose }: TrainingDia
               const isTraining = trainingType === type;
               const rank = getRankInfo(current);
               const pct = Math.max(0, Math.min(100, current));
+              const justGained = gain?.type === type;
 
               return (
                 <div
@@ -120,17 +137,40 @@ export function TrainingDialog({ npc, userId, playerGold, onClose }: TrainingDia
                   </div>
 
                   {/* 게이지 */}
-                  <div
-                    className="w-full h-1.5 rounded overflow-hidden mb-2"
-                    style={{ background: theme.colors.bg }}
-                  >
+                  <div className="relative mb-2">
                     <div
-                      className="h-full transition-all duration-300"
-                      style={{
-                        width: `${pct}%`,
-                        background: maxed ? theme.colors.success : theme.colors.primary,
-                      }}
-                    />
+                      className="w-full h-1.5 rounded overflow-hidden"
+                      style={{ background: theme.colors.bg }}
+                    >
+                      <div
+                        className="h-full transition-all duration-500 ease-out"
+                        style={{
+                          width: `${pct}%`,
+                          background: maxed ? theme.colors.success : theme.colors.primary,
+                        }}
+                      />
+                    </div>
+                    {justGained && (
+                      <div
+                        key={`shimmer-${gain!.nonce}`}
+                        className="gauge-shimmer absolute inset-0 rounded pointer-events-none"
+                      />
+                    )}
+                    {justGained && (
+                      <span
+                        key={`gain-${gain!.nonce}`}
+                        className="animate-float-stat absolute font-mono font-bold text-xs pointer-events-none"
+                        style={{
+                          left: `${pct}%`,
+                          bottom: "100%",
+                          color: theme.colors.success,
+                          textShadow: "0 1px 2px rgba(0,0,0,0.9)",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        +{gain!.delta}
+                      </span>
+                    )}
                   </div>
 
                   <button
@@ -178,7 +218,16 @@ export function TrainingDialog({ npc, userId, playerGold, onClose }: TrainingDia
             style={{ color: theme.colors.warning }}
           >
             <span>💰</span>
-            <span>{playerGold.toLocaleString()}</span>
+            <span
+              key={goldDir}
+              className={goldDir !== 0 ? "animate-value-pulse" : undefined}
+              style={{
+                color: goldDir < 0 ? theme.colors.error : theme.colors.warning,
+                transition: "color 0.4s ease",
+              }}
+            >
+              {goldDisplay.toLocaleString()}
+            </span>
           </span>
           <button
             onClick={onClose}

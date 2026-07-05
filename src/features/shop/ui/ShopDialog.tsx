@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { useThemeStore } from "@/application/stores";
 import { ApiError } from "@/shared/api";
+import { useCountUp } from "@/shared/lib";
 import type { Npc } from "@/entities/npc";
 import {
   useItemsByIds,
@@ -29,6 +30,7 @@ type Tab = "buy" | "sell";
 export function ShopDialog({ npc, userId, playerGold, onClose }: ShopDialogProps) {
   const { theme } = useThemeStore();
   const [tab, setTab] = useState<Tab>("buy");
+  const [goldDisplay, goldDir] = useCountUp(playerGold);
 
   const buyMutation = useBuyItem(userId);
   const sellMutation = useSellItem(userId);
@@ -128,11 +130,19 @@ export function ShopDialog({ npc, userId, playerGold, onClose }: ShopDialogProps
               <h2 className="font-mono font-bold truncate" style={{ color: theme.colors.text }}>
                 {npc.nameKo}
               </h2>
-              <p className="text-sm font-mono" style={{ color: theme.colors.textMuted }}>
-                {tab === "buy"
+              <div
+                className="speech-bubble mt-1 inline-block px-2.5 py-1.5 text-sm font-mono"
+                style={{
+                  background: theme.colors.bgLight,
+                  borderLeft: `2px solid ${theme.colors.border}`,
+                  borderBottom: `2px solid ${theme.colors.border}`,
+                  color: theme.colors.textMuted,
+                }}
+              >
+                “{tab === "buy"
                   ? npc.dialogues.greeting
-                  : npc.dialogues.browse ?? npc.dialogues.greeting}
-              </p>
+                  : npc.dialogues.browse ?? npc.dialogues.greeting}”
+              </div>
             </div>
           </div>
         </div>
@@ -216,7 +226,21 @@ export function ShopDialog({ npc, userId, playerGold, onClose }: ShopDialogProps
             style={{ color: theme.colors.warning }}
           >
             <span>💰</span>
-            <span>{playerGold.toLocaleString()}</span>
+            <span
+              key={goldDir}
+              className={goldDir !== 0 ? "animate-value-pulse" : undefined}
+              style={{
+                color:
+                  goldDir > 0
+                    ? theme.colors.success
+                    : goldDir < 0
+                    ? theme.colors.error
+                    : theme.colors.warning,
+                transition: "color 0.4s ease",
+              }}
+            >
+              {goldDisplay.toLocaleString()}
+            </span>
           </span>
           <button
             onClick={onClose}
@@ -313,8 +337,12 @@ function BuyRow({
 
   return (
     <div
-      className="p-3"
-      style={{ background: theme.colors.bgDark, border: `1px solid ${rarityColor}40` }}
+      className="game-card p-3"
+      style={{
+        background: theme.colors.bgDark,
+        border: `1px solid ${rarityColor}55`,
+        boxShadow: `inset 0 0 18px ${rarityColor}12`,
+      }}
     >
       <div className="flex items-center justify-between mb-2 gap-2">
         <div className="flex items-center gap-2 min-w-0">
@@ -369,8 +397,12 @@ function SellRow({
 
   return (
     <div
-      className="p-3"
-      style={{ background: theme.colors.bgDark, border: `1px solid ${rarityColor}40` }}
+      className="game-card p-3"
+      style={{
+        background: theme.colors.bgDark,
+        border: `1px solid ${rarityColor}55`,
+        boxShadow: `inset 0 0 18px ${rarityColor}12`,
+      }}
     >
       <div className="flex items-center justify-between mb-2 gap-2">
         <div className="flex items-center gap-2 min-w-0">
