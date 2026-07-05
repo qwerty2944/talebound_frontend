@@ -149,3 +149,50 @@ export function getWeatherBuffInfo(weather: WeatherType): {
     buffName: buff.nameKo,
   }));
 }
+
+// ============ 날씨 배경 오버레이 ============
+
+export interface WeatherOverlayStyle {
+  background: string;
+  opacity: number;
+}
+
+/**
+ * 날씨에 따른 배경 틴트 오버레이 스타일.
+ * 시간대(period) 오버레이 위에 얇게 덧입혀 분위기를 강화한다.
+ * - sunny: 오버레이 없음 (기본 밝음)
+ * - cloudy: 옅은 회색으로 채도 낮춤
+ * - rainy: 푸른빛 + 상단 어둠
+ * - stormy: 짙은 남색 + 상단 어둠 (음산함)
+ * - foggy: 뿌연 흰빛으로 대비 낮춤
+ */
+export function getWeatherOverlayStyle(weather: WeatherType): WeatherOverlayStyle {
+  switch (weather) {
+    case "sunny":
+      return { background: "transparent", opacity: 0 };
+    case "cloudy":
+      return {
+        background:
+          "linear-gradient(180deg, rgba(120, 130, 140, 0.12) 0%, rgba(120, 130, 140, 0.05) 100%)",
+        opacity: 1,
+      };
+    case "rainy":
+      return {
+        background:
+          "linear-gradient(180deg, rgba(70, 100, 140, 0.18) 0%, rgba(40, 60, 90, 0.1) 100%)",
+        opacity: 1,
+      };
+    case "stormy":
+      return {
+        background:
+          "linear-gradient(180deg, rgba(30, 40, 70, 0.28) 0%, rgba(15, 20, 40, 0.18) 100%)",
+        opacity: 1,
+      };
+    case "foggy":
+      return {
+        background:
+          "linear-gradient(180deg, rgba(200, 205, 210, 0.14) 0%, rgba(180, 185, 190, 0.08) 100%)",
+        opacity: 1,
+      };
+  }
+}

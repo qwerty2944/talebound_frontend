@@ -8,7 +8,7 @@ import { fetchMonsterById } from "@/entities/monster";
 import { profileKeys } from "@/entities/user";
 import { inventoryKeys } from "@/entities/inventory";
 import { questKeys } from "@/entities/quest";
-import { fetchItemById } from "@/entities/item";
+import { fetchItemById, RARITY_CONFIG } from "@/entities/item";
 import { karmaKeys } from "@/entities/karma";
 import toast from "react-hot-toast";
 
@@ -33,7 +33,15 @@ export function useAdvanceWave(userId: string | undefined) {
   const notifyDrops = useCallback((drops: { itemId: string; quantity: number }[]) => {
     for (const drop of drops) {
       fetchItemById(drop.itemId)
-        .then((item) => toast(`${item?.icon && item.icon.length <= 2 ? item.icon : "📦"} ${item?.nameKo ?? drop.itemId} x${drop.quantity} 획득!`))
+        .then((item) => {
+          const icon = item?.icon && item.icon.length <= 2 ? item.icon : "📦";
+          const rarityColor = item?.rarity ? RARITY_CONFIG[item.rarity].color : undefined;
+          toast(`${icon} ${item?.nameKo ?? drop.itemId} x${drop.quantity} 획득!`, {
+            style: rarityColor
+              ? { borderLeft: `3px solid ${rarityColor}`, color: rarityColor, fontWeight: 600 }
+              : undefined,
+          });
+        })
         .catch(() => toast(`📦 ${drop.itemId} x${drop.quantity} 획득!`));
     }
   }, []);

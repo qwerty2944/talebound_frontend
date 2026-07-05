@@ -106,14 +106,30 @@ export interface PeriodOverlayStyle {
  * - night: 어두운 파란빛 (밤)
  */
 export function getPeriodOverlayStyle(period: Period): PeriodOverlayStyle {
+  // 상단(하늘)에서 하단(지면)으로 자연스럽게 번지는 세로 그라데이션.
   switch (period) {
     case "day":
       return { background: "transparent", opacity: 0 };
     case "dawn":
-      return { background: "rgba(135, 206, 235, 0.08)", opacity: 1 }; // 연한 하늘색
+      // 여명: 위쪽 옅은 하늘색 → 아래 은은한 살구빛
+      return {
+        background:
+          "linear-gradient(180deg, rgba(135, 206, 235, 0.14) 0%, rgba(255, 214, 170, 0.06) 60%, transparent 100%)",
+        opacity: 1,
+      };
     case "dusk":
-      return { background: "rgba(255, 140, 0, 0.1)", opacity: 1 }; // 연한 주황색
+      // 노을: 위쪽 주황 → 아래 보랏빛
+      return {
+        background:
+          "linear-gradient(180deg, rgba(255, 140, 0, 0.16) 0%, rgba(148, 60, 90, 0.1) 70%, transparent 100%)",
+        opacity: 1,
+      };
     case "night":
-      return { background: "rgba(25, 25, 112, 0.15)", opacity: 1 }; // 미드나잇 블루
+      // 밤: 전반적인 미드나잇 블루 + 하단 짙은 어둠
+      return {
+        background:
+          "linear-gradient(180deg, rgba(25, 25, 112, 0.2) 0%, rgba(10, 10, 40, 0.28) 100%)",
+        opacity: 1,
+      };
   }
 }

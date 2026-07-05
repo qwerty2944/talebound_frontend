@@ -20,6 +20,7 @@ import { useAbility, useExecuteQueue } from "@/features/combat";
 import { usePassiveSkills } from "../lib/usePassiveSkills";
 import { BattleItemPanel } from "./BattleItemPanel";
 import { BattleHeader } from "./BattleHeader";
+import { BossHpBar } from "./BossHpBar";
 import { BattleUnityStage } from "./BattleUnityStage";
 import { BattleLog } from "./BattleLog";
 import { ActionQueue } from "./ActionQueue";
@@ -234,6 +235,9 @@ export function BattlePanel({
           border: `2px solid ${theme.colors.border}`,
         }}
       >
+        {/* 보스전 대형 HP바 (rank === "boss"일 때만 상단에 렌더) */}
+        <BossHpBar />
+
         {/* 헤더 (HP/MP/AP 바) */}
         <BattleHeader />
 

@@ -18,7 +18,7 @@ import {
   updateProfileAfterDefeat,
 } from "@/entities/user";
 import { inventoryKeys } from "@/entities/inventory";
-import { fetchItemById } from "@/entities/item";
+import { fetchItemById, RARITY_CONFIG } from "@/entities/item";
 import { karmaKeys } from "@/entities/karma";
 import { completeBattleOnServer } from "../api/battleServer";
 import type { ProficiencyType } from "@/entities/ability";
@@ -203,7 +203,19 @@ export function useEndBattle(options: UseEndBattleOptions) {
             fetchItemById(drop.itemId)
               .then((item) => {
                 const name = item?.nameKo ?? drop.itemId;
-                toast(`${item?.icon && item.icon.length <= 2 ? item.icon : "📦"} ${name} x${drop.quantity} 획득!`);
+                const icon = item?.icon && item.icon.length <= 2 ? item.icon : "📦";
+                // 아이템 등급 색상 (공용 rarity 색 체계 재사용)
+                const rarityColor = item?.rarity ? RARITY_CONFIG[item.rarity].color : undefined;
+                toast(`${icon} ${name} x${drop.quantity} 획득!`, {
+                  icon: undefined,
+                  style: rarityColor
+                    ? {
+                        borderLeft: `3px solid ${rarityColor}`,
+                        color: rarityColor,
+                        fontWeight: 600,
+                      }
+                    : undefined,
+                });
               })
               .catch(() => toast(`📦 ${drop.itemId} x${drop.quantity} 획득!`));
           }
