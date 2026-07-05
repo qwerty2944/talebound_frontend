@@ -8,7 +8,9 @@
       "nameEn": "Giant Ant",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["deep_forest"],
+      "mapIds": [
+        "deep_forest"
+      ],
       "level": 5,
       "element": "earth",
       "icon": "🐜",
@@ -32,12 +34,26 @@
         }
       },
       "rewards": {
-        "exp": 25,
-        "gold": 0
+        "exp": 35,
+        "gold": 12
       },
       "drops": [
-        { "itemId": "ant_mandible", "chance": 0.3, "quantity": [1, 2] },
-        { "itemId": "ant_carapace", "chance": 0.2, "quantity": [1, 1] }
+        {
+          "itemId": "ant_mandible",
+          "chance": 0.3,
+          "quantity": [
+            1,
+            2
+          ]
+        },
+        {
+          "itemId": "ant_carapace",
+          "chance": 0.2,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "description": {
@@ -51,7 +67,9 @@
       "nameEn": "Soldier Ant",
       "rank": "elite",
       "alignment": "neutral",
-      "mapIds": ["deep_forest"],
+      "mapIds": [
+        "deep_forest"
+      ],
       "level": 7,
       "element": "earth",
       "icon": "🐜",
@@ -75,13 +93,34 @@
         }
       },
       "rewards": {
-        "exp": 45,
-        "gold": 3
+        "exp": 53,
+        "gold": 18
       },
       "drops": [
-        { "itemId": "ant_mandible", "chance": 0.5, "quantity": [2, 3] },
-        { "itemId": "ant_carapace", "chance": 0.35, "quantity": [1, 2] },
-        { "itemId": "earth_essence", "chance": 0.1, "quantity": [1, 1] }
+        {
+          "itemId": "ant_mandible",
+          "chance": 0.5,
+          "quantity": [
+            2,
+            3
+          ]
+        },
+        {
+          "itemId": "ant_carapace",
+          "chance": 0.35,
+          "quantity": [
+            1,
+            2
+          ]
+        },
+        {
+          "itemId": "earth_essence",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "description": {

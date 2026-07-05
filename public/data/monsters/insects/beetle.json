@@ -8,7 +8,9 @@
       "nameEn": "Giant Beetle",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["forest_entrance"],
+      "mapIds": [
+        "forest_entrance"
+      ],
       "level": 3,
       "element": "earth",
       "icon": "🪲",
@@ -32,12 +34,26 @@
         }
       },
       "rewards": {
-        "exp": 18,
-        "gold": 0
+        "exp": 19,
+        "gold": 8
       },
       "drops": [
-        { "itemId": "beetle_shell", "chance": 0.35, "quantity": [1, 2] },
-        { "itemId": "beetle_horn", "chance": 0.15, "quantity": [1, 1] }
+        {
+          "itemId": "beetle_shell",
+          "chance": 0.35,
+          "quantity": [
+            1,
+            2
+          ]
+        },
+        {
+          "itemId": "beetle_horn",
+          "chance": 0.15,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "defensive",
       "description": {

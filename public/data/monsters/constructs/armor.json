@@ -8,7 +8,9 @@
       "nameEn": "Animated Armor",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["ancient_ruins"],
+      "mapIds": [
+        "ancient_ruins"
+      ],
       "level": 13,
       "element": null,
       "icon": "🛡️",
@@ -32,13 +34,34 @@
         }
       },
       "rewards": {
-        "exp": 80,
-        "gold": 15
+        "exp": 122,
+        "gold": 32
       },
       "drops": [
-        { "itemId": "ancient_armor_piece", "chance": 0.3, "quantity": [1, 2] },
-        { "itemId": "enchanted_metal", "chance": 0.15, "quantity": [1, 1] },
-        { "itemId": "magic_essence", "chance": 0.1, "quantity": [1, 1] }
+        {
+          "itemId": "ancient_armor_piece",
+          "chance": 0.3,
+          "quantity": [
+            1,
+            2
+          ]
+        },
+        {
+          "itemId": "enchanted_metal",
+          "chance": 0.15,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "magic_essence",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "description": {

@@ -92,11 +92,9 @@ export async function updateCurrentMap(_userId: string, mapId: string): Promise<
 
 // ============ 프로필 업데이트 API ============
 
+// level/experience/gold는 서버 권위 (battle/complete 등)로만 변경된다
 export interface UpdateProfileParams {
   userId: string;
-  level?: number;
-  experience?: number;
-  gold?: number;
   fatigue?: number;
   fatigueUpdatedAt?: string;
   currentHp?: number | null;
@@ -108,9 +106,6 @@ export async function updateProfile(params: UpdateProfileParams): Promise<void> 
 
   // snake_case 변환
   const dbUpdates: Record<string, unknown> = {};
-  if (updates.level !== undefined) dbUpdates.level = updates.level;
-  if (updates.experience !== undefined) dbUpdates.experience = updates.experience;
-  if (updates.gold !== undefined) dbUpdates.gold = updates.gold;
   if (updates.fatigue !== undefined) dbUpdates.fatigue = updates.fatigue;
   if (updates.fatigueUpdatedAt !== undefined) dbUpdates.fatigue_updated_at = updates.fatigueUpdatedAt;
   if (updates.currentHp !== undefined) dbUpdates.current_hp = updates.currentHp;
@@ -311,18 +306,19 @@ export interface HealInjuryWithGoldResult {
   removedInjury: CharacterInjury | null;
 }
 
+/** 치료비는 서버가 NPC 가격표로 계산한다 — npcId를 전달할 것 */
 export async function healInjuryWithGold(
   _userId: string,
   injuryIndex: number,
-  goldCost: number
+  npcId: string
 ): Promise<HealInjuryWithGoldResult> {
-  const data = await rpc<{
+  const data = await apiFetch<{
     success?: boolean;
     remaining_gold?: number;
     removed_injury?: CharacterInjury | null;
-  } | null>("heal_injury_with_gold", {
-    p_injury_index: injuryIndex,
-    p_gold_cost: goldCost,
+  } | null>("/api/npc/heal", {
+    method: "POST",
+    body: { npcId, injuryIndex },
   });
 
   return {
@@ -346,6 +342,7 @@ export async function checkDailyLogin(_userId: string): Promise<DailyLoginResult
     previousStreak?: number;
     totalLoginDays?: number;
     streakBroken?: boolean;
+    goldReward?: number;
   } | null>("check_daily_login", {});
 
   return {
@@ -354,5 +351,6 @@ export async function checkDailyLogin(_userId: string): Promise<DailyLoginResult
     previousStreak: data?.previousStreak ?? 0,
     totalLoginDays: data?.totalLoginDays ?? 0,
     streakBroken: data?.streakBroken ?? false,
+    goldReward: data?.goldReward ?? 0,
   };
 }

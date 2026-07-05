@@ -8,7 +8,9 @@
       "nameEn": "Stone Golem",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["ancient_ruins"],
+      "mapIds": [
+        "ancient_ruins"
+      ],
       "level": 12,
       "element": "earth",
       "icon": "🗿",
@@ -32,13 +34,34 @@
         }
       },
       "rewards": {
-        "exp": 75,
-        "gold": 0
+        "exp": 109,
+        "gold": 30
       },
       "drops": [
-        { "itemId": "stone_core", "chance": 0.25, "quantity": [1, 1] },
-        { "itemId": "ancient_stone", "chance": 0.4, "quantity": [2, 4] },
-        { "itemId": "earth_essence", "chance": 0.15, "quantity": [1, 1] }
+        {
+          "itemId": "stone_core",
+          "chance": 0.25,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "ancient_stone",
+          "chance": 0.4,
+          "quantity": [
+            2,
+            4
+          ]
+        },
+        {
+          "itemId": "earth_essence",
+          "chance": 0.15,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "territorial",
       "description": {
@@ -52,7 +75,9 @@
       "nameEn": "Iron Golem",
       "rank": "elite",
       "alignment": "neutral",
-      "mapIds": ["ancient_ruins"],
+      "mapIds": [
+        "ancient_ruins"
+      ],
       "level": 15,
       "element": "earth",
       "icon": "🤖",
@@ -76,14 +101,42 @@
         }
       },
       "rewards": {
-        "exp": 120,
-        "gold": 20
+        "exp": 150,
+        "gold": 38
       },
       "drops": [
-        { "itemId": "iron_core", "chance": 0.2, "quantity": [1, 1] },
-        { "itemId": "ancient_iron", "chance": 0.35, "quantity": [2, 3] },
-        { "itemId": "golem_heart", "chance": 0.1, "quantity": [1, 1] },
-        { "itemId": "earth_essence", "chance": 0.2, "quantity": [1, 2] }
+        {
+          "itemId": "iron_core",
+          "chance": 0.2,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "ancient_iron",
+          "chance": 0.35,
+          "quantity": [
+            2,
+            3
+          ]
+        },
+        {
+          "itemId": "golem_heart",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "earth_essence",
+          "chance": 0.2,
+          "quantity": [
+            1,
+            2
+          ]
+        }
       ],
       "behavior": "territorial",
       "description": {

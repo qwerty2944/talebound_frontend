@@ -14,7 +14,6 @@ import {
   type RawMonsterAbility,
   type UserAbilities,
 } from "@/entities/ability";
-import { rollDrops } from "@/entities/monster";
 import { useItems, RARITY_CONFIG, type Item } from "@/entities/item";
 import { useAbility, useExecuteQueue } from "@/features/combat";
 import { usePassiveSkills } from "../lib/usePassiveSkills";
@@ -65,7 +64,6 @@ export function BattlePanel({
   const [activeCombatSubTab, setActiveCombatSubTab] = useState<CombatSubTab>("all");
   const [activeMagicElement, setActiveMagicElement] = useState<MagicElement>("all");
   const [monsterAbilitiesData, setMonsterAbilitiesData] = useState<Map<string, RawMonsterAbility>>(new Map());
-  const [pendingDrops, setPendingDrops] = useState<DropWithItem[]>([]);
 
   // 아이템 데이터 로드 (드랍 아이템 정보 표시용)
   const { data: allItems = [] } = useItems();
@@ -199,33 +197,19 @@ export function BattlePanel({
     }
   }, [playerFlee, onFlee, isExecuting]);
 
-  // 승리 시 드랍 아이템 계산
-  useEffect(() => {
-    if (battle.result === "victory" && battle.monster && pendingDrops.length === 0) {
-      const drops = rollDrops(battle.monster.drops);
-      const dropsWithItems: DropWithItem[] = drops.map((drop) => ({
-        ...drop,
-        item: allItems.find((item) => item.id === drop.itemId),
-      }));
-      setPendingDrops(dropsWithItems);
-    }
-    // 전투 초기화 시 드랍도 초기화
-    if (!battle.isInBattle) {
-      setPendingDrops([]);
-    }
-  }, [battle.result, battle.monster, battle.isInBattle, allItems, pendingDrops.length]);
+  // 드랍은 서버가 롤·지급한다 (전투 종료 정산 시 토스트로 표시)
 
   // 전투 종료 처리
   const handleCloseBattle = useCallback(() => {
     const currentResult = useBattleStore.getState().battle.result;
     if (currentResult === "victory") {
-      onVictory(pendingDrops);
+      onVictory([]);
     } else if (currentResult === "defeat") {
       onDefeat();
     } else if (currentResult === "fled") {
       resetBattle();
     }
-  }, [onVictory, onDefeat, resetBattle, pendingDrops]);
+  }, [onVictory, onDefeat, resetBattle]);
 
 
   if (!battle.isInBattle || !battle.monster) return null;
@@ -370,7 +354,6 @@ export function BattlePanel({
           <BattleResult
             result={battle.result}
             monster={battle.monster}
-            drops={pendingDrops}
             skillExpGains={battle.skillExpGains}
             allAbilities={allAbilities}
             onClose={handleCloseBattle}

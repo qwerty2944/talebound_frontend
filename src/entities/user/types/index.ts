@@ -64,6 +64,7 @@ export interface DailyLoginResult {
   previousStreak: number;   // 이전 연속 출석일
   totalLoginDays: number;   // 총 출석일
   streakBroken: boolean;    // 연속 끊김 여부
+  goldReward: number;       // 서버가 지급한 출석 보상 골드
 }
 
 /** @deprecated Profile을 사용하세요 */

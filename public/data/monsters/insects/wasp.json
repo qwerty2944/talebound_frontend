@@ -8,7 +8,9 @@
       "nameEn": "Forest Wasp",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["forest_clearing"],
+      "mapIds": [
+        "forest_clearing"
+      ],
       "level": 4,
       "element": null,
       "icon": "🐝",
@@ -32,12 +34,26 @@
         }
       },
       "rewards": {
-        "exp": 20,
-        "gold": 0
+        "exp": 27,
+        "gold": 10
       },
       "drops": [
-        { "itemId": "wasp_stinger", "chance": 0.25, "quantity": [1, 1] },
-        { "itemId": "wasp_honey", "chance": 0.1, "quantity": [1, 1] }
+        {
+          "itemId": "wasp_stinger",
+          "chance": 0.25,
+          "quantity": [
+            1,
+            1
+          ]
+        },
+        {
+          "itemId": "wasp_honey",
+          "chance": 0.1,
+          "quantity": [
+            1,
+            1
+          ]
+        }
       ],
       "behavior": "aggressive",
       "statusEffect": {

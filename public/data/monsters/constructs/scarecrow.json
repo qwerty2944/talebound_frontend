@@ -8,7 +8,9 @@
       "nameEn": "Scarecrow",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["training_ground"],
+      "mapIds": [
+        "training_ground"
+      ],
       "level": 1,
       "element": null,
       "icon": "🎃",
@@ -32,8 +34,8 @@
         }
       },
       "rewards": {
-        "exp": 5,
-        "gold": 0
+        "exp": 6,
+        "gold": 2
       },
       "drops": [],
       "behavior": "passive",
@@ -48,7 +50,9 @@
       "nameEn": "Advanced Training Dummy",
       "rank": "normal",
       "alignment": "neutral",
-      "mapIds": ["training_ground"],
+      "mapIds": [
+        "training_ground"
+      ],
       "level": 5,
       "element": null,
       "icon": "🎯",
@@ -72,8 +76,8 @@
         }
       },
       "rewards": {
-        "exp": 15,
-        "gold": 0
+        "exp": 35,
+        "gold": 12
       },
       "drops": [],
       "behavior": "defensive",
