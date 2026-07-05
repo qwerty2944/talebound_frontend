@@ -1,7 +1,6 @@
 import { apiFetch, rpc } from "@/shared/api";
 import type { UserProfile, CrystalTier, ReligionData, DailyLoginResult, PersistedEquipment } from "../types";
 import type { CharacterInjury } from "@/entities/status";
-import { filterNaturallyHealedInjuries } from "@/entities/status";
 
 // ============ 프로필 조회 API ============
 
@@ -37,20 +36,9 @@ interface ProfileRow {
 export async function fetchProfile(_userId: string): Promise<UserProfile> {
   const data = await apiFetch<ProfileRow>("/api/profile");
 
-  // 부상 데이터 파싱 및 자연 치유 체크
-  let injuries: CharacterInjury[] = data.injuries || [];
-  if (injuries.length > 0) {
-    const { remaining, healed } = filterNaturallyHealedInjuries(injuries);
-
-    // 자연 치유된 부상이 있으면 DB 업데이트
-    if (healed.length > 0) {
-      await apiFetch("/api/profile", {
-        method: "PATCH",
-        body: { injuries: remaining },
-      });
-      injuries = remaining;
-    }
-  }
+  // 자연 치유는 서버(getProfile)가 naturalHealAt 기준으로 prune 처리한다.
+  // injuries는 서버 권위 컬럼이라 클라가 PATCH할 수 없다(치료비 우회 차단).
+  const injuries: CharacterInjury[] = data.injuries || [];
 
   return {
     id: data.id,
