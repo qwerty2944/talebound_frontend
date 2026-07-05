@@ -210,8 +210,8 @@ interface BattleStore {
   useMp: (amount: number) => boolean;
   restoreMp: (amount: number) => void;
 
-  // 도주
-  playerFlee: () => boolean;
+  // 도주 (fleeBonusPercent: 특성 도주 확률 보너스 %, 기본 0)
+  playerFlee: (fleeBonusPercent?: number) => boolean;
 
   // 로그
   addLog: (entry: Omit<BattleLogEntry, "timestamp">) => void;
@@ -739,7 +739,7 @@ export const useBattleStore = create<BattleStore>((set, get) => ({
   },
 
   // 도주
-  playerFlee: () => {
+  playerFlee: (fleeBonusPercent = 0) => {
     const { battle } = get();
     if (!battle.isInBattle || battle.result !== "ongoing") return false;
 
@@ -760,6 +760,13 @@ export const useBattleStore = create<BattleStore>((set, get) => ({
 
       // 최대 90%
       fleeChance = Math.min(0.9, fleeChance);
+    }
+
+    // 특성 도주 확률 보너스 가산 (보스전 25% 분기 유지, 상한 95%)
+    // 보너스 0이면 기존 동작과 완전히 동일 (0.9/0.25 클램프 결과 불변)
+    const traitFleeBonus = Math.max(0, fleeBonusPercent) / 100;
+    if (traitFleeBonus > 0) {
+      fleeChance = Math.min(0.95, fleeChance + traitFleeBonus);
     }
 
     const success = Math.random() < fleeChance;

@@ -5,6 +5,7 @@ import { useBattleStore } from "@/application/stores";
 import { useThemeStore } from "@/shared/config";
 import type { CharacterStats } from "@/entities/character";
 import type { AggregatedTraitEffects } from "@/entities/trait";
+import { getFleeChanceBonus } from "@/entities/trait";
 import type { Proficiencies } from "@/entities/ability";
 import type { Ability } from "@/entities/ability";
 import {
@@ -198,11 +199,13 @@ export function BattlePanel({
   // 도주 핸들러
   const handleFlee = useCallback(() => {
     if (isExecuting) return;
-    const success = playerFlee();
+    // 특성 도주 확률 보너스 반영 (없으면 0 → 기존 동작 불변)
+    const fleeBonus = traitEffects ? getFleeChanceBonus(traitEffects) : 0;
+    const success = playerFlee(fleeBonus);
     if (success) {
       onFlee();
     }
-  }, [playerFlee, onFlee, isExecuting]);
+  }, [playerFlee, onFlee, isExecuting, traitEffects]);
 
   // 드랍은 서버가 롤·지급한다 (전투 종료 정산 시 토스트로 표시)
 
