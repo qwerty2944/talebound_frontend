@@ -1,6 +1,7 @@
 // Battle UI Components
 export { BattlePanel } from "./BattlePanel";
 export { BattleHeader } from "./BattleHeader";
+export { BattleUnityStage } from "./BattleUnityStage";
 export { BattleLog } from "./BattleLog";
 export { StatusEffectDisplay } from "./StatusEffectDisplay";
 export { ActionTabs, CombatSubTabs, COMBAT_SUB_TABS, COMBAT_SUB_TAB_ORDER, type BattleActionTab, type CombatSubTab } from "./ActionTabs";

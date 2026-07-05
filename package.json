@@ -9,7 +9,8 @@
     "lint": "eslint",
     "capture-sprites": "tsx scripts/capture-sprite-names.ts",
     "sync-sprites": "node scripts/sync-sprite-mappings.js",
-    "generate-items": "tsx scripts/generate-items.ts"
+    "generate-items": "tsx scripts/generate-items.ts",
+    "compress-unity": "brotli -q 11 -k -f public/unity/characterbuilder.wasm public/unity/characterbuilder.data public/unity/characterbuilder.framework.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -10,6 +10,7 @@ export { useExecuteQueue } from "./execute-queue";
 export {
   BattlePanel,
   BattleHeader,
+  BattleUnityStage,
   BattleLog,
   StatusEffectDisplay,
   ActionTabs,
@@ -22,6 +23,9 @@ export {
 
 // Passive Skills
 export { usePassiveSkills } from "./lib/usePassiveSkills";
+
+// 보스전 유니티 애니메이션 동기화
+export { useBattleUnityAnimation } from "./lib/useBattleUnityAnimation";
 
 // Monster AI
 export {

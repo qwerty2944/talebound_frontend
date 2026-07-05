@@ -15,6 +15,42 @@ export type MonsterType =
   | "construct"  // 구조물 (골렘, 허수아비)
   | "plant";     // 식물 (트렌트)
 
+// ============ 몬스터 등급 (rank) ============
+
+export type MonsterRank = "normal" | "elite" | "boss";
+
+export interface MonsterRankInfo {
+  nameKo: string;
+  nameEn: string;
+  icon: string;
+  color: string;      // 등급 강조 색상 (hex)
+  description: string;
+}
+
+export const MONSTER_RANK_INFO: Record<MonsterRank, MonsterRankInfo> = {
+  normal: {
+    nameKo: "일반",
+    nameEn: "Normal",
+    icon: "",
+    color: "#9CA3AF",
+    description: "일반 몬스터",
+  },
+  elite: {
+    nameKo: "정예",
+    nameEn: "Elite",
+    icon: "✦",
+    color: "#3B82F6",
+    description: "강화된 정예 몬스터",
+  },
+  boss: {
+    nameKo: "보스",
+    nameEn: "Boss",
+    icon: "👑",
+    color: "#F59E0B",
+    description: "지역의 지배자. 강력한 전용 스킬을 사용한다.",
+  },
+};
+
 export interface MonsterTypeInfo {
   nameKo: string;
   nameEn: string;
@@ -159,7 +195,7 @@ export interface MonsterRewards {
 }
 
 // 몬스터 행동 패턴
-export type MonsterBehavior = "passive" | "aggressive" | "defensive";
+export type MonsterBehavior = "passive" | "aggressive" | "defensive" | "territorial";
 
 // 몬스터 설명
 export interface MonsterDescription {
@@ -193,6 +229,7 @@ export interface Monster {
   nameKo: string;
   nameEn: string;
   type: MonsterType;
+  rank?: MonsterRank;  // 몬스터 등급 (normal/elite/boss). 없으면 normal 취급
   alignment: MonsterAlignment;
   mapIds: string[];  // 출현 맵 ID 배열 (복수 맵 가능)
   level: number;

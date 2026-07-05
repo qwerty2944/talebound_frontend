@@ -12,11 +12,15 @@ const DEFAULT_BROWN_COLOR = "6B4226"; // 갈색 (눈, 머리, 수염)
 
 // Unity 설정을 컴포넌트 외부에서 상수로 정의 (React 19 호환성)
 // 매 렌더링마다 새 객체가 생성되는 것을 방지하여 hooks 일관성 유지
+// 사전 브로틀리 압축(.br) 파일을 사용해 전송량을 크게 줄인다
+// (wasm 47MB → ~10MB). 서버가 Content-Encoding: br 를 내려주면
+// 브라우저가 자동 해제하고 Unity 로더는 압축 해제된 바이트를 받는다.
+// 사전 압축 파일 생성: npm run compress-unity
 const UNITY_CONFIG = {
   loaderUrl: "/unity/characterbuilder.loader.js",
-  dataUrl: "/unity/characterbuilder.data",
-  frameworkUrl: "/unity/characterbuilder.framework.js",
-  codeUrl: "/unity/characterbuilder.wasm",
+  dataUrl: "/unity/characterbuilder.data.br",
+  frameworkUrl: "/unity/characterbuilder.framework.js.br",
+  codeUrl: "/unity/characterbuilder.wasm.br",
 } as const;
 
 const WEBGL_CONTEXT_ATTRIBUTES = {

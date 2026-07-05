@@ -19,6 +19,7 @@ import { useAbility, useExecuteQueue } from "@/features/combat";
 import { usePassiveSkills } from "../lib/usePassiveSkills";
 import { BattleItemPanel } from "./BattleItemPanel";
 import { BattleHeader } from "./BattleHeader";
+import { BattleUnityStage } from "./BattleUnityStage";
 import { BattleLog } from "./BattleLog";
 import { ActionQueue } from "./ActionQueue";
 import { AbilitySelector } from "./AbilitySelector";
@@ -230,6 +231,9 @@ export function BattlePanel({
       >
         {/* 헤더 (HP/MP/AP 바) */}
         <BattleHeader />
+
+        {/* 보스전 유니티 연출 (rank === "boss"일 때만 내부에서 렌더) */}
+        <BattleUnityStage userId={userId} />
 
         {/* 전투 로그 */}
         <BattleLog />

@@ -468,8 +468,8 @@
         }
       },
       "rewards": {
-        "exp": 230,
-        "gold": 200
+        "exp": 800,
+        "gold": 500
       },
       "drops": [
         {
@@ -514,34 +514,25 @@
         }
       ],
       "behavior": "aggressive",
+      "maxAp": 14,
+      "actionWeights": {
+        "basicAttack": 15,
+        "specialSkill": 85,
+        "borrowedAbility": 0
+      },
       "abilities": [
         {
-          "id": "dark_bolt",
-          "nameKo": "암흑 화살",
-          "nameEn": "Dark Bolt",
-          "description": "강력한 암흑 마법 공격",
-          "baseDamage": 40
+          "abilityId": "dark_nova",
+          "level": 1,
+          "weight": 50
         },
         {
-          "id": "life_drain",
-          "nameKo": "생명력 흡수",
-          "nameEn": "Life Drain",
-          "description": "적의 HP를 흡수하여 회복",
-          "cooldown": 3
-        },
-        {
-          "id": "summon_undead",
-          "nameKo": "언데드 소환",
-          "nameEn": "Summon Undead",
-          "description": "HP 70% 이하 시 해골 전사 2마리 소환",
-          "trigger": "hp_below_70"
-        },
-        {
-          "id": "phylactery_revival",
-          "nameKo": "필락테리 부활",
-          "nameEn": "Phylactery Revival",
-          "description": "첫 사망 시 HP 30%로 부활 (1회)",
-          "trigger": "on_death"
+          "abilityId": "soul_drain",
+          "level": 1,
+          "weight": 50,
+          "condition": {
+            "hpBelow": 60
+          }
         }
       ],
       "bossSchedule": "weekly_saturday",
