@@ -84,6 +84,16 @@ const LoginStreakModal = dynamic(
   { ssr: false }
 );
 
+const ShopDialog = dynamic(
+  () => import("@/features/shop").then((m) => m.ShopDialog),
+  { ssr: false }
+);
+
+const TrainingDialog = dynamic(
+  () => import("@/features/training").then((m) => m.TrainingDialog),
+  { ssr: false }
+);
+
 export default function GamePage() {
   const router = useRouter();
   const { theme, setThemeByTerrain } = useThemeStore();
@@ -789,6 +799,26 @@ export default function GamePage() {
           userId={session.user.id}
           playerLevel={profile.level}
           currentMapId={mapId || "starting_village"}
+          onClose={() => setSelectedNpc(null)}
+        />
+      )}
+
+      {/* 상인 NPC 다이얼로그 (구매/판매) */}
+      {selectedNpc && selectedNpc.type === "merchant" && (
+        <ShopDialog
+          npc={selectedNpc}
+          userId={session.user.id}
+          playerGold={profile.gold}
+          onClose={() => setSelectedNpc(null)}
+        />
+      )}
+
+      {/* 훈련사 NPC 다이얼로그 (숙련도 훈련) */}
+      {selectedNpc && selectedNpc.type === "trainer" && (
+        <TrainingDialog
+          npc={selectedNpc}
+          userId={session.user.id}
+          playerGold={profile.gold}
           onClose={() => setSelectedNpc(null)}
         />
       )}

@@ -31,6 +31,12 @@ export interface NpcDialogues {
   questAvailable?: string;
   questComplete?: string;
   noQuest?: string;
+  // 상인 NPC용
+  browse?: string;
+  purchase?: string;
+  // 훈련사 NPC용
+  train?: string;
+  success?: string;
 }
 
 // ============ NPC 인터페이스 ============
@@ -45,4 +51,6 @@ export interface Npc {
   description: string;
   dialogues: NpcDialogues;
   services?: NpcServices;
+  /** 상인 취급 품목(아이템 ID 목록). merchant 타입에서 사용. */
+  stock?: string[];
 }
