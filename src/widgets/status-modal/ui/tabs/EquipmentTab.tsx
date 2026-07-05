@@ -1,9 +1,15 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useEquipmentStore } from "@/application/stores";
 import { SLOT_CONFIG, RARITY_CONFIG, type EquipmentSlot } from "@/entities/item";
 import type { EquipmentTabProps } from "./types";
+
+interface StatDelta {
+  key: string;
+  delta: number;
+}
 
 const WEAPON_SLOTS: EquipmentSlot[] = ["mainHand", "offHand"];
 const ARMOR_SLOTS: EquipmentSlot[] = ["helmet", "armor", "cloth", "pants"];
@@ -18,6 +24,47 @@ const ACCESSORY_SLOTS: EquipmentSlot[] = [
 
 export function EquipmentTab({ theme }: EquipmentTabProps) {
   const equipmentStore = useEquipmentStore();
+  const fxNonce = useEquipmentStore((s) => s.fxNonce);
+  const lastChangedSlot = useEquipmentStore((s) => s.lastChangedSlot);
+
+  // 장착/해제 시 슬롯 하이라이트 플래시 + 합계 스탯 변화(+N/-N)
+  const [flash, setFlash] = useState<{ slot: EquipmentSlot | null; nonce: number }>({
+    slot: null,
+    nonce: 0,
+  });
+  const [statDeltas, setStatDeltas] = useState<{ list: StatDelta[]; nonce: number }>({
+    list: [],
+    nonce: 0,
+  });
+  const prevStatsRef = useRef<Record<string, number>>(equipmentStore.getTotalStats() as Record<string, number>);
+
+  useEffect(() => {
+    if (fxNonce === 0) return;
+    // 슬롯 플래시
+    setFlash({ slot: lastChangedSlot, nonce: fxNonce });
+
+    // 합계 스탯 델타 계산
+    const next = equipmentStore.getTotalStats() as Record<string, number>;
+    const prev = prevStatsRef.current;
+    const keys = new Set([...Object.keys(prev), ...Object.keys(next)]);
+    const deltas: StatDelta[] = [];
+    for (const k of keys) {
+      const d = (next[k] ?? 0) - (prev[k] ?? 0);
+      if (d !== 0) deltas.push({ key: k, delta: d });
+    }
+    prevStatsRef.current = next;
+    if (deltas.length > 0) setStatDeltas({ list: deltas, nonce: fxNonce });
+
+    const t1 = setTimeout(() => setFlash({ slot: null, nonce: fxNonce }), 600);
+    const t2 = setTimeout(() => setStatDeltas({ list: [], nonce: fxNonce }), 1800);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [fxNonce, lastChangedSlot, equipmentStore]);
+
+  const flashClass = (slot: EquipmentSlot) =>
+    flash.slot === slot ? "animate-slot-flash" : "";
 
   const handleUnequip = (slot: EquipmentSlot) => {
     const item = equipmentStore.getEquippedItem(slot);
@@ -51,7 +98,7 @@ export function EquipmentTab({ theme }: EquipmentTabProps) {
                 onClick={() => item && handleUnequip(slot)}
                 disabled={!item || isDisabled}
                 title={item ? "클릭하여 해제" : undefined}
-                className="p-3 text-left transition-all"
+                className={`p-3 text-left transition-all ${flashClass(slot)}`}
                 style={{
                   background: isDisabled ? `${theme.colors.bgDark}80` : theme.colors.bgDark,
                   border: `1px solid ${item ? rarityColor : theme.colors.border}`,
@@ -113,7 +160,7 @@ export function EquipmentTab({ theme }: EquipmentTabProps) {
                 onClick={() => item && handleUnequip(slot)}
                 disabled={!item}
                 title={item ? "클릭하여 해제" : undefined}
-                className="p-3 text-left transition-all"
+                className={`p-3 text-left transition-all ${flashClass(slot)}`}
                 style={{
                   background: theme.colors.bgDark,
                   border: `1px solid ${item ? rarityColor : theme.colors.border}`,
@@ -177,7 +224,7 @@ export function EquipmentTab({ theme }: EquipmentTabProps) {
                 onClick={() => item && handleUnequip(slot)}
                 disabled={!item}
                 title={item ? "클릭하여 해제" : undefined}
-                className="p-2 text-center transition-all"
+                className={`p-2 text-center transition-all ${flashClass(slot)}`}
                 style={{
                   background: theme.colors.bgDark,
                   border: `1px solid ${item ? rarityColor : theme.colors.border}`,
@@ -201,7 +248,7 @@ export function EquipmentTab({ theme }: EquipmentTabProps) {
 
       {/* 장비 합계 */}
       <div
-        className="p-3 flex flex-wrap gap-3"
+        className="p-3 flex flex-wrap items-center gap-3"
         style={{
           background: theme.colors.bgLight,
           border: `1px solid ${theme.colors.border}`,
@@ -226,6 +273,25 @@ export function EquipmentTab({ theme }: EquipmentTabProps) {
             </span>
           ));
         })()}
+
+        {/* 장착/해제 시 스탯 변화 (+N 초록 / -N 빨강) */}
+        {statDeltas.list.length > 0 && (
+          <span key={statDeltas.nonce} className="flex flex-wrap items-center gap-2 animate-value-pulse">
+            {statDeltas.list.map((d) => (
+              <span
+                key={d.key}
+                className="text-[11px] font-mono font-bold px-1.5 py-0.5 rounded"
+                style={{
+                  color: d.delta > 0 ? theme.colors.success : theme.colors.error,
+                  background: `${d.delta > 0 ? theme.colors.success : theme.colors.error}1a`,
+                }}
+              >
+                {d.key.toUpperCase()} {d.delta > 0 ? "+" : ""}
+                {d.delta}
+              </span>
+            ))}
+          </span>
+        )}
       </div>
     </div>
   );

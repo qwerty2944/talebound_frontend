@@ -79,6 +79,12 @@ interface EquipmentState {
   // 배운 스킬 ID 목록
   learnedSkills: string[];
 
+  // === 연출용 트랜지언트 상태 (비영속) ===
+  /** 마지막으로 장착/해제된 슬롯 (슬롯 플래시용) */
+  lastChangedSlot: EquipmentSlot | null;
+  /** 변경 카운터 — 같은 슬롯 반복 변경 시 애니메이션 재트리거 */
+  fxNonce: number;
+
   // 액션
   equipItem: (slot: EquipmentSlot, item: EquippedItem) => void;
   unequipItem: (slot: EquipmentSlot) => void;
@@ -114,6 +120,9 @@ const initialEquipmentState = {
   bracelet: null,
   // 어빌리티 (DB에서 로드)
   learnedSkills: [] as string[],
+  // 연출용 트랜지언트 (비영속)
+  lastChangedSlot: null as EquipmentSlot | null,
+  fxNonce: 0,
 };
 
 // 모든 슬롯 키
@@ -129,17 +138,18 @@ export const useEquipmentStore = create<EquipmentState>()(
 
       // 아이템 장착
       equipItem: (slot, item) => {
+        const fx = { lastChangedSlot: slot, fxNonce: get().fxNonce + 1 };
         // 양손무기 장착 시 오프핸드 자동 해제
         if (slot === "mainHand" && item.handType === "two_handed") {
-          set({ [slot]: item, offHand: null });
+          set({ [slot]: item, offHand: null, ...fx });
         } else {
-          set({ [slot]: item });
+          set({ [slot]: item, ...fx });
         }
       },
 
       // 아이템 해제
       unequipItem: (slot) => {
-        set({ [slot]: null });
+        set({ [slot]: null, lastChangedSlot: slot, fxNonce: get().fxNonce + 1 });
       },
 
       // 슬롯에 장착 가능 여부 확인
