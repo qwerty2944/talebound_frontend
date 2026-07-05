@@ -41,6 +41,6 @@ yarn-error.log*
 next-env.d.ts
 supabase/.temp/
 .env.local
-capture/
-sheets/
+/capture/
+/sheets/
 test-results/
