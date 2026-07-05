@@ -58,33 +58,32 @@ export function UnityProviderInner({ children }: { children: ReactNode }) {
   const isInitialized = useRef(false);
 
   // Unity viewport 관리 - 가장 최근에 등록된 viewport에 Unity 렌더링
+  // 주의: register/unregister 콜백은 반드시 참조가 안정적이어야 한다.
+  // (소비자 useEffect의 deps에 들어가므로, 콜백 identity가 상태에 따라 바뀌면
+  //  register → 상태 변경 → 새 콜백 → effect 재실행 → 무한 등록/해제 루프 발생)
+  // 이를 위해 최신 맵은 ref로 관리하고, 상태는 렌더링용 스냅샷만 유지한다.
+  const viewportsRef = useRef<Map<string, HTMLElement>>(new Map());
   const [viewports, setViewports] = useState<Map<string, HTMLElement>>(new Map());
   const [activeViewportId, setActiveViewportId] = useState<string | null>(null);
 
   const registerViewport = useCallback((id: string, element: HTMLElement) => {
-    setViewports((prev) => {
-      const next = new Map(prev);
-      next.set(id, element);
-      return next;
-    });
+    viewportsRef.current.set(id, element);
+    setViewports(new Map(viewportsRef.current));
     setActiveViewportId(id);
   }, []);
 
   const unregisterViewport = useCallback((id: string) => {
-    setViewports((prev) => {
-      const next = new Map(prev);
-      next.delete(id);
-      return next;
-    });
+    viewportsRef.current.delete(id);
+    setViewports(new Map(viewportsRef.current));
     setActiveViewportId((current) => {
       if (current === id) {
-        // 다른 viewport가 있으면 그걸로 전환
-        const remaining = Array.from(viewports.keys()).filter((k) => k !== id);
+        // 다른 viewport가 있으면 가장 최근 것으로 전환
+        const remaining = Array.from(viewportsRef.current.keys());
         return remaining.length > 0 ? remaining[remaining.length - 1] : null;
       }
       return current;
     });
-  }, [viewports]);
+  }, []);
 
   // useUnityContext 설정을 useMemo로 감싸서 참조 안정성 보장 (React 19 호환성)
   const unityConfig = useMemo(() => ({
