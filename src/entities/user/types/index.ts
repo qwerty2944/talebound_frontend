@@ -1,5 +1,10 @@
 import type { Character, ProfileAppearance } from "@/entities/character";
 import type { CharacterInjury } from "@/entities/status";
+import type { EquippedItem } from "@/application/stores";
+import type { EquipmentSlot } from "@/entities/item";
+
+/** characters.equipment JSONB — 12슬롯 착용 상태 */
+export type PersistedEquipment = Partial<Record<EquipmentSlot, EquippedItem | null>>;
 
 // ============ 종교 타입 ============
 
@@ -47,6 +52,8 @@ export interface Profile {
   injuries: CharacterInjury[];
   // 종교 시스템
   religion: ReligionData | null;
+  // 장비 착용 상태 (characters.equipment JSONB, 백엔드 응답에 있으면 복원)
+  equipment: PersistedEquipment | null;
   // 연속 로그인 시스템
   loginStreak: number;
   totalLoginDays: number;

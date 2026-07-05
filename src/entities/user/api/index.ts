@@ -1,5 +1,5 @@
 import { apiFetch, rpc } from "@/shared/api";
-import type { UserProfile, CrystalTier, ReligionData, DailyLoginResult } from "../types";
+import type { UserProfile, CrystalTier, ReligionData, DailyLoginResult, PersistedEquipment } from "../types";
 import type { CharacterInjury } from "@/entities/status";
 import { filterNaturallyHealedInjuries } from "@/entities/status";
 
@@ -28,6 +28,7 @@ interface ProfileRow {
   current_mp: number | null;
   injuries: CharacterInjury[] | null;
   religion: ReligionData | null;
+  equipment: PersistedEquipment | null;
   login_streak: number | null;
   total_login_days: number | null;
   last_login_date: string | null;
@@ -74,6 +75,7 @@ export async function fetchProfile(_userId: string): Promise<UserProfile> {
     currentMp: data.current_mp ?? null,
     injuries,
     religion: data.religion as ReligionData | null,
+    equipment: data.equipment ?? null,
     // 연속 로그인 시스템
     loginStreak: data.login_streak || 0,
     totalLoginDays: data.total_login_days || 0,
@@ -99,6 +101,7 @@ export interface UpdateProfileParams {
   fatigueUpdatedAt?: string;
   currentHp?: number | null;
   currentMp?: number | null;
+  equipment?: PersistedEquipment;
 }
 
 export async function updateProfile(params: UpdateProfileParams): Promise<void> {
@@ -110,6 +113,8 @@ export async function updateProfile(params: UpdateProfileParams): Promise<void> 
   if (updates.fatigueUpdatedAt !== undefined) dbUpdates.fatigue_updated_at = updates.fatigueUpdatedAt;
   if (updates.currentHp !== undefined) dbUpdates.current_hp = updates.currentHp;
   if (updates.currentMp !== undefined) dbUpdates.current_mp = updates.currentMp;
+  // 장비 착용 상태 (characters.equipment JSONB)
+  if (updates.equipment !== undefined) dbUpdates.equipment = updates.equipment;
 
   if (Object.keys(dbUpdates).length === 0) return;
 

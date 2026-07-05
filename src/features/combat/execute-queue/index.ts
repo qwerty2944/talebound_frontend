@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
-import { useBattleStore, type QueuedAction } from "@/application/stores";
+import { useBattleStore, useEquipmentStore, getEquippedWeaponType, type QueuedAction } from "@/application/stores";
 import type { CharacterStats } from "@/entities/character";
 import type { Proficiencies, CombatProficiencyType, WeaponType, MagicElement, PassiveBonuses } from "@/entities/ability";
 import { getProficiencyValue, isWeaponProficiency, WEAPON_ATTACK_TYPE, getDamageBonusFor } from "@/entities/ability";
@@ -95,6 +95,11 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
     const battle = store.battle;
     const playerQueue = battle.playerQueue;
 
+    // 장비 스냅샷 (전투 중 장비 변경 없음 → 실행 시점 1회 조회)
+    const equipState = useEquipmentStore.getState();
+    const equipStats = equipState.getTotalStats();
+    const equippedWeaponType = getEquippedWeaponType(equipState.mainHand);
+
     if (isExecuting || playerQueue.length === 0) {
       return { success: false, message: "실행할 수 없습니다" };
     }
@@ -133,9 +138,6 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
     const executePlayerAction = (action: QueuedAction) => {
       const currentStore = useBattleStore.getState();
       const effects = getEffectsAtLevel(action.ability, action.level);
-      const profLevel = action.ability.category
-        ? getProficiencyValue(proficienciesRef.current, action.ability.category as CombatProficiencyType) || 0
-        : 0;
 
       const stats = characterStatsRef.current;
 
@@ -150,9 +152,28 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
         // 은신 상태 확인
         const playerWasStealthed = isStealthed(currentBattle.playerBuffs);
 
-        // 데미지 계산 기본
-        const baseDamage = effects.baseDamage ?? action.ability.baseCost.ap ?? 10;
-        let rawDamage = baseDamage * (1 + profLevel * 0.02) * (1 + (stats.str || 10) * 0.05);
+        // 숙련도 데미지 보너스 (+0.3%/pt)
+        // - 물리: 실제 장착 무기의 weaponType 숙련도 (없으면 fist)
+        // - 마법: 스킬 속성(element) 숙련도
+        // 숙련도 0 → 배율 1.0 (동작 불변)
+        const damageProfType: CombatProficiencyType | undefined = isPhysical
+          ? ((equippedWeaponType && isWeaponProficiency(equippedWeaponType))
+              ? equippedWeaponType
+              : "fist")
+          : (action.ability.element as CombatProficiencyType | undefined);
+        const damageProfLevel = damageProfType
+          ? getProficiencyValue(proficienciesRef.current, damageProfType) || 0
+          : 0;
+        const proficiencyMultiplier = 1 + damageProfLevel * 0.003;
+
+        // 장비 공격력 보너스 (물리: physicalAttack, 마법: magicAttack)
+        const equipAttackBonus = isPhysical
+          ? (equipStats.physicalAttack ?? 0) + (equipStats.attack ?? 0)
+          : (equipStats.magicAttack ?? 0) + (equipStats.magic ?? 0);
+
+        // 데미지 계산 기본 (장비 공격력 합산)
+        const baseDamage = (effects.baseDamage ?? action.ability.baseCost.ap ?? 10) + equipAttackBonus;
+        let rawDamage = baseDamage * proficiencyMultiplier * (1 + (stats.str || 10) * 0.05);
 
         // 패시브 어빌리티 데미지 보너스 (무기 마스터리 등)
         const passiveCategory = isPhysical ? (action.ability.category ?? "fist") : "magic";

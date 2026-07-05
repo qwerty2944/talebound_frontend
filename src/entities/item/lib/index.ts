@@ -365,3 +365,12 @@ export function getSpriteNameByIndex(category: SpriteCategory, index: number): s
   }
   return cached.sprites[index];
 }
+
+// ============ 장착 변환 (인벤토리 Item → EquippedItem) ============
+export {
+  itemToEquippedItem,
+  itemToEquipmentStats,
+  resolveEquipSlot,
+  getEquipRequiredLevel,
+  isEquipableItem,
+} from "./equip";

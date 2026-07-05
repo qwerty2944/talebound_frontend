@@ -66,6 +66,7 @@ export {
   checkRunewordCompletion,
   canCreateRuneword,
   formatRunewordEffects,
+  useEquipmentSync,
 } from "./lib";
 
 // ============ UI ============

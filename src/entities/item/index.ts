@@ -105,4 +105,10 @@ export {
   clearSpriteCache,
   getSpriteCount,
   getSpriteNameByIndex,
+  // 장착 변환
+  itemToEquippedItem,
+  itemToEquipmentStats,
+  resolveEquipSlot,
+  getEquipRequiredLevel,
+  isEquipableItem,
 } from "./lib";
