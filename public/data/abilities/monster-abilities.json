@@ -294,6 +294,36 @@
       "statusValue": 15,
       "statusDuration": 3,
       "statusChance": 60
+    },
+    {
+      "id": "body_slam",
+      "nameKo": "몸통 박치기",
+      "nameEn": "Body Slam",
+      "type": "attack",
+      "attackType": "melee_physical",
+      "icon": "👑",
+      "description": { "ko": "온몸으로 부딪쳐 강타한다.", "en": "Charges and slams with its whole body." },
+      "baseDamage": 12,
+      "apCost": 4,
+      "damagePerLevel": 2,
+      "element": "earth"
+    },
+    {
+      "id": "sticky_split",
+      "nameKo": "끈적한 분열",
+      "nameEn": "Sticky Split",
+      "type": "attack",
+      "attackType": "ranged_physical",
+      "icon": "🟢",
+      "description": { "ko": "몸을 나눠 끈적한 점액 조각을 흩뿌린다.", "en": "Splits off sticky slime shards that stick to the enemy." },
+      "baseDamage": 8,
+      "apCost": 5,
+      "damagePerLevel": 1,
+      "element": "earth",
+      "statusEffect": "poison",
+      "statusValue": 3,
+      "statusDuration": 2,
+      "statusChance": 40
     }
   ]
 }
