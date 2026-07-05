@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generatedAt": "2026-01-18T00:55:05.556Z",
+  "generatedAt": "2026-07-05T11:33:02.733Z",
   "maps": [
     {
       "id": "market_square",
@@ -1203,6 +1203,34 @@
           "maxCount": 5,
           "zoneId": "slime_pool",
           "respawnTime": 180
+        },
+        {
+          "monsterId": "slime_chief",
+          "spawnType": "boss",
+          "maxCount": 1,
+          "zoneId": "slime_pool",
+          "schedule": {
+            "preset": "always",
+            "dayOfWeek": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "hourRange": [
+              0,
+              24
+            ],
+            "timezone": "Asia/Seoul"
+          },
+          "respawnTime": 600,
+          "announcement": {
+            "spawn": "슬라임 두목이 웅덩이에서 모습을 드러냈습니다!",
+            "defeat": "슬라임 두목이 처치되었습니다!"
+          }
         }
       ],
       "npcs": []
@@ -1577,7 +1605,7 @@
     "combatZones": 10,
     "pvpZones": 1,
     "totalZones": 58,
-    "totalSpawns": 32,
-    "bossSpawns": 8
+    "totalSpawns": 33,
+    "bossSpawns": 9
   }
 }
