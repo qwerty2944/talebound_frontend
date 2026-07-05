@@ -406,6 +406,7 @@ function BattleResult({ result, monster, drops = [], skillExpGains = {}, allAbil
               >
                 +{monster.rewards.exp} EXP
                 {monster.rewards.gold > 0 && ` · +${monster.rewards.gold} Gold`}
+                <div className="text-[10px] mt-1 opacity-70">전리품·보상은 닫기 시 정산됩니다</div>
               </div>
             )}
             {/* 드랍 아이템 표시 */}

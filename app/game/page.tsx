@@ -123,6 +123,14 @@ export default function GamePage() {
   const mainCharacter = getMainCharacter(profile);
   const fatiguePercent = getFatiguePercent(profile);
 
+  // 헤더 HP/MP 표시용 (전투 시작 계산과 동일 공식)
+  const headerMaxHp = 50 + (mainCharacter?.stats?.con ?? 10) * 5 + (profile?.level ?? 1) * 10;
+  const headerMaxMp = 20 + (mainCharacter?.stats?.wis ?? 10) * 3 + (mainCharacter?.stats?.int ?? 10);
+  const headerHp = profile?.currentHp ?? headerMaxHp;
+  const headerMp = profile?.currentMp ?? headerMaxMp;
+  const hpPercent = Math.max(0, Math.min(100, (headerHp / headerMaxHp) * 100));
+  const mpPercent = Math.max(0, Math.min(100, (headerMp / headerMaxMp) * 100));
+
   // 캐릭터 정보 로드
   useEffect(() => {
     if (!session?.user?.id) {
@@ -423,15 +431,40 @@ export default function GamePage() {
       >
         {/* 상단 바: 피로도 + 시간/날씨 + 설정 */}
         <div className="flex items-center justify-between gap-2 mb-2">
-          {/* 왼쪽: 피로도 */}
-          <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-mono min-w-0">
-            <span style={{ color: theme.colors.textMuted }}>피로도</span>
-            <span
-              className="font-medium"
-              style={{ color: fatiguePercent <= 20 ? theme.colors.error : theme.colors.textDim }}
-            >
-              {getCurrentFatigue(profile)}/{getMaxFatigueFromProfile(profile)}
-            </span>
+          {/* 왼쪽: HP/MP/피로도 */}
+          <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-mono min-w-0">
+            <div className="flex items-center gap-1" title={`HP ${headerHp}/${headerMaxHp}`}>
+              <span>❤️</span>
+              <div className="w-10 sm:w-16 h-1.5 rounded overflow-hidden" style={{ background: theme.colors.bgDark }}>
+                <div
+                  className="h-full transition-all duration-300"
+                  style={{
+                    width: `${hpPercent}%`,
+                    background: hpPercent > 50 ? theme.colors.success : hpPercent > 20 ? theme.colors.warning : theme.colors.error,
+                  }}
+                />
+              </div>
+              <span className="hidden sm:inline" style={{ color: theme.colors.textDim }}>{headerHp}</span>
+            </div>
+            <div className="flex items-center gap-1" title={`MP ${headerMp}/${headerMaxMp}`}>
+              <span>💧</span>
+              <div className="w-10 sm:w-16 h-1.5 rounded overflow-hidden" style={{ background: theme.colors.bgDark }}>
+                <div
+                  className="h-full transition-all duration-300"
+                  style={{ width: `${mpPercent}%`, background: theme.colors.primary }}
+                />
+              </div>
+              <span className="hidden sm:inline" style={{ color: theme.colors.textDim }}>{headerMp}</span>
+            </div>
+            <div className="items-center gap-1 hidden sm:flex">
+              <span style={{ color: theme.colors.textMuted }}>피로도</span>
+              <span
+                className="font-medium"
+                style={{ color: fatiguePercent <= 20 ? theme.colors.error : theme.colors.textDim }}
+              >
+                {getCurrentFatigue(profile)}/{getMaxFatigueFromProfile(profile)}
+              </span>
+            </div>
           </div>
 
           {/* 중앙: 시간 + 날씨 (모바일에서 아이콘만) */}
@@ -505,10 +538,10 @@ export default function GamePage() {
                 <InjuryDisplay injuries={profile.injuries} compact />
               )}
             </button>
-            {/* 재화 표시 (태블릿 이상) */}
-            <div className="hidden md:flex items-center gap-2 text-xs sm:text-sm font-mono">
+            {/* 재화 표시 */}
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-mono">
               <span style={{ color: theme.colors.warning }}>💰 {profile.gold.toLocaleString()}</span>
-              <span style={{ color: theme.colors.primary }}>💎 {profile.gems.toLocaleString()}</span>
+              <span className="hidden md:inline" style={{ color: theme.colors.primary }}>💎 {profile.gems.toLocaleString()}</span>
             </div>
             {/* 접속 상태 */}
             <span
