@@ -18,8 +18,9 @@ import {
   getPhysicalDamageMultiplier,
   getMagicDamageMultiplier,
   getCriticalChanceBonus,
+  getDodgeChanceBonus,
 } from "@/entities/trait";
-import { getAttackMessage } from "../lib/messages";
+import { getAttackMessage, getDodgeSkillSuccessMessage } from "../lib/messages";
 import { grantSkillExperience } from "../lib/experience";
 import { isStealthed, breakStealth } from "@/entities/status";
 
@@ -366,8 +367,27 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
       const currentBattle = currentStore.battle;
       if (!currentBattle.monster) return;
 
+      // 특성 회피: 플레이어 회피 보너스가 있을 때만 그 확률로 몬스터 공격을 완전 회피(피해 0).
+      // 보너스가 0이면 Math.random() 호출조차 하지 않아 특성 없는 유저 동작은 불변.
+      // accuracy/block 특성은 이 라이브 경로에 명중/막기 판정 자체가 없어 소비처가 없다(미배선).
+      const tryPlayerDodge = (): boolean => {
+        const traits = traitEffectsRef.current;
+        if (!traits) return false;
+        const dodgeBonus = getDodgeChanceBonus(traits);
+        if (dodgeBonus <= 0) return false;
+        if (Math.random() * 100 >= dodgeBonus) return false;
+        currentStore.addLog({
+          turn: currentBattle.turn,
+          actor: "player",
+          action: "dodge",
+          message: getDodgeSkillSuccessMessage(),
+        });
+        return true;
+      };
+
       // 기본 공격인지 체크
       if (action.ability.id === "monster_basic_attack") {
+        if (tryPlayerDodge()) return;
         const damage = applyDamageVariance(currentBattle.monster.stats.attack * 0.8);
         currentStore.dealDamageToPlayer(
           damage,
@@ -379,6 +399,7 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
       const abilityData = monsterAbilitiesDataRef.current.get(action.ability.id);
       if (!abilityData) {
         // 어빌리티 데이터가 없으면 기본 공격으로 처리
+        if (tryPlayerDodge()) return;
         const damage = applyDamageVariance(currentBattle.monster.stats.attack * 0.8);
         currentStore.dealDamageToPlayer(
           damage,
@@ -389,6 +410,9 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
 
       // 어빌리티 타입별 처리
       if (abilityData.type === "attack") {
+        // 특성 회피 판정 (공격 어빌리티만 대상, 성공 시 피해·상태이상 모두 무효)
+        if (tryPlayerDodge()) return;
+
         const damage = calculateMonsterAbilityDamage(
           abilityData,
           action.level,
