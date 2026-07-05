@@ -3,14 +3,16 @@
 import toast from "react-hot-toast";
 import { InventoryGrid } from "@/entities/inventory";
 import { useProfile } from "@/entities/user";
-import { useAuthStore } from "@/application/stores";
+import { useAuthStore, useEquipmentStore } from "@/application/stores";
 import { useUseConsumable, useRemoveItem, useUseCrystal, isCrystalItem } from "@/features/inventory";
+import { itemToEquippedItem, resolveEquipSlot, getEquipRequiredLevel } from "@/entities/item";
 import type { InventoryTabProps } from "./types";
 
 export function InventoryTab({ theme, inventoryItems, allItems, inventoryMaxSlots }: InventoryTabProps) {
   const { session } = useAuthStore();
   const userId = session?.user?.id;
   const { data: profile } = useProfile(userId);
+  const equipmentStore = useEquipmentStore();
 
   const useConsumable = useUseConsumable(userId, {
     onSuccess: (result) => {
@@ -47,6 +49,34 @@ export function InventoryTab({ theme, inventoryItems, allItems, inventoryMaxSlot
         }
 
         useConsumable.mutate({ slot: slot.slot, item, profile });
+      }}
+      onEquipItem={(_slot, item) => {
+        // 레벨 요구치 체크
+        const reqLevel = getEquipRequiredLevel(item);
+        if ((profile?.level ?? 1) < reqLevel) {
+          toast.error(`착용 레벨이 부족합니다 (Lv.${reqLevel} 필요)`);
+          return;
+        }
+        // 슬롯 자동 판정 (ring/earring 빈 슬롯 우선)
+        const occupied = {
+          ring1: !!equipmentStore.ring1,
+          ring2: !!equipmentStore.ring2,
+          earring1: !!equipmentStore.earring1,
+          earring2: !!equipmentStore.earring2,
+        };
+        const targetSlot = resolveEquipSlot(item, occupied);
+        if (!targetSlot) {
+          toast.error("장착할 수 있는 슬롯이 없습니다");
+          return;
+        }
+        const equipped = itemToEquippedItem(item);
+        const check = equipmentStore.canEquipToSlot(targetSlot, equipped);
+        if (!check.canEquip) {
+          toast.error(check.reason ?? "장착할 수 없습니다");
+          return;
+        }
+        equipmentStore.equipItem(targetSlot, equipped);
+        toast.success(`${item.nameKo} 장착!`);
       }}
       onDropItem={(slot) => {
         if (!userId) return;

@@ -14,6 +14,7 @@ interface InventorySlotProps {
   disabled?: boolean;
   onSelect?: (slot: InventorySlotItem | null, index: number) => void;
   onUse?: (slot: InventorySlotItem, item: Item) => void;
+  onEquip?: (slot: InventorySlotItem, item: Item) => void;
   onDrop?: (slot: InventorySlotItem) => void;
 }
 
@@ -25,6 +26,7 @@ export function InventorySlot({
   disabled = false,
   onSelect,
   onUse,
+  onEquip,
   onDrop,
 }: InventorySlotProps) {
   const { theme } = useThemeStore();
@@ -46,6 +48,13 @@ export function InventorySlot({
   const handleUse = () => {
     if (slot && item && item.type === "consumable") {
       onUse?.(slot, item);
+    }
+    setShowMenu(false);
+  };
+
+  const handleEquip = () => {
+    if (slot && item && item.type === "equipment") {
+      onEquip?.(slot, item);
     }
     setShowMenu(false);
   };
@@ -178,6 +187,18 @@ export function InventorySlot({
               }}
             >
               사용
+            </button>
+          )}
+          {item.type === "equipment" && (
+            <button
+              onClick={handleEquip}
+              className="w-full px-2 py-1 text-xs font-mono text-left transition-colors hover:bg-opacity-80"
+              style={{
+                color: theme.colors.primary,
+                background: theme.colors.bgLight,
+              }}
+            >
+              장착
             </button>
           )}
           <button

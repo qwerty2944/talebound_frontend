@@ -10,6 +10,7 @@ import type {
   SpriteReference,
   EnhancementInfo,
   EquipmentSockets,
+  ItemRarity,
 } from "@/entities/item";
 import {
   calculateEnhancedStats,
@@ -22,6 +23,8 @@ export interface EquippedItem {
   itemName: string;
   itemType: WeaponType | string;
   icon: string;
+  /** 아이템 등급 (등급색 표시용) */
+  rarity?: ItemRarity;
   // 무기 정보
   handType?: WeaponHandType;
   offHandType?: OffHandItemType;

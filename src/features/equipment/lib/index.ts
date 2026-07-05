@@ -7,3 +7,6 @@ export {
   canCreateRuneword,
   formatRunewordEffects,
 } from "./runewordLogic";
+
+// 장비 영속화 동기화 훅
+export { useEquipmentSync } from "./useEquipmentSync";

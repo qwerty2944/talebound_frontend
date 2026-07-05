@@ -12,6 +12,7 @@ interface InventoryGridProps {
   maxSlots?: number;
   disabled?: boolean;
   onUseItem?: (slot: InventorySlotItem, item: Item) => void;
+  onEquipItem?: (slot: InventorySlotItem, item: Item) => void;
   onDropItem?: (slot: InventorySlotItem) => void;
 }
 
@@ -23,6 +24,7 @@ export function InventoryGrid({
   maxSlots = 20,
   disabled = false,
   onUseItem,
+  onEquipItem,
   onDropItem,
 }: InventoryGridProps) {
   const { theme } = useThemeStore();
@@ -158,6 +160,7 @@ export function InventoryGrid({
               disabled={disabled}
               onSelect={handleSelect}
               onUse={onUseItem}
+              onEquip={onEquipItem}
               onDrop={onDropItem}
             />
           ))}

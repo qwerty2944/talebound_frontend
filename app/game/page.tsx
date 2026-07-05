@@ -41,8 +41,9 @@ import type { Trait } from "@/entities/trait";
 import type { ProficiencyType, CombatProficiencyType } from "@/entities/ability";
 import { GameTimeClock, AtmosphericText, useRealtimeGameTime, getPeriodOverlayStyle } from "@/entities/game-time";
 import { WeatherDisplay, useRealtimeWeather, getWeatherOverlayStyle } from "@/entities/weather";
-import { useBattleStore, usePvpStore, useDungeonStore } from "@/application/stores";
+import { useBattleStore, usePvpStore, useDungeonStore, useEquipmentStore } from "@/application/stores";
 import { useStartBattle, useEndBattle } from "@/features/combat";
+import { useEquipmentSync } from "@/features/equipment";
 import { useRealtimeDuel, DuelRequestModal, DuelBattlePanel } from "@/features/duel";
 import { useDuelAction } from "@/features/pvp";
 import { useUpdateLocation } from "@/features/player";
@@ -128,6 +129,9 @@ export default function GamePage() {
   const { start: startBattle } = useStartBattle({ userId: session?.user?.id });
   const { data: proficiencies } = useProficiencies(session?.user?.id);
 
+  // 장비 착용 상태 DB 영속화 (로그인/새로고침 복원 + 변경 시 저장)
+  useEquipmentSync(session?.user?.id);
+
   // 던전 관련
   const { data: dungeons = [] } = useDungeonsByMap(mapId || "starting_village");
   const clearRun = useDungeonStore((s) => s.clearRun);
@@ -172,15 +176,27 @@ export default function GamePage() {
     return calculateAggregatedEffects(traits);
   }, [characterTraitsData]);
 
-  // 특성 스탯 보정을 적용한 전투용 스탯.
-  // applyStatModifiers는 7개 기본 스탯만 반환하므로, 기존 스탯 위에 덮어써
-  // 선택적 전투 스탯(physicalAttack 등)을 보존한다. 특성이 없으면 원본 그대로.
+  // 장비 스토어 (전투 스탯 반영용)
+  const equipmentStore = useEquipmentStore();
+
+  // 장비 능력치 + 특성 보정을 적용한 전투용 스탯.
+  // 1) 장비 능력치(str/dex/con/int/wis/cha/lck)를 기본 스탯에 합산 → 데미지/치명타 반영
+  //    (장비 physicalAttack/magicAttack 은 execute-queue에서 getTotalStats로 별도 합산)
+  // 2) applyStatModifiers는 7개 기본 스탯만 반환하므로 기존 스탯 위에 덮어써 선택적 전투 스탯 보존.
+  // 장비/특성이 없으면 원본과 동일.
   const combatStats = useMemo<CharacterStats | undefined>(() => {
     const base = mainCharacter?.stats;
     if (!base) return undefined;
-    if (!traitEffects) return base;
-    return { ...base, ...applyStatModifiers(base, traitEffects) };
-  }, [mainCharacter?.stats, traitEffects]);
+    const eq = equipmentStore.getTotalStats();
+    const ABILITY_KEYS = ["str", "dex", "con", "int", "wis", "cha", "lck"] as const;
+    const withEquip: CharacterStats = { ...base };
+    for (const key of ABILITY_KEYS) {
+      const bonus = eq[key];
+      if (bonus) withEquip[key] = (withEquip[key] ?? 0) + bonus;
+    }
+    if (!traitEffects) return withEquip;
+    return { ...withEquip, ...applyStatModifiers(withEquip, traitEffects) };
+  }, [mainCharacter?.stats, traitEffects, equipmentStore]);
 
   // 헤더 HP/MP 표시용 (전투 시작 계산과 동일 공식)
   const headerMaxHp = 50 + (mainCharacter?.stats?.con ?? 10) * 5 + (profile?.level ?? 1) * 10;
