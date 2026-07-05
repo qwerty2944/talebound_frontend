@@ -17,6 +17,8 @@ import {
 import { rollDrops } from "@/entities/monster";
 import { useItems, RARITY_CONFIG, type Item } from "@/entities/item";
 import { useAbility, useExecuteQueue } from "@/features/combat";
+import { usePassiveSkills } from "../lib/usePassiveSkills";
+import { BattleItemPanel } from "./BattleItemPanel";
 import { BattleHeader } from "./BattleHeader";
 import { BattleLog } from "./BattleLog";
 import { ActionQueue } from "./ActionQueue";
@@ -80,12 +82,16 @@ export function BattlePanel({
     playerQueue,
   } = useAbility();
 
+  // 패시브 어빌리티 보너스
+  const { passiveBonuses } = usePassiveSkills({ userId });
+
   // 큐 실행 훅
   const { executeQueue, isExecuting } = useExecuteQueue({
     userId,
     characterStats,
     proficiencies,
     monsterAbilitiesData,
+    passiveBonuses,
   });
 
   // 몬스터 어빌리티 데이터 로드
@@ -270,7 +276,7 @@ export function BattlePanel({
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    disabled={isExecuting || tab === "item"} // 아이템 탭 비활성화
+                    disabled={isExecuting}
                     className="flex-1 px-4 py-2 font-mono text-sm transition-colors"
                     style={{
                       background:
@@ -278,14 +284,11 @@ export function BattlePanel({
                       color:
                         activeTab === tab
                           ? theme.colors.primary
-                          : tab === "item"
-                          ? theme.colors.textMuted + "80"
                           : theme.colors.textMuted,
                       borderBottom:
                         activeTab === tab
                           ? `2px solid ${theme.colors.primary}`
                           : "2px solid transparent",
-                      opacity: tab === "item" ? 0.5 : 1,
                     }}
                   >
                     {tabLabels[tab]}
@@ -323,17 +326,23 @@ export function BattlePanel({
                 )}
 
                 {/* 아이템 탭: 빈 공간 예약 */}
-                {activeTab === "item" && <div className="h-8" />}
+                {activeTab === "item" && <div className="h-2" />}
               </div>
 
-              {/* 어빌리티 선택 (스크롤 영역) */}
+              {/* 어빌리티/아이템 선택 (스크롤 영역) */}
               <div className="flex-1 overflow-y-auto">
-                <AbilitySelector
-                  abilities={filteredAbilities}
-                  abilityLevels={abilityLevels}
-                  onSelectAbility={handleSelectAbility}
-                  disabled={isExecuting}
-                />
+                {activeTab === "item" ? (
+                  <div className="px-3 pb-2">
+                    <BattleItemPanel disabled={isExecuting} />
+                  </div>
+                ) : (
+                  <AbilitySelector
+                    abilities={filteredAbilities}
+                    abilityLevels={abilityLevels}
+                    onSelectAbility={handleSelectAbility}
+                    disabled={isExecuting}
+                  />
+                )}
               </div>
             </div>
 

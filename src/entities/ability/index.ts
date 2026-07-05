@@ -120,3 +120,5 @@ export {
   calculateFinalApCost,
 } from "./lib/levelMagic";
 export type { LevelMagicType, LevelMagicResult } from "./lib/levelMagic";
+export { getPassiveBonuses, getDamageBonusFor } from "./lib/passiveBonuses";
+export type { PassiveBonuses } from "./lib/passiveBonuses";

@@ -9,7 +9,8 @@ import {
   type DuelState,
   type DuelEndResult,
 } from "@/application/stores";
-import { DEFAULT_PROFICIENCIES } from "@/entities/ability";
+import { DEFAULT_PROFICIENCIES, type Proficiencies } from "@/entities/ability";
+import { calculateDerivedStats, type CharacterStats } from "@/entities/character";
 
 // ============ 이벤트 페이로드 타입 ============
 
@@ -27,6 +28,11 @@ interface DuelResponsePayload {
   targetId: string;
   targetName: string;
   accepted: boolean;
+  /** 수락자(target)의 실제 전투 정보 (구버전 클라이언트는 없을 수 있음) */
+  targetStats?: CharacterStats;
+  targetProficiencies?: Proficiencies;
+  targetLevel?: number;
+  targetCurrentHp?: number;
 }
 
 interface DuelStartPayload {
@@ -48,8 +54,23 @@ interface UseRealtimeDuelProps {
   userId: string;
   characterName: string;
   room: Room | null;
+  /** 내 캐릭터 기본 스탯 (결투에 실제 스탯 반영) */
+  stats?: CharacterStats;
+  proficiencies?: Proficiencies;
+  level?: number;
+  currentHp?: number | null;
   onDuelStart?: () => void;
   onDuelEnd?: (result: DuelEndResult) => void;
+}
+
+const FALLBACK_STATS: CharacterStats = {
+  str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10, lck: 10,
+};
+
+/** 스탯/레벨로 결투 참가자 HP 계산 */
+function participantHp(stats: CharacterStats, level: number, currentHp?: number | null) {
+  const maxHp = calculateDerivedStats(stats, {}, level).maxHp;
+  return { maxHp, currentHp: currentHp ?? maxHp };
 }
 
 const DUEL_REQUEST_TIMEOUT = 30000; // 30초
@@ -59,6 +80,10 @@ export function useRealtimeDuel({
   userId,
   characterName,
   room,
+  stats,
+  proficiencies,
+  level = 1,
+  currentHp,
   onDuelStart,
   onDuelEnd,
 }: UseRealtimeDuelProps) {
@@ -161,12 +186,21 @@ export function useRealtimeDuel({
         targetId: userId,
         targetName: characterName,
         accepted,
+        // 수락 시 내 실제 전투 정보 동봉 (도전자가 결투 상태를 생성함)
+        ...(accepted
+          ? {
+              targetStats: stats ?? FALLBACK_STATS,
+              targetProficiencies: proficiencies ?? DEFAULT_PROFICIENCIES,
+              targetLevel: level,
+              targetCurrentHp: currentHp ?? undefined,
+            }
+          : {}),
       } satisfies DuelResponsePayload);
 
       // 대기 목록에서 제거
       removePendingRequest(challengerId);
     },
-    [room, userId, characterName, removePendingRequest]
+    [room, userId, characterName, stats, proficiencies, level, currentHp, removePendingRequest]
   );
 
   // ============ 결투 시작/행동/종료 전송 ============
@@ -232,25 +266,28 @@ export function useRealtimeDuel({
         // 수락됨 - 도전자가 결투 상태를 생성하고 전송
         const duelId = `duel-${userId}-${payload.targetId}-${Date.now()}`;
 
-        // TODO: 실제 스탯과 숙련도 가져오기
-        const defaultStats = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10, lck: 10, ambushChance: 0, ambushDamage: 0 };
-
+        // 내(도전자) 실제 스탯
+        const myStats = stats ?? FALLBACK_STATS;
+        const myHp = participantHp(myStats, level, currentHp);
         const player1 = {
           id: userId,
           name: characterName,
-          stats: defaultStats,
-          currentHp: 100,
-          maxHp: 100,
-          proficiencies: DEFAULT_PROFICIENCIES,
+          stats: myStats,
+          currentHp: myHp.currentHp,
+          maxHp: myHp.maxHp,
+          proficiencies: proficiencies ?? DEFAULT_PROFICIENCIES,
         };
 
+        // 상대(수락자) 스탯: 응답 페이로드에서 (구버전 클라이언트는 fallback)
+        const targetStats = payload.targetStats ?? FALLBACK_STATS;
+        const targetHp = participantHp(targetStats, payload.targetLevel ?? 1, payload.targetCurrentHp);
         const player2 = {
           id: payload.targetId,
           name: payload.targetName,
-          stats: defaultStats,
-          currentHp: 100,
-          maxHp: 100,
-          proficiencies: DEFAULT_PROFICIENCIES,
+          stats: targetStats,
+          currentHp: targetHp.currentHp,
+          maxHp: targetHp.maxHp,
+          proficiencies: payload.targetProficiencies ?? DEFAULT_PROFICIENCIES,
         };
 
         // DEX 비교로 선공 결정
@@ -366,6 +403,10 @@ export function useRealtimeDuel({
     switchTurn,
     endDuel,
     broadcastDuelStart,
+    stats,
+    proficiencies,
+    level,
+    currentHp,
     onDuelStart,
     onDuelEnd,
   ]);

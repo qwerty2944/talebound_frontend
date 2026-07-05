@@ -3,8 +3,8 @@
 import { useState, useCallback, useRef } from "react";
 import { useBattleStore, type QueuedAction } from "@/application/stores";
 import type { CharacterStats } from "@/entities/character";
-import type { Proficiencies, CombatProficiencyType, WeaponType, MagicElement } from "@/entities/ability";
-import { getProficiencyValue, isWeaponProficiency, WEAPON_ATTACK_TYPE } from "@/entities/ability";
+import type { Proficiencies, CombatProficiencyType, WeaponType, MagicElement, PassiveBonuses } from "@/entities/ability";
+import { getProficiencyValue, isWeaponProficiency, WEAPON_ATTACK_TYPE, getDamageBonusFor } from "@/entities/ability";
 import type { RawMonsterAbility } from "@/entities/ability";
 import { getEffectsAtLevel } from "@/entities/ability";
 import { getPhysicalResistance, getElementResistance } from "@/entities/monster";
@@ -12,7 +12,7 @@ import {
   buildMonsterQueue,
   calculateMonsterAbilityDamage,
 } from "../lib/monsterAi";
-import { applyDamageVariance, calculateStealthAmbushDamage } from "../lib/damage";
+import { applyDamageVariance, calculateStealthAmbushDamage, getCriticalChance, getCriticalMultiplier } from "../lib/damage";
 import { getAttackMessage } from "../lib/messages";
 import { grantSkillExperience } from "../lib/experience";
 import { isStealthed, breakStealth } from "@/entities/status";
@@ -28,6 +28,8 @@ interface UseExecuteQueueOptions {
   proficiencies: Proficiencies | undefined;
   /** 몬스터 어빌리티 데이터 */
   monsterAbilitiesData: Map<string, RawMonsterAbility>;
+  /** 패시브 어빌리티 보너스 */
+  passiveBonuses?: PassiveBonuses;
   /** 행동 간 딜레이 (ms) */
   actionDelay?: number;
   /** 턴 종료 딜레이 (ms) */
@@ -51,6 +53,7 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
     characterStats,
     proficiencies,
     monsterAbilitiesData,
+    passiveBonuses,
     actionDelay = 600,
     turnEndDelay = 500,
   } = options;
@@ -62,12 +65,14 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
   const characterStatsRef = useRef(characterStats);
   const proficienciesRef = useRef(proficiencies);
   const monsterAbilitiesDataRef = useRef(monsterAbilitiesData);
+  const passiveBonusesRef = useRef(passiveBonuses);
 
   // Update refs when values change
   userIdRef.current = userId;
   characterStatsRef.current = characterStats;
   proficienciesRef.current = proficiencies;
   monsterAbilitiesDataRef.current = monsterAbilitiesData;
+  passiveBonusesRef.current = passiveBonuses;
 
   /**
    * 큐 실행 (메인 함수)
@@ -137,6 +142,13 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
         const baseDamage = effects.baseDamage ?? action.ability.baseCost.ap ?? 10;
         let rawDamage = baseDamage * (1 + profLevel * 0.02) * (1 + (stats.str || 10) * 0.05);
 
+        // 패시브 어빌리티 데미지 보너스 (무기 마스터리 등)
+        const passiveCategory = isPhysical ? (action.ability.category ?? "fist") : "magic";
+        const passiveBonus = getDamageBonusFor(passiveBonusesRef.current, passiveCategory);
+        if (passiveBonus > 0) {
+          rawDamage = rawDamage * (1 + passiveBonus / 100);
+        }
+
         // 은신 암습 보너스 적용
         let stealthAmbushApplied = false;
         let ambushBonusMultiplier = 1.0;
@@ -181,6 +193,13 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
         // 저항 적용
         rawDamage = rawDamage * resistanceMultiplier;
 
+        // 치명타 판정 (물리: LCK+DEX, 마법: LCK+INT)
+        const critSecondary = isPhysical ? (stats.dex || 10) : (stats.int || 10);
+        const isCritical = Math.random() * 100 < getCriticalChance(stats.lck || 10, critSecondary);
+        if (isCritical) {
+          rawDamage = rawDamage * getCriticalMultiplier(stats.lck || 10);
+        }
+
         // 편차 적용 및 최소 데미지
         const damage = Math.max(1, applyDamageVariance(rawDamage));
         const isMinDamage = damage === 1;
@@ -201,14 +220,15 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
             msgWeaponType,
             monster?.nameKo ?? "적",
             damage,
-            false, // isCritical - TODO: 추가 필요 시 구현
+            isCritical,
             resistanceMultiplier,
             isMinDamage
           );
         } else {
           // 마법 공격 메시지
           const icon = action.ability.icon ?? "✨";
-          message = `${ambushPrefix}${icon} ${action.ability.nameKo}! ${monster?.nameKo ?? "적"}에게 ${damage} 데미지!`;
+          const critPrefix = isCritical ? "💥 치명타! " : "";
+          message = `${ambushPrefix}${critPrefix}${icon} ${action.ability.nameKo}! ${monster?.nameKo ?? "적"}에게 ${damage} 데미지!`;
 
           // 속성 저항 피드백 추가
           if (isMinDamage) {
@@ -220,11 +240,15 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
           }
         }
 
-        currentStore.dealDamageToMonster(
-          damage,
-          message,
-          action.ability.category
-        );
+        // 숙련도 타입: 물리는 무기 숙련도, 마법은 속성 숙련도
+        const proficiencyType = isPhysical
+          ? (action.ability.category && isWeaponProficiency(action.ability.category as CombatProficiencyType)
+              ? action.ability.category
+              : undefined)
+          : action.ability.element;
+
+        currentStore.dealDamageToMonster(damage, message, proficiencyType);
+        currentStore.addDamageDealt(damage, isCritical);
 
         // 공격 성공 시 스킬 경험치 부여
         if (damage > 0 && action.ability.grantsExpTo && action.ability.grantsExpTo.length > 0) {
