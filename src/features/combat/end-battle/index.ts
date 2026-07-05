@@ -1,8 +1,14 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useBattleStore } from "@/application/stores";
+import {
+  useCharacterTraitsWithDetails,
+  calculateAggregatedEffects,
+  getProficiencyGainMultiplier,
+  type Trait,
+} from "@/entities/trait";
 import { calculateExpBonus } from "@/entities/monster";
 import {
   profileKeys,
@@ -71,6 +77,16 @@ export function useEndBattle(options: UseEndBattleOptions) {
   const { data: proficiencies } = useProficiencies(userId);
   const { data: maps = [] } = useMaps();
 
+  // 특성 효과 집계 (숙련도 획득 배율용)
+  const { data: characterTraitsData } = useCharacterTraitsWithDetails(userId);
+  const traitEffects = useMemo(() => {
+    const traits = (characterTraitsData ?? [])
+      .map((ct) => ct.trait)
+      .filter((t): t is Trait => t !== undefined);
+    if (traits.length === 0) return null;
+    return calculateAggregatedEffects(traits);
+  }, [characterTraitsData]);
+
   // 통계 기록 훅
   const recordBattle = useRecordBattleResult(profile?.id);
 
@@ -108,9 +124,15 @@ export function useEndBattle(options: UseEndBattleOptions) {
         attackSuccess: true,
       });
 
+      // 특성 숙련도 획득 배율 적용 (patient/genius/quick_learner 등)
+      const profMultiplier = traitEffects ? getProficiencyGainMultiplier(traitEffects) : 1;
+      const boostedAmount = gainResult.gained
+        ? Math.max(1, Math.round(gainResult.amount * profMultiplier))
+        : gainResult.amount;
+
       proficiencyGain = {
         type: profType,
-        amount: gainResult.amount,
+        amount: boostedAmount,
         levelDiff: gainResult.levelDiff,
         gained: gainResult.gained,
         reason: gainResult.reason,
@@ -126,7 +148,7 @@ export function useEndBattle(options: UseEndBattleOptions) {
       : undefined;
 
     return { exp, gold, drops, proficiencyGain, karmaChange, skillExpGains };
-  }, [playerLevel, proficiencies]);
+  }, [playerLevel, proficiencies, traitEffects]);
 
   // 승리 처리 (preRolledDrops: UI에서 미리 표시된 드랍 아이템)
   const handleVictory = useCallback(async (preRolledDrops?: { itemId: string; quantity: number }[]) => {

@@ -15,9 +15,17 @@ import {
   calculatePhysicalDamage,
   calculateMagicDamage,
   calculateMonsterDamage,
-  determineHitResult,
+  determineHitResultEx,
   getWeaponElementMultiplier,
+  getCriticalMultiplier,
 } from "../lib/damage";
+import type { AggregatedTraitEffects } from "@/entities/trait";
+import {
+  getPhysicalDamageMultiplier,
+  getMagicDamageMultiplier,
+  getCriticalChanceBonus,
+  getAccuracyBonus,
+} from "@/entities/trait";
 import {
   getAttackMessage,
   getMonsterAttackMessage,
@@ -53,6 +61,7 @@ interface ExecuteAbilityParams {
   weather?: WeatherType;
   karma?: number;
   weaponElement?: MagicElement; // 장착 무기 속성 (물리 공격에 적용)
+  traitEffects?: AggregatedTraitEffects | null; // 특성 집계 효과 (데미지 배율/판정 보정)
 }
 
 interface ExecuteAbilityResult {
@@ -147,7 +156,11 @@ export function useAbility(options: UseAbilityOptions = {}) {
   );
 
   /**
-   * 어빌리티 실행 (큐 처리 시 호출)
+   * 어빌리티 실행 (단건 실행 경로)
+   *
+   * NOTE: 현재 라이브 전투의 데미지/판정 경로는 execute-queue(executePlayerAction)이며
+   * BattlePanel은 이 executeAbility를 호출하지 않는다. 특성 배율 로직은 execute-queue에
+   * 라이브로 배선되어 있고, 여기에도 동일 로직을 유지해 두 경로가 동작상 일치하도록 한다.
    */
   const executeAbility = useCallback(
     (params: ExecuteAbilityParams): ExecuteAbilityResult => {
@@ -162,6 +175,7 @@ export function useAbility(options: UseAbilityOptions = {}) {
         weather,
         karma,
         weaponElement,
+        traitEffects,
       } = params;
 
       // MP 소모
@@ -184,6 +198,7 @@ export function useAbility(options: UseAbilityOptions = {}) {
             weather,
             karma,
             weaponElement,
+            traitEffects,
           });
 
         case "heal":
@@ -224,8 +239,9 @@ export function useAbility(options: UseAbilityOptions = {}) {
       weather?: WeatherType;
       karma?: number;
       weaponElement?: MagicElement;
+      traitEffects?: AggregatedTraitEffects | null;
     }): ExecuteAbilityResult => {
-      const { ability, effects, casterStats, proficiencyLevel, period, weather, karma, weaponElement } = params;
+      const { ability, effects, casterStats, proficiencyLevel, period, weather, karma, weaponElement, traitEffects } = params;
 
       if (!battle.monster) {
         return { success: false, message: "대상이 없습니다" };
@@ -234,16 +250,35 @@ export function useAbility(options: UseAbilityOptions = {}) {
       const isPhysical = ability.attackType === "melee_physical" || ability.attackType === "ranged_physical";
       const baseDamage = effects.baseDamage ?? ability.baseCost.ap ?? 10;
 
-      // 공격 판정
-      const hitResult = determineHitResult(
-        { lck: casterStats.lck ?? 10, dex: casterStats.dex, int: casterStats.int },
-        { dex: battle.monster.stats.speed ?? 5, con: Math.floor(battle.monster.stats.defense / 2) },
-        isPhysical
-      );
+      // 특성 판정 보너스: 명중(적 회피 감소) / 치명타 확률
+      const accuracyBonus = traitEffects ? getAccuracyBonus(traitEffects) : 0;
+      const critChanceBonus = traitEffects ? getCriticalChanceBonus(traitEffects) : 0;
+
+      // 공격 판정 (명중 보너스는 적 회피 확률을 낮추는 방향으로 반영)
+      const hitResult = determineHitResultEx({
+        attackerStats: { lck: casterStats.lck ?? 10, dex: casterStats.dex, int: casterStats.int },
+        defenderStats: { dex: battle.monster.stats.speed ?? 5, con: Math.floor(battle.monster.stats.defense / 2) },
+        isPhysical,
+        bonusDodge: -accuracyBonus,
+      });
 
       let damage = 0;
       let message = "";
-      const isCritical = hitResult.result === "critical";
+      let isCritical = hitResult.result === "critical";
+      let hitDamageMultiplier = hitResult.damageMultiplier;
+
+      // 특성 치명타 확률 보너스: 일반 명중 시 추가 치명타 판정
+      if (!isCritical && hitResult.result === "hit" && critChanceBonus > 0) {
+        if (Math.random() * 100 < critChanceBonus) {
+          isCritical = true;
+          hitDamageMultiplier = getCriticalMultiplier(casterStats.lck ?? 10);
+        }
+      }
+
+      // 특성 데미지 배율 (물리/마법)
+      const traitDamageMultiplier = traitEffects
+        ? (isPhysical ? getPhysicalDamageMultiplier(traitEffects) : getMagicDamageMultiplier(traitEffects))
+        : 1;
 
       // 저항 배율 (물리 공격용)
       let resistanceMultiplier = 1.0;
@@ -309,8 +344,8 @@ export function useAbility(options: UseAbilityOptions = {}) {
           }
         }
 
-        // 배율 적용
-        damage = Math.floor(damage * hitResult.damageMultiplier);
+        // 배율 적용 (판정 배율 + 특성 데미지 배율)
+        damage = Math.floor(damage * hitDamageMultiplier * traitDamageMultiplier);
         const isMinDamage = damage === 1;
         damage = Math.max(1, damage);
 

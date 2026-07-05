@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { useBattleStore } from "@/application/stores";
 import { useThemeStore } from "@/shared/config";
 import type { CharacterStats } from "@/entities/character";
+import type { AggregatedTraitEffects } from "@/entities/trait";
 import type { Proficiencies } from "@/entities/ability";
 import type { Ability } from "@/entities/ability";
 import {
@@ -40,6 +41,8 @@ interface BattlePanelProps {
   userId: string;  // Auth User ID (characterId에서 변경)
   characterStats: CharacterStats;
   proficiencies: Proficiencies | undefined;
+  /** 특성 집계 효과 (전투 데미지 배율/치명타 보너스 라이브 반영) */
+  traitEffects?: AggregatedTraitEffects | null;
   onFlee: () => void;
   onVictory: (drops: DropWithItem[]) => void;
   onDefeat: () => void;
@@ -49,6 +52,7 @@ export function BattlePanel({
   userId,
   characterStats,
   proficiencies,
+  traitEffects,
   onFlee,
   onVictory,
   onDefeat,
@@ -91,6 +95,7 @@ export function BattlePanel({
     proficiencies,
     monsterAbilitiesData,
     passiveBonuses,
+    traitEffects,
   });
 
   // 몬스터 어빌리티 데이터 로드
@@ -390,6 +395,7 @@ function BattleResult({ result, monster, drops = [], skillExpGains = {}, allAbil
   return (
     <div className="text-center py-4 font-mono">
       <div
+        className="animate-banner-pop"
         style={{
           color:
             result === "victory"
@@ -401,8 +407,13 @@ function BattleResult({ result, monster, drops = [], skillExpGains = {}, allAbil
       >
         {result === "victory" && (
           <div>
-            <div className="text-3xl mb-2">🎉</div>
-            <div className="text-xl font-bold">승리!</div>
+            <div className="text-4xl mb-2 animate-result-bounce">🎉</div>
+            <div
+              className="text-2xl font-bold tracking-widest"
+              style={{ textShadow: `0 0 16px ${theme.colors.success}88` }}
+            >
+              승리!
+            </div>
             {monster && (
               <div
                 className="text-sm mt-2"
@@ -470,14 +481,19 @@ function BattleResult({ result, monster, drops = [], skillExpGains = {}, allAbil
         )}
         {result === "defeat" && (
           <div>
-            <div className="text-3xl mb-2">💀</div>
-            <div className="text-xl font-bold">패배...</div>
+            <div className="text-4xl mb-2 animate-result-bounce">💀</div>
+            <div
+              className="text-2xl font-bold tracking-widest"
+              style={{ textShadow: `0 0 16px ${theme.colors.error}88` }}
+            >
+              패배...
+            </div>
           </div>
         )}
         {result === "fled" && (
           <div>
-            <div className="text-3xl mb-2">🏃</div>
-            <div className="text-xl font-bold">도주 성공!</div>
+            <div className="text-4xl mb-2 animate-result-bounce">🏃</div>
+            <div className="text-2xl font-bold tracking-widest">도주 성공!</div>
           </div>
         )}
       </div>

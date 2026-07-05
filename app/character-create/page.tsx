@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import {
+  fetchTraits,
+  getCharacterCreationTraits,
+  grantMultipleTraits,
+  traitKeys,
+} from "@/entities/trait";
 import {
   useAppearanceStore,
   useProfileStore,
@@ -23,6 +30,7 @@ import { UnityProvider } from "@/application/providers";
 
 export default function CharacterCreatePage() {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const { session } = useAuthStore();
   const { characterState } = useAppearanceStore();
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -48,7 +56,34 @@ export default function CharacterCreatePage() {
   } = useProfileStore();
 
   const saveCharacter = useSaveCharacter({
-    onSuccess: () => {
+    onSuccess: async () => {
+      // 생성 시 자동 특성 부여 (스탯/외형 조건 충족 특성).
+      // 캐릭터가 이미 저장된 뒤이므로 characters.traits(JSONB) PATCH가 안전하다.
+      const userId = session?.user?.id;
+      if (userId) {
+        try {
+          const allTraits = await fetchTraits();
+          const finalStats = getFinalStats();
+          const creationTraits = getCharacterCreationTraits(allTraits, {
+            stats: finalStats,
+            appearance: {
+              bodyType: String(bodyType.index),
+              hairColor: characterState?.hairColor,
+              // 좌우 눈 색상을 개별 관리하지 않으므로 오드아이는 이벤트로만 획득
+              leftEyeColor: characterState?.eyeColor,
+              rightEyeColor: characterState?.eyeColor,
+            },
+          });
+          if (creationTraits.length > 0) {
+            await grantMultipleTraits(userId, creationTraits);
+            queryClient.invalidateQueries({ queryKey: traitKeys.character(userId) });
+          }
+        } catch (e) {
+          // 특성 부여 실패는 캐릭터 생성 자체를 막지 않는다 (조용히 로그).
+          console.error("[Trait] 캐릭터 생성 시 특성 부여 실패:", e);
+        }
+      }
+
       toast.success("캐릭터가 생성되었습니다!");
       router.push("/game");
     },

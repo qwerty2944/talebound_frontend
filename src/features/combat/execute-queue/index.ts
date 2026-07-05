@@ -13,6 +13,12 @@ import {
   calculateMonsterAbilityDamage,
 } from "../lib/monsterAi";
 import { applyDamageVariance, calculateStealthAmbushDamage, getCriticalChance, getCriticalMultiplier } from "../lib/damage";
+import type { AggregatedTraitEffects } from "@/entities/trait";
+import {
+  getPhysicalDamageMultiplier,
+  getMagicDamageMultiplier,
+  getCriticalChanceBonus,
+} from "@/entities/trait";
 import { getAttackMessage } from "../lib/messages";
 import { grantSkillExperience } from "../lib/experience";
 import { isStealthed, breakStealth } from "@/entities/status";
@@ -30,6 +36,8 @@ interface UseExecuteQueueOptions {
   monsterAbilitiesData: Map<string, RawMonsterAbility>;
   /** 패시브 어빌리티 보너스 */
   passiveBonuses?: PassiveBonuses;
+  /** 특성 집계 효과 (물리/마법 데미지 배율 + 치명타 보너스) */
+  traitEffects?: AggregatedTraitEffects | null;
   /** 행동 간 딜레이 (ms) */
   actionDelay?: number;
   /** 턴 종료 딜레이 (ms) */
@@ -54,6 +62,7 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
     proficiencies,
     monsterAbilitiesData,
     passiveBonuses,
+    traitEffects,
     actionDelay = 600,
     turnEndDelay = 500,
   } = options;
@@ -66,6 +75,7 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
   const proficienciesRef = useRef(proficiencies);
   const monsterAbilitiesDataRef = useRef(monsterAbilitiesData);
   const passiveBonusesRef = useRef(passiveBonuses);
+  const traitEffectsRef = useRef(traitEffects);
 
   // Update refs when values change
   userIdRef.current = userId;
@@ -73,6 +83,7 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
   proficienciesRef.current = proficiencies;
   monsterAbilitiesDataRef.current = monsterAbilitiesData;
   passiveBonusesRef.current = passiveBonuses;
+  traitEffectsRef.current = traitEffects;
 
   /**
    * 큐 실행 (메인 함수)
@@ -193,9 +204,21 @@ export function useExecuteQueue(options: UseExecuteQueueOptions) {
         // 저항 적용
         rawDamage = rawDamage * resistanceMultiplier;
 
-        // 치명타 판정 (물리: LCK+DEX, 마법: LCK+INT)
+        // 특성 데미지 배율 (물리/마법)
+        const traits = traitEffectsRef.current;
+        if (traits) {
+          const traitDamageMultiplier = isPhysical
+            ? getPhysicalDamageMultiplier(traits)
+            : getMagicDamageMultiplier(traits);
+          rawDamage = rawDamage * traitDamageMultiplier;
+        }
+
+        // 치명타 판정 (물리: LCK+DEX, 마법: LCK+INT) + 특성 치명타 확률 보너스
+        // 명중 보너스(accuracy)는 이 경로에 플레이어 명중 판정(빗맞음/회피)이 없어 적용 대상이 없다.
         const critSecondary = isPhysical ? (stats.dex || 10) : (stats.int || 10);
-        const isCritical = Math.random() * 100 < getCriticalChance(stats.lck || 10, critSecondary);
+        const critChanceBonus = traits ? getCriticalChanceBonus(traits) : 0;
+        const critChance = getCriticalChance(stats.lck || 10, critSecondary) + critChanceBonus;
+        const isCritical = Math.random() * 100 < critChance;
         if (isCritical) {
           rawDamage = rawDamage * getCriticalMultiplier(stats.lck || 10);
         }
