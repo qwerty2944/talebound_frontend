@@ -9,6 +9,8 @@ export type {
   MonstersData,
   MonsterType,
   MonsterTypeInfo,
+  MonsterRank,
+  MonsterRankInfo,
   PhysicalResistance,
   ElementResistance,
   ActionWeights,
@@ -19,7 +21,7 @@ export type {
 export type { MonsterAbility } from "@/entities/ability";
 
 // Constants
-export { MONSTER_TYPE_INFO, DEFAULT_PHYSICAL_RESISTANCE, DEFAULT_ELEMENT_RESISTANCE } from "./types";
+export { MONSTER_TYPE_INFO, MONSTER_RANK_INFO, DEFAULT_PHYSICAL_RESISTANCE, DEFAULT_ELEMENT_RESISTANCE } from "./types";
 
 // API
 export {

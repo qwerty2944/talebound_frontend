@@ -57,6 +57,9 @@ export {
   type DuelState,
 } from "./pvpStore";
 
+// ============ Dungeon ============
+export { useDungeonStore, type DungeonRun } from "./dungeonStore";
+
 // ============ Equipment ============
 export {
   useEquipmentStore,

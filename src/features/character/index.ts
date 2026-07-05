@@ -26,6 +26,9 @@ export {
 // Unity (from application/providers)
 export { useUnityBridge } from "@/application/providers";
 
+// Lib (공용 훅)
+export { usePlayerAppearance } from "./lib/usePlayerAppearance";
+
 // Presets (keep in model)
 export {
   GENDERS,

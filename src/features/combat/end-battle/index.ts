@@ -55,13 +55,15 @@ interface UseEndBattleOptions {
   onVictory?: (rewards: BattleRewards) => void;
   onDefeat?: () => void;
   onFled?: () => void;
+  /** 던전 등 외부에서 서버 정산을 대신 처리하는 경우 승리 시 /api/battle/complete 호출을 건너뛴다 */
+  skipServerSettle?: boolean;
 }
 
 /**
  * 전투 종료 훅
  */
 export function useEndBattle(options: UseEndBattleOptions) {
-  const { userId, onVictory, onDefeat, onFled } = options;
+  const { userId, onVictory, onDefeat, onFled, skipServerSettle } = options;
   const { battle, resetBattle } = useBattleStore();
   const queryClient = useQueryClient();
   const gainProficiency = useGainProficiency(userId);
@@ -143,7 +145,8 @@ export function useEndBattle(options: UseEndBattleOptions) {
 
     try {
       // 1. 서버 권위 보상 정산 (exp/gold/드랍/카르마/레벨업은 서버가 계산·지급)
-      if (userId && currentBattleState.battleToken && currentBattleState.monster) {
+      // 던전 웨이브는 /api/dungeon/advance가 정산을 대신하므로 여기서는 건너뛴다.
+      if (!skipServerSettle && userId && currentBattleState.battleToken && currentBattleState.monster) {
         try {
           const settled = await completeBattleOnServer({
             battleToken: currentBattleState.battleToken,
@@ -238,7 +241,7 @@ export function useEndBattle(options: UseEndBattleOptions) {
     } catch (error) {
       console.error("[Battle] Error processing rewards:", error);
     }
-  }, [processRewards, profile, userId, queryClient, onVictory, resetBattle, recordBattle]);
+  }, [processRewards, profile, userId, queryClient, onVictory, resetBattle, recordBattle, skipServerSettle]);
 
   // 패배 처리
   const handleDefeat = useCallback(async () => {

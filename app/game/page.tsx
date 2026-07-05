@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import toast from "react-hot-toast";
+import { useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "@/features/auth";
 import { useGameStore } from "@/application/stores";
 import { ChatBox, useRealtimeChat } from "@/features/chat";
@@ -11,6 +12,9 @@ import { PlayerList } from "@/entities/player";
 import { MapSelector } from "@/entities/map";
 import { MonsterList } from "@/entities/monster";
 import { NpcList, useNpcsByMap, type Npc } from "@/entities/npc";
+import { questKeys } from "@/entities/quest";
+import { useDungeonsByMap } from "@/entities/dungeon";
+import { useEnterDungeon, useAdvanceWave } from "@/features/dungeon";
 import { InjuryDisplay } from "@/entities/status";
 import {
   useProfile,
@@ -30,7 +34,7 @@ import { useProficiencies } from "@/entities/ability";
 import type { ProficiencyType, CombatProficiencyType } from "@/entities/ability";
 import { GameTimeClock, AtmosphericText, useRealtimeGameTime, getPeriodOverlayStyle } from "@/entities/game-time";
 import { WeatherDisplay } from "@/entities/weather";
-import { useBattleStore, usePvpStore } from "@/application/stores";
+import { useBattleStore, usePvpStore, useDungeonStore } from "@/application/stores";
 import { useStartBattle, useEndBattle } from "@/features/combat";
 import { useRealtimeDuel, DuelRequestModal, DuelBattlePanel } from "@/features/duel";
 import { useDuelAction } from "@/features/pvp";
@@ -60,6 +64,11 @@ const WorldMapModal = dynamic(
 
 const HealerDialog = dynamic(
   () => import("@/entities/npc").then((m) => m.HealerDialog),
+  { ssr: false }
+);
+
+const QuestDialog = dynamic(
+  () => import("@/entities/quest").then((m) => m.QuestDialog),
   { ssr: false }
 );
 
@@ -94,10 +103,18 @@ export default function GamePage() {
   // NPC 조회
   const { data: npcs = [] } = useNpcsByMap(mapId || "starting_village");
 
+  const queryClient = useQueryClient();
+
   // 전투 관련
   const { battle } = useBattleStore();
   const { start: startBattle } = useStartBattle({ userId: session?.user?.id });
   const { data: proficiencies } = useProficiencies(session?.user?.id);
+
+  // 던전 관련
+  const { data: dungeons = [] } = useDungeonsByMap(mapId || "starting_village");
+  const clearRun = useDungeonStore((s) => s.clearRun);
+  const { enter: enterDungeon } = useEnterDungeon();
+  const { advance: advanceWave } = useAdvanceWave(session?.user?.id);
 
   // 맵 이동 (피로도 소모)
   const updateLocation = useUpdateLocation();
@@ -322,6 +339,10 @@ export default function GamePage() {
     userId: session?.user?.id,
     onVictory: (rewards) => {
       console.log("[Battle] Victory! Rewards:", rewards);
+      // 전투 승리 시 퀘스트 kill 진행도가 서버에서 갱신됨 → 목록 무효화
+      if (session?.user?.id) {
+        queryClient.invalidateQueries({ queryKey: questKeys.list(session.user.id) });
+      }
     },
     onDefeat: () => {
       console.log("[Battle] Defeat...");
@@ -354,20 +375,44 @@ export default function GamePage() {
     [profile, battle.isInBattle, startBattle, mainCharacter]
   );
 
-  // 전투 승리 - endBattle이 보상 지급 처리 (드랍 아이템 전달)
+  // 전투 승리 - 던전 런 중이면 웨이브 진행(서버 정산), 아니면 일반 endBattle
   const handleVictory = useCallback((drops: { itemId: string; quantity: number }[]) => {
-    endBattle(drops);
-  }, [endBattle]);
+    if (useDungeonStore.getState().activeRun) {
+      advanceWave();
+    } else {
+      endBattle(drops);
+    }
+  }, [endBattle, advanceWave]);
 
-  // 전투 패배
+  // 전투 패배 - 던전 런은 폐기하고 일반 패배 처리(HP=1, 귀환)
   const handleDefeat = useCallback(() => {
+    if (useDungeonStore.getState().activeRun) clearRun();
     endBattle();
-  }, [endBattle]);
+  }, [endBattle, clearRun]);
 
-  // 도주
+  // 도주 - 던전 런은 폐기
   const handleFlee = useCallback(() => {
+    if (useDungeonStore.getState().activeRun) clearRun();
     endBattle();
-  }, [endBattle]);
+  }, [endBattle, clearRun]);
+
+  // 던전 입장
+  const handleEnterDungeon = useCallback(
+    (dungeonId: string) => {
+      if (!profile || battle.isInBattle) return;
+      const dungeon = dungeons.find((d) => d.id === dungeonId);
+      if (!dungeon) return;
+      const baseCon = mainCharacter?.stats?.con ?? 10;
+      const maxHp = 50 + baseCon * 5 + profile.level * 10;
+      const baseInt = mainCharacter?.stats?.int ?? 10;
+      const baseWis = mainCharacter?.stats?.wis ?? 10;
+      const maxMp = 20 + baseWis * 3 + baseInt;
+      const playerHp = profile.currentHp ?? maxHp;
+      const playerMp = profile.currentMp ?? maxMp;
+      enterDungeon(dungeon, { playerHp, playerMaxHp: maxHp, playerMp, playerMaxMp: maxMp });
+    },
+    [profile, battle.isInBattle, dungeons, mainCharacter, enterDungeon]
+  );
 
   // NPC 선택 핸들러
   const handleSelectNpc = useCallback(
@@ -600,6 +645,44 @@ export default function GamePage() {
             />
           </CollapsibleSection>
 
+          {/* 던전 (입장 가능한 맵에서만) */}
+          {dungeons.length > 0 && (
+            <CollapsibleSection id="sidebar_dungeons" title="던전" icon="🏛️" defaultOpen={true}>
+              <div className="flex flex-col gap-2">
+                {dungeons.map((d) => {
+                  const levelOk = profile.level >= d.minLevel;
+                  const disabled = battle.isInBattle || !levelOk;
+                  return (
+                    <button
+                      key={d.id}
+                      onClick={() => handleEnterDungeon(d.id)}
+                      disabled={disabled}
+                      className="w-full px-3 py-2 text-left text-xs font-mono transition-colors"
+                      style={{
+                        background: theme.colors.bgDark,
+                        border: `1px solid ${theme.colors.border}`,
+                        color: disabled ? theme.colors.textMuted : theme.colors.text,
+                        cursor: disabled ? "not-allowed" : "pointer",
+                        opacity: disabled ? 0.6 : 1,
+                      }}
+                      title={d.descriptionKo}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>{d.icon} {d.nameKo}</span>
+                        <span style={{ color: theme.colors.warning }}>
+                          {levelOk ? `${d.waves.length}웨이브` : `🔒 Lv.${d.minLevel}`}
+                        </span>
+                      </div>
+                      <div style={{ color: theme.colors.textMuted }}>
+                        피로도 {d.fatigueCost}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </CollapsibleSection>
+          )}
+
           {/* 이동 */}
           <CollapsibleSection id="sidebar_travel" title="이동" icon="🚶" defaultOpen={true}>
             <MapSelector
@@ -655,6 +738,17 @@ export default function GamePage() {
           injuries={profile.injuries}
           playerGold={profile.gold}
           userId={session.user.id}
+          onClose={() => setSelectedNpc(null)}
+        />
+      )}
+
+      {/* 퀘스트 NPC 다이얼로그 */}
+      {selectedNpc && selectedNpc.type === "quest" && (
+        <QuestDialog
+          npc={selectedNpc}
+          userId={session.user.id}
+          playerLevel={profile.level}
+          currentMapId={mapId || "starting_village"}
           onClose={() => setSelectedNpc(null)}
         />
       )}

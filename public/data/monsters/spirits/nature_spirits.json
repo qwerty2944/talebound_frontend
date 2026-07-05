@@ -367,8 +367,8 @@
         }
       },
       "rewards": {
-        "exp": 300,
-        "gold": 100
+        "exp": 600,
+        "gold": 300
       },
       "drops": [
         {
@@ -413,27 +413,22 @@
         }
       ],
       "behavior": "territorial",
+      "maxAp": 13,
+      "actionWeights": {
+        "basicAttack": 15,
+        "specialSkill": 85,
+        "borrowedAbility": 0
+      },
       "abilities": [
         {
-          "id": "nature_wrath",
-          "nameKo": "자연의 분노",
-          "nameEn": "Nature's Wrath",
-          "description": "대지의 힘으로 광역 피해",
-          "cooldown": 4
+          "abilityId": "natures_wrath",
+          "level": 1,
+          "weight": 55
         },
         {
-          "id": "regeneration",
-          "nameKo": "재생",
-          "nameEn": "Regeneration",
-          "description": "매 턴 HP 20 회복",
-          "passive": true
-        },
-        {
-          "id": "summon_treants",
-          "nameKo": "트렌트 소환",
-          "nameEn": "Summon Treants",
-          "description": "HP 50% 이하 시 어린 트렌트 2마리 소환",
-          "trigger": "hp_below_50"
+          "abilityId": "entangling_roots",
+          "level": 1,
+          "weight": 45
         }
       ],
       "bossSchedule": "daily_noon",

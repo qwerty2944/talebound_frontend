@@ -743,19 +743,24 @@ export const useBattleStore = create<BattleStore>((set, get) => ({
     const { battle } = get();
     if (!battle.isInBattle || battle.result !== "ongoing") return false;
 
-    // 기본 도주 확률 50%
-    let fleeChance = 0.5;
+    // 보스전은 고정 25% (지역 지배자에게서 쉽게 도망칠 수 없음)
+    const isBoss = battle.monster?.rank === "boss";
 
-    // 은신 보너스 +30%
-    if (isStealthed(battle.playerBuffs)) {
-      fleeChance += 0.3;
+    // 기본 도주 확률 50% (보스는 25%)
+    let fleeChance = isBoss ? 0.25 : 0.5;
+
+    if (!isBoss) {
+      // 은신 보너스 +30%
+      if (isStealthed(battle.playerBuffs)) {
+        fleeChance += 0.3;
+      }
+
+      // 연속 빗나감 보너스 (빗나감당 +5%, 최대 +25%)
+      fleeChance += Math.min(0.25, battle.consecutiveMisses * 0.05);
+
+      // 최대 90%
+      fleeChance = Math.min(0.9, fleeChance);
     }
-
-    // 연속 빗나감 보너스 (빗나감당 +5%, 최대 +25%)
-    fleeChance += Math.min(0.25, battle.consecutiveMisses * 0.05);
-
-    // 최대 90%
-    fleeChance = Math.min(0.9, fleeChance);
 
     const success = Math.random() < fleeChance;
 

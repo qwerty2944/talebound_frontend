@@ -392,8 +392,8 @@
         }
       },
       "rewards": {
-        "exp": 109,
-        "gold": 30
+        "exp": 300,
+        "gold": 150
       },
       "drops": [
         {
@@ -430,20 +430,25 @@
         }
       ],
       "behavior": "territorial",
+      "maxAp": 13,
+      "actionWeights": {
+        "basicAttack": 20,
+        "specialSkill": 80,
+        "borrowedAbility": 0
+      },
       "abilities": [
         {
-          "id": "split",
-          "nameKo": "분열",
-          "nameEn": "Split",
-          "description": "HP가 50% 이하가 되면 작은 슬라임 2마리로 분열한다.",
-          "trigger": "hp_below_50"
+          "abilityId": "slime_smash",
+          "level": 1,
+          "weight": 50
         },
         {
-          "id": "absorb",
-          "nameKo": "흡수",
-          "nameEn": "Absorb",
-          "description": "주변의 작은 슬라임을 흡수하여 체력을 회복한다.",
-          "cooldown": 5
+          "abilityId": "corrosive_spray",
+          "level": 1,
+          "weight": 50,
+          "condition": {
+            "hpBelow": 50
+          }
         }
       ],
       "bossSchedule": "daily_noon",

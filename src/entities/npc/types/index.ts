@@ -27,6 +27,10 @@ export interface NpcDialogues {
   healSuccess?: string;
   notEnoughGold?: string;
   farewell?: string;
+  // 퀘스트 NPC용
+  questAvailable?: string;
+  questComplete?: string;
+  noQuest?: string;
 }
 
 // ============ NPC 인터페이스 ============
