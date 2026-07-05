@@ -40,7 +40,7 @@ import {
 import type { Trait } from "@/entities/trait";
 import type { ProficiencyType, CombatProficiencyType } from "@/entities/ability";
 import { GameTimeClock, AtmosphericText, useRealtimeGameTime, getPeriodOverlayStyle } from "@/entities/game-time";
-import { WeatherDisplay } from "@/entities/weather";
+import { WeatherDisplay, useRealtimeWeather, getWeatherOverlayStyle } from "@/entities/weather";
 import { useBattleStore, usePvpStore, useDungeonStore } from "@/application/stores";
 import { useStartBattle, useEndBattle } from "@/features/combat";
 import { useRealtimeDuel, DuelRequestModal, DuelBattlePanel } from "@/features/duel";
@@ -133,6 +133,10 @@ export default function GamePage() {
   // 시간대별 명도 오버레이
   const { gameTime } = useRealtimeGameTime();
   const periodOverlay = getPeriodOverlayStyle(gameTime?.period || "day");
+
+  // 날씨 배경 틴트 오버레이
+  const { weather } = useRealtimeWeather();
+  const weatherOverlay = getWeatherOverlayStyle(weather?.currentWeather || "sunny");
 
   // 결투 거절 알림 표시
   useEffect(() => {
@@ -829,6 +833,16 @@ export default function GamePage() {
           onDone={() => setLevelUpBanner(null)}
         />
       )}
+
+      {/* 날씨 배경 틴트 오버레이 (시간대 오버레이 아래) */}
+      <div
+        className="fixed inset-0 pointer-events-none transition-all duration-1000"
+        style={{
+          background: weatherOverlay.background,
+          opacity: weatherOverlay.opacity,
+          zIndex: 9,
+        }}
+      />
 
       {/* 시간대별 명도 오버레이 */}
       <div
