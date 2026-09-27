@@ -1,5 +1,6 @@
 "use client";
 
+import { getEquippedItemRaceRestriction } from "@/shared/lib/character/catalog";
 import toast from "react-hot-toast";
 import { InventoryGrid } from "@/entities/inventory";
 import { useProfile } from "@/entities/user";
@@ -51,6 +52,10 @@ export function InventoryTab({ theme, inventoryItems, allItems, inventoryMaxSlot
         useConsumable.mutate({ slot: slot.slot, item, profile });
       }}
       onEquipItem={(_slot, item) => {
+        const raceId = profile?.appearance?.raceId ?? profile?.character?.race ?? null;
+        const restriction = getEquippedItemRaceRestriction(item.id, raceId);
+        if (restriction) { toast.error(restriction); return; }
+        equipmentStore.setRaceContext(raceId);
         // 레벨 요구치 체크
         const reqLevel = getEquipRequiredLevel(item);
         if ((profile?.level ?? 1) < reqLevel) {

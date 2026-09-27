@@ -8,7 +8,7 @@
       "id": "leather_cap",
       "nameKo": "루비 티아라",
       "nameEn": "Ruby Tiara",
-      "description": "가죽으로 만든 기본 모자.",
+      "description": "루비 티아라. 머리에 착용하는 장비.",
       "rarity": "crude",
       "value": 20,
       "weight": 0.5,
@@ -25,7 +25,7 @@
       "id": "iron_helmet",
       "nameKo": "사슴뿔 머리장식",
       "nameEn": "Antler Headdress",
-      "description": "철로 만든 기본 투구.",
+      "description": "사슴뿔 머리장식. 머리에 착용하는 장비.",
       "rarity": "common",
       "value": 80,
       "weight": 2,
@@ -43,7 +43,7 @@
       "id": "steel_helmet",
       "nameKo": "홍옥 날개 투구",
       "nameEn": "Ruby Winged Helm",
-      "description": "단단한 강철 투구.",
+      "description": "홍옥 날개 투구. 엘프의 긴 귀를 위한 옆면 절개가 있는 머리 장비. 엘프 종족만 착용할 수 있다.",
       "rarity": "grand",
       "value": 250,
       "weight": 2.5,
@@ -53,7 +53,10 @@
       },
       "requirements": {
         "level": 5,
-        "con": 8
+        "con": 8,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_11"
     },
@@ -61,7 +64,7 @@
       "id": "knight_helmet",
       "nameKo": "황금 테 은빛 투구",
       "nameEn": "Gold-Banded Silver Helm",
-      "description": "왕국 기사단의 투구.",
+      "description": "황금 테 은빛 투구. 엘프의 긴 귀를 위한 옆면 절개가 있는 머리 장비. 엘프 종족만 착용할 수 있다.",
       "rarity": "rare",
       "value": 600,
       "weight": 3,
@@ -73,7 +76,10 @@
       "requirements": {
         "level": 12,
         "str": 8,
-        "con": 10
+        "con": 10,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_16"
     },
@@ -81,7 +87,7 @@
       "id": "wizard_hat",
       "nameKo": "뿔 달린 강철 투구",
       "nameEn": "Horned Steel Helmet",
-      "description": "마법사가 쓰는 뾰족한 모자.",
+      "description": "뿔 달린 강철 투구. 머리에 착용하는 장비.",
       "rarity": "rare",
       "value": 550,
       "weight": 0.3,
@@ -102,7 +108,7 @@
       "id": "elven_circlet",
       "nameKo": "밀짚모자",
       "nameEn": "Straw Hat",
-      "description": "엘프 귀족이 쓰는 우아한 관.",
+      "description": "밀짚모자. 머리에 착용하는 장비.",
       "rarity": "arcane",
       "value": 1500,
       "weight": 0.2,
@@ -123,7 +129,7 @@
       "id": "dragon_helm",
       "nameKo": "드래곤 투구",
       "nameEn": "Dragon Helm",
-      "description": "드래곤의 머리를 본뜬 투구.",
+      "description": "드래곤 투구. 머리에 착용하는 장비.",
       "rarity": "heroic",
       "value": 4000,
       "weight": 3.5,
@@ -147,7 +153,7 @@
       "id": "crown_of_wisdom",
       "nameKo": "초록 리본 머리장식",
       "nameEn": "Green Ribbon Hairpiece",
-      "description": "고대 현자가 착용했던 왕관.",
+      "description": "초록 리본 머리장식. 머리에 착용하는 장비.",
       "rarity": "unique",
       "value": 12000,
       "weight": 0.5,
@@ -169,7 +175,7 @@
       "id": "legendary_helmet",
       "nameKo": "진분홍 리본 머리장식",
       "nameEn": "Magenta Ribbon Hairpiece",
-      "description": "모든 공격을 막아낸다는 전설의 투구.",
+      "description": "진분홍 리본 머리장식. 머리에 착용하는 장비.",
       "rarity": "legendary",
       "value": 60000,
       "weight": 2.5,
@@ -216,7 +222,10 @@
         "defense": 8
       },
       "requirements": {
-        "level": 5
+        "level": 5,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_03"
     },
@@ -250,7 +259,10 @@
         "defense": 8
       },
       "requirements": {
-        "level": 5
+        "level": 5,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_05"
     },
@@ -267,7 +279,10 @@
         "defense": 7
       },
       "requirements": {
-        "level": 3
+        "level": 3,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_07"
     },
@@ -301,7 +316,10 @@
         "defense": 7
       },
       "requirements": {
-        "level": 3
+        "level": 3,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_09"
     },
@@ -324,8 +342,8 @@
     },
     {
       "id": "red_maned_helm",
-      "nameKo": "붉은 갈기 투구",
-      "nameEn": "Red-Maned Helm",
+      "nameKo": "금테 붉은 머리장식",
+      "nameEn": "Gold-Banded Red Hair Ornament",
       "description": "붉은 갈기 투구. 머리 장비 장비.",
       "rarity": "rare",
       "value": 320,
@@ -341,8 +359,8 @@
     },
     {
       "id": "ruby_crest_helm",
-      "nameKo": "홍옥 문장 투구",
-      "nameEn": "Ruby Crest Helm",
+      "nameKo": "홍옥 문장 머리띠",
+      "nameEn": "Ruby-Crest Headband",
       "description": "홍옥 문장 투구. 머리 장비 장비.",
       "rarity": "rare",
       "value": 320,
@@ -403,7 +421,10 @@
         "defense": 10
       },
       "requirements": {
-        "level": 8
+        "level": 8,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_17"
     },
@@ -420,7 +441,10 @@
         "defense": 8
       },
       "requirements": {
-        "level": 5
+        "level": 5,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_18"
     },
@@ -437,7 +461,10 @@
         "defense": 8
       },
       "requirements": {
-        "level": 5
+        "level": 5,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_19"
     },
@@ -454,7 +481,10 @@
         "defense": 7
       },
       "requirements": {
-        "level": 3
+        "level": 3,
+        "raceCategories": [
+          "elf"
+        ]
       },
       "spriteId": "elf_helmet_20"
     },

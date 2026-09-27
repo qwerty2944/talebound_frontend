@@ -1,13 +1,13 @@
 "use client";
 
 import { createContext, useEffect, useRef, ReactNode, useState, useCallback, useMemo } from "react";
+import { DEFAULT_BODY_INDEX } from "@/shared/lib/character/catalog";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { useAppearanceStore, type SpriteNames } from "@/application/stores";
 
 const UNITY_OBJECT_NAME = "SPUM_20260103203421028";
 
 // 기본값 상수
-const DEFAULT_BODY_INDEX = 11; // 12번째 종족 (human_1), 0-indexed
 const DEFAULT_BROWN_COLOR = "6B4226"; // 갈색 (눈, 머리, 수염)
 
 // Unity 설정을 컴포넌트 외부에서 상수로 정의 (React 19 호환성)
@@ -45,6 +45,7 @@ export const UnityCtx = createContext<UnityContextValue | null>(null);
 
 export function UnityProviderInner({ children }: { children: ReactNode }) {
   const {
+    spriteCounts,
     setUnityLoaded,
     setSendMessage,
     setSpriteCounts,
@@ -91,42 +92,30 @@ export function UnityProviderInner({ children }: { children: ReactNode }) {
     webglContextAttributes: WEBGL_CONTEXT_ATTRIBUTES,
   }), []);
 
-  const { unityProvider, sendMessage, isLoaded, loadingProgression } = useUnityContext(unityConfig);
+  const { unityProvider, sendMessage, isLoaded, loadingProgression, UNSAFE__unityInstance: unityInstance } = useUnityContext(unityConfig);
 
-  // Unity 로드 상태 동기화
+  // Initialize before enabling controls. The first user-triggered state event must
+  // never reset their selected race back to the default human body.
   useEffect(() => {
-    if (isLoaded) {
-      setUnityLoaded(true);
-      setSendMessage(sendMessage, UNITY_OBJECT_NAME);
+    if (!isLoaded || !unityInstance || !spriteCounts) return;
+    setSendMessage(sendMessage, UNITY_OBJECT_NAME);
+    if (!isInitialized.current) {
+      isInitialized.current = true;
+      const body = useAppearanceStore.getState().pendingBodyIndex ?? DEFAULT_BODY_INDEX;
+      sendMessage(UNITY_OBJECT_NAME, "JS_SetBody", String(body));
+      sendMessage(UNITY_OBJECT_NAME, "JS_SetLeftEyeColor", DEFAULT_BROWN_COLOR);
+      sendMessage(UNITY_OBJECT_NAME, "JS_SetRightEyeColor", DEFAULT_BROWN_COLOR);
+      sendMessage(UNITY_OBJECT_NAME, "JS_SetHairColor", DEFAULT_BROWN_COLOR);
+      sendMessage(UNITY_OBJECT_NAME, "JS_SetFacehairColor", DEFAULT_BROWN_COLOR);
     }
-  }, [isLoaded, sendMessage, setUnityLoaded, setSendMessage]);
+    setUnityLoaded(true);
+  }, [isLoaded, unityInstance, spriteCounts, sendMessage, setUnityLoaded, setSendMessage]);
+
+  useEffect(() => () => { setUnityLoaded(false); }, [setUnityLoaded]);
 
   // Unity 이벤트 리스너
   useEffect(() => {
-    const handleCharacterChanged = (e: CustomEvent) => {
-      const state = e.detail;
-
-      // 첫 번째 캐릭터 상태 수신 시 기본값 강제 적용
-      if (!isInitialized.current) {
-        isInitialized.current = true;
-
-        // bodyIndex를 12번(인덱스 11)으로 강제 변경
-        const modifiedState = {
-          ...state,
-          bodyIndex: DEFAULT_BODY_INDEX,
-        };
-        setCharacterState(modifiedState);
-
-        // Unity에도 기본값 설정
-        sendMessage(UNITY_OBJECT_NAME, "JS_SetBody", DEFAULT_BODY_INDEX.toString());
-        sendMessage(UNITY_OBJECT_NAME, "JS_SetLeftEyeColor", DEFAULT_BROWN_COLOR);
-        sendMessage(UNITY_OBJECT_NAME, "JS_SetRightEyeColor", DEFAULT_BROWN_COLOR);
-        sendMessage(UNITY_OBJECT_NAME, "JS_SetHairColor", DEFAULT_BROWN_COLOR);
-        sendMessage(UNITY_OBJECT_NAME, "JS_SetFacehairColor", DEFAULT_BROWN_COLOR);
-      } else {
-        setCharacterState(state);
-      }
-    };
+    const handleCharacterChanged = (e: CustomEvent) => setCharacterState(e.detail);
 
     const handleSpritesLoaded = async (e: CustomEvent) => {
       const unityData = e.detail;

@@ -2,6 +2,8 @@
 
 import { createContext, useContext, useState, type ReactNode } from "react";
 import type { CharacterPanelHooks, PartType, WeaponPartType, HandType } from "../types";
+import { NamedPartSelect } from "@/shared/ui/NamedPartSelect";
+import { useThemeStore } from "@/application/stores/themeStore";
 import { useAppearanceStore } from "@/application/stores";
 
 // 훅 주입을 위한 컨텍스트
@@ -113,7 +115,8 @@ const UNSET_COLOR_STYLE = {
 
 function PartSelector({ type }: { type: PartType }) {
   const { usePart } = useHooks();
-  const { label, current, total, name, hasColor, isRequired, next, prev, clear, setColor } = usePart(type);
+  const { label, current, total, options, ready, select, hasColor, isRequired, next, prev, clear, setColor } = usePart(type);
+  const { theme } = useThemeStore();
   const { setLeftEyeColor, setRightEyeColor } = useAppearanceStore();
 
   const [showColorPicker, setShowColorPicker] = useState(false);
@@ -137,7 +140,7 @@ function PartSelector({ type }: { type: PartType }) {
       {/* 첫 줄: 라벨 + 네비게이션 */}
       <div className="flex items-center justify-between text-sm">
         <div className="flex items-center gap-1">
-          <span className="w-10 text-gray-400 text-xs">{label}</span>
+          <span className="min-w-16 whitespace-nowrap text-gray-400 text-xs">{label}</span>
           {/* 눈: 왼쪽/오른쪽 분리 색상 버튼 */}
           {isEye && (
             <>
@@ -180,18 +183,17 @@ function PartSelector({ type }: { type: PartType }) {
           )}
         </div>
         <div className="flex items-center gap-1">
-          <button onClick={prev} className="btn-icon text-xs">&lt;</button>
+          <button onClick={prev} aria-label={`${label} 이전`} disabled={!ready} className="btn-icon text-xs">&lt;</button>
           <span className="w-14 text-center text-xs">
             {displayIndex}/{total}
           </span>
-          <button onClick={next} className="btn-icon text-xs">&gt;</button>
+          <button onClick={next} aria-label={`${label} 다음`} disabled={!ready} className="btn-icon text-xs">&gt;</button>
         </div>
       </div>
 
-      {/* 둘째 줄: 파일명 */}
-      <div className="text-xs text-gray-500 truncate pl-1" title={name}>
-        {isEmpty ? "(없음)" : (name || "-")}
-      </div>
+      <NamedPartSelect label={label} value={current} options={options} onChange={select}
+        required={isRequired} disabled={!ready}
+        style={{ background: theme.colors.bg, color: theme.colors.text, borderColor: theme.colors.border }} />
 
       {/* 눈 색상 피커 (좌우 분리) */}
       {showColorPicker && isEye && (
@@ -377,10 +379,17 @@ function WeaponSelector({ type }: { type: WeaponPartType }) {
 }
 
 function HandWeaponSelector({ hand }: { hand: HandType }) {
-  const { useHandWeapon, weaponPartTypes } = useHooks();
-  if (!useHandWeapon) return null;
+  const { useHandWeapon } = useHooks();
+  return useHandWeapon ? <HandWeaponControls hand={hand} useHandWeapon={useHandWeapon} /> : null;
+}
 
-  const { weaponType, index, total, name, setWeaponType, next, prev, clear } = useHandWeapon(hand);
+function HandWeaponControls({ hand, useHandWeapon }: {
+  hand: HandType; useHandWeapon: NonNullable<CharacterPanelHooks["useHandWeapon"]>;
+}) {
+  const { theme } = useThemeStore();
+  const { weaponPartTypes } = useHooks();
+
+  const { weaponType, index, total, options, ready, select, setWeaponType, next, prev, clear } = useHandWeapon(hand);
 
   const handLabel = hand === "left" ? "🤚 왼손" : "✋ 오른손";
   const weaponLabels: Record<WeaponPartType, string> = {
@@ -401,6 +410,8 @@ function HandWeaponSelector({ hand }: { hand: HandType }) {
       <div className="flex items-center justify-between">
         <span className="text-sm font-medium text-gray-300">{handLabel}</span>
         <select
+          aria-label={`${hand === "left" ? "왼손" : "오른손"} 무기 종류`}
+          disabled={!ready}
           value={weaponType ?? ""}
           onChange={(e) => setWeaponType(e.target.value ? (e.target.value as WeaponPartType) : null)}
           className="bg-gray-800 text-sm rounded px-2 py-1 border border-gray-600"
@@ -414,7 +425,10 @@ function HandWeaponSelector({ hand }: { hand: HandType }) {
         </select>
       </div>
 
-      {/* 무기 선택 시 인덱스 네비게이션 + 파일명 */}
+      {weaponType && <NamedPartSelect label={`${hand === "left" ? "왼손" : "오른손"} 무기`}
+        value={index} options={options} onChange={select} disabled={!ready}
+        style={{ background: theme.colors.bg, color: theme.colors.text, borderColor: theme.colors.border }} />}
+      {/* 무기 순환 선택 */}
       {weaponType && (
         <div className="flex items-center justify-between text-sm">
           <div className="flex items-center gap-1">
@@ -432,9 +446,7 @@ function HandWeaponSelector({ hand }: { hand: HandType }) {
             </span>
             <button onClick={next} className="btn-icon">&gt;</button>
           </div>
-          <span className="text-xs text-gray-400 truncate max-w-[120px]" title={name}>
-            {isEmpty ? "(없음)" : (name || "-")}
-          </span>
+
         </div>
       )}
     </div>

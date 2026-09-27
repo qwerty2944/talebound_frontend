@@ -1,0 +1,2490 @@
+{
+  "body": [
+    {
+      "sprite": "New_Elf_1",
+      "name": "신규 엘프 1"
+    },
+    {
+      "sprite": "New_Elf_2",
+      "name": "신규 엘프 2"
+    },
+    {
+      "sprite": "Zombie_1",
+      "name": "좀비 1"
+    },
+    {
+      "sprite": "Zombie_2",
+      "name": "좀비 2"
+    },
+    {
+      "sprite": "Zombie_3",
+      "name": "좀비 3"
+    },
+    {
+      "sprite": "Zombie_4",
+      "name": "좀비 4"
+    },
+    {
+      "sprite": "Zombie_5",
+      "name": "좀비 5"
+    },
+    {
+      "sprite": "Zombie_6",
+      "name": "좀비 6"
+    },
+    {
+      "sprite": "Devil_1",
+      "name": "악마 1"
+    },
+    {
+      "sprite": "Elf_1",
+      "name": "엘프 1"
+    },
+    {
+      "sprite": "Elf_2",
+      "name": "엘프 2"
+    },
+    {
+      "sprite": "Human_1",
+      "name": "인간 1"
+    },
+    {
+      "sprite": "Human_2",
+      "name": "인간 2"
+    },
+    {
+      "sprite": "Human_3",
+      "name": "인간 3"
+    },
+    {
+      "sprite": "Human_4",
+      "name": "인간 4"
+    },
+    {
+      "sprite": "Human_5",
+      "name": "인간 5"
+    },
+    {
+      "sprite": "Orc_1",
+      "name": "오크 1"
+    },
+    {
+      "sprite": "Orc_2",
+      "name": "오크 2"
+    },
+    {
+      "sprite": "Orc_3",
+      "name": "오크 3"
+    },
+    {
+      "sprite": "Orc_4",
+      "name": "오크 4"
+    },
+    {
+      "sprite": "Skelton_1",
+      "name": "스켈레톤 1"
+    }
+  ],
+  "eye": [
+    {
+      "sprite": "Eye",
+      "name": "눈"
+    },
+    {
+      "sprite": "Eye0",
+      "name": "눈 0"
+    },
+    {
+      "sprite": "Eye1",
+      "name": "눈 1"
+    },
+    {
+      "sprite": "Eye10",
+      "name": "눈 10"
+    },
+    {
+      "sprite": "Eye11",
+      "name": "눈 11"
+    },
+    {
+      "sprite": "Eye16",
+      "name": "눈 16"
+    },
+    {
+      "sprite": "Eye2",
+      "name": "눈 2"
+    },
+    {
+      "sprite": "Eye3",
+      "name": "눈 3"
+    },
+    {
+      "sprite": "Eye4",
+      "name": "눈 4"
+    },
+    {
+      "sprite": "Eye5",
+      "name": "눈 5"
+    },
+    {
+      "sprite": "Eye6",
+      "name": "눈 6"
+    },
+    {
+      "sprite": "Eye7",
+      "name": "눈 7"
+    },
+    {
+      "sprite": "Eye8",
+      "name": "눈 8"
+    },
+    {
+      "sprite": "Eye9",
+      "name": "눈 9"
+    },
+    {
+      "sprite": "Eye_Close",
+      "name": "감은 눈"
+    }
+  ],
+  "hair": [
+    {
+      "sprite": "Elf_Hair_01",
+      "name": "엘프 머리 01"
+    },
+    {
+      "sprite": "Elf_Hair_02",
+      "name": "엘프 머리 02"
+    },
+    {
+      "sprite": "Elf_Hair_03",
+      "name": "엘프 머리 03"
+    },
+    {
+      "sprite": "Elf_Hair_04",
+      "name": "엘프 머리 04"
+    },
+    {
+      "sprite": "Elf_Hair_05",
+      "name": "엘프 머리 05"
+    },
+    {
+      "sprite": "Elf_Hair_06",
+      "name": "엘프 머리 06"
+    },
+    {
+      "sprite": "Elf_Hair_07",
+      "name": "엘프 머리 07"
+    },
+    {
+      "sprite": "Orc_Hair_01",
+      "name": "오크 머리 01"
+    },
+    {
+      "sprite": "Orc_Hair_02",
+      "name": "오크 머리 02"
+    },
+    {
+      "sprite": "Orc_Hair_03",
+      "name": "오크 머리 03"
+    },
+    {
+      "sprite": "Hair_m01",
+      "name": "머리 01"
+    },
+    {
+      "sprite": "Hair_m02",
+      "name": "머리 02"
+    },
+    {
+      "sprite": "Hair_m03",
+      "name": "머리 03"
+    },
+    {
+      "sprite": "Hair_m04",
+      "name": "머리 04"
+    },
+    {
+      "sprite": "Hair_m05",
+      "name": "머리 05"
+    },
+    {
+      "sprite": "Hair_m06",
+      "name": "머리 06"
+    },
+    {
+      "sprite": "Hair_m07",
+      "name": "머리 07"
+    },
+    {
+      "sprite": "Hair_m08",
+      "name": "머리 08"
+    },
+    {
+      "sprite": "Hair_m09",
+      "name": "머리 09"
+    },
+    {
+      "sprite": "Hair_m10",
+      "name": "머리 10"
+    },
+    {
+      "sprite": "Hair_m11",
+      "name": "머리 11"
+    },
+    {
+      "sprite": "Hair_m12",
+      "name": "머리 12"
+    },
+    {
+      "sprite": "Hair_m13",
+      "name": "머리 13"
+    },
+    {
+      "sprite": "Hair_Archer_1",
+      "name": "Hair 궁수 1"
+    },
+    {
+      "sprite": "Hair_Arhcer_2",
+      "name": "머리 Arhcer 2"
+    },
+    {
+      "sprite": "Hair_Healer_1",
+      "name": "Hair 힐러 1"
+    },
+    {
+      "sprite": "Hair_Healer_2",
+      "name": "Hair 힐러 2"
+    },
+    {
+      "sprite": "Hair_Knight_1",
+      "name": "Hair 기사 1"
+    },
+    {
+      "sprite": "Hair_Knight_2",
+      "name": "Hair 기사 2"
+    },
+    {
+      "sprite": "Hair_Rogue_1",
+      "name": "Hair 도적 1"
+    },
+    {
+      "sprite": "Hair_Rogue_2",
+      "name": "Hair 도적 2"
+    },
+    {
+      "sprite": "Hair_Sorcerer",
+      "name": "머리 Sorcerer"
+    },
+    {
+      "sprite": "Hair_Sorceress",
+      "name": "머리 Sorceress"
+    },
+    {
+      "sprite": "Hair_1",
+      "name": "머리 1"
+    },
+    {
+      "sprite": "Hair_2",
+      "name": "머리 2"
+    },
+    {
+      "sprite": "Hair_3",
+      "name": "머리 3"
+    },
+    {
+      "sprite": "Hair_4",
+      "name": "머리 4"
+    },
+    {
+      "sprite": "Hair_5",
+      "name": "머리 5"
+    },
+    {
+      "sprite": "Hair_6",
+      "name": "머리 6"
+    },
+    {
+      "sprite": "Hair_7",
+      "name": "머리 7"
+    },
+    {
+      "sprite": "Hair_8",
+      "name": "머리 8"
+    },
+    {
+      "sprite": "Hair_9",
+      "name": "머리 9"
+    },
+    {
+      "sprite": "Normal_Hair1",
+      "name": "일반 Hair1"
+    },
+    {
+      "sprite": "Normal_Hair10",
+      "name": "일반 Hair10"
+    },
+    {
+      "sprite": "Normal_Hair11",
+      "name": "일반 Hair11"
+    },
+    {
+      "sprite": "Normal_Hair12",
+      "name": "일반 Hair12"
+    },
+    {
+      "sprite": "Normal_Hair13",
+      "name": "일반 Hair13"
+    },
+    {
+      "sprite": "Normal_Hair2",
+      "name": "일반 Hair2"
+    },
+    {
+      "sprite": "Normal_Hair3",
+      "name": "일반 Hair3"
+    },
+    {
+      "sprite": "Normal_Hair4",
+      "name": "일반 Hair4"
+    },
+    {
+      "sprite": "Normal_Hair5",
+      "name": "일반 Hair5"
+    },
+    {
+      "sprite": "Normal_Hair6",
+      "name": "일반 Hair6"
+    },
+    {
+      "sprite": "Normal_Hair7",
+      "name": "일반 Hair7"
+    },
+    {
+      "sprite": "Normal_Hair8",
+      "name": "일반 Hair8"
+    },
+    {
+      "sprite": "Normal_Hair9",
+      "name": "일반 Hair9"
+    },
+    {
+      "sprite": "New_Hair_01",
+      "name": "신규 머리 01"
+    },
+    {
+      "sprite": "New_Hair_02",
+      "name": "신규 머리 02"
+    },
+    {
+      "sprite": "New_Hair_03",
+      "name": "신규 머리 03"
+    },
+    {
+      "sprite": "New_Hair_04",
+      "name": "신규 머리 04"
+    },
+    {
+      "sprite": "New_Hair_05",
+      "name": "신규 머리 05"
+    },
+    {
+      "sprite": "New_Hair_06",
+      "name": "신규 머리 06"
+    },
+    {
+      "sprite": "New_Hair_07",
+      "name": "신규 머리 07"
+    },
+    {
+      "sprite": "New_Hair_08",
+      "name": "신규 머리 08"
+    },
+    {
+      "sprite": "New_Hair_09",
+      "name": "신규 머리 09"
+    },
+    {
+      "sprite": "New_Hair_10",
+      "name": "신규 머리 10"
+    },
+    {
+      "sprite": "New_Hair_11",
+      "name": "신규 머리 11"
+    },
+    {
+      "sprite": "New_Hair_12",
+      "name": "신규 머리 12"
+    },
+    {
+      "sprite": "New_Hair_13",
+      "name": "신규 머리 13"
+    },
+    {
+      "sprite": "New_Hair_14",
+      "name": "신규 머리 14"
+    },
+    {
+      "sprite": "New_Hair_15",
+      "name": "신규 머리 15"
+    },
+    {
+      "sprite": "New_Hair_16",
+      "name": "신규 머리 16"
+    },
+    {
+      "sprite": "New_Hair_17",
+      "name": "신규 머리 17"
+    },
+    {
+      "sprite": "New_Hair_18",
+      "name": "신규 머리 18"
+    },
+    {
+      "sprite": "New_Hair_19",
+      "name": "신규 머리 19"
+    },
+    {
+      "sprite": "New_Hair_20",
+      "name": "신규 머리 20"
+    }
+  ],
+  "facehair": [
+    {
+      "sprite": "Orc_Mouse_01 ",
+      "name": "오크 Mouse 01"
+    },
+    {
+      "sprite": "Orc_Mouse_02",
+      "name": "오크 Mouse 02"
+    },
+    {
+      "sprite": "Orc_Mouse_03",
+      "name": "오크 Mouse 03"
+    },
+    {
+      "sprite": "Orc_Mouse_04",
+      "name": "오크 Mouse 04"
+    },
+    {
+      "sprite": "face_acc_m01",
+      "name": "얼굴장식 01"
+    },
+    {
+      "sprite": "face_acc_m02",
+      "name": "얼굴장식 02"
+    },
+    {
+      "sprite": "face_acc_m03",
+      "name": "얼굴장식 03"
+    },
+    {
+      "sprite": "face_acc_m04",
+      "name": "얼굴장식 04"
+    },
+    {
+      "sprite": "face_acc_m05",
+      "name": "얼굴장식 05"
+    },
+    {
+      "sprite": "face_acc_m06",
+      "name": "얼굴장식 06"
+    },
+    {
+      "sprite": "face_cheek",
+      "name": "볼터치"
+    },
+    {
+      "sprite": "face_eyelash",
+      "name": "속눈썹"
+    },
+    {
+      "sprite": "face_lip",
+      "name": "립스틱"
+    },
+    {
+      "sprite": "FaceHair_1",
+      "name": "Face머리 1"
+    },
+    {
+      "sprite": "FaceHair_2",
+      "name": "Face머리 2"
+    },
+    {
+      "sprite": "FaceHair_3",
+      "name": "Face머리 3"
+    },
+    {
+      "sprite": "FaceHair_4",
+      "name": "Face머리 4"
+    },
+    {
+      "sprite": "FaceHair_5",
+      "name": "Face머리 5"
+    },
+    {
+      "sprite": "Normal_Mustache1",
+      "name": "일반 Mustache1"
+    },
+    {
+      "sprite": "Normal_Mustache2",
+      "name": "일반 Mustache2"
+    }
+  ],
+  "helmet": [
+    {
+      "sprite": "Elf_Helmet_01",
+      "name": "루비 티아라"
+    },
+    {
+      "sprite": "Elf_Helmet_02",
+      "name": "은빛 깃털 머리핀"
+    },
+    {
+      "sprite": "Elf_Helmet_03",
+      "name": "호박 보석 날개 투구"
+    },
+    {
+      "sprite": "Elf_Helmet_04",
+      "name": "호박 보석 머리핀"
+    },
+    {
+      "sprite": "Elf_Helmet_05",
+      "name": "주황 볏 백은 투구"
+    },
+    {
+      "sprite": "Elf_Helmet_06",
+      "name": "사슴뿔 머리장식"
+    },
+    {
+      "sprite": "Elf_Helmet_07",
+      "name": "엘프 잎사귀 투구"
+    },
+    {
+      "sprite": "Elf_Helmet_08",
+      "name": "초록 보석 뿔 서클릿"
+    },
+    {
+      "sprite": "Elf_Helmet_09",
+      "name": "덩굴 감긴 철모"
+    },
+    {
+      "sprite": "Elf_Helmet_10",
+      "name": "숲의 화관"
+    },
+    {
+      "sprite": "Elf_Helmet_11",
+      "name": "홍옥 날개 투구"
+    },
+    {
+      "sprite": "Elf_Helmet_12",
+      "name": "금테 붉은 머리장식"
+    },
+    {
+      "sprite": "Elf_Helmet_13",
+      "name": "홍옥 문장 머리띠"
+    },
+    {
+      "sprite": "Elf_Helmet_14",
+      "name": "화염 서클릿"
+    },
+    {
+      "sprite": "Elf_Helmet_15",
+      "name": "호박 보석 머리띠"
+    },
+    {
+      "sprite": "Elf_Helmet_16",
+      "name": "황금 테 은빛 투구"
+    },
+    {
+      "sprite": "Elf_Helmet_17",
+      "name": "마귀 눈 검은 투구"
+    },
+    {
+      "sprite": "Elf_Helmet_18",
+      "name": "호박 보석 백은 투구"
+    },
+    {
+      "sprite": "Elf_Helmet_19",
+      "name": "가시 돋친 흑철 투구"
+    },
+    {
+      "sprite": "Elf_Helmet_20",
+      "name": "펭귄 투구"
+    },
+    {
+      "sprite": "Orc_Helmet_02",
+      "name": "뿔 달린 강철 투구"
+    },
+    {
+      "sprite": "Orc_Helmet_03",
+      "name": "뿔 달린 해골 투구"
+    },
+    {
+      "sprite": "Orc_Helmet_04",
+      "name": "큰뿔 해골 가면"
+    },
+    {
+      "sprite": "Orc_Helmet_05",
+      "name": "오크 가죽 모자"
+    },
+    {
+      "sprite": "Orc_Helmet_06",
+      "name": "비행사 고글 모자"
+    },
+    {
+      "sprite": "Undead_Helmet_01",
+      "name": "밀짚모자"
+    },
+    {
+      "sprite": "Undead_Helmet_02",
+      "name": "갈색 털가죽 모자"
+    },
+    {
+      "sprite": "Undead_Helmet_03",
+      "name": "화살 박힌 투구"
+    },
+    {
+      "sprite": "Undead_Helmet_04",
+      "name": "검푸른 강철 투구"
+    },
+    {
+      "sprite": "Undead_Helmet_05",
+      "name": "지느러미 강철 투구"
+    },
+    {
+      "sprite": "Undead_Helmet_06",
+      "name": "드래곤 투구"
+    },
+    {
+      "sprite": "Undead_Helmet_07",
+      "name": "황금 왕관"
+    },
+    {
+      "sprite": "Helmet_m01",
+      "name": "빨간 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m01_black",
+      "name": "분홍 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m01_blonde",
+      "name": "하늘색 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m01_brown",
+      "name": "초록 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m01_color",
+      "name": "빨간 쌍리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m02",
+      "name": "주황 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m02_black",
+      "name": "흰 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m02_blonde",
+      "name": "보랏빛 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m02_brown",
+      "name": "진분홍 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m02_color",
+      "name": "귤빛 리본 머리장식"
+    },
+    {
+      "sprite": "Helmet_m03",
+      "name": "갈색 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m03_black",
+      "name": "초록 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m03_blonde",
+      "name": "파란 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m03_brown",
+      "name": "밤색 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m03_color",
+      "name": "카키 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m04",
+      "name": "자주 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m04_black",
+      "name": "빨간 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m04_blonde",
+      "name": "보라 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m04_brown",
+      "name": "베이지 줄무늬 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m04_color",
+      "name": "와인빛 니트 모자"
+    },
+    {
+      "sprite": "Helmet_m05",
+      "name": "진홍 베레모"
+    },
+    {
+      "sprite": "Helmet_m05_black",
+      "name": "사과 모자"
+    },
+    {
+      "sprite": "Helmet_m05_blonde",
+      "name": "청록 베레모"
+    },
+    {
+      "sprite": "Helmet_m05_brown",
+      "name": "크림 베레모"
+    },
+    {
+      "sprite": "Helmet_m05_color",
+      "name": "다홍 베레모"
+    },
+    {
+      "sprite": "Helmet_m06",
+      "name": "빨간 베레모"
+    },
+    {
+      "sprite": "Helmet_m06_black",
+      "name": "파란 베레모"
+    },
+    {
+      "sprite": "Helmet_m06_blonde",
+      "name": "장미빛 베레모"
+    },
+    {
+      "sprite": "Helmet_m06_brown",
+      "name": "버터색 베레모"
+    },
+    {
+      "sprite": "Helmet_m06_color",
+      "name": "가지 모자"
+    },
+    {
+      "sprite": "Helmet_m07",
+      "name": "파란 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m07_black",
+      "name": "청록 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m07_blonde",
+      "name": "빨간 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m07_brown",
+      "name": "코발트 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m07_color",
+      "name": "흰 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m08",
+      "name": "분홍 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m08_black",
+      "name": "주황 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m08_blonde",
+      "name": "하늘색 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m08_brown",
+      "name": "연보라 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m08_color",
+      "name": "연분홍 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m09",
+      "name": "청람 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m09_black",
+      "name": "진홍 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m09_blonde",
+      "name": "감청 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m09_brown",
+      "name": "민트 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m09_color",
+      "name": "크림 야구 모자"
+    },
+    {
+      "sprite": "Helmet_m10",
+      "name": "은빛 헤드폰"
+    },
+    {
+      "sprite": "Helmet_m10_black",
+      "name": "빨간 헤드폰"
+    },
+    {
+      "sprite": "Helmet_m10_blonde",
+      "name": "백은 헤드폰"
+    },
+    {
+      "sprite": "Helmet_m10_brown",
+      "name": "회색 헤드폰"
+    },
+    {
+      "sprite": "Helmet_m10_color",
+      "name": "무쇠 헤드폰"
+    },
+    {
+      "sprite": "Helmet_m11",
+      "name": "검은 중절모"
+    },
+    {
+      "sprite": "Helmet_m11_black",
+      "name": "갈색 카우보이 모자"
+    },
+    {
+      "sprite": "Helmet_m11_blonde",
+      "name": "빨간 중절모"
+    },
+    {
+      "sprite": "Helmet_m11_brown",
+      "name": "붉은 띠 중절모"
+    },
+    {
+      "sprite": "Helmet_m11_color",
+      "name": "흰 중절모"
+    },
+    {
+      "sprite": "Helmet_Archer_1",
+      "name": "초록 궁수 두건"
+    },
+    {
+      "sprite": "Helmet_Archer_2",
+      "name": "깃털 사냥꾼 모자"
+    },
+    {
+      "sprite": "Helmet_Healer_1",
+      "name": "흰 치유사 모자"
+    },
+    {
+      "sprite": "Helmet_Healer_2",
+      "name": "붉은 십자 두건"
+    },
+    {
+      "sprite": "Helmet_Knight_1",
+      "name": "붉은 볏 백부장 투구"
+    },
+    {
+      "sprite": "Helmet_Knight_2",
+      "name": "흰 날개 흑기사 투구"
+    },
+    {
+      "sprite": "Helmet_Rogue_1",
+      "name": "그림자 도적 투구"
+    },
+    {
+      "sprite": "Helmet_Rogue_2",
+      "name": "붉은 매듭 반다나"
+    },
+    {
+      "sprite": "Helmet_Sorcerer",
+      "name": "검은 마법사 모자"
+    },
+    {
+      "sprite": "Helmet_Sorceress",
+      "name": "화염 마녀 모자"
+    },
+    {
+      "sprite": "F_SR_Helmet",
+      "name": "토끼 귀 투구"
+    },
+    {
+      "sprite": "Helmet_1",
+      "name": "갈색 가죽 코이프"
+    },
+    {
+      "sprite": "Helmet_2",
+      "name": "은빛 사슬 두건"
+    },
+    {
+      "sprite": "Helmet_3",
+      "name": "자주빛 두건"
+    },
+    {
+      "sprite": "Helmet_4",
+      "name": "붉은 뿔 강철 투구"
+    },
+    {
+      "sprite": "Helmet_5",
+      "name": "붉은 뿔 흑철 투구"
+    },
+    {
+      "sprite": "Helmet_6",
+      "name": "금빛 뿔 강철 투구"
+    },
+    {
+      "sprite": "Helmet_7",
+      "name": "파란 패딩 투구"
+    },
+    {
+      "sprite": "Helmet_8",
+      "name": "강철 투구"
+    },
+    {
+      "sprite": "Helmet_9",
+      "name": "격자 면갑 투구"
+    },
+    {
+      "sprite": "Normal_Helmet1",
+      "name": "황동 뿔 투구"
+    },
+    {
+      "sprite": "Normal_Helmet2",
+      "name": "회색 사슬 후드"
+    },
+    {
+      "sprite": "Normal_Helmet3",
+      "name": "회색 누비 두건"
+    },
+    {
+      "sprite": "New_Helmet_01",
+      "name": "흰 뿔 붉은 투구"
+    },
+    {
+      "sprite": "New_Helmet_02",
+      "name": "푸른 강철 샐릿"
+    },
+    {
+      "sprite": "New_Helmet_03",
+      "name": "감청 후드"
+    },
+    {
+      "sprite": "New_Helmet_04",
+      "name": "흰 뿔 바이킹 투구"
+    },
+    {
+      "sprite": "New_Helmet_05",
+      "name": "주황 뿔 은 투구"
+    },
+    {
+      "sprite": "New_Helmet_06",
+      "name": "무쇠 대투구"
+    },
+    {
+      "sprite": "New_Helmet_07",
+      "name": "붉은 깃 황금 투구"
+    },
+    {
+      "sprite": "New_Helmet_08",
+      "name": "핏빛 뿔 암흑 투구"
+    },
+    {
+      "sprite": "New_Helmet_09",
+      "name": "갈색 가죽 후드"
+    },
+    {
+      "sprite": "New_Helmet_10",
+      "name": "보랏빛 후드"
+    }
+  ],
+  "armor": [
+    {
+      "sprite": "Elf_Armor_01",
+      "name": "엘프풍 정찰병 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_02",
+      "name": "엘프풍 은백 갑주"
+    },
+    {
+      "sprite": "Elf_Armor_03",
+      "name": "엘프풍 은빛 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_04",
+      "name": "엘프풍 백은 판금 갑옷"
+    },
+    {
+      "sprite": "Elf_Armor_05",
+      "name": "엘프풍 강철 어깨 보호구"
+    },
+    {
+      "sprite": "Elf_Armor_06",
+      "name": "가죽 갑옷"
+    },
+    {
+      "sprite": "Elf_Armor_07",
+      "name": "엘프풍 숲지기 가시 갑옷"
+    },
+    {
+      "sprite": "Elf_Armor_08",
+      "name": "엘프풍 나뭇잎 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_09",
+      "name": "엘프풍 새싹 가죽 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_10",
+      "name": "엘프풍 진홍 예장 갑주"
+    },
+    {
+      "sprite": "Elf_Armor_11",
+      "name": "엘프풍 호박빛 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_12",
+      "name": "엘프풍 홍백 판금 흉갑"
+    },
+    {
+      "sprite": "Elf_Armor_13",
+      "name": "엘프풍 노을빛 흉대"
+    },
+    {
+      "sprite": "Elf_Armor_14",
+      "name": "엘프풍 불꽃 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_15",
+      "name": "엘프풍 흑단 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_16",
+      "name": "엘프풍 야청 강철 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_17",
+      "name": "엘프풍 흑은 견갑"
+    },
+    {
+      "sprite": "Elf_Armor_18",
+      "name": "엘프풍 보석 박힌 흉대"
+    },
+    {
+      "sprite": "Elf_Armor_19",
+      "name": "엘프풍 황혼 견갑"
+    },
+    {
+      "sprite": "Orc_Armor_01",
+      "name": "오크풍 해골 견갑"
+    },
+    {
+      "sprite": "Orc_Armor_02",
+      "name": "오크풍 강철 흉갑"
+    },
+    {
+      "sprite": "Orc_Armor_03",
+      "name": "오크풍 가죽 어깨띠"
+    },
+    {
+      "sprite": "Orc_Armor_04",
+      "name": "오크풍 거친 가죽 흉대"
+    },
+    {
+      "sprite": "Undead_Armor_01",
+      "name": "언데드풍 칠흑 갑주"
+    },
+    {
+      "sprite": "Undead_Armor_02",
+      "name": "언데드풍 낡은 수의"
+    },
+    {
+      "sprite": "Undead_Armor_03",
+      "name": "언데드풍 밤빛 어깨띠"
+    },
+    {
+      "sprite": "Undead_Armor_04",
+      "name": "언데드풍 무덤 파수꾼 흉갑"
+    },
+    {
+      "sprite": "Undead_Armor_05",
+      "name": "언데드풍 망자의 강철 견갑"
+    },
+    {
+      "sprite": "Undead_Armor_06",
+      "name": "언데드풍 지옥불 갑주"
+    },
+    {
+      "sprite": "Undead_Armor_07",
+      "name": "언데드풍 화염 군주 갑주"
+    },
+    {
+      "sprite": "Armor_Archer_1",
+      "name": "궁수풍 초록 사냥 튜닉"
+    },
+    {
+      "sprite": "Armor_Archer_2",
+      "name": "궁수풍 가죽 어깨끈"
+    },
+    {
+      "sprite": "Armor_Healer_1",
+      "name": "치유사풍 분홍 덧옷"
+    },
+    {
+      "sprite": "Armor_Healer_2",
+      "name": "치유사풍 흰 사제복"
+    },
+    {
+      "sprite": "Armor_Knight_1",
+      "name": "기사풍 강철 견갑"
+    },
+    {
+      "sprite": "Armor_Knight_2",
+      "name": "기사풍 판금 갑옷"
+    },
+    {
+      "sprite": "Armor_Rogue_1",
+      "name": "도적풍 붉은 조끼"
+    },
+    {
+      "sprite": "Armor_Rogue_2",
+      "name": "도적풍 검은 견갑"
+    },
+    {
+      "sprite": "Armor_Sorcerer",
+      "name": "마도사풍 예복"
+    },
+    {
+      "sprite": "Armor_1",
+      "name": "적갈색 가죽 상의"
+    },
+    {
+      "sprite": "Armor_2",
+      "name": "강철 흉대"
+    },
+    {
+      "sprite": "Armor_3",
+      "name": "무쇠 흉갑"
+    },
+    {
+      "sprite": "Armor_4",
+      "name": "가시 돋친 강철 갑주"
+    },
+    {
+      "sprite": "Armor_5",
+      "name": "가죽 어깨띠"
+    },
+    {
+      "sprite": "Armor_6",
+      "name": "허리 가죽끈"
+    },
+    {
+      "sprite": "Armor_7",
+      "name": "강철 흉갑"
+    },
+    {
+      "sprite": "Armor_8",
+      "name": "은빛 판금 갑주"
+    },
+    {
+      "sprite": "Normal_Armor1",
+      "name": "흑철 갑옷"
+    },
+    {
+      "sprite": "New_Armor_01",
+      "name": "진홍 강철 갑주"
+    },
+    {
+      "sprite": "New_Armor_02",
+      "name": "은빛 흉갑"
+    },
+    {
+      "sprite": "New_Armor_03",
+      "name": "흰 천 흉대"
+    },
+    {
+      "sprite": "New_Armor_04",
+      "name": "여행자의 가죽 어깨띠"
+    },
+    {
+      "sprite": "New_Armor_05",
+      "name": "가죽 흉갑"
+    },
+    {
+      "sprite": "New_Armor_06",
+      "name": "푸른 강철 사슬 갑옷"
+    },
+    {
+      "sprite": "New_Armor_07",
+      "name": "백금 성기사 갑주"
+    },
+    {
+      "sprite": "New_Armor_08",
+      "name": "불꽃 문양 흑청 갑주"
+    },
+    {
+      "sprite": "New_Armor_09",
+      "name": "두꺼운 가죽 갑옷"
+    },
+    {
+      "sprite": "New_Armor_10",
+      "name": "사냥꾼의 가죽띠"
+    },
+    {
+      "sprite": "New_Armor_12",
+      "name": "호박 버클 허리띠"
+    }
+  ],
+  "cloth": [
+    {
+      "sprite": "Elf_Cloth_01",
+      "name": "붉은 금장 튜닉"
+    },
+    {
+      "sprite": "Elf_Cloth_02",
+      "name": "엘프풍 분홍 블라우스"
+    },
+    {
+      "sprite": "Elf_Cloth_03",
+      "name": "엘프풍 푸른 튜닉"
+    },
+    {
+      "sprite": "Elf_Cloth_04",
+      "name": "엘프풍 갈색 재킷"
+    },
+    {
+      "sprite": "Elf_Cloth_05",
+      "name": "엘프풍 갈색 여행 셔츠"
+    },
+    {
+      "sprite": "Elf_Cloth_06",
+      "name": "엘프풍 녹색 사냥꾼 상의"
+    },
+    {
+      "sprite": "Elf_Cloth_07",
+      "name": "엘프풍 청색 띠 셔츠"
+    },
+    {
+      "sprite": "Elf_Cloth_08",
+      "name": "엘프풍 갈색 조끼 셔츠"
+    },
+    {
+      "sprite": "Elf_Cloth_09",
+      "name": "엘프풍 짙은 갈색 조끼"
+    },
+    {
+      "sprite": "Elf_Cloth_10",
+      "name": "엘프풍 녹색 띠 원피스"
+    },
+    {
+      "sprite": "Elf_Cloth_11",
+      "name": "흰 금장 예복"
+    },
+    {
+      "sprite": "Elf_Cloth_12",
+      "name": "엘프풍 붉은 예복 코트"
+    },
+    {
+      "sprite": "Elf_Cloth_13",
+      "name": "엘프풍 하늘색 재킷"
+    },
+    {
+      "sprite": "Elf_Cloth_14",
+      "name": "엘프풍 붉은 띠 블라우스"
+    },
+    {
+      "sprite": "Elf_Cloth_15",
+      "name": "엘프풍 흰 비단 셔츠"
+    },
+    {
+      "sprite": "Elf_Cloth_16",
+      "name": "엘프풍 남색 관복"
+    },
+    {
+      "sprite": "Elf_Cloth_17",
+      "name": "엘프풍 남색 재킷"
+    },
+    {
+      "sprite": "Elf_Cloth_18",
+      "name": "엘프풍 흰 사제복"
+    },
+    {
+      "sprite": "Elf_Cloth_19",
+      "name": "엘프풍 견장 달린 셔츠"
+    },
+    {
+      "sprite": "Elf_Cloth_20",
+      "name": "엘프풍 흰 장교 코트"
+    },
+    {
+      "sprite": "Orc_Cloth_01",
+      "name": "오크풍 허리 두르개"
+    },
+    {
+      "sprite": "Orc_Cloth_02",
+      "name": "오크풍 가죽 조끼"
+    },
+    {
+      "sprite": "Orc_Cloth_03",
+      "name": "오크풍 뼈 장식 어깨걸이"
+    },
+    {
+      "sprite": "Orc_Cloth_04",
+      "name": "오크풍 가죽 어깨끈"
+    },
+    {
+      "sprite": "Orc_Cloth_05",
+      "name": "오크풍 검은 허리천"
+    },
+    {
+      "sprite": "Undead_Cloth_01",
+      "name": "누더기 푸른 허리띠"
+    },
+    {
+      "sprite": "Undead_Cloth_02",
+      "name": "언데드풍 핏빛 누더기"
+    },
+    {
+      "sprite": "Undead_Cloth_03",
+      "name": "언데드풍 낡은 가죽 누더기"
+    },
+    {
+      "sprite": "Undead_Cloth_04",
+      "name": "언데드풍 검푸른 손목 감개"
+    },
+    {
+      "sprite": "Undead_Cloth_05",
+      "name": "언데드풍 남색 허리 누더기"
+    },
+    {
+      "sprite": "Undead_Cloth_06",
+      "name": "언데드풍 핏빛 로브"
+    },
+    {
+      "sprite": "Undead_Cloth_07",
+      "name": "언데드풍 해진 암적색 코트"
+    },
+    {
+      "sprite": "dress_1",
+      "name": "분홍 블라우스"
+    },
+    {
+      "sprite": "dress_1_c1",
+      "name": "연두색 블라우스"
+    },
+    {
+      "sprite": "dress_1_c2",
+      "name": "보라색 블라우스"
+    },
+    {
+      "sprite": "dress_1_g",
+      "name": "회색 블라우스"
+    },
+    {
+      "sprite": "dress_2",
+      "name": "파란 다이아 무늬 스웨터"
+    },
+    {
+      "sprite": "dress_2_c1",
+      "name": "자홍색 다이아 무늬 스웨터"
+    },
+    {
+      "sprite": "dress_2_c2",
+      "name": "노란 다이아 무늬 스웨터"
+    },
+    {
+      "sprite": "dress_2_g",
+      "name": "회색 다이아 무늬 스웨터"
+    },
+    {
+      "sprite": "dress_3",
+      "name": "청백 체크 원피스"
+    },
+    {
+      "sprite": "dress_3_c1",
+      "name": "적백 체크 원피스"
+    },
+    {
+      "sprite": "dress_3_c2",
+      "name": "청록 체크 원피스"
+    },
+    {
+      "sprite": "dress_3_g",
+      "name": "회백 체크 원피스"
+    },
+    {
+      "sprite": "dress_4",
+      "name": "붉은 오프숄더 상의"
+    },
+    {
+      "sprite": "dress_4_c1",
+      "name": "분홍 오프숄더 상의"
+    },
+    {
+      "sprite": "dress_4_c2",
+      "name": "검은 오프숄더 상의"
+    },
+    {
+      "sprite": "dress_4_g",
+      "name": "회색 오프숄더 상의"
+    },
+    {
+      "sprite": "dress_5",
+      "name": "분홍 카디건 원피스"
+    },
+    {
+      "sprite": "dress_5_c1",
+      "name": "민트 카디건 원피스"
+    },
+    {
+      "sprite": "dress_5_c2",
+      "name": "흰 카디건과 자주 원피스"
+    },
+    {
+      "sprite": "dress_5_g",
+      "name": "회색 카디건 원피스"
+    },
+    {
+      "sprite": "farmer",
+      "name": "파란 멜빵 작업복"
+    },
+    {
+      "sprite": "farmer_c1",
+      "name": "붉은 멜빵 작업복"
+    },
+    {
+      "sprite": "farmer_c2",
+      "name": "자주색 멜빵 작업복"
+    },
+    {
+      "sprite": "farmer_g",
+      "name": "회색 멜빵 작업복"
+    },
+    {
+      "sprite": "hoodie",
+      "name": "회청색 후드티"
+    },
+    {
+      "sprite": "hoodie_c1",
+      "name": "노란 후드티"
+    },
+    {
+      "sprite": "hoodie_c2",
+      "name": "파란 후드티"
+    },
+    {
+      "sprite": "suit_1",
+      "name": "검은 정장"
+    },
+    {
+      "sprite": "suit_1_c1",
+      "name": "남색 정장"
+    },
+    {
+      "sprite": "suit_1_c2",
+      "name": "보라색 정장"
+    },
+    {
+      "sprite": "suit_1_g",
+      "name": "잿빛 정장"
+    },
+    {
+      "sprite": "suit_2",
+      "name": "은빛 열린 재킷"
+    },
+    {
+      "sprite": "suit_2_c1",
+      "name": "파란 열린 재킷"
+    },
+    {
+      "sprite": "suit_2_c2",
+      "name": "붉은 열린 재킷"
+    },
+    {
+      "sprite": "suit_2_g",
+      "name": "회색 열린 재킷"
+    },
+    {
+      "sprite": "suit_3",
+      "name": "진홍색 재킷"
+    },
+    {
+      "sprite": "suit_3_c1",
+      "name": "주황색 재킷"
+    },
+    {
+      "sprite": "suit_3_c2",
+      "name": "연보라 재킷"
+    },
+    {
+      "sprite": "suit_3_g",
+      "name": "잿빛 재킷"
+    },
+    {
+      "sprite": "tee_1",
+      "name": "파란 줄무늬 흰 티셔츠"
+    },
+    {
+      "sprite": "tee_1_c1",
+      "name": "빨간 줄무늬 노란 티셔츠"
+    },
+    {
+      "sprite": "tee_1_g1",
+      "name": "흰 줄무늬 검은 티셔츠"
+    },
+    {
+      "sprite": "tee_1_g2",
+      "name": "회색 줄무늬 흰 티셔츠"
+    },
+    {
+      "sprite": "tee_2",
+      "name": "노란 민소매 셔츠"
+    },
+    {
+      "sprite": "tee_2_c1",
+      "name": "주황 민소매 셔츠"
+    },
+    {
+      "sprite": "tee_2_c2",
+      "name": "청록 민소매 셔츠"
+    },
+    {
+      "sprite": "tee_2_g",
+      "name": "회색 민소매 셔츠"
+    },
+    {
+      "sprite": "tee_3",
+      "name": "물방울 무늬 파란 티셔츠"
+    },
+    {
+      "sprite": "tee_3_c1",
+      "name": "물방울 무늬 분홍 티셔츠"
+    },
+    {
+      "sprite": "tee_3_c2",
+      "name": "물방울 무늬 노란 티셔츠"
+    },
+    {
+      "sprite": "tee_3_g",
+      "name": "물방울 무늬 회색 티셔츠"
+    },
+    {
+      "sprite": "winter1",
+      "name": "갈색 겨울 재킷"
+    },
+    {
+      "sprite": "winter1_c1",
+      "name": "남색 겨울 재킷"
+    },
+    {
+      "sprite": "winter1_c2",
+      "name": "암적색 겨울 재킷"
+    },
+    {
+      "sprite": "winter1_g",
+      "name": "검회색 겨울 재킷"
+    },
+    {
+      "sprite": "winter2",
+      "name": "민트색 겨울 코트"
+    },
+    {
+      "sprite": "winter2_c1",
+      "name": "올리브색 겨울 코트"
+    },
+    {
+      "sprite": "winter2_c2",
+      "name": "분홍 겨울 코트"
+    },
+    {
+      "sprite": "winter2_g",
+      "name": "회색 겨울 코트"
+    },
+    {
+      "sprite": "winter3",
+      "name": "자주색 겨울 스웨터"
+    },
+    {
+      "sprite": "winter3_c1",
+      "name": "갈색 겨울 스웨터"
+    },
+    {
+      "sprite": "winter3_c2",
+      "name": "남색 겨울 스웨터"
+    },
+    {
+      "sprite": "winter3_g",
+      "name": "회색 겨울 스웨터"
+    },
+    {
+      "sprite": "Cloth_Archer_1",
+      "name": "궁수의 은장식 전투복"
+    },
+    {
+      "sprite": "Cloth_Archer_2",
+      "name": "궁수의 녹색 튜닉"
+    },
+    {
+      "sprite": "Cloth_Healer_1",
+      "name": "치유사의 흰 로브"
+    },
+    {
+      "sprite": "Cloth_Healer_2",
+      "name": "치유사의 짙은 녹색 로브"
+    },
+    {
+      "sprite": "Cloth_Knight_1",
+      "name": "기사의 군청색 전투복"
+    },
+    {
+      "sprite": "Cloth_Knight_2",
+      "name": "기사의 푸른 무장복"
+    },
+    {
+      "sprite": "Cloth_Rogue_1",
+      "name": "도적의 잿빛 견장 상의"
+    },
+    {
+      "sprite": "Cloth_Rogue_2",
+      "name": "도적의 갈색 혁대 상의"
+    },
+    {
+      "sprite": "Cloth_Sorcerer",
+      "name": "마법사의 검은 예복"
+    },
+    {
+      "sprite": "Cloth_Sorceress",
+      "name": "마녀의 붉은 조끼"
+    },
+    {
+      "sprite": "Cloth_1",
+      "name": "보랏빛 로브"
+    },
+    {
+      "sprite": "Cloth_10",
+      "name": "청록색 여행복"
+    },
+    {
+      "sprite": "Cloth_11",
+      "name": "푸른 여행 재킷"
+    },
+    {
+      "sprite": "Cloth_12",
+      "name": "장밋빛 셔츠"
+    },
+    {
+      "sprite": "Cloth_2",
+      "name": "진홍색 로브"
+    },
+    {
+      "sprite": "Cloth_3",
+      "name": "황갈색 셔츠"
+    },
+    {
+      "sprite": "Cloth_4",
+      "name": "초록 스웨터"
+    },
+    {
+      "sprite": "Cloth_5",
+      "name": "분홍 줄무늬 티셔츠"
+    },
+    {
+      "sprite": "Cloth_6",
+      "name": "노란 스웨터"
+    },
+    {
+      "sprite": "Cloth_7",
+      "name": "짙은 초록 스웨터"
+    },
+    {
+      "sprite": "Cloth_8",
+      "name": "갈색 평상복"
+    },
+    {
+      "sprite": "Cloth_9",
+      "name": "검은 가슴띠"
+    },
+    {
+      "sprite": "F_SR_Cloth",
+      "name": "흰 비단 블라우스"
+    },
+    {
+      "sprite": "Normal_Cloth1",
+      "name": "갈색 여행자 튜닉"
+    },
+    {
+      "sprite": "New_Cloth_01",
+      "name": "남색 운동 재킷"
+    },
+    {
+      "sprite": "New_Cloth_02",
+      "name": "불꽃무늬 재킷"
+    },
+    {
+      "sprite": "New_Cloth_03",
+      "name": "줄무늬 파란 재킷"
+    },
+    {
+      "sprite": "New_Cloth_04",
+      "name": "남색 허리감개"
+    },
+    {
+      "sprite": "New_Cloth_05",
+      "name": "연갈색 코트"
+    },
+    {
+      "sprite": "New_Cloth_06",
+      "name": "은회색 스웨터"
+    },
+    {
+      "sprite": "New_Cloth_07",
+      "name": "주황 스웨터"
+    },
+    {
+      "sprite": "New_Cloth_08",
+      "name": "흰 밑단 초록 셔츠"
+    },
+    {
+      "sprite": "New_Cloth_09",
+      "name": "주황 럭비 셔츠"
+    },
+    {
+      "sprite": "New_Cloth_10",
+      "name": "흰 깃 초록 셔츠"
+    },
+    {
+      "sprite": "New_Cloth_11",
+      "name": "갈색 집업 재킷"
+    },
+    {
+      "sprite": "New_Cloth_12",
+      "name": "자주빛 줄무늬 코트"
+    }
+  ],
+  "pant": [
+    {
+      "sprite": "Elf_Pant_01",
+      "name": "천 바지"
+    },
+    {
+      "sprite": "Elf_Pant_02",
+      "name": "분홍 천 바지"
+    },
+    {
+      "sprite": "Elf_Pant_03",
+      "name": "짙은 갈색 천 바지"
+    },
+    {
+      "sprite": "Elf_Pant_04",
+      "name": "노란 비단 바지"
+    },
+    {
+      "sprite": "Elf_Pant_05",
+      "name": "남색 여행자 바지"
+    },
+    {
+      "sprite": "Elf_Pant_06",
+      "name": "주홍 비단 바지"
+    },
+    {
+      "sprite": "Elf_Pant_07",
+      "name": "갈색 가죽 바지"
+    },
+    {
+      "sprite": "Elf_Pant_08",
+      "name": "검은 사냥꾼 바지"
+    },
+    {
+      "sprite": "Elf_Pant_09",
+      "name": "흰 천 바지"
+    },
+    {
+      "sprite": "Elf_Pant_10",
+      "name": "초록 숲지기 바지"
+    },
+    {
+      "sprite": "Elf_Pant_11",
+      "name": "주황 천 바지"
+    },
+    {
+      "sprite": "Elf_Pant_12",
+      "name": "붉은 단 검은 바지"
+    },
+    {
+      "sprite": "Elf_Pant_13",
+      "name": "흰 정장 바지"
+    },
+    {
+      "sprite": "Elf_Pant_14",
+      "name": "붉은 무용수 반바지"
+    },
+    {
+      "sprite": "Elf_Pant_15",
+      "name": "남색 천 바지"
+    },
+    {
+      "sprite": "Elf_Pant_16",
+      "name": "판금 다리보호구"
+    },
+    {
+      "sprite": "Elf_Pant_17",
+      "name": "은백색 바지"
+    },
+    {
+      "sprite": "Elf_Pant_18",
+      "name": "호박색 반바지"
+    },
+    {
+      "sprite": "Elf_Pant_19",
+      "name": "남보라 바지"
+    },
+    {
+      "sprite": "Elf_Pant_20",
+      "name": "옅은 하늘색 바지"
+    },
+    {
+      "sprite": "Orc_Pant_01",
+      "name": "오크 가죽 바지"
+    },
+    {
+      "sprite": "Orc_Pant_02",
+      "name": "적갈색 전사 바지"
+    },
+    {
+      "sprite": "Orc_Pant_03",
+      "name": "오크 사냥 바지"
+    },
+    {
+      "sprite": "Orc_Pant_04",
+      "name": "보랏빛 주술사 바지"
+    },
+    {
+      "sprite": "Undead_Pant_01",
+      "name": "푸른 망령 바지"
+    },
+    {
+      "sprite": "Undead_Pant_02",
+      "name": "낡은 가죽 각반"
+    },
+    {
+      "sprite": "Undead_Pant_03",
+      "name": "무덤지기 바지"
+    },
+    {
+      "sprite": "Undead_Pant_04",
+      "name": "삭은 검은 반바지"
+    },
+    {
+      "sprite": "Undead_Pant_05",
+      "name": "망자의 남색 바지"
+    },
+    {
+      "sprite": "Foot_m01",
+      "name": "붉은 단 흰 바지"
+    },
+    {
+      "sprite": "Foot_m02",
+      "name": "드래곤 각반"
+    },
+    {
+      "sprite": "Foot_m03",
+      "name": "잿빛 각반"
+    },
+    {
+      "sprite": "Foot_m04",
+      "name": "파란 무명 바지"
+    },
+    {
+      "sprite": "Foot_m05",
+      "name": "검은 천 바지"
+    },
+    {
+      "sprite": "Pant_Archer_2",
+      "name": "궁수의 가죽 바지"
+    },
+    {
+      "sprite": "Pant_Healer_1",
+      "name": "치유사의 연분홍 바지"
+    },
+    {
+      "sprite": "Pant_Healer_2",
+      "name": "치유사의 갈색 바지"
+    },
+    {
+      "sprite": "Pant_Knight_1",
+      "name": "기사의 푸른 바지"
+    },
+    {
+      "sprite": "Pant_Knight_2",
+      "name": "기사의 갈색 각반"
+    },
+    {
+      "sprite": "Pant_Rogue_1",
+      "name": "도적의 갈색 바지"
+    },
+    {
+      "sprite": "Pant_Rogue_2",
+      "name": "밤도둑의 검은 바지"
+    },
+    {
+      "sprite": "Pant_Sorcerer",
+      "name": "마도사의 흰 바지"
+    },
+    {
+      "sprite": "Pant_Sorceress",
+      "name": "요술사의 붉은 바지"
+    },
+    {
+      "sprite": "F_SR_Pants",
+      "name": "흰 무명 바지"
+    },
+    {
+      "sprite": "Foot_1",
+      "name": "짙은 감청 바지"
+    },
+    {
+      "sprite": "Foot_2",
+      "name": "황갈색 가죽 바지"
+    },
+    {
+      "sprite": "Foot_3",
+      "name": "보라 천 바지"
+    },
+    {
+      "sprite": "Foot_4",
+      "name": "어두운 초록 바지"
+    },
+    {
+      "sprite": "New_Pant_01",
+      "name": "밤하늘색 바지"
+    },
+    {
+      "sprite": "New_Pant_02",
+      "name": "낡은 갈색 바지"
+    },
+    {
+      "sprite": "New_Pant_03",
+      "name": "청색 천 바지"
+    },
+    {
+      "sprite": "New_Pant_04",
+      "name": "감청 가죽 바지"
+    },
+    {
+      "sprite": "New_Pant_05",
+      "name": "연회색 천 바지"
+    },
+    {
+      "sprite": "New_Pant_06",
+      "name": "불꽃 무늬 바지"
+    },
+    {
+      "sprite": "New_Pant_07",
+      "name": "붉은 천 바지"
+    },
+    {
+      "sprite": "New_Pant_08",
+      "name": "새하얀 사제 바지"
+    },
+    {
+      "sprite": "New_Pant_09",
+      "name": "초록 천 바지"
+    },
+    {
+      "sprite": "New_Pant_10",
+      "name": "진홍 반바지"
+    },
+    {
+      "sprite": "New_Pant_11",
+      "name": "쪽빛 천 바지"
+    },
+    {
+      "sprite": "New_Pant_12",
+      "name": "자주색 마법 바지"
+    }
+  ],
+  "back": [
+    {
+      "sprite": "Elf_Back_01",
+      "name": "단순한 망토"
+    },
+    {
+      "sprite": "Elf_Back_02",
+      "name": "회청색 망토"
+    },
+    {
+      "sprite": "Elf_Back_03",
+      "name": "짙은 갈색 망토"
+    },
+    {
+      "sprite": "Elf_Back_04",
+      "name": "여행자의 망토"
+    },
+    {
+      "sprite": "Elf_Back_05",
+      "name": "심연의 청록 망토"
+    },
+    {
+      "sprite": "Elf_Back_06",
+      "name": "숲빛 망토"
+    },
+    {
+      "sprite": "Elf_Back_07",
+      "name": "모험가의 망토"
+    },
+    {
+      "sprite": "Elf_Back_08",
+      "name": "붉은 깃 망토"
+    },
+    {
+      "sprite": "Elf_Back_09",
+      "name": "휘날리는 진홍 망토"
+    },
+    {
+      "sprite": "Elf_Back_10",
+      "name": "푸른 안개 망토"
+    },
+    {
+      "sprite": "Elf_Back_11",
+      "name": "기사의 망토"
+    },
+    {
+      "sprite": "Elf_Back_12",
+      "name": "엘프 순찰자의 망토"
+    },
+    {
+      "sprite": "Orc_Back_01",
+      "name": "오크 화살통"
+    },
+    {
+      "sprite": "Orc_Back_02",
+      "name": "오크 전투 깃발"
+    },
+    {
+      "sprite": "Orc_Back_03",
+      "name": "오크 가죽 망토"
+    },
+    {
+      "sprite": "Undead_Back_01",
+      "name": "해진 수의 망토"
+    },
+    {
+      "sprite": "Undead_Back_02",
+      "name": "흡혈귀의 붉은 망토"
+    },
+    {
+      "sprite": "Back_Archer_1",
+      "name": "사냥꾼의 초록 망토"
+    },
+    {
+      "sprite": "Back_Archer_2",
+      "name": "궁수의 화살통"
+    },
+    {
+      "sprite": "Back_Healer_1",
+      "name": "장밋빛 망토"
+    },
+    {
+      "sprite": "Back_Healer_2",
+      "name": "잿빛 사제 망토"
+    },
+    {
+      "sprite": "Back_Knight_1",
+      "name": "진홍 기사 망토"
+    },
+    {
+      "sprite": "Back_Knight_2",
+      "name": "푸른 기사 망토"
+    },
+    {
+      "sprite": "Back_Rogue_1",
+      "name": "붉은 도적 망토"
+    },
+    {
+      "sprite": "Back_Rogue_2",
+      "name": "밤도둑의 망토"
+    },
+    {
+      "sprite": "Back_Sorcerer",
+      "name": "진홍 마도사 망토"
+    },
+    {
+      "sprite": "Back_Sorceress",
+      "name": "밤하늘 망토"
+    },
+    {
+      "sprite": "Back_1",
+      "name": "다홍색 망토"
+    },
+    {
+      "sprite": "Back_2",
+      "name": "보랏빛 망토"
+    },
+    {
+      "sprite": "Back_3",
+      "name": "낡은 갈색 망토"
+    },
+    {
+      "sprite": "BowBack_1",
+      "name": "화살 꾸러미"
+    },
+    {
+      "sprite": "Soon_Back1",
+      "name": "악마의 핏빛 날개"
+    },
+    {
+      "sprite": "New_Back_01",
+      "name": "여행용 롤주머니"
+    },
+    {
+      "sprite": "New_Back_02",
+      "name": "깃털 화살통"
+    }
+  ],
+  "sword": [
+    {
+      "sprite": "Elf_Weapon_03",
+      "name": "철검"
+    },
+    {
+      "sprite": "Elf_Weapon_05",
+      "name": "강철검"
+    },
+    {
+      "sprite": "Elf_Weapon_07",
+      "name": "덩굴 엘프 검"
+    },
+    {
+      "sprite": "Elf_Weapon_08",
+      "name": "잎사귀 엘프 검"
+    },
+    {
+      "sprite": "Elf_Weapon_11",
+      "name": "화염검"
+    },
+    {
+      "sprite": "Elf_Weapon_13",
+      "name": "냉기검"
+    },
+    {
+      "sprite": "Elf_Weapon_17",
+      "name": "성검"
+    },
+    {
+      "sprite": "Elf_Weapon_19",
+      "name": "용살검"
+    },
+    {
+      "sprite": "Orc_Weapon_05",
+      "name": "오크 대검"
+    },
+    {
+      "sprite": "Undead_Weapon_03",
+      "name": "무딘 망자의 검"
+    },
+    {
+      "sprite": "Undead_Weapon_08",
+      "name": "도굴꾼의 검"
+    },
+    {
+      "sprite": "Undead_Weapon_10",
+      "name": "백골검"
+    },
+    {
+      "sprite": "Weapon_Knight_1",
+      "name": "황금 장식 기사검"
+    },
+    {
+      "sprite": "Weapon_Knight_2",
+      "name": "기사의 대검"
+    },
+    {
+      "sprite": "Sword_1",
+      "name": "짧은 철검"
+    },
+    {
+      "sprite": "Sword_2",
+      "name": "병사의 검"
+    },
+    {
+      "sprite": "Sword_3",
+      "name": "장검"
+    },
+    {
+      "sprite": "Sword_4",
+      "name": "가느다란 세검"
+    },
+    {
+      "sprite": "Sword_5",
+      "name": "핏빛 룬 검"
+    },
+    {
+      "sprite": "Sword_6",
+      "name": "여행자의 소검"
+    },
+    {
+      "sprite": "New_Weapon_01",
+      "name": "저주받은 마검"
+    },
+    {
+      "sprite": "New_Weapon_06",
+      "name": "은검"
+    },
+    {
+      "sprite": "New_Weapon_17",
+      "name": "톱니검"
+    },
+    {
+      "sprite": "New_Weapon_18",
+      "name": "루비 첨검"
+    },
+    {
+      "sprite": "New_Weapon_19",
+      "name": "연습용 소검"
+    },
+    {
+      "sprite": "New_Weapon_20",
+      "name": "불꽃 장식 검"
+    }
+  ],
+  "axe": [
+    {
+      "sprite": "Orc_Weapon_02",
+      "name": "철 도끼"
+    },
+    {
+      "sprite": "Orc_Weapon_06",
+      "name": "강철 도끼"
+    },
+    {
+      "sprite": "Orc_Weapon_07",
+      "name": "전투 도끼"
+    },
+    {
+      "sprite": "Undead_Weapon_06",
+      "name": "처형자의 도끼"
+    },
+    {
+      "sprite": "Axe_1",
+      "name": "은빛 손도끼"
+    }
+  ],
+  "bow": [
+    {
+      "sprite": "Elf_Weapon_02",
+      "name": "단궁"
+    },
+    {
+      "sprite": "Elf_Weapon_06",
+      "name": "덩굴 활"
+    },
+    {
+      "sprite": "Elf_Weapon_14",
+      "name": "합성궁"
+    },
+    {
+      "sprite": "Elf_Weapon_18",
+      "name": "엘프의 활"
+    },
+    {
+      "sprite": "Orc_Weapon_03",
+      "name": "오크 사냥활"
+    },
+    {
+      "sprite": "Undead_Weapon_04",
+      "name": "뼈 활"
+    },
+    {
+      "sprite": "Undead_Weapon_05",
+      "name": "망령의 활"
+    },
+    {
+      "sprite": "Weapon_Archer_1",
+      "name": "화염 활"
+    },
+    {
+      "sprite": "Weapon_Archer_2",
+      "name": "전설의 활"
+    },
+    {
+      "sprite": "Bow_1",
+      "name": "낡은 나무 활"
+    }
+  ],
+  "spear": [
+    {
+      "sprite": "Soon_Spear",
+      "name": "강철 창"
+    },
+    {
+      "sprite": "Spear_1",
+      "name": "쇠스랑"
+    }
+  ],
+  "wand": [
+    {
+      "sprite": "Elf_Weapon_01",
+      "name": "은십자 지팡이"
+    },
+    {
+      "sprite": "Elf_Weapon_04",
+      "name": "불꽃 구슬 지팡이"
+    },
+    {
+      "sprite": "Elf_Weapon_09",
+      "name": "덩굴 감긴 지팡이"
+    },
+    {
+      "sprite": "Elf_Weapon_10",
+      "name": "에메랄드 가지 지팡이"
+    },
+    {
+      "sprite": "Elf_Weapon_12",
+      "name": "루비 결정 완드"
+    },
+    {
+      "sprite": "Elf_Weapon_15",
+      "name": "대마법사의 지팡이"
+    },
+    {
+      "sprite": "Elf_Weapon_20",
+      "name": "화염 소용돌이 완드"
+    },
+    {
+      "sprite": "Orc_Weapon_04",
+      "name": "루비 촉 완드"
+    },
+    {
+      "sprite": "Orc_Weapon_08",
+      "name": "나무 잔가지 완드"
+    },
+    {
+      "sprite": "Orc_Weapon_09",
+      "name": "굽은 나무 지팡이"
+    },
+    {
+      "sprite": "Undead_Weapon_01",
+      "name": "잿빛 강철 지팡이"
+    },
+    {
+      "sprite": "Undead_Weapon_02",
+      "name": "그림자 낫 지팡이"
+    },
+    {
+      "sprite": "Undead_Weapon_07",
+      "name": "뼈 완드"
+    },
+    {
+      "sprite": "Undead_Weapon_09",
+      "name": "해골 날개 지팡이"
+    },
+    {
+      "sprite": "Weapon_Healer_1",
+      "name": "치유사의 수정 지팡이"
+    },
+    {
+      "sprite": "Weapon_Healer_2",
+      "name": "황금 성직자 지팡이"
+    },
+    {
+      "sprite": "Weapon_Sorcerer",
+      "name": "핏빛 구슬 지팡이"
+    },
+    {
+      "sprite": "Weapon_Sorceress",
+      "name": "자수정 황금 완드"
+    },
+    {
+      "sprite": "Ward_1",
+      "name": "붉은 촉 나무 완드"
+    },
+    {
+      "sprite": "New_Weapon_03",
+      "name": "석류석 완드"
+    }
+  ],
+  "dagger": [
+    {
+      "sprite": "Weapon_Rogue_1",
+      "name": "강철 단검"
+    },
+    {
+      "sprite": "Weapon_Rogue_2",
+      "name": "암살자의 단검"
+    }
+  ],
+  "shield": [
+    {
+      "sprite": "Elf_Shield_01",
+      "name": "엘프 방패"
+    },
+    {
+      "sprite": "Elf_Shield_02",
+      "name": "잎사귀 방패"
+    },
+    {
+      "sprite": "Elf_Shield_03",
+      "name": "붉은 보석 방패"
+    },
+    {
+      "sprite": "Elf_Shield_04",
+      "name": "하얀 타원 방패"
+    },
+    {
+      "sprite": "Elf_Weapon_16",
+      "name": "별빛 십자 방패"
+    },
+    {
+      "sprite": "Orc_Shield_01",
+      "name": "오크 마름모 방패"
+    },
+    {
+      "sprite": "Undead_Shield_01",
+      "name": "뼈 장식 나무 방패"
+    },
+    {
+      "sprite": "Undead_Shield_02",
+      "name": "강철 방패"
+    },
+    {
+      "sprite": "Undead_Shield_03",
+      "name": "해골 방패"
+    },
+    {
+      "sprite": "Shield_Knight_1",
+      "name": "성스러운 방패"
+    },
+    {
+      "sprite": "Shield_Knight_2",
+      "name": "기사 문장 방패"
+    },
+    {
+      "sprite": "Shield_Sorcerer",
+      "name": "드래곤 방패"
+    },
+    {
+      "sprite": "Shield_Sorceress",
+      "name": "장미 문양 방패"
+    },
+    {
+      "sprite": "Shield_1",
+      "name": "무쇠 마름모 방패"
+    }
+  ]
+}

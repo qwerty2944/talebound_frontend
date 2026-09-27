@@ -167,8 +167,8 @@
       "spriteId": "orc_back_02",
       "existingItems": [],
       "action": "create",
-      "nameKo": "오크 누더기 망토",
-      "nameEn": "Orc Ragged Cape",
+      "nameKo": "오크 전투 깃발",
+      "nameEn": "Orc Battle Standard",
       "rarity": "crude"
     },
     {
@@ -279,8 +279,8 @@
       "spriteId": "back_rogue_1",
       "existingItems": [],
       "action": "create",
-      "nameKo": "붉은 배낭",
-      "nameEn": "Red Backpack",
+      "nameKo": "붉은 도적 망토",
+      "nameEn": "Red Rogue Cape",
       "rarity": "common"
     },
     {
@@ -386,8 +386,8 @@
       "spriteId": "new_back_01",
       "existingItems": [],
       "action": "create",
-      "nameKo": "여행용 물주머니",
-      "nameEn": "Travel Waterskin",
+      "nameKo": "여행용 롤주머니",
+      "nameEn": "Travel Bedroll Pouch",
       "rarity": "crude"
     },
     {

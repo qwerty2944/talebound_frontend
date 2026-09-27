@@ -1,45 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { NamedPartSelect } from "@/shared/ui/NamedPartSelect";
+import { useThemeStore } from "@/application/stores/themeStore";
 import { DynamicUnityCanvas, useAppearanceStore } from "@/features/character";
 
 interface CharacterCreatorProps {
   className?: string;
 }
 
-interface EyeMapping {
-  index: number;
-  fileName: string;
-  ko: string;
-  en: string;
-}
-
-interface HairMapping {
-  index: number;
-  fileName: string;
-  ko: string;
-  en: string;
-  race: string;
-}
-
-interface FacehairMapping {
-  index: number;
-  fileName: string;
-  ko: string;
-  en: string;
-}
-
 export function CharacterCreator({ className = "" }: CharacterCreatorProps) {
-  const { characterState, spriteCounts, callUnity } = useAppearanceStore();
+  const { characterState, spriteCounts, callUnity, getOptions, selectPart, isUnityLoaded, getPartInfo } = useAppearanceStore();
 
-  const [leftEyeColor, setLeftEyeColor] = useState("#4169E1");
-  const [rightEyeColor, setRightEyeColor] = useState("#4169E1");
-  const [hairColor, setHairColor] = useState("#2C1810");
-  const [facehairColor, setFacehairColor] = useState("#2C1810");
+  const { theme } = useThemeStore();
 
-  const [eyeMappings, setEyeMappings] = useState<EyeMapping[]>([]);
-  const [hairMappings, setHairMappings] = useState<HairMapping[]>([]);
-  const [facehairMappings, setFacehairMappings] = useState<FacehairMapping[]>([]);
+  const [leftEyeColor, setLeftEyeColor] = useState("#6B4226");
+  const [rightEyeColor, setRightEyeColor] = useState("#6B4226");
+  const [hairColor, setHairColor] = useState("#6B4226");
+  const [facehairColor, setFacehairColor] = useState("#6B4226");
 
   const eyeIndex = characterState?.eyeIndex ?? 0;
   const hairIndex = characterState?.hairIndex ?? -1;
@@ -48,29 +26,9 @@ export function CharacterCreator({ className = "" }: CharacterCreatorProps) {
   const hairCount = spriteCounts?.hairCount ?? 0;
   const facehairCount = spriteCounts?.facehairCount ?? 0;
 
-  // 매핑 데이터 로드
-  useEffect(() => {
-    fetch("/data/sprites/appearance/eye.json")
-      .then((res) => res.json())
-      .then((data) => setEyeMappings(data.eyes))
-      .catch(console.error);
-
-    fetch("/data/sprites/appearance/hair.json")
-      .then((res) => res.json())
-      .then((data) => setHairMappings(data.hairs))
-      .catch(console.error);
-
-    fetch("/data/sprites/appearance/facehair.json")
-      .then((res) => res.json())
-      .then((data) => setFacehairMappings(data.facehairs))
-      .catch(console.error);
-  }, []);
-
-  const currentEyeName = eyeMappings.find(m => m.index === eyeIndex)?.ko ?? `눈 ${eyeIndex + 1}`;
-  const currentHairName = hairMappings.find(m => m.index === hairIndex)?.ko
-    ?? (hairIndex >= 0 ? `머리 ${hairIndex + 1}` : "민머리");
-  const currentFacehairName = facehairMappings.find(m => m.index === facehairIndex)?.ko
-    ?? (facehairIndex >= 0 ? `수염 ${facehairIndex + 1}` : "수염없음");
+  const currentEyeName = getPartInfo("eye").name;
+  const currentHairName = getPartInfo("hair").name;
+  const currentFacehairName = getPartInfo("facehair").name;
 
   // 색상 적용 함수
   const applyLeftEyeColor = () => callUnity("JS_SetLeftEyeColor", leftEyeColor.replace("#", ""));
@@ -99,6 +57,9 @@ export function CharacterCreator({ className = "" }: CharacterCreatorProps) {
 
         {/* 눈 선택 */}
         <section className="space-y-3">
+          <NamedPartSelect label="눈" value={eyeIndex} options={getOptions("eye")}
+            onChange={index => selectPart("eye", index)} disabled={!isUnityLoaded} required={true}
+            style={{ background: theme.colors.bg, color: theme.colors.text, borderColor: theme.colors.border }} />
           <div className="flex items-center justify-between">
             <div>
               <span className="text-sm text-gray-300">눈</span>
@@ -166,6 +127,9 @@ export function CharacterCreator({ className = "" }: CharacterCreatorProps) {
 
         {/* 머리 선택 */}
         <section className="space-y-3">
+          <NamedPartSelect label="머리카락" value={hairIndex} options={getOptions("hair")}
+            onChange={index => selectPart("hair", index)} disabled={!isUnityLoaded} required={false}
+            style={{ background: theme.colors.bg, color: theme.colors.text, borderColor: theme.colors.border }} />
           <div className="flex items-center justify-between">
             <div>
               <span className="text-sm text-gray-300">머리</span>
@@ -210,6 +174,9 @@ export function CharacterCreator({ className = "" }: CharacterCreatorProps) {
 
         {/* 수염 선택 */}
         <section className="space-y-3">
+          <NamedPartSelect label="수염·송곳니" value={facehairIndex} options={getOptions("facehair")}
+            onChange={index => selectPart("facehair", index)} disabled={!isUnityLoaded} required={false}
+            style={{ background: theme.colors.bg, color: theme.colors.text, borderColor: theme.colors.border }} />
           <div className="flex items-center justify-between">
             <div>
               <span className="text-sm text-gray-300">수염</span>

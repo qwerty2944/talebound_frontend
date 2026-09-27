@@ -23,6 +23,9 @@ const WEARABLE_METHOD: Record<string, string> = {
   pant: "JS_SetPant",
   back: "JS_SetBack",
   hair: "JS_SetHair",
+  body: "JS_SetBody",
+  eye: "JS_SetEye",
+  facehair: "JS_SetFacehair",
 };
 
 declare global {
@@ -44,7 +47,7 @@ export default function CaptureTestPage() {
     const reset = () => {
       const s = state();
       s.callUnity("JS_ClearAll");
-      s.callUnity("JS_SetBody", "12"); // Human_1
+      s.callUnity("JS_SetBody", "11"); // Human_1
       s.callUnity("JS_SetHair", "-1");
       s.callUnity("JS_SetFacehair", "-1");
       s.callUnity("JS_SetEye", "-1");
@@ -73,7 +76,7 @@ export default function CaptureTestPage() {
   // 진입 시 기본 상태로 초기화
   useEffect(() => {
     clearAll();
-    callUnity("JS_SetBody", "12");
+    callUnity("JS_SetBody", "11");
     callUnity("JS_SetHair", "-1");
     callUnity("JS_SetFacehair", "-1");
   }, [clearAll, callUnity]);

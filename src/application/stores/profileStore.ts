@@ -67,13 +67,13 @@ export const useProfileStore = create<ProfileState>((set, get) => ({
   setRace: (race) => {
     const bodyType = race.bodyTypes[0];
     set({ race, bodyType });
-    useAppearanceStore.getState().callUnity("JS_SetBody", bodyType.index.toString());
+    useAppearanceStore.getState().selectPart("body", bodyType.index);
   },
 
   // 바디타입 선택
   setBodyType: (bodyType) => {
     set({ bodyType });
-    useAppearanceStore.getState().callUnity("JS_SetBody", bodyType.index.toString());
+    useAppearanceStore.getState().selectPart("body", bodyType.index);
   },
 
   // 스탯 증가

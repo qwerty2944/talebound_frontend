@@ -1,5 +1,7 @@
 "use client";
 
+import { DEFAULT_BODY_INDEX, getRaceBodyIndex } from "@/shared/lib/character/catalog";
+
 import { useEffect, useMemo, useState } from "react";
 import { useAppearanceStore } from "@/application/stores";
 import type { ProfileAppearance } from "@/entities/character";
@@ -90,17 +92,17 @@ export function usePlayerAppearance(
   // ID → 인덱스 변환
   const indexes = useMemo(() => {
     if (!spriteDataLoaded || !appearance) {
-      return { eyeIndex: -1, hairIndex: -1, facehairIndex: -1, bodyIndex: 12 };
+      return { eyeIndex: -1, hairIndex: -1, facehairIndex: -1, bodyIndex: DEFAULT_BODY_INDEX };
     }
     const eyeItem = spriteData.eyes?.find((e) => e.id === appearance.eyeId);
     const hairItem = spriteData.hairs?.find((h) => h.id === appearance.hairId);
     const facehairItem = spriteData.facehairs?.find((f) => f.id === appearance.facehairId);
-    // 기본 body는 Human_1 (index 12)
+    // Resolve the selected race instead of forcing every character to human.
     return {
       eyeIndex: eyeItem?.index ?? -1,
       hairIndex: hairItem?.index ?? -1,
       facehairIndex: facehairItem?.index ?? -1,
-      bodyIndex: 12,
+      bodyIndex: getRaceBodyIndex(appearance.raceId),
     };
   }, [spriteDataLoaded, appearance, spriteData]);
 
