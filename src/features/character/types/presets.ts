@@ -1,3 +1,5 @@
+import raceData from "../../../../public/data/appearance/races/races.json";
+import { CHARACTER_CATALOG } from "@/shared/lib/character/catalog";
 // 능력치 시스템
 export interface CharacterStats {
   str: number; // 힘 - 물리 공격력, 무게 제한
@@ -65,70 +67,13 @@ export interface Race {
   statBonus: Partial<CharacterStats>;
 }
 
-export const RACES: Race[] = [
-  {
-    id: "human",
-    name: "인간",
-    bodyTypes: [
-      { index: 0, name: "기본" },
-      { index: 1, name: "건장한" },
-      { index: 2, name: "날씬한" },
-      { index: 3, name: "근육질" },
-    ],
-    description: "균형 잡힌 능력치",
-    statBonus: { cha: 2 },
-  },
-  {
-    id: "elf",
-    name: "엘프",
-    bodyTypes: [
-      { index: 4, name: "기본" },
-      { index: 5, name: "우아한" },
-    ],
-    description: "민첩하고 마법 친화적",
-    statBonus: { dex: 1, int: 1 },
-  },
-  {
-    id: "orc",
-    name: "오크",
-    bodyTypes: [
-      { index: 6, name: "기본" },
-      { index: 7, name: "거대한" },
-    ],
-    description: "강인한 체력",
-    statBonus: { str: 2, con: 1, cha: -1 },
-  },
-  {
-    id: "dwarf",
-    name: "드워프",
-    bodyTypes: [
-      { index: 8, name: "기본" },
-      { index: 9, name: "땅딸막한" },
-    ],
-    description: "단단한 방어력",
-    statBonus: { con: 2, wis: 1, dex: -1 },
-  },
-  {
-    id: "darkelf",
-    name: "다크엘프",
-    bodyTypes: [
-      { index: 10, name: "기본" },
-      { index: 11, name: "그림자" },
-    ],
-    description: "은밀한 공격",
-    statBonus: { dex: 2, int: 1, cha: -1 },
-  },
-  {
-    id: "goblin",
-    name: "고블린",
-    bodyTypes: [
-      { index: 12, name: "기본" },
-      { index: 13, name: "교활한" },
-    ],
-    description: "빠른 이동속도",
-    statBonus: { dex: 2, cha: -1 },
-  },
-];
+// Resolve by sprite name; Unity's order changes when art packs are added.
+export const RACES: Race[] = raceData.races.filter(race => race.playable).map(race => {
+  const index = CHARACTER_CATALOG.body.findIndex(body => body.sprite === race.appearance.body.spriteId);
+  if (index < 0) throw new Error(`Missing body for ${race.id}`);
+  return { id: race.id, name: race.nameKo, description: race.description,
+    bodyTypes: [{ index, name: race.nameKo }], statBonus: race.statModifiers };
+});
 
 // 스탯 계산 유틸
 export function calculateTotalStats(

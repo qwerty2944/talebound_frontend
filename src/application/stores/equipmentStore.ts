@@ -1,3 +1,4 @@
+import { getEquippedItemRaceRestriction } from "@/shared/lib/character/catalog";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { WeaponType } from "@/entities/ability";
@@ -60,6 +61,8 @@ export interface CanEquipResult {
 
 // 장비 상태
 interface EquipmentState {
+  raceId: string | null;
+  setRaceContext: (raceId: string | null) => void;
   // 외형 슬롯 (6)
   mainHand: EquippedItem | null;
   offHand: EquippedItem | null;
@@ -135,9 +138,19 @@ export const useEquipmentStore = create<EquipmentState>()(
   persist(
     (set, get) => ({
       ...initialEquipmentState,
+      raceId: null,
+      setRaceContext: (raceId) => {
+        const removed: Partial<Record<EquipmentSlot, null>> = {};
+        for (const slot of ALL_SLOTS) {
+          const item = get()[slot];
+          if (item && getEquippedItemRaceRestriction(item.itemId, raceId)) removed[slot] = null;
+        }
+        set({ raceId, ...removed });
+      },
 
       // 아이템 장착
       equipItem: (slot, item) => {
+        if (getEquippedItemRaceRestriction(item.itemId, get().raceId)) return;
         const fx = { lastChangedSlot: slot, fxNonce: get().fxNonce + 1 };
         // 양손무기 장착 시 오프핸드 자동 해제
         if (slot === "mainHand" && item.handType === "two_handed") {
@@ -155,6 +168,8 @@ export const useEquipmentStore = create<EquipmentState>()(
       // 슬롯에 장착 가능 여부 확인
       canEquipToSlot: (slot, item) => {
         const state = get();
+        const reason = getEquippedItemRaceRestriction(item.itemId, state.raceId);
+        if (reason) return { canEquip: false, reason };
 
         // 양손무기 장착 시 오프핸드 확인
         if (slot === "mainHand" && item.handType === "two_handed" && state.offHand) {
@@ -192,7 +207,7 @@ export const useEquipmentStore = create<EquipmentState>()(
 
         for (const slot of ALL_SLOTS) {
           const item = state[slot] as EquippedItem | null;
-          if (!item) continue;
+          if (!item || getEquippedItemRaceRestriction(item.itemId, state.raceId)) continue;
 
           // 1. 기본 스탯 계산 (강화 배율 적용)
           if (item.stats) {

@@ -1,5 +1,7 @@
 "use client";
 
+import { DEFAULT_BODY_INDEX, getRaceBodyIndex } from "@/shared/lib/character/catalog";
+
 import { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -74,13 +76,13 @@ function useAppearanceIndexes(appearance: ProfileAppearance | null | undefined) 
 
   const indexes = useMemo(() => {
     if (!loaded || !appearance) {
-      return { eyeIndex: -1, hairIndex: -1, facehairIndex: -1, bodyIndex: 12 };
+      return { eyeIndex: -1, hairIndex: -1, facehairIndex: -1, bodyIndex: DEFAULT_BODY_INDEX };
     }
 
     const eyeItem = spriteData.eyes?.find(e => e.id === appearance.eyeId);
     const hairItem = spriteData.hairs?.find(h => h.id === appearance.hairId);
     const facehairItem = spriteData.facehairs?.find(f => f.id === appearance.facehairId);
-    const bodyIndex = 12;
+    const bodyIndex = getRaceBodyIndex(appearance.raceId);
 
     return {
       eyeIndex: eyeItem?.index ?? -1,

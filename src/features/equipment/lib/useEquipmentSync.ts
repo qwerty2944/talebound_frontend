@@ -1,5 +1,6 @@
 "use client";
 
+import { getEquippedItemRaceRestriction } from "@/shared/lib/character/catalog";
 import { useEffect, useRef } from "react";
 import { useProfile, updateProfile } from "@/entities/user";
 import { useEquipmentStore, type EquippedItem } from "@/application/stores";
@@ -49,11 +50,14 @@ export function useEquipmentSync(userId?: string) {
   useEffect(() => {
     if (hydratedRef.current || !profile) return;
 
+    const raceId = profile.appearance?.raceId ?? profile.character?.race ?? null;
+    useEquipmentStore.getState().setRaceContext(raceId);
     const eq = profile.equipment;
     if (eq && typeof eq === "object") {
       const restore: Slots = {};
       for (const key of EQUIP_SLOT_KEYS) {
-        restore[key] = eq[key] ?? null;
+        const item = eq[key];
+        restore[key] = item && !getEquippedItemRaceRestriction(item.itemId, raceId) ? item : null;
       }
       useEquipmentStore.setState(restore);
       lastSavedRef.current = JSON.stringify(restore);
@@ -64,6 +68,10 @@ export function useEquipmentSync(userId?: string) {
       );
     }
     hydratedRef.current = true;
+  }, [profile]);
+
+  useEffect(() => {
+    if (profile) useEquipmentStore.getState().setRaceContext(profile.appearance?.raceId ?? profile.character?.race ?? null);
   }, [profile]);
 
   // 2) 스토어 변경 → DB 저장 (디바운스)

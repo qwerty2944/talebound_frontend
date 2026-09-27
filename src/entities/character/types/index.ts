@@ -42,6 +42,8 @@ export interface ProfileAppearance {
  * - 캐릭터 이름, 성별, 스탯 등
  */
 export interface Character {
+  /** Race from legacy save_character records; newer profiles also store appearance.raceId. */
+  race?: string;
   name: string;
   isMain: boolean;
   gender?: "male" | "female";

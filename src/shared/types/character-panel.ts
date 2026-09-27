@@ -1,3 +1,4 @@
+import type { NamedPartOption } from "@/shared/ui/NamedPartSelect";
 // CharacterPanel 위젯이 요구하는 인터페이스
 // features와 widgets 모두 이 타입을 사용
 
@@ -15,6 +16,9 @@ export interface PartInfo {
   current: number;
   total: number;
   name: string;
+  options: NamedPartOption[];
+  ready: boolean;
+  select: (index: number) => void;
   hasColor: boolean;
   isRequired: boolean; // 필수 파츠 여부 (body, eye는 true)
   next: () => void;
@@ -70,7 +74,10 @@ export interface HandWeaponInfo {
   weaponType: WeaponPartType | null;
   index: number;
   total: number;
-  name: string; // 원본 파일명
+  name: string;
+  options: NamedPartOption[];
+  ready: boolean;
+  select: (index: number) => void;
   setWeaponType: (type: WeaponPartType | null) => void;
   next: () => void;
   prev: () => void;

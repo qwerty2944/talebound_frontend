@@ -220,8 +220,8 @@
     },
     {
       "id": "red_round_shield",
-      "nameKo": "붉은 원형 방패",
-      "nameEn": "Red Round Shield",
+      "nameKo": "붉은 보석 방패",
+      "nameEn": "Red Gem Shield",
       "description": "붉은 원형 방패. 방패 장비.",
       "rarity": "common",
       "value": 120,
@@ -280,8 +280,8 @@
     },
     {
       "id": "orc_round_shield",
-      "nameKo": "오크 원형 방패",
-      "nameEn": "Orc Round Shield",
+      "nameKo": "오크 마름모 방패",
+      "nameEn": "Orc Diamond Shield",
       "description": "오크 원형 방패. 방패 장비.",
       "rarity": "crude",
       "value": 60,
@@ -340,8 +340,8 @@
     },
     {
       "id": "iron_buckler",
-      "nameKo": "무쇠 버클러",
-      "nameEn": "Iron Buckler",
+      "nameKo": "무쇠 마름모 방패",
+      "nameEn": "Iron Diamond Shield",
       "description": "무쇠 버클러. 방패 장비.",
       "rarity": "crude",
       "value": 60,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -32,7 +32,7 @@ export default function CharacterCreatePage() {
   const router = useRouter();
   const queryClient = useQueryClient();
   const { session } = useAuthStore();
-  const { characterState } = useAppearanceStore();
+  const { characterState, isUnityLoaded, selectPart } = useAppearanceStore();
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const {
@@ -54,6 +54,8 @@ export default function CharacterCreatePage() {
     getFinalStats,
     getStatBonus,
   } = useProfileStore();
+
+  useEffect(() => { selectPart("body", bodyType.index); }, [bodyType.index, isUnityLoaded, selectPart]);
 
   const saveCharacter = useSaveCharacter({
     onSuccess: async () => {

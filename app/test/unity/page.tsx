@@ -1,5 +1,6 @@
 "use client";
 
+import { DEFAULT_BODY_INDEX } from "@/shared/lib/character/catalog";
 import { useEffect } from "react";
 import Link from "next/link";
 import { characterPanelHooks, useAppearanceStore } from "@/features/character";
@@ -7,20 +8,21 @@ import { CharacterView } from "@/widgets/character-view";
 import { globalStyles } from "@/shared/ui";
 
 export default function UnityTestPage() {
-  const { clearAll, callUnity } = useAppearanceStore();
+  const { clearAll, callUnity, isUnityLoaded } = useAppearanceStore();
 
   // 페이지 진입 시 Unity 상태 초기화 (장비 + 외형 + 색상)
   useEffect(() => {
+    if (!isUnityLoaded) return;
     clearAll();
-    // 외형도 기본값으로 초기화 (12 = Human_1)
-    callUnity("JS_SetBody", "12");
+    // Human_1 is resolved from the sprite catalog.
+    callUnity("JS_SetBody", String(DEFAULT_BODY_INDEX));
     callUnity("JS_SetHair", "-1");
     callUnity("JS_SetFacehair", "-1");
     // 색상 초기화
     callUnity("JS_SetHairColor", "#6B4226");
     callUnity("JS_SetEyeColor", "#6B4226");
     callUnity("JS_SetFacehairColor", "#6B4226");
-  }, [clearAll, callUnity]);
+  }, [clearAll, callUnity, isUnityLoaded]);
 
   return (
     <div className="h-dvh w-full bg-gray-900 text-white flex flex-col overflow-hidden">

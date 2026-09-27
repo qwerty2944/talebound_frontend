@@ -38,8 +38,8 @@
       "spriteId": "elf_shield_03",
       "existingItems": [],
       "action": "create",
-      "nameKo": "붉은 원형 방패",
-      "nameEn": "Red Round Shield",
+      "nameKo": "붉은 보석 방패",
+      "nameEn": "Red Gem Shield",
       "rarity": "common"
     },
     {
@@ -68,8 +68,8 @@
       "spriteId": "orc_shield_01",
       "existingItems": [],
       "action": "create",
-      "nameKo": "오크 원형 방패",
-      "nameEn": "Orc Round Shield",
+      "nameKo": "오크 마름모 방패",
+      "nameEn": "Orc Diamond Shield",
       "rarity": "crude"
     },
     {
@@ -188,8 +188,8 @@
       "spriteId": "shield_1",
       "existingItems": [],
       "action": "create",
-      "nameKo": "무쇠 버클러",
-      "nameEn": "Iron Buckler",
+      "nameKo": "무쇠 마름모 방패",
+      "nameEn": "Iron Diamond Shield",
       "rarity": "crude"
     }
   ]

@@ -1,5 +1,7 @@
 "use client";
 
+import { DEFAULT_BODY_INDEX, getRaceBodyIndex } from "@/shared/lib/character/catalog";
+
 import { useEffect, useState, useMemo } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useAuthStore } from "@/features/auth";
@@ -95,14 +97,14 @@ function useAppearanceIndexes(appearance: ProfileAppearance | null | undefined) 
   // ID → 인덱스 변환
   const indexes = useMemo(() => {
     if (!loaded || !appearance) {
-      return { eyeIndex: -1, hairIndex: -1, facehairIndex: -1, bodyIndex: 12 };
+      return { eyeIndex: -1, hairIndex: -1, facehairIndex: -1, bodyIndex: DEFAULT_BODY_INDEX };
     }
 
     const eyeItem = spriteData.eyes?.find(e => e.id === appearance.eyeId);
     const hairItem = spriteData.hairs?.find(h => h.id === appearance.hairId);
     const facehairItem = spriteData.facehairs?.find(f => f.id === appearance.facehairId);
-    // 기본 body는 Human_1 (index 12)
-    const bodyIndex = 12;
+    // Resolve the selected race instead of forcing every character to human.
+    const bodyIndex = getRaceBodyIndex(appearance.raceId);
 
     return {
       eyeIndex: eyeItem?.index ?? -1,

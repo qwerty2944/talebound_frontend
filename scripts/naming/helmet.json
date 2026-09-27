@@ -135,8 +135,8 @@
       "spriteId": "elf_helmet_12",
       "existingItems": [],
       "action": "create",
-      "nameKo": "붉은 갈기 투구",
-      "nameEn": "Red-Maned Helm",
+      "nameKo": "금테 붉은 머리장식",
+      "nameEn": "Gold-Banded Red Hair Ornament",
       "rarity": "rare"
     },
     {
@@ -145,8 +145,8 @@
       "spriteId": "elf_helmet_13",
       "existingItems": [],
       "action": "create",
-      "nameKo": "홍옥 문장 투구",
-      "nameEn": "Ruby Crest Helm",
+      "nameKo": "홍옥 문장 머리띠",
+      "nameEn": "Ruby-Crest Headband",
       "rarity": "rare"
     },
     {

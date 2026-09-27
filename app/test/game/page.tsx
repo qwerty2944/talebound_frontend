@@ -1,5 +1,6 @@
 "use client";
 
+import { DEFAULT_BODY_INDEX, getItemRaceRestriction, getFitRule } from "@/shared/lib/character/catalog";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { DynamicUnityCanvas, useAppearanceStore } from "@/features/character";
@@ -14,7 +15,7 @@ interface EquipmentItem {
   rarity: string;
   spriteId: string;
   stats?: Record<string, unknown>;
-  requirements?: Record<string, number>;
+  requirements?: { raceCategories?: string[]; level?: number };
 }
 
 interface EquipmentCategory {
@@ -120,7 +121,7 @@ const ARMOR_SLOTS: { slot: keyof EquipmentState; label: string; category: string
 ];
 
 export default function GameTestPage() {
-  const { callUnity, clearAll } = useAppearanceStore();
+  const { callUnity, clearAll, isUnityLoaded } = useAppearanceStore();
 
   // 데이터 로딩 상태
   const [loading, setLoading] = useState(true);
@@ -177,7 +178,7 @@ export default function GameTestPage() {
   });
 
   const [unityAppearance, setUnityAppearance] = useState<UnityAppearanceState>({
-    bodyIndex: 12,
+    bodyIndex: DEFAULT_BODY_INDEX,
     eyeIndex: -1,
     hairIndex: -1,
     facehairIndex: -1,
@@ -187,16 +188,17 @@ export default function GameTestPage() {
     faceHairColor: "#6B4226",
   });
 
-  // 페이지 진입 시 Unity 상태 초기화 (12 = Human_1)
+  // 페이지 진입 시 Unity 상태 초기화 (Human_1)
   useEffect(() => {
+    if (!isUnityLoaded) return;
     clearAll();
-    callUnity("JS_SetBody", "12");
+    callUnity("JS_SetBody", String(DEFAULT_BODY_INDEX));
     callUnity("JS_SetHair", "-1");
     callUnity("JS_SetFacehair", "-1");
     callUnity("JS_SetHairColor", "#6B4226");
     callUnity("JS_SetEyeColor", "#6B4226");
     callUnity("JS_SetFacehairColor", "#6B4226");
-  }, [clearAll, callUnity]);
+  }, [clearAll, callUnity, isUnityLoaded]);
 
   // 데이터 로드
   useEffect(() => {
@@ -328,7 +330,8 @@ export default function GameTestPage() {
   // 종족별 필터링된 신체 목록
   const filteredBodies = useMemo(() => {
     if (!selectedRace) return appearanceData.body;
-    const availableSpriteIds = selectedRace.appearance?.body?.availableSpriteIds;
+    const body = selectedRace.appearance?.body;
+    const availableSpriteIds = body?.availableSpriteIds ?? (body?.spriteId ? [body.spriteId] : []);
     if (!availableSpriteIds) return appearanceData.body;
     return appearanceData.body.filter(b => availableSpriteIds.includes(b.sprite));
   }, [selectedRace, appearanceData.body]);
@@ -375,6 +378,12 @@ export default function GameTestPage() {
 
   // 장비 선택 핸들러
   const handleEquipmentSelect = useCallback((slot: keyof EquipmentState, itemId: string | null, category: string) => {
+    if (!isUnityLoaded) return;
+    if (itemId) {
+      const item = equipmentData[category]?.items.find(i => i.id === itemId);
+      if (!item || getItemRaceRestriction({ ...item, slot: category }, selectedRaceId)) return;
+      if (getSpriteInfo(category, item.spriteId).index < 0) return;
+    }
     setEquipment(prev => ({ ...prev, [slot]: itemId }));
 
     // 손 장비인지 확인
@@ -436,7 +445,7 @@ export default function GameTestPage() {
         callUnity(methodMap[slot] || "", spriteInfo.index.toString());
       }
     }
-  }, [callUnity, equipmentData, getSpriteInfo]);
+  }, [callUnity, equipmentData, getSpriteInfo, selectedRaceId, isUnityLoaded]);
 
   // 손 카테고리 변경 핸들러
   const handleHandCategoryChange = useCallback((hand: "right" | "left", category: string) => {
@@ -507,6 +516,12 @@ export default function GameTestPage() {
   // 종족 변경 핸들러
   const handleRaceChange = useCallback((raceId: string) => {
     setSelectedRaceId(raceId);
+    for (const config of ARMOR_SLOTS) {
+      const item = equipmentData[config.category]?.items.find(item => item.id === equipment[config.slot]);
+      if (item && getItemRaceRestriction({ ...item, slot: config.category }, raceId)) {
+        handleEquipmentSelect(config.slot, null, config.category);
+      }
+    }
 
     // raceId 저장
     setAppearance(prev => ({ ...prev, raceId }));
@@ -530,7 +545,7 @@ export default function GameTestPage() {
         callUnity("JS_SetBodyColor", defaultColor);
       }
     }
-  }, [races, callUnity, appearanceData.body]);
+  }, [races, callUnity, appearanceData.body, equipmentData, equipment, handleEquipmentSelect]);
 
   if (loading) {
     return (
@@ -570,6 +585,7 @@ export default function GameTestPage() {
             <h2 className="text-sm font-semibold mb-2 text-gray-300">🏷️ 종족</h2>
             <select
               className="w-full bg-gray-800 text-sm rounded px-2 py-1 border border-gray-600"
+              aria-label="종족 선택" disabled={!isUnityLoaded}
               value={selectedRaceId}
               onChange={(e) => handleRaceChange(e.target.value)}
             >
@@ -688,11 +704,15 @@ export default function GameTestPage() {
                       <span className="w-10 text-gray-400 text-xs">{slotConfig.label}</span>
                       <select
                         className="bg-gray-800 text-xs rounded px-1 py-0.5 border border-gray-600 max-w-[160px]"
+                        aria-label={`${slotConfig.label} 장비 선택`} disabled={!isUnityLoaded}
                         value={equipment[slotConfig.slot] || ""}
                         onChange={(e) => handleEquipmentSelect(slotConfig.slot, e.target.value || null, slotConfig.category)}
                       >
                         <option value="">없음</option>
-                        {categoryData.items.map((item) => (<option key={item.id} value={item.id}>{item.nameKo}</option>))}
+                        {categoryData.items.map(item => <option key={item.id} value={item.id}
+                          disabled={!!getItemRaceRestriction({ ...item, slot: slotConfig.category }, selectedRaceId)}>
+                          {item.nameKo}{getFitRule(slotConfig.category, item.spriteId) ? " · 엘프 전용" : ""}
+                        </option>)}
                       </select>
                     </div>
                   </div>

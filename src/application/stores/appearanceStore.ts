@@ -1,3 +1,5 @@
+import { CHARACTER_CATALOG, DEFAULT_BODY_INDEX, getPartName, getPartOptions, getFitRule, isElfBody } from "@/shared/lib/character/catalog";
+import type { NamedPartOption } from "@/shared/ui/NamedPartSelect";
 import { create } from "zustand";
 import type { CharacterAppearance, CharacterColors } from "@/entities/character";
 import type { EquipmentSlot, SpriteReference, SpriteCategory } from "@/entities/item";
@@ -122,15 +124,15 @@ type SendMessageFn = (objectName: string, methodName: string, param?: string) =>
 // ============ 파츠 메타데이터 ============
 
 const PART_META: Record<PartType, { label: string; indexKey: keyof CharacterState; countKey: keyof SpriteCounts; required: boolean; colorKey?: keyof CharacterState }> = {
-  body: { label: "종족", indexKey: "bodyIndex", countKey: "bodyCount", required: true }, // 종족 색상 변경 비활성화
+  body: { label: "신체", indexKey: "bodyIndex", countKey: "bodyCount", required: true }, // 종족 색상 변경 비활성화
   eye: { label: "눈", indexKey: "eyeIndex", countKey: "eyeCount", required: true }, // 눈 색상은 좌우 분리 (별도 처리)
-  hair: { label: "머리", indexKey: "hairIndex", countKey: "hairCount", required: false, colorKey: "hairColor" },
-  facehair: { label: "수염", indexKey: "facehairIndex", countKey: "facehairCount", required: false, colorKey: "facehairColor" },
-  cloth: { label: "옷", indexKey: "clothIndex", countKey: "clothCount", required: false, colorKey: "clothColor" },
-  armor: { label: "갑옷", indexKey: "armorIndex", countKey: "armorCount", required: false, colorKey: "armorColor" },
-  pant: { label: "바지", indexKey: "pantIndex", countKey: "pantCount", required: false, colorKey: "pantColor" },
+  hair: { label: "머리카락", indexKey: "hairIndex", countKey: "hairCount", required: false, colorKey: "hairColor" },
+  facehair: { label: "수염·송곳니", indexKey: "facehairIndex", countKey: "facehairCount", required: false, colorKey: "facehairColor" },
+  cloth: { label: "상의", indexKey: "clothIndex", countKey: "clothCount", required: false, colorKey: "clothColor" },
+  armor: { label: "갑옷·견갑", indexKey: "armorIndex", countKey: "armorCount", required: false, colorKey: "armorColor" },
+  pant: { label: "하의", indexKey: "pantIndex", countKey: "pantCount", required: false, colorKey: "pantColor" },
   helmet: { label: "투구", indexKey: "helmetIndex", countKey: "helmetCount", required: false, colorKey: "helmetColor" },
-  back: { label: "등", indexKey: "backIndex", countKey: "backCount", required: false, colorKey: "backColor" },
+  back: { label: "등 장비", indexKey: "backIndex", countKey: "backCount", required: false, colorKey: "backColor" },
   // 무기 파츠
   sword: { label: "검", indexKey: "swordIndex", countKey: "swordCount", required: false, colorKey: "swordColor" },
   shield: { label: "방패", indexKey: "shieldIndex", countKey: "shieldCount", required: false, colorKey: "shieldColor" },
@@ -154,6 +156,10 @@ export const WEAPON_PART_TYPES: WeaponPartType[] = ["sword", "shield", "axe", "b
 interface AppearanceStore {
   // 상태
   isUnityLoaded: boolean;
+  pendingBodyIndex: number | null;
+  getOptions: (type: PartType) => NamedPartOption[];
+  selectPart: (type: PartType, index: number) => void;
+  selectHandWeapon: (hand: HandType, index: number) => void;
   spriteCounts: SpriteCounts | null;
   spriteNames: SpriteNames | null;
   characterState: CharacterState | null;
@@ -229,6 +235,7 @@ interface AppearanceStore {
 export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
   // 초기 상태
   isUnityLoaded: false,
+  pendingBodyIndex: null,
   spriteCounts: null,
   spriteNames: null,
   characterState: null,
@@ -242,11 +249,25 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
   rightHandWeapon: { weaponType: null, index: -1 },
 
   // Unity 연결
-  setUnityLoaded: (loaded) => set({ isUnityLoaded: loaded }),
+  setUnityLoaded: (loaded) => set(loaded ? { isUnityLoaded: true } : { isUnityLoaded: false, spriteNames: null, spriteCounts: null }),
   setSendMessage: (fn, objectName) => set({ sendMessage: fn, unityObjectName: objectName }),
   setSpriteCounts: (counts) => set({ spriteCounts: counts }),
   setSpriteNames: (names) => set({ spriteNames: names }),
-  setCharacterState: (state) => {
+  setCharacterState: (incoming) => {
+    const state = { ...incoming };
+    if (get().pendingBodyIndex === state.bodyIndex) set({ pendingBodyIndex: null });
+    const names = get().spriteNames;
+    const body = names?.bodyNames[state.bodyIndex] ?? CHARACTER_CATALOG.body[state.bodyIndex]?.sprite;
+    const rejected: PartType[] = [];
+    for (const type of ["helmet", "armor", "cloth", "pant", "back"] as PartType[]) {
+      const key = PART_META[type].indexKey;
+      const index = state[key] as number;
+      const sprite = names?.[`${type}Names` as keyof SpriteNames]?.[index] ?? CHARACTER_CATALOG[type][index]?.sprite;
+      if (!isElfBody(body) && getFitRule(type, sprite)) {
+        Object.assign(state, { [key]: -1 });
+        rejected.push(type);
+      }
+    }
     // 손별 무기 상태도 동기화 (빈 문자열 체크 후 캐스팅)
     const leftType = state.leftWeaponType;
     const rightType = state.rightWeaponType;
@@ -264,6 +285,7 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
         index: state.rightWeaponIndex ?? -1,
       },
     });
+    for (const type of rejected) get().callUnity(`JS_Set${type.charAt(0).toUpperCase() + type.slice(1)}`, "-1");
   },
   setAnimationState: (state) => set({ animationState: state }),
   setAnimationCounts: (counts) => set({ animationCounts: counts }),
@@ -273,6 +295,9 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
   callUnity: (method, param) => {
     const { sendMessage, unityObjectName, isUnityLoaded } = get();
     if (!isUnityLoaded || !sendMessage) return;
+    const part = (["helmet", "armor", "cloth", "pant", "back"] as PartType[])
+      .find(type => method === `JS_Set${type.charAt(0).toUpperCase() + type.slice(1)}`);
+    if (part && Number(param) >= 0 && get().getOptions(part).find(option => option.index === Number(param))?.disabled) return;
     try {
       sendMessage(unityObjectName, method, param ?? "");
     } catch (err) {
@@ -280,70 +305,37 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
     }
   },
 
-  // 파츠 조작
-  nextPart: (type) => {
-    const weaponTypes: WeaponPartType[] = WEAPON_PART_TYPES;
-    const { characterState, spriteCounts, callUnity } = get();
-    const meta = PART_META[type];
-    const current = (characterState?.[meta.indexKey] as number) ?? 0;
-    const total = (spriteCounts?.[meta.countKey] as number) ?? 0;
-
-    if (total === 0) return;
-
-    // 다음 인덱스 계산: 0 → 1 → ... → total-1 → 0 (순환, -1로 가지 않음)
-    // 현재가 -1(없음)인 경우 0으로 설정
-    const next = current < 0 ? 0 : (current + 1) % total;
-
-    if (weaponTypes.includes(type as WeaponPartType)) {
-      // 무기는 JS_SetRightWeapon/JS_SetLeftWeapon 사용
-      const method = type === "shield" ? "JS_SetLeftWeapon" : "JS_SetRightWeapon";
-      const weaponTypeName = type.charAt(0).toUpperCase() + type.slice(1);
-      callUnity(method, `${weaponTypeName},${next}`);
-
-      // 로컬 상태 업데이트
-      set((state) => ({
-        characterState: state.characterState ? {
-          ...state.characterState,
-          [meta.indexKey]: next,
-        } : null,
-      }));
+  getOptions: (type) => {
+    const { spriteNames, characterState } = get();
+    const names = spriteNames?.[`${type}Names` as keyof SpriteNames] ?? CHARACTER_CATALOG[type].map(row => row.sprite);
+    const bodyIndex = characterState?.bodyIndex ?? DEFAULT_BODY_INDEX;
+    const body = spriteNames?.bodyNames[bodyIndex] ?? CHARACTER_CATALOG.body[bodyIndex]?.sprite;
+    return getPartOptions(type, names, isElfBody(body));
+  },
+  selectPart: (type, index) => {
+    const { getOptions, isUnityLoaded, callUnity } = get();
+    if (!Number.isInteger(index) || index < -1 || (index === -1 && PART_META[type].required)) return;
+    const option = getOptions(type).find(option => option.index === index);
+    if (index >= 0 && (!option || option.disabled)) return;
+    if (type === "body") set({ pendingBodyIndex: index });
+    if (!isUnityLoaded) return;
+    if (WEAPON_PART_TYPES.includes(type as WeaponPartType)) {
+      const hand = type === "shield" ? "left" : "right";
+      get().setHandWeaponType(hand, index < 0 ? null : type as WeaponPartType);
+      if (index >= 0) get().selectHandWeapon(hand, index);
     } else {
-      // 일반 파츠는 JS_SetXxx 사용 (0-total 범위만 순환)
-      const method = `JS_Set${type.charAt(0).toUpperCase() + type.slice(1)}`;
-      callUnity(method, next.toString());
+      callUnity(`JS_Set${type.charAt(0).toUpperCase() + type.slice(1)}`, String(index));
     }
   },
+  nextPart: (type) => {
+    const options = get().getOptions(type).filter(option => !option.disabled);
+    const current = get().getPartInfo(type).current;
+    if (options.length) get().selectPart(type, (options.find(option => option.index > current) ?? options[0]).index);
+  },
   prevPart: (type) => {
-    const weaponTypes: WeaponPartType[] = WEAPON_PART_TYPES;
-    const { characterState, spriteCounts, callUnity } = get();
-    const meta = PART_META[type];
-    const current = (characterState?.[meta.indexKey] as number) ?? 0;
-    const total = (spriteCounts?.[meta.countKey] as number) ?? 0;
-
-    if (total === 0) return;
-
-    // 이전 인덱스 계산: 0 ← 1 ← ... ← total-1 (순환, -1로 가지 않음)
-    // 현재가 -1(없음)인 경우 마지막으로 설정
-    const prev = current <= 0 ? total - 1 : current - 1;
-
-    if (weaponTypes.includes(type as WeaponPartType)) {
-      // 무기는 JS_SetRightWeapon/JS_SetLeftWeapon 사용
-      const method = type === "shield" ? "JS_SetLeftWeapon" : "JS_SetRightWeapon";
-      const weaponTypeName = type.charAt(0).toUpperCase() + type.slice(1);
-      callUnity(method, `${weaponTypeName},${prev}`);
-
-      // 로컬 상태 업데이트
-      set((state) => ({
-        characterState: state.characterState ? {
-          ...state.characterState,
-          [meta.indexKey]: prev,
-        } : null,
-      }));
-    } else {
-      // 일반 파츠는 JS_SetXxx 사용 (0-total 범위만 순환)
-      const method = `JS_Set${type.charAt(0).toUpperCase() + type.slice(1)}`;
-      callUnity(method, prev.toString());
-    }
+    const options = get().getOptions(type).filter(option => !option.disabled);
+    const current = get().getPartInfo(type).current;
+    if (options.length) get().selectPart(type, ([...options].reverse().find(option => option.index < current) ?? options[options.length - 1]).index);
   },
   // 명시적으로 파츠를 없음(-1) 상태로 설정 (body, eye는 불가)
   clearPart: (type) => {
@@ -503,7 +495,9 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
     };
 
     // 방어구 랜덤 인덱스 생성
-    const helmetIdx = randomIndex(spriteCounts.helmetCount);
+    const helmets = get().getOptions("helmet").filter(option => !option.disabled);
+    const helmetRoll = randomIndex(helmets.length);
+    const helmetIdx = helmetRoll < 0 ? -1 : helmets[helmetRoll].index;
     const armorIdx = randomIndex(spriteCounts.armorCount);
     const clothIdx = randomIndex(spriteCounts.clothCount);
     const pantIdx = randomIndex(spriteCounts.pantCount);
@@ -611,7 +605,11 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
 
     // 스토어 상태도 초기화
     set({
-      characterState: null,
+      characterState: get().characterState ? {
+        ...get().characterState!,
+        ...Object.fromEntries(Object.values(PART_META).filter(meta => !meta.required).map(meta => [meta.indexKey, -1])),
+        leftWeaponType: "", rightWeaponType: "", leftWeaponIndex: -1, rightWeaponIndex: -1,
+      } : null,
       leftHandWeapon: { weaponType: null, index: -1 },
       rightHandWeapon: { weaponType: null, index: -1 },
     });
@@ -810,34 +808,25 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
 
   // 손별 무기 조작
   setHandWeaponType: (hand, weaponType) => {
-    const stateKey = hand === "left" ? "leftHandWeapon" : "rightHandWeapon";
-    const { callUnity, isUnityLoaded } = get();
-    const currentWeapon = get()[stateKey];
-
-    // 같은 무기 타입이면 무시
-    if (currentWeapon.weaponType === weaponType) return;
-
-    // 먼저 해당 손의 기존 무기 해제 (모든 무기 타입 클리어)
-    if (isUnityLoaded && currentWeapon.weaponType) {
-      // 기존 무기 타입을 -1로 설정하여 해제
-      const method = hand === "left" ? "JS_SetLeftWeapon" : "JS_SetRightWeapon";
-      const oldTypeName = currentWeapon.weaponType.charAt(0).toUpperCase() + currentWeapon.weaponType.slice(1);
-      callUnity(method, `${oldTypeName},-1`);
-    }
-
-    // 상태 업데이트
-    set({ [stateKey]: { weaponType, index: weaponType ? 0 : -1 } });
-
-    // 새 무기 설정 (약간의 딜레이로 Unity가 처리할 시간 확보)
-    if (isUnityLoaded && weaponType) {
-      setTimeout(() => {
-        const method = hand === "left" ? "JS_SetLeftWeapon" : "JS_SetRightWeapon";
-        const typeName = weaponType.charAt(0).toUpperCase() + weaponType.slice(1);
-        callUnity(method, `${typeName},0`);
-      }, 50);
+    if (!get().isUnityLoaded || (weaponType && !WEAPON_PART_TYPES.includes(weaponType))) return;
+    const key = hand === "left" ? "leftHandWeapon" : "rightHandWeapon";
+    if (get()[key].weaponType === weaponType) return;
+    get().clearHandWeapon(hand);
+    if (weaponType) {
+      set({ [key]: { weaponType, index: -1 } });
+      get().selectHandWeapon(hand, 0);
     }
   },
-
+  selectHandWeapon: (hand, index) => {
+    const key = hand === "left" ? "leftHandWeapon" : "rightHandWeapon";
+    const current = get()[key];
+    if (index === -1) { get().clearHandWeapon(hand); return; }
+    if (!get().isUnityLoaded || !current.weaponType || !Number.isInteger(index)) return;
+    if (!get().getOptions(current.weaponType).some(option => option.index === index && !option.disabled)) return;
+    const typeName = current.weaponType.charAt(0).toUpperCase() + current.weaponType.slice(1);
+    get().callUnity(hand === "left" ? "JS_SetLeftWeapon" : "JS_SetRightWeapon", `${typeName},${index}`);
+    set({ [key]: { ...current, index } });
+  },
   nextHandWeapon: (hand) => {
     const { spriteCounts, callUnity, isUnityLoaded } = get();
     const stateKey = hand === "left" ? "leftHandWeapon" : "rightHandWeapon";
@@ -914,7 +903,7 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
 
     const namesKey = `${current.weaponType}Names` as keyof SpriteNames;
     const names = spriteNames[namesKey] as string[];
-    return names?.[current.index] ?? "";
+    return getPartName(current.weaponType, names?.[current.index]);
   },
 
   // Computed
@@ -932,7 +921,7 @@ export const useAppearanceStore = create<AppearanceStore>((set, get) => ({
       const namesKey = `${type}Names` as keyof SpriteNames;
       const names = spriteNames[namesKey];
       if (names) {
-        name = names[current] ?? "";
+        name = getPartName(type, names[current]);
       }
     }
 
@@ -963,6 +952,9 @@ export function useAppearancePart(type: PartType) {
 
   return {
     ...info,
+    options: store.getOptions(type),
+    ready: store.isUnityLoaded && !!store.spriteNames,
+    select: (index: number) => store.selectPart(type, index),
     // 필수 파츠 여부 (body, eye는 클리어 불가)
     isRequired: meta.required,
     next: () => store.nextPart(type),
@@ -1065,6 +1057,9 @@ export function useHandWeapon(hand: HandType) {
     index: handState.index,
     total: getTotal(),
     name: store.getHandWeaponName(hand),
+    options: handState.weaponType ? store.getOptions(handState.weaponType) : [],
+    ready: store.isUnityLoaded && !!store.spriteNames,
+    select: (index: number) => store.selectHandWeapon(hand, index),
     setWeaponType: (type: WeaponPartType | null) => store.setHandWeaponType(hand, type),
     next: () => store.nextHandWeapon(hand),
     prev: () => store.prevHandWeapon(hand),
